@@ -198,7 +198,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
         <div className="max-w-[680px] mx-auto text-center">
           <p className="font-display text-2xl font-bold text-ink mb-2">One scratch. One deductible. One premium increase.</p>
           <p className="font-display text-2xl italic text-gold font-bold mb-8">Or 60 seconds of protection.</p>
-          <a href="#demo" className="inline-flex items-center justify-center min-h-[52px] px-8 rounded-[12px] bg-gold text-white font-body font-semibold hover:bg-gold-dark transition">
+          <a href="#demo" className="inline-flex items-center justify-center min-h-[52px] px-8 rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
             🛡️ Try CarShake AI — Free
           </a>
           <p className="text-muted-custom text-sm font-body mt-4">3 free scans/month. No credit card. No signup.</p>
