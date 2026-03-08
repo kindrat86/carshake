@@ -11,6 +11,40 @@ import { track } from '@/lib/posthog';
 
 type Screen = 'onboarding' | 'generating' | 'capture' | 'review';
 
+const getDeviceInfo = (): string => {
+  const ua = navigator.userAgent;
+  let browser = 'Unknown';
+  let os = 'Unknown';
+
+  if (ua.includes('Chrome') && !ua.includes('Edg')) browser = `Chrome ${ua.match(/Chrome\/(\d+)/)?.[1] || ''}`;
+  else if (ua.includes('Safari') && !ua.includes('Chrome')) browser = `Safari ${ua.match(/Version\/(\d+)/)?.[1] || ''}`;
+  else if (ua.includes('Firefox')) browser = `Firefox ${ua.match(/Firefox\/(\d+)/)?.[1] || ''}`;
+  else if (ua.includes('Edg')) browser = `Edge ${ua.match(/Edg\/(\d+)/)?.[1] || ''}`;
+
+  if (ua.includes('iPhone') || ua.includes('iPad')) os = `iOS ${ua.match(/OS (\d+[_\d]*)/)?.[1]?.replace(/_/g, '.') || ''}`;
+  else if (ua.includes('Android')) os = `Android ${ua.match(/Android (\d+[\.\d]*)/)?.[1] || ''}`;
+  else if (ua.includes('Mac OS')) os = 'macOS';
+  else if (ua.includes('Windows')) os = 'Windows';
+  else if (ua.includes('Linux')) os = 'Linux';
+
+  return `${browser.trim()} · ${os.trim()}`;
+};
+
+const reverseGeocode = async (lat: number, lon: number): Promise<string | null> => {
+  try {
+    const res = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&zoom=16`);
+    const data = await res.json();
+    if (data?.address) {
+      const { road, suburb, city, town, village, state, country } = data.address;
+      const parts = [road, suburb || city || town || village, country].filter(Boolean);
+      return parts.join(', ');
+    }
+    return data?.display_name?.split(',').slice(0, 3).join(',') || null;
+  } catch {
+    return null;
+  }
+};
+
 const ScanNew = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -29,20 +63,33 @@ const ScanNew = () => {
 
     setVehicleData(data);
 
-    // Get location
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (pos) => setLocation({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
-        () => {}
-      );
+    // Get location BEFORE creating scan (await the result)
+    let gpsLat: number | undefined;
+    let gpsLon: number | undefined;
+    let address: string | null = null;
+
+    try {
+      const pos = await new Promise<GeolocationPosition>((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 5000 });
+      });
+      gpsLat = pos.coords.latitude;
+      gpsLon = pos.coords.longitude;
+      setLocation({ lat: gpsLat, lon: gpsLon });
+      address = await reverseGeocode(gpsLat, gpsLon);
+    } catch {
+      // GPS unavailable — proceed without
     }
 
-    // Create scan record with vehicle info
+    const deviceInfo = getDeviceInfo();
+
+    // Create scan record with all evidence data
     const { data: scanData } = await supabase.from('scans').insert({
       user_id: user.id,
       type: 'dropoff' as const,
-      gps_lat: location?.lat,
-      gps_lon: location?.lon,
+      gps_lat: gpsLat,
+      gps_lon: gpsLon,
+      address,
+      device_info: deviceInfo,
       vehicle_plate: data.plate,
       vehicle_model: data.model,
       vehicle_color_hex: data.colorHex,

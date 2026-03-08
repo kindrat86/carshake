@@ -1,15 +1,17 @@
 import posthog from 'posthog-js';
 
 const POSTHOG_KEY = 'phc_rqGdTxPYCBweGDWJErO1F6owtrbgY4TEYH0tGpHFBSp';
-const POSTHOG_HOST = 'https://app.posthog.com';
 
 let initialized = false;
 
 export const initPostHog = () => {
   if (initialized || typeof window === 'undefined') return;
   posthog.init(POSTHOG_KEY, {
-    api_host: POSTHOG_HOST,
+    api_host: 'https://us.i.posthog.com',
+    ui_host: 'https://us.posthog.com',
     capture_pageview: true,
+    persistence: 'localStorage+cookie',
+    autocapture: true,
     session_recording: { maskAllInputs: false },
   });
   initialized = true;

@@ -89,6 +89,31 @@ const GuidedCapture = ({ scanId, userId, colorHex, onComplete }: GuidedCapturePr
     if (currentAngle < 7) {
       setTimeout(() => setCurrentAngle(currentAngle + 1), 500);
     } else {
+      // Compute SHA-256 hash of all uploaded photos
+      try {
+        const allBytes: Uint8Array[] = [];
+        for (let i = 0; i < 8; i++) {
+          const photoPath = `${userId}/${scanId}/angle-${i + 1}.jpg`;
+          const { data: blob } = await supabase.storage.from('scan-photos').download(photoPath);
+          if (blob) {
+            allBytes.push(new Uint8Array(await blob.arrayBuffer()));
+          }
+        }
+        const totalLength = allBytes.reduce((sum, arr) => sum + arr.length, 0);
+        const combined = new Uint8Array(totalLength);
+        let offset = 0;
+        for (const arr of allBytes) {
+          combined.set(arr, offset);
+          offset += arr.length;
+        }
+        const hashBuffer = await crypto.subtle.digest('SHA-256', combined);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        await supabase.from('scans').update({ hash_sha256: hashHex } as any).eq('id', scanId);
+      } catch {
+        // Hash computation failed — proceed without
+      }
+
       await supabase.rpc('increment_scan_count', { user_id_param: userId });
       onComplete(newPhotos);
     }

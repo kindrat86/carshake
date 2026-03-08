@@ -143,30 +143,55 @@ const ScanDetail = () => {
         <div className="bg-white rounded-card border border-border p-3 shadow-card">
           <p className="text-[11px] font-body font-bold text-gold uppercase tracking-[1px] mb-2">🔐 Evidence Chain</p>
           <div className="space-y-2 text-sm font-body">
-            {scan.gps_lat && (
-              <div className="flex justify-between">
-                <span className="text-muted-custom">GPS</span>
+            {/* GPS */}
+            <div className="flex justify-between">
+              <span className="text-muted-custom">📍 GPS</span>
+              {scan.gps_lat ? (
                 <a
                   href={`https://www.google.com/maps?q=${scan.gps_lat},${scan.gps_lon}`}
                   target="_blank"
                   rel="noopener"
                   className="text-gold font-semibold"
                 >
-                  {scan.gps_lat.toFixed(4)}, {scan.gps_lon.toFixed(4)}
+                  {Math.abs(scan.gps_lat).toFixed(4)}° {scan.gps_lat >= 0 ? 'N' : 'S'}, {Math.abs(scan.gps_lon).toFixed(4)}° {scan.gps_lon >= 0 ? 'E' : 'W'}
                 </a>
-              </div>
-            )}
-            <div className="flex justify-between">
-              <span className="text-muted-custom">Time</span>
-              <span className="text-ink">{new Date(scan.created_at).toLocaleString()}</span>
+              ) : (
+                <span className="text-muted-custom italic">GPS unavailable</span>
+              )}
             </div>
-            {scan.hash_sha256 && (
-              <div className="flex justify-between">
-                <span className="text-muted-custom">Hash</span>
-                <button onClick={() => { navigator.clipboard.writeText(scan.hash_sha256); toast({ title: 'Copied!' }); }}
-                  className="text-ink font-mono text-xs">{scan.hash_sha256.slice(0, 8)}...{scan.hash_sha256.slice(-4)}</button>
-              </div>
-            )}
+
+            {/* Location */}
+            <div className="flex justify-between">
+              <span className="text-muted-custom">📍 Location</span>
+              <span className="text-ink text-right max-w-[60%]">{scan.address || <span className="text-muted-custom italic">Not available</span>}</span>
+            </div>
+
+            {/* Timestamp */}
+            <div className="flex justify-between">
+              <span className="text-muted-custom">⏱ Timestamp</span>
+              <span className="text-ink">{new Date(scan.created_at).toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' })}</span>
+            </div>
+
+            {/* SHA-256 Hash */}
+            <div className="flex justify-between">
+              <span className="text-muted-custom">🔐 Hash</span>
+              {scan.hash_sha256 ? (
+                <button
+                  onClick={() => { navigator.clipboard.writeText(scan.hash_sha256); toast({ title: 'Hash copied!', description: 'Full SHA-256 hash copied to clipboard.' }); }}
+                  className="text-ink font-mono text-xs hover:text-gold transition"
+                >
+                  {scan.hash_sha256.slice(0, 8)}...{scan.hash_sha256.slice(-4)}
+                </button>
+              ) : (
+                <span className="text-muted-custom italic">Pending</span>
+              )}
+            </div>
+
+            {/* Device */}
+            <div className="flex justify-between">
+              <span className="text-muted-custom">📱 Device</span>
+              <span className="text-ink">{scan.device_info || <span className="text-muted-custom italic">Not recorded</span>}</span>
+            </div>
           </div>
         </div>
 
