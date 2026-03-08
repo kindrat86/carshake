@@ -115,6 +115,7 @@ const ScanNew = () => {
       setTimeout(() => setCurrentAngle(currentAngle + 1), 500);
     } else {
       setScreen('review');
+      track('scan_completed', { scan_type: 'dropoff', photo_count: 8, gps_captured: !!location });
     }
 
     // Reset input
