@@ -49,7 +49,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
       {/* Section 5: QR Handshake */}
       <section className="py-16 px-4 bg-dark">
         <div className="max-w-[680px] mx-auto">
-          <p className="text-xs font-body font-bold tracking-[3px] uppercase text-gold mb-4 text-center">HOW THE PROTECTION WORKS</p>
+          <p className="text-xs font-body font-bold tracking-[3px] uppercase text-[#C9A237] mb-4 text-center">HOW THE PROTECTION WORKS</p>
           <h2 className="font-display section-h2 text-white text-center mb-12">
             The QR handshake: <em className="text-gold italic">a signed agreement both sides can't deny.</em>
           </h2>
