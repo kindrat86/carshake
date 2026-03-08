@@ -1,12 +1,13 @@
 import { useSignupsCap } from '@/hooks/useSignupsCap';
-import { useState, useEffect } from 'react';
+import { lazy, Suspense, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { track } from '@/lib/posthog';
-import AuthModal from '@/components/AuthModal';
 import StickyBottomBar from '@/components/landing/StickyBottomBar';
-import LiveAIDemo from '@/components/landing/LiveAIDemo';
-import LandingSections from '@/components/landing/LandingSections';
 import LandingJsonLd from '@/components/landing/LandingJsonLd';
+
+const AuthModal = lazy(() => import('@/components/AuthModal'));
+const LiveAIDemo = lazy(() => import('@/components/landing/LiveAIDemo'));
+const LandingSections = lazy(() => import('@/components/landing/LandingSections'));
 
 const Index = () => {
   const [authOpen, setAuthOpen] = useState(false);
@@ -70,10 +71,14 @@ const Index = () => {
       </section>
 
       {/* Section 3: Live AI Demo */}
-      <LiveAIDemo />
+      <Suspense fallback={<div className="min-h-[400px] bg-page" />}>
+        <LiveAIDemo />
+      </Suspense>
 
       {/* Sections 4-16 */}
-      <LandingSections scansCount={scansCount} spotsLeft={spotsLeft} onAuth={() => setAuthOpen(true)} />
+      <Suspense fallback={<div className="min-h-[200px] bg-page" />}>
+        <LandingSections scansCount={scansCount} spotsLeft={spotsLeft} onAuth={() => setAuthOpen(true)} />
+      </Suspense>
 
       {/* Footer */}
       <footer className="bg-dark py-12 px-4">
@@ -91,7 +96,9 @@ const Index = () => {
       </footer>
 
       <StickyBottomBar />
-      <AuthModal isOpen={authOpen} onClose={() => setAuthOpen(false)} />
+      <Suspense fallback={null}>
+        <AuthModal isOpen={authOpen} onClose={() => setAuthOpen(false)} />
+      </Suspense>
     </main>
   );
 };
