@@ -27,7 +27,7 @@ const Index = () => {
       {/* Section 1: Hero */}
       <section className="px-4 pt-16 pb-12">
         <div className="max-w-[680px] mx-auto text-center">
-          <div className="inline-block px-4 py-1.5 rounded-pill bg-status-green/10 text-status-green text-xs font-body font-semibold mb-6">
+          <div className="inline-block px-4 py-1.5 rounded-pill bg-status-green/10 text-[#116B32] text-xs font-body font-semibold mb-6">
             Both sides sign. Both sides protected.
           </div>
           <h1 className="font-display hero-h1 text-ink mb-6">
