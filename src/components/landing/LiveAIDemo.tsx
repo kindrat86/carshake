@@ -63,7 +63,7 @@ const LiveAIDemo = () => {
             <div
               key={label}
               className={`px-4 py-2 rounded-pill text-xs font-body font-semibold transition ${
-                step === i + 1 ? 'bg-gold text-white' : step > i + 1 ? 'bg-status-green/10 text-status-green' : 'bg-surface text-muted-custom'
+                step === i + 1 ? 'bg-gold text-ink' : step > i + 1 ? 'bg-status-green/10 text-status-green' : 'bg-surface text-body'
               }`}
             >
               {label}
