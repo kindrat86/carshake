@@ -5,6 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import AuthModal from '@/components/AuthModal';
 import { QRCodeSVG } from 'qrcode.react';
 import { Camera, Check, ArrowRight } from 'lucide-react';
+import { track } from '@/lib/posthog';
 
 const ANGLES = [
   { angle: 1, name: 'Front-Left (10:30)', tip: 'Include headlight + left fender', pos: { top: '15%', left: '18%' } },
