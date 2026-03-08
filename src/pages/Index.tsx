@@ -64,7 +64,7 @@ const Index = () => {
           ].map((s) => (
             <div key={s.label} className="text-center min-w-[80px]">
               <div className="font-display text-2xl font-bold text-gold">{s.value}</div>
-              <div className="text-[9px] font-body text-muted-custom uppercase tracking-[2px] mt-1">{s.label}</div>
+              <div className="text-[9px] font-body text-[#9CA3AF] uppercase tracking-[2px] mt-1">{s.label}</div>
             </div>
           ))}
         </div>
