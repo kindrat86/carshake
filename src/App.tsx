@@ -13,6 +13,9 @@ import ExitScan from "./pages/ExitScan";
 import Business from "./pages/Business";
 import BusinessDashboard from "./pages/BusinessDashboard";
 import AuthCallback from "./pages/AuthCallback";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import ProtectUseCase from "./pages/ProtectUseCase";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +37,9 @@ const App = () => (
             <Route path="/business" element={<Business />} />
             <Route path="/business/dashboard" element={<BusinessDashboard />} />
             <Route path="/auth/callback" element={<AuthCallback />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:category/:slug" element={<BlogPost />} />
+            <Route path="/protect/:usecase" element={<ProtectUseCase />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
