@@ -42,6 +42,7 @@ serve(async (req) => {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${supabaseKey}`,
+          'x-internal-secret': Deno.env.get('INTERNAL_FUNCTION_SECRET') || '',
         },
         body: JSON.stringify({ to, subject, body, userId, sequenceName, stepNumber }),
       });
