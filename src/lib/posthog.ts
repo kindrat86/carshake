@@ -1,30 +1,45 @@
-import posthog from 'posthog-js';
+let posthogModule: any = null;
+let initialized = false;
+let initPromise: Promise<void> | null = null;
 
 const POSTHOG_KEY = 'phc_rqGdTxPYCBweGDWJErO1F6owtrbgY4TEYH0tGpHFBSp';
 
-let initialized = false;
+const loadPostHog = async () => {
+  if (!posthogModule) {
+    const mod = await import('posthog-js');
+    posthogModule = mod.default;
+  }
+  return posthogModule;
+};
 
 export const initPostHog = () => {
   if (initialized || typeof window === 'undefined') return;
-  posthog.init(POSTHOG_KEY, {
-    api_host: 'https://us.i.posthog.com',
-    ui_host: 'https://us.posthog.com',
-    capture_pageview: true,
-    persistence: 'localStorage+cookie',
-    autocapture: true,
-    session_recording: { maskAllInputs: false },
+  initPromise = loadPostHog().then((posthog) => {
+    posthog.init(POSTHOG_KEY, {
+      api_host: 'https://us.i.posthog.com',
+      ui_host: 'https://us.posthog.com',
+      capture_pageview: true,
+      persistence: 'localStorage+cookie',
+      autocapture: true,
+      session_recording: { maskAllInputs: false },
+    });
+    initialized = true;
   });
-  initialized = true;
 };
 
-export const track = (event: string, properties?: Record<string, any>) => {
-  if (!initialized) initPostHog();
-  posthog.capture(event, properties);
+const ensureInit = async () => {
+  if (!initialized && !initPromise) initPostHog();
+  if (initPromise) await initPromise;
 };
 
-export const identifyUser = (userId: string, traits?: Record<string, any>) => {
-  if (!initialized) initPostHog();
-  posthog.identify(userId, traits);
+export const track = async (event: string, properties?: Record<string, any>) => {
+  await ensureInit();
+  posthogModule?.capture(event, properties);
 };
 
-export default posthog;
+export const identifyUser = async (userId: string, traits?: Record<string, any>) => {
+  await ensureInit();
+  posthogModule?.identify(userId, traits);
+};
+
+export default { track, identifyUser, initPostHog };

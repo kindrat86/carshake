@@ -15,6 +15,14 @@ export default defineConfig(({ mode }) => ({
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   build: {
     sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'pdf': ['jspdf'],
+          'analytics': ['posthog-js'],
+        },
+      },
+    },
   },
   resolve: {
     alias: {
