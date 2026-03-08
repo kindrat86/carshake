@@ -75,6 +75,7 @@ const ScanNew = () => {
     if (data) {
       setScanId(data.id);
       setScreen('capture');
+      track('scan_started', { scan_type: 'dropoff' });
     }
   };
 
