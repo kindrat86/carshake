@@ -9,7 +9,14 @@ import LandingJsonLd from '@/components/landing/LandingJsonLd';
 
 const Index = () => {
   const [authOpen, setAuthOpen] = useState(false);
+  const [searchParams] = useSearchParams();
   const { scansCount, spotsLeft } = useSignupsCap();
+
+  // Store referral code
+  useEffect(() => {
+    const ref = searchParams.get('ref');
+    if (ref) localStorage.setItem('carshake_referral', ref);
+  }, [searchParams]);
 
   return (
     <div className="bg-page min-h-screen">
