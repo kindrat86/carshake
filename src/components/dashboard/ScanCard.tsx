@@ -9,7 +9,6 @@ interface ScanCardProps {
 
 const getStatusBadge = (scan: any, confirmation: any) => {
   if (scan.status === 'completed') {
-    // Has comparison
     return scan._comparisonStatus === 'changes'
       ? { label: '⚠ Changes', cls: 'text-status-red bg-status-red' }
       : { label: '✓ Clean', cls: 'text-status-green bg-status-green' };
@@ -41,11 +40,19 @@ const ScanCard = ({ scan, confirmation, photosCount }: ScanCardProps) => {
       onClick={() => navigate(`/dashboard/scan/${scan.id}`)}
       className="w-full bg-white rounded-card border border-border p-3 shadow-card flex items-center gap-3 min-h-[48px] text-left"
     >
+      {/* Vehicle color dot */}
+      {scan.vehicle_color_hex && (
+        <div
+          className="w-8 h-8 rounded-full flex-shrink-0 border border-border"
+          style={{ backgroundColor: scan.vehicle_color_hex }}
+        />
+      )}
       <div className="flex-1 min-w-0">
         <p className="text-[15px] font-body font-semibold text-ink truncate">
-          {scan.address || 'Unknown Location'}
+          {scan.vehicle_model || scan.address || 'Unknown Location'}
         </p>
         <p className="text-xs font-body text-muted-custom mt-0.5">
+          {scan.vehicle_plate && <span className="text-gold font-semibold mr-2">{scan.vehicle_plate}</span>}
           {date.toLocaleDateString()} · {date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
         </p>
       </div>

@@ -320,6 +320,10 @@ export type Database = {
           status: string | null
           type: string
           user_id: string | null
+          vehicle_color_hex: string | null
+          vehicle_color_name: string | null
+          vehicle_model: string | null
+          vehicle_plate: string | null
         }
         Insert: {
           address?: string | null
@@ -336,6 +340,10 @@ export type Database = {
           status?: string | null
           type: string
           user_id?: string | null
+          vehicle_color_hex?: string | null
+          vehicle_color_name?: string | null
+          vehicle_model?: string | null
+          vehicle_plate?: string | null
         }
         Update: {
           address?: string | null
@@ -352,6 +360,10 @@ export type Database = {
           status?: string | null
           type?: string
           user_id?: string | null
+          vehicle_color_hex?: string | null
+          vehicle_color_name?: string | null
+          vehicle_model?: string | null
+          vehicle_plate?: string | null
         }
         Relationships: [
           {
