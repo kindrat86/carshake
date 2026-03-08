@@ -92,7 +92,7 @@ const Index = () => {
 
       <StickyBottomBar />
       <AuthModal isOpen={authOpen} onClose={() => setAuthOpen(false)} />
-    </div>
+    </main>
   );
 };
 
