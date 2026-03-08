@@ -272,7 +272,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
                 No credit card to start · 3 free scans/month
               </div>
               <div className="mt-6">
-                <button onClick={onAuth} className="w-full max-w-[420px] min-h-[52px] rounded-[12px] bg-gold text-white font-body font-semibold hover:bg-gold-dark transition">
+                <button onClick={onAuth} className="w-full max-w-[420px] min-h-[52px] rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
                   Start Protecting Your Car — Free
                 </button>
               </div>
