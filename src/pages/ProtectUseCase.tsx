@@ -111,7 +111,7 @@ const ProtectUseCase = () => {
     name: 'CarShake',
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Web',
-    description: data.description,
+    description: data.metaDescription,
     url: `https://carshake.online/protect/${usecase}`,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   };
