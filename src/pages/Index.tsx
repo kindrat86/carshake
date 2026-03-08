@@ -1,5 +1,6 @@
 import { useSignupsCap } from '@/hooks/useSignupsCap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import AuthModal from '@/components/AuthModal';
 import StickyBottomBar from '@/components/landing/StickyBottomBar';
 import LiveAIDemo from '@/components/landing/LiveAIDemo';
