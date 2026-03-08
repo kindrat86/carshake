@@ -27,7 +27,7 @@ const Index = () => {
       {/* Section 1: Hero */}
       <section className="px-4 pt-16 pb-12">
         <div className="max-w-[680px] mx-auto text-center">
-          <div className="inline-block px-4 py-1.5 rounded-pill bg-status-green/10 text-status-green text-xs font-body font-semibold mb-6">
+          <div className="inline-block px-4 py-1.5 rounded-pill bg-status-green/10 text-[#116B32] text-xs font-body font-semibold mb-6">
             Both sides sign. Both sides protected.
           </div>
           <h1 className="font-display hero-h1 text-ink mb-6">
@@ -64,7 +64,7 @@ const Index = () => {
           ].map((s) => (
             <div key={s.label} className="text-center min-w-[80px]">
               <div className="font-display text-2xl font-bold text-gold">{s.value}</div>
-              <div className="text-[9px] font-body text-muted-custom uppercase tracking-[2px] mt-1">{s.label}</div>
+              <div className="text-[9px] font-body text-[#9CA3AF] uppercase tracking-[2px] mt-1">{s.label}</div>
             </div>
           ))}
         </div>
@@ -84,14 +84,14 @@ const Index = () => {
       <footer className="bg-dark py-12 px-4">
         <div className="max-w-[680px] mx-auto text-center">
           <h3 className="font-display text-gold text-xl font-bold mb-2">CarShake</h3>
-          <p className="text-muted-custom text-sm font-body mb-6">Both sides sign. Both sides are protected.</p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm font-body text-muted-custom mb-6">
+          <p className="text-[#9CA3AF] text-sm font-body mb-6">Both sides sign. Both sides are protected.</p>
+          <div className="flex flex-wrap justify-center gap-6 text-sm font-body text-[#9CA3AF] mb-6">
             <a href="/business" className="hover:text-white transition">For Parking Operators</a>
             <a href="/blog" className="hover:text-white transition">Blog</a>
             <span>Privacy</span>
             <span>Terms</span>
           </div>
-          <p className="text-muted-custom text-xs font-body">© 2026 CarShake · carshake.online</p>
+          <p className="text-[#9CA3AF] text-xs font-body">© 2026 CarShake · carshake.online</p>
         </div>
       </footer>
 

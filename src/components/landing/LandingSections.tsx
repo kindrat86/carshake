@@ -49,7 +49,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
       {/* Section 5: QR Handshake */}
       <section className="py-16 px-4 bg-dark">
         <div className="max-w-[680px] mx-auto">
-          <p className="text-xs font-body font-bold tracking-[3px] uppercase text-gold mb-4 text-center">HOW THE PROTECTION WORKS</p>
+          <p className="text-xs font-body font-bold tracking-[3px] uppercase text-[#C9A237] mb-4 text-center">HOW THE PROTECTION WORKS</p>
           <h2 className="font-display section-h2 text-white text-center mb-12">
             The QR handshake: <em className="text-gold italic">a signed agreement both sides can't deny.</em>
           </h2>
@@ -65,7 +65,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
               </div>
               <p className="text-[#A1A1AA] font-body text-[15px] leading-relaxed mb-3 ml-16">{step.body}</p>
               <div className="ml-16 bg-gold/10 border border-gold/20 rounded-lg p-3">
-                <p className="text-sm font-body text-gold">🔒 {step.security}</p>
+                <p className="text-sm font-body text-[#D4B04A]">🔒 {step.security}</p>
               </div>
             </div>
           ))}
@@ -355,7 +355,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
                 Go Pro
               </button>
             </div>
-            <div className="bg-white rounded-card border border-border shadow-card p-5 opacity-60">
+            <div className="bg-white rounded-card border border-border shadow-card p-5">
               <h3 className="font-display text-base font-bold text-ink">Enterprise</h3>
               <p className="font-display text-xl font-bold text-ink mb-2">$297<span className="text-sm font-body text-muted-custom font-normal">/mo</span></p>
               <p className="font-body text-sm text-body mb-4">Multi-location, API, white-label</p>
