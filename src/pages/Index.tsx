@@ -1,6 +1,7 @@
 import { useSignupsCap } from '@/hooks/useSignupsCap';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { track } from '@/lib/posthog';
 import AuthModal from '@/components/AuthModal';
 import StickyBottomBar from '@/components/landing/StickyBottomBar';
 import LiveAIDemo from '@/components/landing/LiveAIDemo';
