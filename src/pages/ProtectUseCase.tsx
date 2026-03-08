@@ -2,10 +2,11 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { track } from '@/lib/posthog';
 
-const USE_CASES: Record<string, { h1: string; description: string; paragraphs: string[]; faqs: { q: string; a: string }[] }> = {
+const USE_CASES: Record<string, { h1: string; title: string; metaDescription: string; paragraphs: string[]; faqs: { q: string; a: string }[] }> = {
   'valet-parking': {
     h1: 'Protect Your Car at Valet Parking',
-    description: 'AI-verified condition documentation for valet handovers. Never pay for a scratch you didn\'t cause.',
+    title: 'Protect Your Car at Valet Parking — CarShake',
+    metaDescription: 'AI-verified car condition scans before & after valet. QR handover proof. Never pay for damage you didn\'t cause.',
     paragraphs: [
       'Every time you hand your keys to a valet, you\'re trusting a stranger with one of your most expensive possessions. Without documented proof of your car\'s condition before handover, you have no defense when damage appears at pickup.',
       'CarShake creates a signed, timestamped, AI-verified record in 60 seconds. The attendant scans your QR code and confirms your car\'s condition. Both sides sign. Both sides are protected. When you return, AI compares every angle instantly.',
@@ -19,7 +20,8 @@ const USE_CASES: Record<string, { h1: string; description: string; paragraphs: s
   },
   'airport-parking': {
     h1: 'Protect Your Car at Airport Parking',
-    description: 'Document your car before long-term airport parking. AI detects changes when you return.',
+    title: 'Protect Your Car at Airport Parking — CarShake',
+    metaDescription: 'Document your car before long-term airport parking. AI comparison at pickup catches every scratch.',
     paragraphs: [
       'Airport parking is one of the highest-risk situations for vehicle damage. Your car sits for days or weeks, surrounded by other vehicles, shuttle buses, and luggage carts. When you return exhausted from travel, you\'re unlikely to notice subtle damage.',
       'CarShake lets you scan your car in 60 seconds before heading to the terminal. When you return — even weeks later — scan again and AI compares every angle. New scratches, dents, or curb rash are flagged instantly with exact location and severity.',
@@ -32,7 +34,8 @@ const USE_CASES: Record<string, { h1: string; description: string; paragraphs: s
   },
   'hotel-parking': {
     h1: 'Protect Your Car at Hotel Parking',
-    description: 'Signed evidence for hotel valet and garage parking. Document before check-in.',
+    title: 'Protect Your Car at Hotel Parking — CarShake',
+    metaDescription: 'Signed evidence for hotel valet and garage parking. Both sides confirm via QR code.',
     paragraphs: [
       'Hotel valet parking combines two risk factors: your car is handled by multiple attendants over multiple days, and the hotel\'s liability disclaimer is prominently printed on every ticket.',
       'CarShake creates mutual accountability. When the valet takes your keys, they scan your QR code and confirm your car\'s condition. This digital handshake protects both sides — the hotel from false claims, and you from real damage.',
@@ -45,7 +48,8 @@ const USE_CASES: Record<string, { h1: string; description: string; paragraphs: s
   },
   'body-shop': {
     h1: 'Protect Your Car at the Body Shop',
-    description: 'Document condition before and after mechanic visits. AI catches new damage.',
+    title: 'Protect Your Car at the Body Shop — CarShake',
+    metaDescription: 'Document condition before and after mechanic visits. AI spots every difference.',
     paragraphs: [
       'Taking your car to a body shop or mechanic should fix problems, not create new ones. But without documented proof of your car\'s condition before the visit, new damage can easily be attributed to "pre-existing conditions."',
       'Scan your car before dropping it off at the shop. When you pick it up, scan again. CarShake\'s AI compares every angle and flags any changes — including areas that weren\'t part of the original repair.',
@@ -58,7 +62,8 @@ const USE_CASES: Record<string, { h1: string; description: string; paragraphs: s
   },
   'car-rental': {
     h1: 'Protect Your Rental Car',
-    description: 'Avoid false damage charges at rental car return. Document everything.',
+    title: 'Protect Your Rental Car — CarShake',
+    metaDescription: 'Avoid false damage charges at rental car return. Timestamped, GPS-verified photos.',
     paragraphs: [
       'Rental car damage disputes are one of the most common travel complaints. Rental companies inspect returned vehicles and charge for damage — sometimes damage that was already present when you picked up the car.',
       'Before driving off the lot, scan the rental with CarShake. Capture all 8 angles in 60 seconds. When you return the car, scan again. If the rental company claims new damage, you have AI-verified proof of the car\'s condition at both points.',
@@ -71,7 +76,8 @@ const USE_CASES: Record<string, { h1: string; description: string; paragraphs: s
   },
   'car-wash': {
     h1: 'Protect Your Car at the Car Wash',
-    description: 'Document condition before automated or hand wash. Catch swirl marks and scratches.',
+    title: 'Protect Your Car at the Car Wash — CarShake',
+    metaDescription: 'Document condition before automated or hand wash. 60-second scan, court-ready evidence.',
     paragraphs: [
       'Car washes — especially automated tunnel washes — can cause swirl marks, scratches, and damage to antennas, mirrors, and trim pieces. The damage is often subtle and only visible in certain lighting.',
       'Scan your car before entering the wash. After, scan again from the same angles. CarShake\'s AI is trained to detect subtle paint changes that you might miss with the naked eye.',
