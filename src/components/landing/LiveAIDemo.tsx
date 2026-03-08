@@ -63,7 +63,7 @@ const LiveAIDemo = () => {
             <div
               key={label}
               className={`px-4 py-2 rounded-pill text-xs font-body font-semibold transition ${
-                step === i + 1 ? 'bg-gold text-white' : step > i + 1 ? 'bg-status-green/10 text-status-green' : 'bg-surface text-muted-custom'
+                step === i + 1 ? 'bg-gold text-ink' : step > i + 1 ? 'bg-status-green/10 text-status-green' : 'bg-surface text-body'
               }`}
             >
               {label}
@@ -112,7 +112,7 @@ const LiveAIDemo = () => {
               <button
                 onClick={runComparison}
                 disabled={loading}
-                className="w-full min-h-[52px] rounded-[12px] bg-gold text-white font-body font-semibold text-base hover:bg-gold-dark transition flex items-center justify-center gap-2"
+                className="w-full min-h-[52px] rounded-[12px] bg-gold text-ink font-body font-semibold text-base hover:bg-gold-dark transition flex items-center justify-center gap-2"
               >
                 <Search size={18} />
                 {loading ? 'AI analyzing...' : '🔍 Run AI Comparison — Free'}

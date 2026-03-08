@@ -49,7 +49,7 @@ const StickyBottomBar = () => {
         </div>
         <a
           href="#demo"
-          className="inline-flex items-center min-h-[44px] px-5 rounded-[10px] bg-gold text-white font-body font-semibold text-sm hover:bg-gold-dark transition"
+          className="inline-flex items-center min-h-[44px] px-5 rounded-[10px] bg-gold text-ink font-body font-semibold text-sm hover:bg-gold-dark transition"
         >
           Try Free →
         </a>

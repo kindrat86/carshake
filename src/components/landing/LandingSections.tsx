@@ -70,7 +70,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
             </div>
           ))}
           <div className="text-center mt-8">
-            <a href="#demo" className="inline-flex items-center justify-center min-h-[52px] px-8 rounded-[12px] bg-gold text-white font-body font-semibold hover:bg-gold-dark transition">
+            <a href="#demo" className="inline-flex items-center justify-center min-h-[52px] px-8 rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
               Try It Now — See AI Compare Your Photos
             </a>
           </div>
@@ -198,7 +198,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
         <div className="max-w-[680px] mx-auto text-center">
           <p className="font-display text-2xl font-bold text-ink mb-2">One scratch. One deductible. One premium increase.</p>
           <p className="font-display text-2xl italic text-gold font-bold mb-8">Or 60 seconds of protection.</p>
-          <a href="#demo" className="inline-flex items-center justify-center min-h-[52px] px-8 rounded-[12px] bg-gold text-white font-body font-semibold hover:bg-gold-dark transition">
+          <a href="#demo" className="inline-flex items-center justify-center min-h-[52px] px-8 rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
             🛡️ Try CarShake AI — Free
           </a>
           <p className="text-muted-custom text-sm font-body mt-4">3 free scans/month. No credit card. No signup.</p>
@@ -272,7 +272,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
                 No credit card to start · 3 free scans/month
               </div>
               <div className="mt-6">
-                <button onClick={onAuth} className="w-full max-w-[420px] min-h-[52px] rounded-[12px] bg-gold text-white font-body font-semibold hover:bg-gold-dark transition">
+                <button onClick={onAuth} className="w-full max-w-[420px] min-h-[52px] rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
                   Start Protecting Your Car — Free
                 </button>
               </div>
@@ -322,7 +322,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
 
           {/* Shield+ */}
           <div className="bg-white rounded-card border-2 border-gold shadow-card p-6 mb-4 relative">
-            <div className="absolute -top-3 left-6 px-3 py-1 rounded-pill bg-gold text-white text-xs font-body font-semibold">Most Popular</div>
+            <div className="absolute -top-3 left-6 px-3 py-1 rounded-pill bg-gold text-ink text-xs font-body font-semibold">Most Popular</div>
             <div className="flex items-start justify-between flex-wrap gap-4 mb-4">
               <div>
                 <h3 className="font-display text-lg font-bold text-ink">Shield+</h3>
@@ -339,7 +339,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
                 </p>
               ))}
             </div>
-            <button onClick={onAuth} className="w-full min-h-[52px] rounded-[12px] bg-gold text-white font-body font-semibold hover:bg-gold-dark transition">
+            <button onClick={onAuth} className="w-full min-h-[52px] rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
               Get Shield+ — Start Free →
             </button>
             <p className="text-center text-sm font-body text-body mt-3">🛡️ Full guarantee on every plan</p>
@@ -406,7 +406,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
           <h2 className="font-display hero-h1 text-ink mb-8">
             Stop hoping the valet is careful. <em className="text-gold italic">Start with proof.</em>
           </h2>
-          <button onClick={onAuth} className="w-full max-w-[420px] min-h-[52px] rounded-[12px] bg-gold text-white font-body font-semibold hover:bg-gold-dark transition mb-4">
+          <button onClick={onAuth} className="w-full max-w-[420px] min-h-[52px] rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition mb-4">
             🛡️ Protect Your Car — Free
           </button>
           <p className="text-muted-custom text-sm font-body mb-3">No app · No signup · No credit card · 60 seconds</p>

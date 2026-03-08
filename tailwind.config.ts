@@ -66,8 +66,8 @@ export default {
         dark: "#09090B",
         page: "#FAFAF8",
         status: {
-          green: "#16A34A",
-          red: "#DC2626",
+          green: "#15803D",
+          red: "#B91C1C",
           amber: "#D97706",
           blue: "#2563EB",
         },
