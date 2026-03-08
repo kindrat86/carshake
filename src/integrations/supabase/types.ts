@@ -443,7 +443,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      increment_scan_count: {
+        Args: { user_id_param: string }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
