@@ -65,7 +65,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
               </div>
               <p className="text-[#A1A1AA] font-body text-[15px] leading-relaxed mb-3 ml-16">{step.body}</p>
               <div className="ml-16 bg-gold/10 border border-gold/20 rounded-lg p-3">
-                <p className="text-sm font-body text-gold">🔒 {step.security}</p>
+                <p className="text-sm font-body text-[#D4B04A]">🔒 {step.security}</p>
               </div>
             </div>
           ))}
