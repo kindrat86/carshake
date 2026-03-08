@@ -102,9 +102,19 @@ const ScanDetail = () => {
       </header>
 
       <main className="max-w-4xl mx-auto px-4 pt-4 space-y-4">
+        {/* Vehicle info */}
+        {scan.vehicle_model && (
+          <div className="flex items-center gap-3">
+            {scan.vehicle_color_hex && <CarSvg color={scan.vehicle_color_hex} size={48} />}
+            <div>
+              <h2 className="font-display text-lg font-bold text-ink">{scan.vehicle_model}</h2>
+              <p className="text-xs font-body text-gold font-semibold tracking-[2px]">{scan.vehicle_plate}</p>
+            </div>
+          </div>
+        )}
         {/* Header info */}
         <div>
-          <h2 className="font-display text-lg font-bold text-ink">{scan.address || 'Unknown Location'}</h2>
+          {!scan.vehicle_model && <h2 className="font-display text-lg font-bold text-ink">{scan.address || 'Unknown Location'}</h2>}
           <p className="text-xs font-body text-muted-custom">
             {new Date(scan.created_at).toLocaleString()}
           </p>
