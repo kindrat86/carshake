@@ -1,12 +1,13 @@
 import { useSignupsCap } from '@/hooks/useSignupsCap';
-import { useState, useEffect } from 'react';
+import { lazy, Suspense, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { track } from '@/lib/posthog';
-import AuthModal from '@/components/AuthModal';
 import StickyBottomBar from '@/components/landing/StickyBottomBar';
-import LiveAIDemo from '@/components/landing/LiveAIDemo';
-import LandingSections from '@/components/landing/LandingSections';
 import LandingJsonLd from '@/components/landing/LandingJsonLd';
+
+const AuthModal = lazy(() => import('@/components/AuthModal'));
+const LiveAIDemo = lazy(() => import('@/components/landing/LiveAIDemo'));
+const LandingSections = lazy(() => import('@/components/landing/LandingSections'));
 
 const Index = () => {
   const [authOpen, setAuthOpen] = useState(false);
