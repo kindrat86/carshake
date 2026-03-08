@@ -1,4 +1,3 @@
-import jsPDF from 'jspdf';
 import { supabase } from '@/integrations/supabase/client';
 
 const loadImageAsBase64 = async (url: string): Promise<string> => {

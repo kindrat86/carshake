@@ -4,7 +4,12 @@ import App from "./App.tsx";
 import "./index.css";
 import { initPostHog } from "./lib/posthog";
 
-initPostHog();
+// Defer PostHog to after first paint
+if (typeof requestIdleCallback === 'function') {
+  requestIdleCallback(() => initPostHog());
+} else {
+  setTimeout(() => initPostHog(), 2000);
+}
 
 createRoot(document.getElementById("root")!).render(
   <HelmetProvider>
