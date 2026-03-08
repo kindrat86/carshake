@@ -71,10 +71,14 @@ const Index = () => {
       </section>
 
       {/* Section 3: Live AI Demo */}
-      <LiveAIDemo />
+      <Suspense fallback={<div className="min-h-[400px] bg-page" />}>
+        <LiveAIDemo />
+      </Suspense>
 
       {/* Sections 4-16 */}
-      <LandingSections scansCount={scansCount} spotsLeft={spotsLeft} onAuth={() => setAuthOpen(true)} />
+      <Suspense fallback={<div className="min-h-[200px] bg-page" />}>
+        <LandingSections scansCount={scansCount} spotsLeft={spotsLeft} onAuth={() => setAuthOpen(true)} />
+      </Suspense>
 
       {/* Footer */}
       <footer className="bg-dark py-12 px-4">
@@ -92,7 +96,9 @@ const Index = () => {
       </footer>
 
       <StickyBottomBar />
-      <AuthModal isOpen={authOpen} onClose={() => setAuthOpen(false)} />
+      <Suspense fallback={null}>
+        <AuthModal isOpen={authOpen} onClose={() => setAuthOpen(false)} />
+      </Suspense>
     </main>
   );
 };
