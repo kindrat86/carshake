@@ -339,7 +339,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
                 </p>
               ))}
             </div>
-            <button onClick={onAuth} className="w-full min-h-[52px] rounded-[12px] bg-gold text-white font-body font-semibold hover:bg-gold-dark transition">
+            <button onClick={onAuth} className="w-full min-h-[52px] rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
               Get Shield+ — Start Free →
             </button>
             <p className="text-center text-sm font-body text-body mt-3">🛡️ Full guarantee on every plan</p>
