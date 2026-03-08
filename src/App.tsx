@@ -29,21 +29,23 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/dashboard/scan/:id" element={<ScanDetail />} />
-            <Route path="/scan/new" element={<ScanNew />} />
-            <Route path="/scan/:id" element={<ScanConfirmation />} />
-            <Route path="/scan/:id/exit" element={<ExitScan />} />
-            <Route path="/business" element={<Business />} />
-            <Route path="/business/dashboard" element={<BusinessDashboard />} />
-            <Route path="/auth/callback" element={<AuthCallback />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:category/:slug" element={<BlogPost />} />
-            <Route path="/protect/:usecase" element={<ProtectUseCase />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Suspense fallback={<div className="min-h-screen bg-page" />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard/scan/:id" element={<ScanDetail />} />
+              <Route path="/scan/new" element={<ScanNew />} />
+              <Route path="/scan/:id" element={<ScanConfirmation />} />
+              <Route path="/scan/:id/exit" element={<ExitScan />} />
+              <Route path="/business" element={<Business />} />
+              <Route path="/business/dashboard" element={<BusinessDashboard />} />
+              <Route path="/auth/callback" element={<AuthCallback />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:category/:slug" element={<BlogPost />} />
+              <Route path="/protect/:usecase" element={<ProtectUseCase />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </BrowserRouter>
       </AuthProvider>
     </TooltipProvider>
