@@ -312,6 +312,7 @@ export type Database = {
           confirmed_by_fingerprint: string | null
           confirmed_device_info: string | null
           created_at: string | null
+          device_info: string | null
           gps_lat: number | null
           gps_lon: number | null
           hash_sha256: string | null
@@ -332,6 +333,7 @@ export type Database = {
           confirmed_by_fingerprint?: string | null
           confirmed_device_info?: string | null
           created_at?: string | null
+          device_info?: string | null
           gps_lat?: number | null
           gps_lon?: number | null
           hash_sha256?: string | null
@@ -352,6 +354,7 @@ export type Database = {
           confirmed_by_fingerprint?: string | null
           confirmed_device_info?: string | null
           created_at?: string | null
+          device_info?: string | null
           gps_lat?: number | null
           gps_lon?: number | null
           hash_sha256?: string | null
