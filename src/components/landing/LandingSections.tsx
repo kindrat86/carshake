@@ -322,7 +322,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
 
           {/* Shield+ */}
           <div className="bg-white rounded-card border-2 border-gold shadow-card p-6 mb-4 relative">
-            <div className="absolute -top-3 left-6 px-3 py-1 rounded-pill bg-gold text-white text-xs font-body font-semibold">Most Popular</div>
+            <div className="absolute -top-3 left-6 px-3 py-1 rounded-pill bg-gold text-ink text-xs font-body font-semibold">Most Popular</div>
             <div className="flex items-start justify-between flex-wrap gap-4 mb-4">
               <div>
                 <h3 className="font-display text-lg font-bold text-ink">Shield+</h3>
