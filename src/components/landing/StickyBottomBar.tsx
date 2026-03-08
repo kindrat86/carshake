@@ -6,15 +6,36 @@ const StickyBottomBar = () => {
   const { spotsLeft } = useSignupsCap();
 
   useEffect(() => {
-    const handleScroll = () => {
+    let rafId: number | null = null;
+    let demoTop = Infinity;
+    let demoBottom = Infinity;
+
+    const measureDemo = () => {
       const demoEl = document.getElementById('demo');
-      const scrollY = window.scrollY;
-      const demoTop = demoEl?.offsetTop ?? Infinity;
-      const demoBottom = demoTop + (demoEl?.offsetHeight ?? 0);
-      setVisible(scrollY > 500 && !(scrollY >= demoTop - 100 && scrollY <= demoBottom + 100));
+      if (demoEl) {
+        demoTop = demoEl.offsetTop;
+        demoBottom = demoTop + demoEl.offsetHeight;
+      }
+    };
+
+    // Measure once on load and on resize
+    measureDemo();
+    window.addEventListener('resize', measureDemo, { passive: true });
+
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        setVisible(scrollY > 500 && !(scrollY >= demoTop - 100 && scrollY <= demoBottom + 100));
+        rafId = null;
+      });
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', measureDemo);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   if (!visible) return null;
