@@ -12,11 +12,13 @@ serve(async (req) => {
 
     let event: Stripe.Event;
     const webhookSecret = Deno.env.get('STRIPE_WEBHOOK_SECRET');
-    if (webhookSecret) {
-      event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
-    } else {
-      event = JSON.parse(body) as Stripe.Event;
+    if (!webhookSecret) {
+      return new Response(JSON.stringify({ error: 'Webhook secret not configured' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
+    event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
 
     const findProfile = async (customerId: string) => {
       const { data } = await supabase.from('user_profiles').select('id').eq('stripe_customer_id', customerId).single();
@@ -66,8 +68,9 @@ serve(async (req) => {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
+    console.error('stripe-webhook error:', error.message);
+    return new Response(JSON.stringify({ error: 'Webhook processing failed' }), {
+      status: 400,
       headers: { 'Content-Type': 'application/json' },
     });
   }

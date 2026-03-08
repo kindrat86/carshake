@@ -181,10 +181,24 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "comparisons_dropoff_scan_id_fkey"
+            columns: ["dropoff_scan_id"]
+            isOneToOne: false
+            referencedRelation: "scans_public"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "comparisons_pickup_scan_id_fkey"
             columns: ["pickup_scan_id"]
             isOneToOne: false
             referencedRelation: "scans"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "comparisons_pickup_scan_id_fkey"
+            columns: ["pickup_scan_id"]
+            isOneToOne: false
+            referencedRelation: "scans_public"
             referencedColumns: ["id"]
           },
         ]
@@ -223,6 +237,13 @@ export type Database = {
             columns: ["scan_id"]
             isOneToOne: false
             referencedRelation: "scans"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "confirmations_scan_id_fkey"
+            columns: ["scan_id"]
+            isOneToOne: false
+            referencedRelation: "scans_public"
             referencedColumns: ["id"]
           },
         ]
@@ -302,6 +323,13 @@ export type Database = {
             referencedRelation: "scans"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "scan_photos_scan_id_fkey"
+            columns: ["scan_id"]
+            isOneToOne: false
+            referencedRelation: "scans_public"
+            referencedColumns: ["id"]
+          },
         ]
       }
       scans: {
@@ -374,6 +402,13 @@ export type Database = {
             columns: ["paired_scan_id"]
             isOneToOne: false
             referencedRelation: "scans"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "scans_paired_scan_id_fkey"
+            columns: ["paired_scan_id"]
+            isOneToOne: false
+            referencedRelation: "scans_public"
             referencedColumns: ["id"]
           },
         ]
@@ -455,7 +490,102 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      confirmations_public: {
+        Row: {
+          confirmed_at: string | null
+          id: string | null
+          method: string | null
+          scan_id: string | null
+        }
+        Insert: {
+          confirmed_at?: string | null
+          id?: string | null
+          method?: string | null
+          scan_id?: string | null
+        }
+        Update: {
+          confirmed_at?: string | null
+          id?: string | null
+          method?: string | null
+          scan_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "confirmations_scan_id_fkey"
+            columns: ["scan_id"]
+            isOneToOne: false
+            referencedRelation: "scans"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "confirmations_scan_id_fkey"
+            columns: ["scan_id"]
+            isOneToOne: false
+            referencedRelation: "scans_public"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      scans_public: {
+        Row: {
+          confirmation_method: string | null
+          confirmed_at: string | null
+          created_at: string | null
+          hash_sha256: string | null
+          id: string | null
+          paired_scan_id: string | null
+          status: string | null
+          type: string | null
+          vehicle_color_hex: string | null
+          vehicle_color_name: string | null
+          vehicle_model: string | null
+          vehicle_plate: string | null
+        }
+        Insert: {
+          confirmation_method?: string | null
+          confirmed_at?: string | null
+          created_at?: string | null
+          hash_sha256?: string | null
+          id?: string | null
+          paired_scan_id?: string | null
+          status?: string | null
+          type?: string | null
+          vehicle_color_hex?: string | null
+          vehicle_color_name?: string | null
+          vehicle_model?: string | null
+          vehicle_plate?: string | null
+        }
+        Update: {
+          confirmation_method?: string | null
+          confirmed_at?: string | null
+          created_at?: string | null
+          hash_sha256?: string | null
+          id?: string | null
+          paired_scan_id?: string | null
+          status?: string | null
+          type?: string | null
+          vehicle_color_hex?: string | null
+          vehicle_color_name?: string | null
+          vehicle_model?: string | null
+          vehicle_plate?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "scans_paired_scan_id_fkey"
+            columns: ["paired_scan_id"]
+            isOneToOne: false
+            referencedRelation: "scans"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "scans_paired_scan_id_fkey"
+            columns: ["paired_scan_id"]
+            isOneToOne: false
+            referencedRelation: "scans_public"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Functions: {
       increment_scan_count: {
