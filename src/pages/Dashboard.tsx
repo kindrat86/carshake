@@ -41,10 +41,24 @@ const Dashboard = () => {
 
       const scanData = scansRes.data || [];
       setScans(scanData);
-      setProfile(profileRes.data);
       if (capRes.data) {
         setIsFoundingPrice(capRes.data.founding_price_active && (capRes.data.total_signups ?? 0) < (capRes.data.founding_cap ?? 100));
       }
+
+      // Monthly reset check
+      let profileData = profileRes.data;
+      if (profileData?.billing_cycle_start) {
+        const cycleStart = new Date(profileData.billing_cycle_start);
+        const daysSince = Math.floor((Date.now() - cycleStart.getTime()) / 86400000);
+        if (daysSince >= 30) {
+          await supabase.from('user_profiles').update({
+            scans_this_month: 0,
+            billing_cycle_start: new Date().toISOString(),
+          }).eq('id', user.id);
+          profileData = { ...profileData, scans_this_month: 0, billing_cycle_start: new Date().toISOString() };
+        }
+      }
+      setProfile(profileData);
 
       if (scanData.length > 0) {
         const scanIds = scanData.map((s: any) => s.id);

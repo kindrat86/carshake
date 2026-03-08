@@ -114,6 +114,8 @@ const ScanNew = () => {
     if (currentAngle < 7) {
       setTimeout(() => setCurrentAngle(currentAngle + 1), 500);
     } else {
+      // All 8 photos captured — increment scan counter
+      await supabase.rpc('increment_scan_count', { user_id_param: user!.id });
       setScreen('review');
       track('scan_completed', { scan_type: 'dropoff', photo_count: 8, gps_captured: !!location });
     }
