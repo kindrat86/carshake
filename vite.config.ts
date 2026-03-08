@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks: {
-          'pdf': ['jspdf'],
+          
           'analytics': ['posthog-js'],
           'supabase': ['@supabase/supabase-js'],
           'charts': ['recharts'],

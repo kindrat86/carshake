@@ -51,6 +51,7 @@ const ScanDetail = () => {
     if (!scan) return;
     setPdfLoading(true);
     try {
+      const { generateEvidencePDF } = await import('@/lib/pdfGenerator');
       await generateEvidencePDF(scan, photos, confirmation, comparison, findings);
       track('report_downloaded', { scan_id: id, format: 'pdf' });
     } catch {
