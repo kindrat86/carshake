@@ -20,7 +20,7 @@ const Index = () => {
   }, [searchParams]);
 
   return (
-    <div className="bg-page min-h-screen">
+    <main className="bg-page min-h-screen">
       <LandingJsonLd />
       
       {/* Section 1: Hero */}
