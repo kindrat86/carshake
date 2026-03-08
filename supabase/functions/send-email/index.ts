@@ -12,6 +12,16 @@ serve(async (req) => {
   }
 
   try {
+    // Require internal secret – this function must only be called by other edge functions
+    const internalSecret = Deno.env.get('INTERNAL_FUNCTION_SECRET');
+    const providedSecret = req.headers.get('x-internal-secret');
+    if (!internalSecret || providedSecret !== internalSecret) {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+        status: 401,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
     const { to, subject, body, userId, sequenceName, stepNumber } = await req.json();
 
     const resendKey = Deno.env.get('RESEND_API_KEY');
