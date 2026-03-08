@@ -3,6 +3,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { Navigate, useSearchParams } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
+import { track } from '@/lib/posthog';
 import BottomTabBar from '@/components/dashboard/BottomTabBar';
 import ScansTab from '@/components/dashboard/ScansTab';
 import CarsTab from '@/components/dashboard/CarsTab';
