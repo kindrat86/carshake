@@ -406,7 +406,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
           <h2 className="font-display hero-h1 text-ink mb-8">
             Stop hoping the valet is careful. <em className="text-gold italic">Start with proof.</em>
           </h2>
-          <button onClick={onAuth} className="w-full max-w-[420px] min-h-[52px] rounded-[12px] bg-gold text-white font-body font-semibold hover:bg-gold-dark transition mb-4">
+          <button onClick={onAuth} className="w-full max-w-[420px] min-h-[52px] rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition mb-4">
             🛡️ Protect Your Car — Free
           </button>
           <p className="text-muted-custom text-sm font-body mb-3">No app · No signup · No credit card · 60 seconds</p>
