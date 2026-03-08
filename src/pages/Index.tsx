@@ -1,6 +1,7 @@
 import { useSignupsCap } from '@/hooks/useSignupsCap';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { track } from '@/lib/posthog';
 import AuthModal from '@/components/AuthModal';
 import StickyBottomBar from '@/components/landing/StickyBottomBar';
 import LiveAIDemo from '@/components/landing/LiveAIDemo';
@@ -40,6 +41,7 @@ const Index = () => {
           </p>
           <a
             href="#demo"
+            onClick={() => track('cta_clicked', { location: 'hero' })}
             className="inline-flex items-center justify-center w-full max-w-[420px] min-h-[52px] rounded-[12px] bg-gold text-white font-body font-semibold text-base hover:bg-gold-dark transition"
           >
             🛡️ See the AI Protection in Action — Free

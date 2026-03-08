@@ -5,6 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import AuthModal from '@/components/AuthModal';
 import { QRCodeSVG } from 'qrcode.react';
 import { Camera, Check, ArrowRight } from 'lucide-react';
+import { track } from '@/lib/posthog';
 
 const ANGLES = [
   { angle: 1, name: 'Front-Left (10:30)', tip: 'Include headlight + left fender', pos: { top: '15%', left: '18%' } },
@@ -74,6 +75,7 @@ const ScanNew = () => {
     if (data) {
       setScanId(data.id);
       setScreen('capture');
+      track('scan_started', { scan_type: 'dropoff' });
     }
   };
 
@@ -113,6 +115,7 @@ const ScanNew = () => {
       setTimeout(() => setCurrentAngle(currentAngle + 1), 500);
     } else {
       setScreen('review');
+      track('scan_completed', { scan_type: 'dropoff', photo_count: 8, gps_captured: !!location });
     }
 
     // Reset input
@@ -121,6 +124,7 @@ const ScanNew = () => {
 
   const confirmScan = async () => {
     setScreen('qr');
+    track('qr_generated', { scan_id: scanId });
   };
 
   const skipConfirmation = () => {

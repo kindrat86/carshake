@@ -6,6 +6,7 @@ import { ArrowLeft, Download, Share2 } from 'lucide-react';
 import EvidenceBars from '@/components/dashboard/EvidenceBars';
 import { toast } from '@/hooks/use-toast';
 import { generateEvidencePDF } from '@/lib/pdfGenerator';
+import { track } from '@/lib/posthog';
 
 const ScanDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -50,6 +51,7 @@ const ScanDetail = () => {
     setPdfLoading(true);
     try {
       await generateEvidencePDF(scan, photos, confirmation, comparison, findings);
+      track('report_downloaded', { scan_id: id, format: 'pdf' });
     } catch {
       toast({ title: 'Error', description: 'Could not generate PDF.', variant: 'destructive' });
     }
