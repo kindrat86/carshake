@@ -1,4 +1,3 @@
-import jsPDF from 'jspdf';
 import { supabase } from '@/integrations/supabase/client';
 
 const loadImageAsBase64 = async (url: string): Promise<string> => {
@@ -18,6 +17,7 @@ export const generateEvidencePDF = async (
   comparison: any | null,
   findings: any[]
 ) => {
+  const { default: jsPDF } = await import('jspdf');
   const doc = new jsPDF('p', 'mm', 'a4');
   const W = 210;
 
