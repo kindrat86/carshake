@@ -89,6 +89,8 @@ const BlogPost = () => {
       <Helmet>
         <title>{post.meta_title || post.title}</title>
         <meta name="description" content={post.meta_description || post.excerpt} />
+        <meta property="og:title" content={post.meta_title || post.title} />
+        <meta property="og:description" content={post.meta_description || post.excerpt} />
         <link rel="canonical" href={`https://carshake.online/blog/${post.category}/${post.slug}`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>

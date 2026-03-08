@@ -119,8 +119,10 @@ const ProtectUseCase = () => {
   return (
     <div className="min-h-screen bg-page">
       <Helmet>
-        <title>{data.h1} | CarShake</title>
-        <meta name="description" content={data.description} />
+        <title>{data.title}</title>
+        <meta name="description" content={data.metaDescription} />
+        <meta property="og:title" content={data.title} />
+        <meta property="og:description" content={data.metaDescription} />
         <link rel="canonical" href={`https://carshake.online/protect/${usecase}`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
