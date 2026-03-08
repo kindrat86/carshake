@@ -355,7 +355,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
                 Go Pro
               </button>
             </div>
-            <div className="bg-white rounded-card border border-border shadow-card p-5 opacity-60">
+            <div className="bg-white rounded-card border border-border shadow-card p-5">
               <h3 className="font-display text-base font-bold text-ink">Enterprise</h3>
               <p className="font-display text-xl font-bold text-ink mb-2">$297<span className="text-sm font-body text-muted-custom font-normal">/mo</span></p>
               <p className="font-body text-sm text-body mb-4">Multi-location, API, white-label</p>

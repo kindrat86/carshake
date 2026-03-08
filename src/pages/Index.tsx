@@ -84,14 +84,14 @@ const Index = () => {
       <footer className="bg-dark py-12 px-4">
         <div className="max-w-[680px] mx-auto text-center">
           <h3 className="font-display text-gold text-xl font-bold mb-2">CarShake</h3>
-          <p className="text-muted-custom text-sm font-body mb-6">Both sides sign. Both sides are protected.</p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm font-body text-muted-custom mb-6">
+          <p className="text-[#9CA3AF] text-sm font-body mb-6">Both sides sign. Both sides are protected.</p>
+          <div className="flex flex-wrap justify-center gap-6 text-sm font-body text-[#9CA3AF] mb-6">
             <a href="/business" className="hover:text-white transition">For Parking Operators</a>
             <a href="/blog" className="hover:text-white transition">Blog</a>
             <span>Privacy</span>
             <span>Terms</span>
           </div>
-          <p className="text-muted-custom text-xs font-body">© 2026 CarShake · carshake.online</p>
+          <p className="text-[#9CA3AF] text-xs font-body">© 2026 CarShake · carshake.online</p>
         </div>
       </footer>
 

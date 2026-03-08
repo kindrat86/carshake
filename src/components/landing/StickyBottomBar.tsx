@@ -45,7 +45,7 @@ const StickyBottomBar = () => {
       <div className="max-w-[680px] mx-auto px-4 py-3 flex items-center justify-between">
         <div>
           <span className="font-display text-white font-bold text-sm">CarShake</span>
-          <span className="text-muted-custom text-xs font-body ml-2">{spotsLeft} founding spots left</span>
+          <span className="text-[#9CA3AF] text-xs font-body ml-2">{spotsLeft} founding spots left</span>
         </div>
         <a
           href="#demo"
