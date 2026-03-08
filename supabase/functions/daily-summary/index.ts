@@ -100,7 +100,7 @@ CarShake Analytics`;
       }),
     });
 
-    return new Response(JSON.stringify({ success: true, summary: emailBody }), {
+    return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   } catch (error) {
