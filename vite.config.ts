@@ -20,6 +20,9 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           'pdf': ['jspdf'],
           'analytics': ['posthog-js'],
+          'supabase': ['@supabase/supabase-js'],
+          'charts': ['recharts'],
+          'markdown': ['react-markdown'],
         },
       },
     },
