@@ -70,7 +70,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
             </div>
           ))}
           <div className="text-center mt-8">
-            <a href="#demo" className="inline-flex items-center justify-center min-h-[52px] px-8 rounded-[12px] bg-gold text-white font-body font-semibold hover:bg-gold-dark transition">
+            <a href="#demo" className="inline-flex items-center justify-center min-h-[52px] px-8 rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
               Try It Now — See AI Compare Your Photos
             </a>
           </div>
