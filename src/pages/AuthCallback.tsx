@@ -9,6 +9,18 @@ const AuthCallback = () => {
     const handleCallback = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
+        // Handle referral
+        const referralCode = localStorage.getItem('carshake_referral');
+        if (referralCode) {
+          localStorage.removeItem('carshake_referral');
+          await supabase.from('user_profiles').update({ referred_by: referralCode }).eq('id', session.user.id);
+          // Increment referrer's count
+          const { data: referrer } = await supabase.from('user_profiles').select('id, referrals_count').eq('referral_code', referralCode).single();
+          if (referrer) {
+            await supabase.from('user_profiles').update({ referrals_count: (referrer.referrals_count || 0) + 1 }).eq('id', referrer.id);
+          }
+        }
+
         const pendingScan = localStorage.getItem('carshake_pending_scan');
         if (pendingScan) {
           localStorage.removeItem('carshake_pending_scan');
