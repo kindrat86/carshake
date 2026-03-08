@@ -51,6 +51,7 @@ const ScanDetail = () => {
     setPdfLoading(true);
     try {
       await generateEvidencePDF(scan, photos, confirmation, comparison, findings);
+      track('report_downloaded', { scan_id: id, format: 'pdf' });
     } catch {
       toast({ title: 'Error', description: 'Could not generate PDF.', variant: 'destructive' });
     }

@@ -124,6 +124,7 @@ const ScanNew = () => {
 
   const confirmScan = async () => {
     setScreen('qr');
+    track('qr_generated', { scan_id: scanId });
   };
 
   const skipConfirmation = () => {
