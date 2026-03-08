@@ -12,9 +12,9 @@ const CarsTab = ({ scans }: CarsTabProps) => {
     if (!acc[key]) acc[key] = [];
     acc[key].push(scan);
     return acc;
-  }, {});
+  }, {} as Record<string, any[]>);
 
-  const vehicles = Object.entries(grouped);
+  const vehicles: [string, any[]][] = Object.entries(grouped);
 
   return (
     <div className="px-4 pb-24">
