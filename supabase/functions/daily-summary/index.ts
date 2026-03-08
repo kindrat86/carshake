@@ -105,7 +105,7 @@ CarShake Analytics`;
     });
   } catch (error) {
     console.error('daily-summary error:', error.message);
-    return new Response(JSON.stringify({ error: error.message }), {
+    return new Response(JSON.stringify({ error: 'Internal error' }), {
       status: 500,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
