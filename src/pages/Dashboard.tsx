@@ -26,6 +26,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (searchParams.get('checkout') === 'success') {
       toast({ title: '🎉 Welcome to Shield+!', description: 'Your protection is now unlimited.' });
+      track('checkout_completed', { plan: 'shield_plus' });
     }
   }, [searchParams]);
 

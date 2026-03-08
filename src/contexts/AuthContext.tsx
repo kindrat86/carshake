@@ -24,6 +24,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
+      if (session?.user) {
+        identifyUser(session.user.id, { email: session.user.email });
+        if (_event === 'SIGNED_IN') {
+          track('auth_completed', { method: session.user.app_metadata?.provider || 'email', is_new_user: _event === 'SIGNED_IN' });
+        }
+      }
     });
 
     supabase.auth.getSession().then(({ data: { session } }) => {
