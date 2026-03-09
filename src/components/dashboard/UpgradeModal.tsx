@@ -17,7 +17,7 @@ const UpgradeModal = ({ isOpen, onClose, isFoundingPrice }: UpgradeModalProps) =
   const handleUpgrade = async (plan: 'shield' | 'pro') => {
     try {
       const { data, error } = await supabase.functions.invoke('create-checkout', {
-        body: { plan, userId: user?.id },
+        body: { plan },
       });
       if (error) throw error;
       if (data?.checkoutUrl) window.location.href = data.checkoutUrl;
