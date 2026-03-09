@@ -14,10 +14,10 @@ const AuthCallback = () => {
         if (referralCode) {
           localStorage.removeItem('carshake_referral');
           await supabase.from('user_profiles').update({ referred_by: referralCode }).eq('id', session.user.id);
-          // Increment referrer's count
-          const { data: referrer } = await supabase.from('user_profiles').select('id, referrals_count').eq('referral_code', referralCode).single();
+          // Increment referrer's count via secure RPC
+          const { data: referrer } = await supabase.from('user_profiles').select('id').eq('referral_code', referralCode).single();
           if (referrer) {
-            await supabase.from('user_profiles').update({ referrals_count: (referrer.referrals_count || 0) + 1 }).eq('id', referrer.id);
+            await supabase.rpc('increment_referral_count', { referrer_id_param: referrer.id });
           }
         }
 
