@@ -592,6 +592,10 @@ export type Database = {
         Args: { user_id_param: string }
         Returns: undefined
       }
+      reset_billing_cycle: {
+        Args: { user_id_param: string }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
