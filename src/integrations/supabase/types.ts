@@ -588,6 +588,10 @@ export type Database = {
       }
     }
     Functions: {
+      increment_referral_count: {
+        Args: { referrer_id_param: string }
+        Returns: undefined
+      }
       increment_scan_count: {
         Args: { user_id_param: string }
         Returns: undefined
