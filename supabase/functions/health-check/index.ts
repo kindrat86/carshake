@@ -11,6 +11,16 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  // Require internal secret — only monitoring systems should call this
+  const internalSecret = Deno.env.get('INTERNAL_FUNCTION_SECRET');
+  const providedSecret = req.headers.get('x-internal-secret');
+  if (!internalSecret || providedSecret !== internalSecret) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    });
+  }
+
   const checks: Record<string, { ok: boolean; ms?: number; error?: string }> = {};
 
   try {

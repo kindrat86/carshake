@@ -19,9 +19,7 @@ const AccountTab = ({ profile, onUpgrade }: AccountTabProps) => {
       return;
     }
     try {
-      const { data, error } = await supabase.functions.invoke('create-portal-session', {
-        body: { customerId: profile.stripe_customer_id },
-      });
+      const { data, error } = await supabase.functions.invoke('create-portal-session');
       if (error) throw error;
       window.location.href = data.url;
     } catch {

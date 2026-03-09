@@ -51,10 +51,7 @@ const Dashboard = () => {
         const cycleStart = new Date(profileData.billing_cycle_start);
         const daysSince = Math.floor((Date.now() - cycleStart.getTime()) / 86400000);
         if (daysSince >= 30) {
-          await supabase.from('user_profiles').update({
-            scans_this_month: 0,
-            billing_cycle_start: new Date().toISOString(),
-          }).eq('id', user.id);
+          await supabase.rpc('reset_billing_cycle', { user_id_param: user.id });
           profileData = { ...profileData, scans_this_month: 0, billing_cycle_start: new Date().toISOString() };
         }
       }
