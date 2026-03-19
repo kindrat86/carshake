@@ -19,7 +19,7 @@ const countries = [
 ];
 
 const sources = [
-  { name: 'Direct / None', value: 20 },
+  { name: 'Direct', value: 20 },
   { name: 'perplexity.ai', value: 1 },
   { name: 'reddit.com', value: 1 },
 ];
