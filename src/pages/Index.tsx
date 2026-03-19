@@ -1,106 +1,138 @@
-import { useSignupsCap } from '@/hooks/useSignupsCap';
-import { lazy, Suspense, useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { track } from '@/lib/posthog';
-import StickyBottomBar from '@/components/landing/StickyBottomBar';
-import LandingJsonLd from '@/components/landing/LandingJsonLd';
+import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
-const AuthModal = lazy(() => import('@/components/AuthModal'));
-const LiveAIDemo = lazy(() => import('@/components/landing/LiveAIDemo'));
-const LandingSections = lazy(() => import('@/components/landing/LandingSections'));
+const trafficData = [
+  { date: 'Mar 1', visitors: 3 },
+  { date: 'Mar 3', visitors: 5 },
+  { date: 'Mar 5', visitors: 8 },
+  { date: 'Mar 7', visitors: 4 },
+  { date: 'Mar 9', visitors: 12 },
+  { date: 'Mar 11', visitors: 7 },
+  { date: 'Mar 13', visitors: 9 },
+  { date: 'Mar 15', visitors: 14 },
+  { date: 'Mar 17', visitors: 11 },
+  { date: 'Mar 19', visitors: 18 },
+];
 
-const Index = () => {
-  const [authOpen, setAuthOpen] = useState(false);
-  const [searchParams] = useSearchParams();
-  const { scansCount, spotsLeft } = useSignupsCap();
+const countries = [
+  { flag: '🇺🇸', name: 'United States', visitors: 12 },
+  { flag: '🇬🇷', name: 'Greece', visitors: 2 },
+  { flag: '🇷🇴', name: 'Romania', visitors: 2 },
+  { flag: '🇨🇳', name: 'China', visitors: 1 },
+  { flag: '🇨🇦', name: 'Canada', visitors: 1 },
+];
 
-  // Store referral code
-  useEffect(() => {
-    const ref = searchParams.get('ref');
-    if (ref) localStorage.setItem('carshake_referral', ref);
-  }, [searchParams]);
+const totalVisitors = countries.reduce((s, c) => s + c.visitors, 0);
 
-  return (
-    <main className="bg-page min-h-screen">
-      <LandingJsonLd />
-      
-      {/* Section 1: Hero */}
-      <section className="px-4 pt-16 pb-12">
-        <div className="max-w-[680px] mx-auto text-center">
-          <div className="inline-block px-4 py-1.5 rounded-pill bg-status-green/10 text-[#116B32] text-xs font-body font-semibold mb-6">
-            Both sides sign. Both sides protected.
-          </div>
-          <h1 className="font-display hero-h1 text-ink mb-6">
-            Never pay for a scratch{' '}
-            <em className="text-gold font-display italic">you didn't cause.</em>
-          </h1>
-          <p className="text-body font-body text-base leading-relaxed mb-8 max-w-lg mx-auto">
-            Before you hand over your keys, CarShake creates a{' '}
-            <strong>signed, timestamped, AI-verified record of your car's condition</strong>{' '}
-            — confirmed by both you AND the parking attendant. When you return, AI compares every angle instantly.{' '}
-            <strong>Both sides get proof. Disputes end before they start.</strong>
-          </p>
-          <a
-            href="#demo"
-            onClick={() => track('cta_clicked', { location: 'hero' })}
-            className="inline-flex items-center justify-center w-full max-w-[420px] min-h-[52px] rounded-[12px] bg-gold text-ink font-body font-semibold text-base hover:bg-gold-dark transition"
+const kpis = [
+  { label: 'Visitors', value: totalVisitors.toString() },
+  { label: 'Page Views', value: '47' },
+  { label: 'Bounce Rate', value: '42%' },
+  { label: 'Avg. Duration', value: '1m 24s' },
+];
+
+const Index = () => (
+  <div className="min-h-screen bg-[#0a0a0f] text-[#e4e4e7]">
+    {/* Header */}
+    <header className="border-b border-[#1e1e2a] px-6 py-4 flex items-center justify-between">
+      <div className="flex items-center gap-3">
+        <div className="w-2 h-2 rounded-full bg-emerald-400" />
+        <h1 className="text-lg font-semibold text-white tracking-tight font-body">
+          carshake.online
+        </h1>
+      </div>
+      <span className="text-xs text-[#71717a] font-body">Last 30 days</span>
+    </header>
+
+    <main className="max-w-6xl mx-auto px-6 py-8 space-y-8">
+      {/* KPI Cards */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {kpis.map((kpi) => (
+          <div
+            key={kpi.label}
+            className="rounded-xl bg-[#12121a] border border-[#1e1e2a] p-5"
           >
-            🛡️ See the AI Protection in Action — Free
-          </a>
-          <p className="text-muted-custom text-sm font-body mt-4">
-            No app download · No signup · Works on this phone right now.
-          </p>
-        </div>
-      </section>
+            <p className="text-xs text-[#71717a] font-body uppercase tracking-widest mb-2">
+              {kpi.label}
+            </p>
+            <p className="text-2xl font-semibold text-white font-body">{kpi.value}</p>
+          </div>
+        ))}
+      </div>
 
-      {/* Section 2: Trust Bar */}
-      <section className="bg-dark py-8 px-4">
-        <div className="max-w-[680px] mx-auto flex flex-wrap justify-center gap-8">
-          {[
-            { value: '$2,100', label: 'avg claim saved' },
-            { value: '60 sec', label: 'per scan' },
-            { value: `${scansCount}+`, label: 'scans done' },
-            { value: '8', label: 'angles checked' },
-          ].map((s) => (
-            <div key={s.label} className="text-center min-w-[80px]">
-              <div className="font-display text-2xl font-bold text-gold">{s.value}</div>
-              <div className="text-[9px] font-body text-[#9CA3AF] uppercase tracking-[2px] mt-1">{s.label}</div>
+      {/* Traffic Chart */}
+      <div className="rounded-xl bg-[#12121a] border border-[#1e1e2a] p-6">
+        <h2 className="text-sm font-semibold text-[#a1a1aa] font-body uppercase tracking-widest mb-6">
+          Traffic
+        </h2>
+        <div className="h-[280px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart data={trafficData}>
+              <defs>
+                <linearGradient id="colorVisitors" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#6366f1" stopOpacity={0.3} />
+                  <stop offset="100%" stopColor="#6366f1" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="#1e1e2a" />
+              <XAxis
+                dataKey="date"
+                tick={{ fontSize: 11, fill: '#71717a' }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <YAxis
+                tick={{ fontSize: 11, fill: '#71717a' }}
+                axisLine={false}
+                tickLine={false}
+                width={30}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: '#1a1a25',
+                  border: '1px solid #2a2a3a',
+                  borderRadius: 8,
+                  fontSize: 12,
+                  color: '#e4e4e7',
+                }}
+              />
+              <Area
+                type="monotone"
+                dataKey="visitors"
+                stroke="#6366f1"
+                strokeWidth={2}
+                fill="url(#colorVisitors)"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      {/* Countries */}
+      <div className="rounded-xl bg-[#12121a] border border-[#1e1e2a] p-6">
+        <h2 className="text-sm font-semibold text-[#a1a1aa] font-body uppercase tracking-widest mb-5">
+          Visitors by Country
+        </h2>
+        <div className="space-y-3">
+          {countries.map((c) => (
+            <div key={c.name} className="flex items-center gap-3">
+              <span className="text-xl">{c.flag}</span>
+              <span className="flex-1 text-sm text-[#d4d4d8] font-body">{c.name}</span>
+              {/* bar */}
+              <div className="w-32 h-2 rounded-full bg-[#1e1e2a] overflow-hidden">
+                <div
+                  className="h-full rounded-full bg-indigo-500"
+                  style={{ width: `${(c.visitors / totalVisitors) * 100}%` }}
+                />
+              </div>
+              <span className="text-sm font-semibold text-white font-body w-8 text-right">
+                {c.visitors}
+              </span>
             </div>
           ))}
         </div>
-      </section>
-
-      {/* Section 3: Live AI Demo */}
-      <Suspense fallback={<div className="min-h-[400px] bg-page" />}>
-        <LiveAIDemo />
-      </Suspense>
-
-      {/* Sections 4-16 */}
-      <Suspense fallback={<div className="min-h-[200px] bg-page" />}>
-        <LandingSections scansCount={scansCount} spotsLeft={spotsLeft} onAuth={() => setAuthOpen(true)} />
-      </Suspense>
-
-      {/* Footer */}
-      <footer className="bg-dark py-12 px-4">
-        <div className="max-w-[680px] mx-auto text-center">
-          <h3 className="font-display text-gold text-xl font-bold mb-2">CarShake</h3>
-          <p className="text-[#9CA3AF] text-sm font-body mb-6">Both sides sign. Both sides are protected.</p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm font-body text-[#9CA3AF] mb-6">
-            <a href="/business" className="hover:text-white transition">For Parking Operators</a>
-            <a href="/blog" className="hover:text-white transition">Blog</a>
-            <span>Privacy</span>
-            <span>Terms</span>
-          </div>
-          <p className="text-[#9CA3AF] text-xs font-body">© 2026 CarShake · carshake.online</p>
-        </div>
-      </footer>
-
-      <StickyBottomBar />
-      <Suspense fallback={null}>
-        <AuthModal isOpen={authOpen} onClose={() => setAuthOpen(false)} />
-      </Suspense>
+      </div>
     </main>
-  );
-};
+  </div>
+);
 
 export default Index;
