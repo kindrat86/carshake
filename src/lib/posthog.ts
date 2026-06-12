@@ -2,7 +2,7 @@ let posthogModule: any = null;
 let initialized = false;
 let initPromise: Promise<void> | null = null;
 
-const POSTHOG_KEY = 'phc_rqGdTxPYCBweGDWJErO1F6owtrbgY4TEYH0tGpHFBSp';
+const POSTHOG_KEY = 'phc_lyZCgvTpicjLzAO3rY2GhxuX5WUc5jQjP8ZVwwJqauX';
 
 const loadPostHog = async () => {
   if (!posthogModule) {
@@ -16,8 +16,8 @@ export const initPostHog = () => {
   if (initialized || typeof window === 'undefined') return;
   initPromise = loadPostHog().then((posthog) => {
     posthog.init(POSTHOG_KEY, {
-      api_host: 'https://us.i.posthog.com',
-      ui_host: 'https://us.posthog.com',
+      api_host: 'https://eu.i.posthog.com',
+      ui_host: 'https://eu.posthog.com',
       capture_pageview: true,
       persistence: 'localStorage+cookie',
       autocapture: true,
