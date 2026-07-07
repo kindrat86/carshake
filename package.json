@@ -1,0 +1,14 @@
+{
+  "name": "carshake",
+  "version": "1.0.0",
+  "private": true,
+  "functions": {
+    "api/email-capture.js": {
+      "maxDuration": 10
+    }
+  },
+  "scripts": {
+    "prerender": "node prerender.mjs",
+    "deploy": "npm run prerender && npx vercel --prod --yes"
+  }
+}
