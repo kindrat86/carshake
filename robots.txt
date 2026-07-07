@@ -1,16 +1,30 @@
-User-agent: Googlebot
+User-Agent: *
+Disallow: /api/auth/
+Disallow: /api/webhook/
+Disallow: /api/cron/
+Disallow: /dashboard/
+Disallow: /account/
+Disallow: /login/
+
+User-Agent: GPTBot
 Allow: /
 
-User-agent: Bingbot
+User-Agent: ChatGPT-User
 Allow: /
 
-User-agent: Twitterbot
+User-Agent: PerplexityBot
 Allow: /
 
-User-agent: facebookexternalhit
+User-Agent: ClaudeBot
 Allow: /
 
-User-agent: *
+User-Agent: anthropic-ai
+Allow: /
+
+User-Agent: Google-Extended
+Allow: /
+
+User-Agent: Bingbot
 Allow: /
 
 Sitemap: https://carshake.online/sitemap.xml
