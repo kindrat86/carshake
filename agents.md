@@ -1,12 +1,10 @@
 # CarShake — Agent Reference
 
-> CarShake is a valet damage proof and vehicle handover app. Three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Built for valet operators, rental fleets, body shops, dealerships, airport parking, hotel parking, concert parking, and street parking. Protects against damage claims using court-admissible timestamps and photos. Available in 40+ languages and major US cities.
-
-This file is the canonical "how to use me" entry point for coding agents (Claude, Cursor, Codex, ChatGPT, etc.) browsing this website. Public-facing copy is mirrored at `/.well-known/agents.md`.
+> Valet Damage Proof & Vehicle Handover App. CarShake provides a three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Court-admissible timestamps and photos.
 
 ## What this product does
 
-CarShake is a valet damage proof and vehicle handover app. Three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Built for valet operators, rental fleets, body shops, dealerships, airport parking, hotel parking, concert parking, and street parking. Protects against damage claims using court-admissible timestamps and photos. Available in 40+ languages and major US cities.
+CarShake provides a three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Court-admissible timestamps and photos. Built for Valet operators, rental car companies, body shops, car dealerships, parking facilities.
 
 ## Target Audience
 
@@ -15,21 +13,16 @@ Valet operators, rental car companies, body shops, car dealerships, parking faci
 ## Key Pages
 
 - [Homepage](https://carshake.online/): Valet Damage Proof & Vehicle Handover App
-- [Pricing](https://carshake.online/pricing): CarShake pricing
-
-## Agent-Callable Tools
-
-### `create_handover_receipt`
-
-Generate a QR-coded vehicle handover receipt with timestamped condition photos.
-
+- [FAQ](https://carshake.online/faq): Common questions
+- [About](https://carshake.online/about): About CarShake
 
 ## Citation
 
 ```
-CarShake (https://carshake.online), 2026.
+CarShake (carshake.online), 2026.
 ```
 
 ## Contact
 
 - Website: https://carshake.online
+- Email: hello@carshake.online

@@ -73,6 +73,91 @@
 <script>
 (function(){var u="https://eoenjehnkuhknjybjgzr.supabase.co",k="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvZW5qZWhua3Voa25qeWJqZ3pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5ODYzMzAsImV4cCI6MjA4ODU2MjMzMH0.PzMXARHR4LX9wRkCHmq0kUmUXFv3-cRSRn_uyfpzmkc";document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".cs-email-form").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();var i=f.querySelector(".cs-email-input"),b=f.querySelector(".cs-email-btn"),s=f.parentElement.querySelector(".cs-email-success");if(!i||!i.value)return;b.disabled=true;b.textContent="Sending...";fetch(u+"/rest/v1/scans",{method:"POST",headers:{"Content-Type":"application/json","apikey":k,"Authorization":"Bearer "+k,"Prefer":"return=minimal"},body:JSON.stringify({email:i.value,source:f.getAttribute("data-source")||"seo-page",signup_source:"carshake_seo"})}).then(function(r){if(r.ok||r.status===201){f.style.display="none";s.style.display="block";try{window.posthog&&window.posthog.capture("email_captured",{location:f.getAttribute("data-source")})}catch(e){}}else{b.disabled=false;b.textContent="Send Me The Free Playbook \u2192";alert("Something went wrong.")}}).catch(function(){b.disabled=false;b.textContent="Send Me The Free Playbook \u2192";alert("Network error.")})})})})})();
 </script>
+
+<!-- Organization Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://carshake.online/#organization",
+  "name": "CarShake",
+  "url": "https://carshake.online",
+  "description": "Three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Court-admissible timestamps and photos.",
+  "logo": "https://carshake.online/og-image.png",
+  "sameAs": ["https://twitter.com/carshake", "https://instagram.com/carshake"]
+}
+</script>
+
+<!-- WebSite Schema (with SearchAction) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://carshake.online/#website",
+  "url": "https://carshake.online",
+  "name": "CarShake",
+  "description": "AI-powered valet damage proof and vehicle handover app. Free 60-second car scans before valet parking with QR-coded handover receipts.",
+  "publisher": { "@id": "https://carshake.online/#organization" },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://carshake.online/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "inLanguage": "en"
+}
+</script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://carshake.online/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is CarShake?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CarShake is a free AI-powered car condition scanner and valet damage proof app. It uses a three-stop protocol: scan your car before handing it to a valet, generate a QR-coded handover receipt, then scan again at pickup so AI can flag any new damage. No app download required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does CarShake protect me from valet damage claims?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CarShake captures 8 timestamped, GPS-verified photos of your car before valet. A QR code creates a mutual digital handshake with the attendant. When you get your car back, a second scan lets AI compare every angle and flag new scratches, dents, or scrapes — producing court-ready evidence of who caused the damage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is CarShake free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, CarShake is completely free. There is no app download required. You can scan your car, create QR handover receipts, and generate AI damage comparisons at no cost. Used by over 1,822+ drivers across 40+ US cities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to download an app to use CarShake?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. CarShake works directly in your web browser on any smartphone. Open the site, walk around your car, and the camera captures all 8 angles in about 60 seconds. No download, no installation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can CarShake evidence be used in court or insurance claims?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. CarShake produces timestamped, GPS-verified photo evidence with SHA-256 hashing. Both parties digitally confirm the car's condition via the QR handover receipt. This creates court-admissible documentation that ties damage to a specific time window — invaluable for valet disputes, insurance claims, and rental car damage cases."
+      }
+    }
+  ]
+}
+</script>
+
 </head>
   <body>
     <div id="root">
@@ -257,5 +342,64 @@
         </footer>
       </div>
     </div>
-  </body>
+  
+<!-- pSEO Footer Navigation -->
+<style>
+.pseo-footer { max-width: 1200px; margin: 0 auto; padding: 40px 20px; border-top: 1px solid #e5e7eb; margin-top: 60px; }
+.pseo-footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+.pseo-footer-section h3 { font-size: 14px; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #6b7280; }
+.pseo-footer-section ul { list-style: none; padding: 0; margin: 0; }
+.pseo-footer-section li { margin-bottom: 6px; }
+.pseo-footer-section a { color: #374151; text-decoration: none; font-size: 14px; }
+.pseo-footer-section a:hover { color: #4f46e5; text-decoration: underline; }
+@media (max-width: 768px) { .pseo-footer-grid { grid-template-columns: 1fr 1fr; gap: 20px; } }
+</style>
+<nav class="pseo-footer" aria-label="Resources">
+  <div class="pseo-footer-grid">
+    <div class="pseo-footer-section">
+      <h3>Alternatives</h3>
+      <ul>
+              <li><a href="/alternatives-to/uber">Uber</a></li>
+      <li><a href="/alternatives-to/postmates">Postmates</a></li>
+      <li><a href="/alternatives-to/spothero">SpotHero</a></li>
+      <li><a href="/alternatives-to/parkwhiz">ParkWhiz</a></li>
+      <li><a href="/alternatives-to/bestparking">BestParking</a></li>
+        <li><a href="/alternatives-to">View all →</a></li>
+      </ul>
+    </div>
+    <div class="pseo-footer-section">
+      <h3>Industries</h3>
+      <ul>
+              <li><a href="/for/hotels">Hotels</a></li>
+      <li><a href="/for/airports">Airports</a></li>
+      <li><a href="/for/restaurants">Restaurants</a></li>
+      <li><a href="/for/car-dealerships">Car Dealerships</a></li>
+        <li><a href="/for">View all →</a></li>
+      </ul>
+    </div>
+    <div class="pseo-footer-section">
+      <h3>Glossary</h3>
+      <ul>
+              <li><a href="/glossary/valet">Valet</a></li>
+      <li><a href="/glossary/damage-proof">Damage Proof</a></li>
+      <li><a href="/glossary/vehicle-handover">Vehicle Handover</a></li>
+        <li><a href="/glossary">View all →</a></li>
+      </ul>
+    </div>
+    <div class="pseo-footer-section">
+      <h3>Locations</h3>
+      <ul>
+              <li><a href="/locations/new-york">New York</a></li>
+      <li><a href="/locations/los-angeles">Los Angeles</a></li>
+      <li><a href="/locations/chicago">Chicago</a></li>
+      <li><a href="/locations/miami">Miami</a></li>
+      <li><a href="/locations/london">London</a></li>
+      <li><a href="/locations/tokyo">Tokyo</a></li>
+        <li><a href="/locations">View all →</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</body>
 </html>

@@ -3,47 +3,152 @@
   "trailingSlash": false,
   "buildCommand": null,
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/email-capture" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/api/a2a",
+      "destination": "/api/a2a"
+    },
+    {
+      "source": "/api/nlweb",
+      "destination": "/api/nlweb"
+    },
+    {
+      "source": "/api/email-capture",
+      "destination": "/api/email-capture"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/email-capture"
+    },
+    {
+      "source": "/alternatives-to/:slug",
+      "destination": "/alternatives-to/:slug.html"
+    },
+    {
+      "source": "/vs/:slug",
+      "destination": "/vs/:slug.html"
+    },
+    {
+      "source": "/for/:slug",
+      "destination": "/for/:slug.html"
+    },
+    {
+      "source": "/glossary/:slug",
+      "destination": "/glossary/:slug.html"
+    },
+    {
+      "source": "/locations/:slug",
+      "destination": "/locations/:slug.html"
+    },
+    {
+      "source": "/best/:slug",
+      "destination": "/best/:slug.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/citations",
+      "destination": "/citations.html"
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html"
+    },
+    {
+      "source": "/answers",
+      "destination": "/answers.html"
+    },
+    {
+      "source": "/AGENTS.md",
+      "destination": "/agents.md"
+    },
+    {
+      "source": "/agents.md",
+      "destination": "/agents.md"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(self), geolocation=(self)" }
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(self), geolocation=(self)"
+        }
       ]
     },
     {
       "source": "/assets/(.+)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/og-image.png",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, s-maxage=86400"
+        }
       ]
     },
     {
       "source": "/favicon\\.(png|ico|svg)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
       ]
     },
     {
       "source": "/(.*)\\.(js|css|jpg|jpeg|png|gif|ico|webp|svg|woff2?|woff|ttf|eot)$",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"
+        }
       ]
     }
   ]

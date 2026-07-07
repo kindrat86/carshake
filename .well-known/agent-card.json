@@ -34,5 +34,25 @@
       "examples": []
     }
   ],
-  "attribution": "CarShake, https://carshake.online"
+  "attribution": "CarShake, https://carshake.online",
+  "content": [
+    {
+      "title": "CarShake \u2014 Valet Damage Proof App",
+      "url": "https://carshake.online/",
+      "description": "Scan cars before valet, generate QR-coded handover receipts, timestamped photo proof.",
+      "type": "homepage"
+    },
+    {
+      "title": "CarShake Pricing",
+      "url": "https://carshake.online/pricing",
+      "description": "Free for individuals. Pro plans for valet operators and fleets.",
+      "type": "pricing"
+    },
+    {
+      "title": "CarShake for Valet Operators",
+      "url": "https://carshake.online/for-valets",
+      "description": "Protect your valet business from false damage claims.",
+      "type": "landing"
+    }
+  ]
 }
