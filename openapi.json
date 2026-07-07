@@ -1,0 +1,23 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CarShake",
+    "description": "Valet damage proof and vehicle handover documentation app.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://carshake.online"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://carshake.online"
+    }
+  ],
+  "paths": {},
+  "tags": [
+    {
+      "name": "content",
+      "description": "Site content"
+    }
+  ]
+}

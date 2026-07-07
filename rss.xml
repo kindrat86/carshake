@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CarShake</title>
+    <link>https://carshake.online</link>
+    <description>Valet damage proof and vehicle handover documentation app.</description>
+    <language>en</language>
+    <lastBuildDate>Tue, 07 Jul 2026 14:57:21 GMT</lastBuildDate>
+    <atom:link href="https://carshake.online/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Homepage</title>
+      <link>https://carshake.online/</link>
+      <guid isPermaLink="true">https://carshake.online/</guid>
+      <description>Valet damage proof app</description>
+    </item>
+    <item>
+      <title>Pricing</title>
+      <link>https://carshake.online/pricing</link>
+      <guid isPermaLink="true">https://carshake.online/pricing</guid>
+      <description>CarShake pricing</description>
+    </item>
+    <item>
+      <title>How It Works</title>
+      <link>https://carshake.online/how-it-works</link>
+      <guid isPermaLink="true">https://carshake.online/how-it-works</guid>
+      <description>Three-stop protocol</description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>https://carshake.online/blog</link>
+      <guid isPermaLink="true">https://carshake.online/blog</guid>
+      <description>Valet tips and case studies</description>
+    </item>
+    <item>
+      <title>Trust</title>
+      <link>https://carshake.online/trust</link>
+      <guid isPermaLink="true">https://carshake.online/trust</guid>
+      <description>Why CarShake is reliable</description>
+    </item>
+  </channel>
+</rss>

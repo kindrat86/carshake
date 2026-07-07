@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "CarShake",
+  "name_for_model": "carshake",
+  "description_for_human": "Valet damage proof and vehicle handover documentation app.",
+  "description_for_model": "Valet damage proof and vehicle handover documentation app.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://carshake.online/openapi.json",
+    "has_user_authentication": false
+  },
+  "logo_url": "https://carshake.online/icon.png",
+  "contact_email": "hello@carshake.online",
+  "legal_info_url": "https://carshake.online/terms"
+}
