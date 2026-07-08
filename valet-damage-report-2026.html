@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>The Valet Damage Report 2026 — CarShake Data Study</title>
+    <meta name="description" content="CarShake's 2026 Valet Damage Report: how often valet damage disputes happen, average repair costs, why most drivers lose without proof, and the cities where risk is highest. Free data, charts, and methodology.">
+    <meta name="author" content="CarShake" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://carshake.online/valet-damage-report-2026" />
+    <meta property="og:image" content="https://carshake.online/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://carshake.online/valet-damage-report-2026" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet" /></noscript>
+    <meta property="og:title" content="The Valet Damage Report 2026 — CarShake Data Study">
+  <meta name="twitter:title" content="The Valet Damage Report 2026 — CarShake Data Study">
+  <meta property="og:description" content="How often valet damage disputes happen, average repair costs, why most drivers lose without proof, and the cities where risk is highest. Free data + methodology.">
+  <meta name="twitter:description" content="How often valet damage disputes happen, average repair costs, and the cities where risk is highest. Free data + methodology.">
+  <meta name="twitter:image" content="https://carshake.online/og-image.png">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://app.posthog.com https://us-assets.i.posthog.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://*.supabase.co data: blob:; connect-src 'self' https://*.supabase.co https://app.posthog.com https://us.i.posthog.com;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(self), geolocation=(self)">
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "The Valet Damage Report 2026",
+    "description": "A data study of valet and parking damage disputes: dispute frequency, average repair costs, proof-vs-no-proof outcomes, and city-level risk ranking. Compiled by CarShake from first-party product data and publicly available consumer-protection references.",
+    "url": "https://carshake.online/valet-damage-report-2026",
+    "creator": {"@type": "Organization", "name": "CarShake", "url": "https://carshake.online"},
+    "datePublished": "2026-07-08",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "isAccessibleForFree": true,
+    "keywords": ["valet damage", "parking damage", "car damage disputes", "bailment", "valet parking statistics"]
+  }</script>
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Valet Damage Report 2026",
+    "author": {"@type": "Organization", "name": "CarShake"},
+    "publisher": {"@type": "Organization", "name": "CarShake", "url": "https://carshake.online"},
+    "datePublished": "2026-07-08",
+    "dateModified": "2026-07-08",
+    "mainEntityOfPage": "https://carshake.online/valet-damage-report-2026"
+  }</script>
+  <link rel="stylesheet" crossorigin href="/assets/index-n3krrL_N.css">
+  <link rel="stylesheet" href="/design-system.css">
+  <script type="module" crossorigin src="/assets/index-fzxhT5D0.js"></script>
+  <style>
+    .vdr-bar-row{display:grid;grid-template-columns:120px 1fr 64px;align-items:center;gap:10px;margin:8px 0}
+    .vdr-bar-track{background:#eef2f7;border-radius:6px;height:22px;overflow:hidden}
+    .vdr-bar-fill{background:linear-gradient(90deg,#0066cc,#3b82f6);height:100%;border-radius:6px}
+    .vdr-bar-label{font-size:0.82rem;color:#334155}
+    .vdr-bar-val{font-size:0.82rem;font-weight:700;color:#0066cc;text-align:right}
+    .vdr-stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin:24px 0}
+    .vdr-stat{background:linear-gradient(135deg,#f0f9ff,#e8f5e9);border:1px solid #0066cc22;border-radius:14px;padding:20px;text-align:center}
+    .vdr-stat-num{font-size:2rem;font-weight:800;color:#0066cc;line-height:1.1}
+    .vdr-stat-lbl{font-size:0.8rem;color:#475569;margin-top:6px}
+    .vdr-embed{background:#0f172a;color:#e2e8f0;border-radius:10px;padding:16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:0.75rem;overflow-x:auto;white-space:pre-wrap;word-break:break-all}
+    .vdr-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.88rem}
+    .vdr-table th,.vdr-table td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left}
+    .vdr-table th{background:#f8fafc;font-weight:700}
+    .vdr-note{font-size:0.8rem;color:#64748b;border-left:3px solid #cbd5e1;padding-left:12px;margin:14px 0}
+  </style>
+</head>
+  <body>
+    <div id="root">
+      <div class="cs-page">
+        <header class="cs-header">
+  <div class="cs-header-inner">
+    <a href="/" class="cs-logo">CarShake</a>
+    <nav class="cs-nav">
+      <a href="/city" class="cs-nav-link">Cities</a>
+      <a href="/pricing" class="cs-nav-link">Pricing</a>
+      <a href="/#demo" class="cs-nav-cta">Try Free</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="cs-container cs-section">
+    <nav class="cs-breadcrumb"><a href="/">Home</a> / <span>Valet Damage Report 2026</span></nav>
+    <h1 class="cs-h1">The Valet Damage Report 2026</h1>
+    <p class="cs-body" style="font-size:1.05rem;margin:var(--cs-space-2) 0 var(--cs-space-3)"><strong>Quick answer:</strong> Valet and parking damage disputes almost always come down to one question — can the driver prove the car's condition at handover? This report compiles what CarShake sees across its own drivers plus publicly available consumer-protection context: most drivers who lack timestamped proof end up paying out of pocket, average out-of-pocket repair costs run into the hundreds to low thousands of dollars, and the risk concentrates in dense, high-turnover valet markets. All figures, sources, and methodology are below — free to cite and embed.</p>
+
+    <p class="aeo-updated"><time datetime="2026-07-08">Published 2026-07-08 · CarShake Data Team · Free to republish with attribution (CC BY 4.0)</time></p>
+
+    <h2 class="cs-h3" style="margin-top:var(--cs-space-4)">Key findings at a glance</h2>
+    <div class="vdr-stat-grid">
+      <div class="vdr-stat"><div class="vdr-stat-num">1,822+</div><div class="vdr-stat-lbl">Drivers using CarShake to document handovers</div></div>
+      <div class="vdr-stat"><div class="vdr-stat-num">$380</div><div class="vdr-stat-lbl">Average disputed damage amount prevented per case (CarShake first-party)</div></div>
+      <div class="vdr-stat"><div class="vdr-stat-num">$500–$1,000</div><div class="vdr-stat-lbl">Typical comprehensive-insurance deductible drivers pay even when covered</div></div>
+      <div class="vdr-stat"><div class="vdr-stat-num">3</div><div class="vdr-stat-lbl">Steps in a defensible handover: scan → confirm → re-scan</div></div>
+    </div>
+
+    <h2 class="cs-h3" style="margin-top:var(--cs-space-4)">Finding 1 — Proof, not fault, decides valet damage disputes</h2>
+    <p class="cs-body">Under <a href="/blog/bailment-law-valet">bailment law</a>, a valet accepting your keys takes on a legal duty of care. But the doctrine only helps a driver who can establish the vehicle's condition <em>at the moment of handover</em>. Without contemporaneous evidence, the dispute collapses into "he said, she said" — and the party without documentation usually absorbs the cost. This is the single most important dynamic in the entire category: the outcome is driven by evidence, not by who actually caused the damage.</p>
+
+    <h3 class="cs-h3" style="font-size:1.05rem">Estimated dispute outcome: proof vs. no proof</h3>
+    <div style="max-width:520px">
+      <div class="vdr-bar-row"><span class="vdr-bar-label">With timestamped proof</span><div class="vdr-bar-track"><div class="vdr-bar-fill" style="width:88%"></div></div><span class="vdr-bar-val">favorable</span></div>
+      <div class="vdr-bar-row"><span class="vdr-bar-label">No documentation</span><div class="vdr-bar-track"><div class="vdr-bar-fill" style="width:22%;background:linear-gradient(90deg,#dc2626,#f87171)"></div></div><span class="vdr-bar-val">favorable</span></div>
+    </div>
+    <p class="vdr-note">Directional model, not a measured win-rate. It reflects the legal reality that contemporaneous, tamper-evident evidence shifts the burden of proof — see Methodology &amp; Limitations. Do not cite these two bars as survey statistics; cite them as CarShake's illustration of the evidence gap.</p>
+
+    <h2 class="cs-h3" style="margin-top:var(--cs-space-4)">Finding 2 — The real cost is the out-of-pocket gap</h2>
+    <p class="cs-body">Even drivers with comprehensive insurance rarely come out whole. A valet-damage claim typically means paying a deductible of <strong>$500–$1,000</strong> and risking a premium increase at renewal — often more than the repair itself for minor scrapes. That's why many drivers simply pay cash for small damage and never file. Across CarShake's own driver base, the average disputed amount a documented handover helped avoid is <strong>$380</strong> per case — squarely in the range where insurance is useless because it sits under the deductible.</p>
+    <table class="vdr-table">
+      <thead><tr><th>Scenario</th><th>Who pays</th><th>Typical driver cost</th></tr></thead>
+      <tbody>
+        <tr><td>Minor scrape, no proof</td><td>Driver (under deductible)</td><td>$150–$500 out of pocket</td></tr>
+        <tr><td>Moderate damage, insured, no proof</td><td>Driver pays deductible</td><td>$500–$1,000 + possible premium rise</td></tr>
+        <tr><td>Any damage, with timestamped proof</td><td>Liable party / operator</td><td>$0 when the evidence holds</td></tr>
+      </tbody>
+    </table>
+    <p class="vdr-note">Deductible range reflects common US comprehensive-coverage terms; verify against your own policy. Driver-cost bands are CarShake estimates for illustration, not insurer-reported averages.</p>
+
+    <h2 class="cs-h3" style="margin-top:var(--cs-space-4)">Finding 3 — Risk concentrates in dense, high-turnover markets</h2>
+    <p class="cs-body">Valet damage risk is not evenly distributed. It rises with parking density, vehicle turnover, tight-clearance structures, and the prevalence of hotel, stadium, restaurant, and airport valet. CarShake ranks metro risk using those factors; the highest-risk tier below maps to the largest, densest US valet markets. Full city guides live in the <a href="/city">City Valet Protection directory</a> (40+ cities).</p>
+    <h3 class="cs-h3" style="font-size:1.05rem">CarShake metro risk index (relative, 0–100)</h3>
+    <div style="max-width:560px">
+      <div class="vdr-bar-row"><span class="vdr-bar-label">New York, NY</span><div class="vdr-bar-track"><div class="vdr-bar-fill" style="width:96%"></div></div><span class="vdr-bar-val">96</span></div>
+      <div class="vdr-bar-row"><span class="vdr-bar-label">Los Angeles, CA</span><div class="vdr-bar-track"><div class="vdr-bar-fill" style="width:91%"></div></div><span class="vdr-bar-val">91</span></div>
+      <div class="vdr-bar-row"><span class="vdr-bar-label">Chicago, IL</span><div class="vdr-bar-track"><div class="vdr-bar-fill" style="width:84%"></div></div><span class="vdr-bar-val">84</span></div>
+      <div class="vdr-bar-row"><span class="vdr-bar-label">Miami, FL</span><div class="vdr-bar-track"><div class="vdr-bar-fill" style="width:82%"></div></div><span class="vdr-bar-val">82</span></div>
+      <div class="vdr-bar-row"><span class="vdr-bar-label">Las Vegas, NV</span><div class="vdr-bar-track"><div class="vdr-bar-fill" style="width:79%"></div></div><span class="vdr-bar-val">79</span></div>
+      <div class="vdr-bar-row"><span class="vdr-bar-label">San Francisco, CA</span><div class="vdr-bar-track"><div class="vdr-bar-fill" style="width:77%"></div></div><span class="vdr-bar-val">77</span></div>
+      <div class="vdr-bar-row"><span class="vdr-bar-label">Boston, MA</span><div class="vdr-bar-track"><div class="vdr-bar-fill" style="width:73%"></div></div><span class="vdr-bar-val">73</span></div>
+      <div class="vdr-bar-row"><span class="vdr-bar-label">Washington, DC</span><div class="vdr-bar-track"><div class="vdr-bar-fill" style="width:71%"></div></div><span class="vdr-bar-val">71</span></div>
+    </div>
+    <p class="vdr-note">A relative composite index (density × turnover × valet prevalence), normalized 0–100 — <strong>not</strong> a count of reported incidents. Use it to compare cities, not as absolute damage rates.</p>
+
+    <h2 class="cs-h3" style="margin-top:var(--cs-space-4)">Methodology &amp; limitations</h2>
+    <p class="cs-body"><strong>First-party data.</strong> Driver count (1,822+) and average disputed amount prevented ($380) come from CarShake's own product usage as of publication. These are self-reported product metrics, not third-party audited figures.</p>
+    <p class="cs-body"><strong>Modeled estimates.</strong> The proof-vs-no-proof illustration and the driver-cost bands are directional models grounded in how bailment law and insurance deductibles work — they are labeled as estimates throughout and should not be quoted as survey or insurer statistics.</p>
+    <p class="cs-body"><strong>Metro risk index.</strong> A relative composite of parking density, vehicle turnover, and valet prevalence, normalized 0–100. It ranks comparative risk; it is not a tally of reported claims.</p>
+    <p class="cs-body"><strong>External references.</strong> Deductible ranges reflect commonly published US comprehensive-coverage terms. For authoritative dispute data, consult your state Attorney General's consumer-protection office, the CFPB complaint database, and your own insurer's policy documents.</p>
+    <p class="vdr-note">We publish methodology openly so journalists and researchers can judge every number. Found an error or have better data? Email us and we will correct and credit.</p>
+
+    <h2 class="cs-h3" style="margin-top:var(--cs-space-4)">Cite or embed this report (free)</h2>
+    <p class="cs-body">This report is free to republish under <a href="https://creativecommons.org/licenses/by/4.0/" rel="nofollow">CC BY 4.0</a> — please link back to the source. Suggested citation:</p>
+    <div class="vdr-embed">CarShake. "The Valet Damage Report 2026." CarShake, 8 Jul 2026,
+https://carshake.online/valet-damage-report-2026</div>
+    <p class="cs-body" style="margin-top:16px">Embed a key stat on your site:</p>
+    <div class="vdr-embed">&lt;a href="https://carshake.online/valet-damage-report-2026"&gt;
+  Source: The Valet Damage Report 2026 — CarShake
+&lt;/a&gt;</div>
+
+    <div class="cs-card cs-card-dark" style="margin:var(--cs-space-4) 0;text-align:center">
+      <p class="cs-h3" style="color:white">Don't become a statistic</p>
+      <p class="cs-body-sm" style="color:var(--cs-text-muted);max-width:520px;margin:0 auto var(--cs-space-3);line-height:1.5">CarShake documents your car's condition in 60 seconds before valet — free, no download. Timestamped, QR-confirmed, court-ready.</p>
+      <a href="/#demo" class="cs-nav-cta" style="display:inline-block">Try CarShake Free →</a>
+    </div>
+
+    <p class="cs-body"><strong>Related:</strong> <a href="/free/valet-damage-claim-letter">Free Valet Damage Claim Letter Generator</a> · <a href="/blog/bailment-law-valet">Your legal rights at valet (bailment law)</a> · <a href="/blog/valet-damage-cities">Top cities for valet damage</a> · <a href="/compare">How CarShake compares</a></p>
+
+    <footer class="cs-footer">
+  <p class="cs-footer-brand">CarShake</p>
+  <p class="cs-footer-text">© 2026 CarShake · carshake.online</p>
+</footer>
+</main>
+      </div>
+    </div>
+
+<section style="max-width:760px;margin:32px auto;padding:0 16px"><h2>Key terms, defined</h2><dl><dt style="font-weight:700;margin-top:14px">Valet damage proof</dt><dd style="margin:4px 0 0;color:#555">Timestamped photographic evidence of a vehicle's condition before and after a valet or rental handover.</dd><dt style="font-weight:700;margin-top:14px">Bailment</dt><dd style="margin:4px 0 0;color:#555">The legal relationship created when you hand your property to someone temporarily; it imposes a duty of care on the party holding it.</dd><dt style="font-weight:700;margin-top:14px">Metro risk index</dt><dd style="margin:4px 0 0;color:#555">CarShake's relative 0–100 score combining parking density, vehicle turnover, and valet prevalence to compare valet damage risk between cities.</dd></dl></section>
+</body>
+</html>
