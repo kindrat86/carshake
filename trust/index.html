@@ -51,6 +51,35 @@
 <script>
 (function(){var u="https://eoenjehnkuhknjybjgzr.supabase.co",k="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvZW5qZWhua3Voa25qeWJqZ3pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5ODYzMzAsImV4cCI6MjA4ODU2MjMzMH0.PzMXARHR4LX9wRkCHmq0kUmUXFv3-cRSRn_uyfpzmkc";document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".cs-email-form").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();var i=f.querySelector(".cs-email-input"),b=f.querySelector(".cs-email-btn"),s=f.parentElement.querySelector(".cs-email-success");if(!i||!i.value)return;b.disabled=true;b.textContent="Sending...";fetch(u+"/rest/v1/scans",{method:"POST",headers:{"Content-Type":"application/json","apikey":k,"Authorization":"Bearer "+k,"Prefer":"return=minimal"},body:JSON.stringify({email:i.value,source:f.getAttribute("data-source")||"seo-page",signup_source:"carshake_seo"})}).then(function(r){if(r.ok||r.status===201){f.style.display="none";s.style.display="block";try{window.posthog&&window.posthog.capture("email_captured",{location:f.getAttribute("data-source")})}catch(e){}}else{b.disabled=false;b.textContent="Send Me The Free Playbook \u2192";alert("Something went wrong.")}}).catch(function(){b.disabled=false;b.textContent="Send Me The Free Playbook \u2192";alert("Network error.")})})})})})();
 </script>
+<!-- Traffic-Readiness JSON-LD org+website schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://carshake.online/#org",
+      "name": "CarShake",
+      "url": "https://carshake.online",
+      "description": "Valet Damage Proof & Vehicle Handover App. Scan before valet, QR handover receipt, post-retrieval proof.",
+      "sameAs": ["https://twitter.com/carshake", "https://github.com/kindrat86"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://carshake.online/#website",
+      "url": "https://carshake.online",
+      "name": "CarShake",
+      "publisher": {"@id": "https://carshake.online/#org"}
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": ["Home", "FAQ", "About"],
+      "url": ["https://carshake.online/", "https://carshake.online/faq", "https://carshake.online/about"]
+    }
+  ]
+}
+</script>
+<!-- Traffic-Readiness JSON-LD org+website schema -->
 </head>
   <body>
     <div id="root">

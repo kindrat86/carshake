@@ -58,6 +58,35 @@
   "description": "Restaurant valet is one of the most common valet scenarios. QR handover proof with AI-verified scans.",
   "about": "Protecting your car during Restaurant Valet"
 }</script>
+<!-- Traffic-Readiness JSON-LD org+website schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://carshake.online/#org",
+      "name": "CarShake",
+      "url": "https://carshake.online",
+      "description": "Valet Damage Proof & Vehicle Handover App. Scan before valet, QR handover receipt, post-retrieval proof.",
+      "sameAs": ["https://twitter.com/carshake", "https://github.com/kindrat86"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://carshake.online/#website",
+      "url": "https://carshake.online",
+      "name": "CarShake",
+      "publisher": {"@id": "https://carshake.online/#org"}
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": ["Home", "FAQ", "About"],
+      "url": ["https://carshake.online/", "https://carshake.online/faq", "https://carshake.online/about"]
+    }
+  ]
+}
+</script>
+<!-- Traffic-Readiness JSON-LD org+website schema -->
 </head>
   <body>
     <div id="root">

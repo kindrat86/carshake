@@ -29,6 +29,35 @@ nav{margin:20px 0;padding:12px 0;border-bottom:1px solid #eee}
 nav a{margin-right:16px;text-decoration:none;color:#0066cc}
 footer{margin-top:40px;padding-top:20px;border-top:1px solid #eee;color:#666;font-size:0.85rem}
 </style>
+<!-- Traffic-Readiness JSON-LD org+website schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://carshake.online/#org",
+      "name": "CarShake",
+      "url": "https://carshake.online",
+      "description": "Valet Damage Proof & Vehicle Handover App. Scan before valet, QR handover receipt, post-retrieval proof.",
+      "sameAs": ["https://twitter.com/carshake", "https://github.com/kindrat86"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://carshake.online/#website",
+      "url": "https://carshake.online",
+      "name": "CarShake",
+      "publisher": {"@id": "https://carshake.online/#org"}
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": ["Home", "FAQ", "About"],
+      "url": ["https://carshake.online/", "https://carshake.online/faq", "https://carshake.online/about"]
+    }
+  ]
+}
+</script>
+<!-- Traffic-Readiness JSON-LD org+website schema -->
 </head>
 <body>
 <nav><a href="https://carshake.online/">CarShake</a><a href="https://carshake.online/about">About</a><a href="https://carshake.online/blog">Blog</a><a href="https://carshake.online/faq">FAQ</a></nav>

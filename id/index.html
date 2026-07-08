@@ -169,7 +169,36 @@
     <link rel="alternate" hreflang="br" href="https://carshake.online/br" />
     <link rel="alternate" hreflang="ilo" href="https://carshake.online/ilo" />
     <link rel="alternate" hreflang="mad" href="https://carshake.online/mad" />
-  </head>
+  <!-- Traffic-Readiness JSON-LD org+website schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://carshake.online/#org",
+      "name": "CarShake",
+      "url": "https://carshake.online",
+      "description": "Valet Damage Proof & Vehicle Handover App. Scan before valet, QR handover receipt, post-retrieval proof.",
+      "sameAs": ["https://twitter.com/carshake", "https://github.com/kindrat86"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://carshake.online/#website",
+      "url": "https://carshake.online",
+      "name": "CarShake",
+      "publisher": {"@id": "https://carshake.online/#org"}
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": ["Home", "FAQ", "About"],
+      "url": ["https://carshake.online/", "https://carshake.online/faq", "https://carshake.online/about"]
+    }
+  ]
+}
+</script>
+<!-- Traffic-Readiness JSON-LD org+website schema -->
+</head>
   <body>
     <div id="root">
       <div class="cs-page">
