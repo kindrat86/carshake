@@ -431,6 +431,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://carshake.online/integrations/carshake-for-parkmobile</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://carshake.online/integrations/carshake-for-ticketmaster</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://carshake.online/integrations/geico</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -602,91 +612,6 @@
   </url>
   <url>
     <loc>https://carshake.online/pt</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/free/car-damage-scanner</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/free/damage-report-generator</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/free/vin-check</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/integrations/allstate</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/integrations/geico</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/integrations/progressive</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/learn/how-to-dispute-valet-damage</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/learn/insurance-claim-photo-tips</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/learn/rental-car-inspection-checklist</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/learn/understanding-car-damage-types</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/pricing-questions/how-much-does-it-cost</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/pricing-questions/is-it-worth-it</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/use-cases/car-dealerships</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/use-cases/fleet-management</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/use-cases/insurance-claims</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/use-cases/rental-cars</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://carshake.online/public/use-cases/valet-disputes</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
