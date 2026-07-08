@@ -183,12 +183,13 @@
   ],
   "redirects": [
     {
-      "source": "http://www.carshake.online/(.*)",
-      "destination": "https://carshake.online/$1",
-      "permanent": true
-    },
-    {
-      "source": "https://www.carshake.online/(.*)",
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.carshake.online"
+        }
+      ],
       "destination": "https://carshake.online/$1",
       "permanent": true
     }
