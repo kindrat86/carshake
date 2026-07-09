@@ -4,6 +4,18 @@
   "buildCommand": null,
   "rewrites": [
     {
+      "source": "/how-to/:slug",
+      "destination": "/how-to/:slug/index.html"
+    },
+    {
+      "source": "/checklists/:slug",
+      "destination": "/checklists/:slug/index.html"
+    },
+    {
+      "source": "/cost-of/:slug",
+      "destination": "/cost-of/:slug/index.html"
+    },
+    {
       "source": "/integrations/:slug",
       "destination": "/integrations/:slug/index.html"
     },
