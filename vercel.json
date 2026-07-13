@@ -118,6 +118,14 @@
     {
       "source": "/agents.md",
       "destination": "/agents.md"
+    },
+    {
+      "source": "/feed",
+      "destination": "/feed.xml"
+    },
+    {
+      "source": "/rss",
+      "destination": "/feed.xml"
     }
   ],
   "headers": [

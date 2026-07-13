@@ -1,0 +1,58 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "CarShake Blog",
+  "description": "Valet damage proof, vehicle handover tips, and legal guides.",
+  "home_page_url": "https://carshake.online",
+  "feed_url": "https://carshake.online/feed.json",
+  "items": [
+    {
+      "id": "https://carshake.online/blog/3-stop-protocol",
+      "url": "https://carshake.online/blog/3-stop-protocol",
+      "title": "The 3-Stop Valet Handover Protocol",
+      "content_text": "The complete 3-step protocol for documenting your car's condition at valet drop-off and pickup.",
+      "date_published": "2026-07-08T00:00:00Z"
+    },
+    {
+      "id": "https://carshake.online/blog/bailment-law-valet",
+      "url": "https://carshake.online/blog/bailment-law-valet",
+      "title": "Bailment Law: Your Legal Rights at Valet",
+      "content_text": "Understanding bailment law and how it protects you when a valet damages your car.",
+      "date_published": "2026-07-08T00:00:00Z"
+    },
+    {
+      "id": "https://carshake.online/blog/valet-damage-cities",
+      "url": "https://carshake.online/blog/valet-damage-cities",
+      "title": "Valet Damage by City: Where It Happens Most",
+      "content_text": "Analysis of valet damage patterns across major US cities.",
+      "date_published": "2026-07-07T00:00:00Z"
+    },
+    {
+      "id": "https://carshake.online/ultimate-guide-valet-damage-proof",
+      "url": "https://carshake.online/ultimate-guide-valet-damage-proof",
+      "title": "The Ultimate Guide to Valet Damage Proof",
+      "content_text": "Everything you need to know about proving valet parking damage: the legal framework, the 3-stop protocol, and how to never pay for damage you didn't cause.",
+      "date_published": "2026-07-09T00:00:00Z"
+    },
+    {
+      "id": "https://carshake.online/valet-damage-report-2026",
+      "url": "https://carshake.online/valet-damage-report-2026",
+      "title": "The Valet Damage Report 2026",
+      "content_text": "Our comprehensive data study on valet damage patterns, costs, and city-level risk across the United States.",
+      "date_published": "2026-07-09T00:00:00Z"
+    },
+    {
+      "id": "https://carshake.online/free/valet-damage-claim-letter",
+      "url": "https://carshake.online/free/valet-damage-claim-letter",
+      "title": "Free Valet Damage Claim Letter Generator",
+      "content_text": "Generate a ready-to-send demand letter citing bailment law in 60 seconds. Free, no signup.",
+      "date_published": "2026-07-09T00:00:00Z"
+    },
+    {
+      "id": "https://carshake.online/how-to/dispute-valet-damage",
+      "url": "https://carshake.online/how-to/dispute-valet-damage",
+      "title": "How to Dispute Valet Damage and Win",
+      "content_text": "Step-by-step guide to disputing valet parking damage: document, report, demand letter, small claims.",
+      "date_published": "2026-07-09T00:00:00Z"
+    }
+  ]
+}
