@@ -1,1 +1,8 @@
-Contact: mailto:security@sipiteno.com\nContact: mailto:signal@gitdealflow.com\nExpires: 2027-12-31T23:59:59Z\nEncryption: https://keys.openpgp.org/\nAcknowledgments: https://sipiteno.com/.well-known/security.txt\nPolicy: https://sipiteno.com/privacy\nPreferred-Languages: en\nCanonical: https://sipiteno.com/.well-known/security.txt
+Contact: mailto:security@sipiteno.com
+Contact: mailto:signal@gitdealflow.com
+Expires: 2027-12-31T23:59:59Z
+Encryption: https://keys.openpgp.org/
+Acknowledgments: https://carshake.online/.well-known/security.txt
+Policy: https://carshake.online/privacy
+Preferred-Languages: en
+Canonical: https://carshake.online/.well-known/security.txt

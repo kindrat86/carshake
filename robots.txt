@@ -28,3 +28,4 @@ User-Agent: Bingbot
 Allow: /
 
 Sitemap: https://carshake.online/sitemap.xml
+Sitemap: https://carshake.online/sitemap-pseo.xml

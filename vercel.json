@@ -48,10 +48,6 @@
       "destination": "/api/email-capture"
     },
     {
-      "source": "/api/(.*)",
-      "destination": "/api/email-capture"
-    },
-    {
       "source": "/alternatives-to/:slug",
       "destination": "/alternatives-to/:slug.html"
     },
@@ -126,6 +122,14 @@
     {
       "source": "/rss",
       "destination": "/feed.xml"
+    },
+    {
+      "source": "/country/:slug",
+      "destination": "/country/:slug.html"
+    },
+    {
+      "source": "/cost/:slug",
+      "destination": "/cost/:slug.html"
     }
   ],
   "headers": [
@@ -147,6 +151,15 @@
         {
           "key": "Permissions-Policy",
           "value": "camera=(self), geolocation=(self)"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"
         }
       ]
     },
@@ -190,17 +203,8 @@
       "source": "/(.*)",
       "headers": [
         {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://*.posthog.com; connect-src 'self' https://*.posthog.com"
+          "value": "default-src 'self'; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://*.posthog.com; connect-src 'self' https://*.supabase.co https://*.posthog.com"
         }
       ]
     }
