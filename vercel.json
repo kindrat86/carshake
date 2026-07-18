@@ -4,6 +4,14 @@
   "buildCommand": null,
   "rewrites": [
     {
+      "source": "/embed",
+      "destination": "/embed.html"
+    },
+    {
+      "source": "/embed/tools/:slug",
+      "destination": "/embed/tools/:slug.html"
+    },
+    {
       "source": "/how-to/:slug",
       "destination": "/how-to/:slug/index.html"
     },
@@ -197,6 +205,15 @@
     }
   ],
   "headers": [
+    {
+      "source": "(/embed.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "ALLOWALL"
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [

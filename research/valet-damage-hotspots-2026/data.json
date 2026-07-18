@@ -1,0 +1,402 @@
+[
+  {
+    "city": "New York",
+    "state": "NY",
+    "incident_rate_per_1000_valet_visits": "12.4",
+    "valet_density_score": "9.5",
+    "top_damage_type": "Scratched bumper",
+    "avg_damage_claim_usd": "850",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "Los Angeles",
+    "state": "CA",
+    "incident_rate_per_1000_valet_visits": "11.8",
+    "valet_density_score": "8.7",
+    "top_damage_type": "Curbs rash",
+    "avg_damage_claim_usd": "720",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Spring"
+  },
+  {
+    "city": "Miami",
+    "state": "FL",
+    "incident_rate_per_1000_valet_visits": "10.9",
+    "valet_density_score": "9.1",
+    "top_damage_type": "Door dings",
+    "avg_damage_claim_usd": "680",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "Chicago",
+    "state": "IL",
+    "incident_rate_per_1000_valet_visits": "10.5",
+    "valet_density_score": "8.9",
+    "top_damage_type": "Scratched bumper",
+    "avg_damage_claim_usd": "780",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "San Francisco",
+    "state": "CA",
+    "incident_rate_per_1000_valet_visits": "9.8",
+    "valet_density_score": "8.3",
+    "top_damage_type": "Door dings",
+    "avg_damage_claim_usd": "620",
+    "enforcement_strictness": "Strict",
+    "season_peak": "Summer"
+  },
+  {
+    "city": "Boston",
+    "state": "MA",
+    "incident_rate_per_1000_valet_visits": "9.2",
+    "valet_density_score": "7.8",
+    "top_damage_type": "Curbs rash",
+    "avg_damage_claim_usd": "650",
+    "enforcement_strictness": "Strict",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "Dallas",
+    "state": "TX",
+    "incident_rate_per_1000_valet_visits": "8.7",
+    "valet_density_score": "8.4",
+    "top_damage_type": "Bumper scrape",
+    "avg_damage_claim_usd": "540",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Summer"
+  },
+  {
+    "city": "Austin",
+    "state": "TX",
+    "incident_rate_per_1000_valet_visits": "8.4",
+    "valet_density_score": "7.5",
+    "top_damage_type": "Bumper scrape",
+    "avg_damage_claim_usd": "500",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Spring"
+  },
+  {
+    "city": "Atlanta",
+    "state": "GA",
+    "incident_rate_per_1000_valet_visits": "7.9",
+    "valet_density_score": "7.2",
+    "top_damage_type": "Door dings",
+    "avg_damage_claim_usd": "490",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Summer"
+  },
+  {
+    "city": "Houston",
+    "state": "TX",
+    "incident_rate_per_1000_valet_visits": "7.6",
+    "valet_density_score": "7.9",
+    "top_damage_type": "Bumper scrape",
+    "avg_damage_claim_usd": "510",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Summer"
+  },
+  {
+    "city": "Seattle",
+    "state": "WA",
+    "incident_rate_per_1000_valet_visits": "7.3",
+    "valet_density_score": "6.8",
+    "top_damage_type": "Scratched bumper",
+    "avg_damage_claim_usd": "580",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Fall"
+  },
+  {
+    "city": "Denver",
+    "state": "CO",
+    "incident_rate_per_1000_valet_visits": "6.9",
+    "valet_density_score": "6.5",
+    "top_damage_type": "Curbs rash",
+    "avg_damage_claim_usd": "470",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "Philadelphia",
+    "state": "PA",
+    "incident_rate_per_1000_valet_visits": "6.8",
+    "valet_density_score": "6.2",
+    "top_damage_type": "Door dings",
+    "avg_damage_claim_usd": "520",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "San Diego",
+    "state": "CA",
+    "incident_rate_per_1000_valet_visits": "6.5",
+    "valet_density_score": "6.0",
+    "top_damage_type": "Bumper scrape",
+    "avg_damage_claim_usd": "460",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Spring"
+  },
+  {
+    "city": "Phoenix",
+    "state": "AZ",
+    "incident_rate_per_1000_valet_visits": "5.8",
+    "valet_density_score": "5.3",
+    "top_damage_type": "Curbs rash",
+    "avg_damage_claim_usd": "390",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Summer"
+  },
+  {
+    "city": "Portland",
+    "state": "OR",
+    "incident_rate_per_1000_valet_visits": "5.5",
+    "valet_density_score": "5.8",
+    "top_damage_type": "Scratched bumper",
+    "avg_damage_claim_usd": "440",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Fall"
+  },
+  {
+    "city": "Las Vegas",
+    "state": "NV",
+    "incident_rate_per_1000_valet_visits": "5.3",
+    "valet_density_score": "7.6",
+    "top_damage_type": "Door dings",
+    "avg_damage_claim_usd": "420",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Spring"
+  },
+  {
+    "city": "Nashville",
+    "state": "TN",
+    "incident_rate_per_1000_valet_visits": "4.9",
+    "valet_density_score": "5.1",
+    "top_damage_type": "Bumper scrape",
+    "avg_damage_claim_usd": "380",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Fall"
+  },
+  {
+    "city": "Charlotte",
+    "state": "NC",
+    "incident_rate_per_1000_valet_visits": "4.6",
+    "valet_density_score": "4.5",
+    "top_damage_type": "Curbs rash",
+    "avg_damage_claim_usd": "360",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Fall"
+  },
+  {
+    "city": "Indianapolis",
+    "state": "IN",
+    "incident_rate_per_1000_valet_visits": "4.2",
+    "valet_density_score": "4.0",
+    "top_damage_type": "Scratched bumper",
+    "avg_damage_claim_usd": "340",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "Detroit",
+    "state": "MI",
+    "incident_rate_per_1000_valet_visits": "3.9",
+    "valet_density_score": "3.5",
+    "top_damage_type": "Door dings",
+    "avg_damage_claim_usd": "410",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "Columbus",
+    "state": "OH",
+    "incident_rate_per_1000_valet_visits": "3.7",
+    "valet_density_score": "3.8",
+    "top_damage_type": "Bumper scrape",
+    "avg_damage_claim_usd": "320",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Fall"
+  },
+  {
+    "city": "San Antonio",
+    "state": "TX",
+    "incident_rate_per_1000_valet_visits": "3.5",
+    "valet_density_score": "3.6",
+    "top_damage_type": "Curbs rash",
+    "avg_damage_claim_usd": "350",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Summer"
+  },
+  {
+    "city": "Baltimore",
+    "state": "MD",
+    "incident_rate_per_1000_valet_visits": "3.3",
+    "valet_density_score": "3.9",
+    "top_damage_type": "Scratched bumper",
+    "avg_damage_claim_usd": "380",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "Cincinnati",
+    "state": "OH",
+    "incident_rate_per_1000_valet_visits": "3.1",
+    "valet_density_score": "3.2",
+    "top_damage_type": "Bumper scrape",
+    "avg_damage_claim_usd": "300",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Fall"
+  },
+  {
+    "city": "Milwaukee",
+    "state": "WI",
+    "incident_rate_per_1000_valet_visits": "2.9",
+    "valet_density_score": "2.8",
+    "top_damage_type": "Door dings",
+    "avg_damage_claim_usd": "310",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "Kansas City",
+    "state": "MO",
+    "incident_rate_per_1000_valet_visits": "2.8",
+    "valet_density_score": "3.0",
+    "top_damage_type": "Curbs rash",
+    "avg_damage_claim_usd": "290",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Summer"
+  },
+  {
+    "city": "Cleveland",
+    "state": "OH",
+    "incident_rate_per_1000_valet_visits": "2.7",
+    "valet_density_score": "2.5",
+    "top_damage_type": "Scratched bumper",
+    "avg_damage_claim_usd": "330",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "Jacksonville",
+    "state": "FL",
+    "incident_rate_per_1000_valet_visits": "2.5",
+    "valet_density_score": "2.3",
+    "top_damage_type": "Bumper scrape",
+    "avg_damage_claim_usd": "280",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Summer"
+  },
+  {
+    "city": "Honolulu",
+    "state": "HI",
+    "incident_rate_per_1000_valet_visits": "2.3",
+    "valet_density_score": "3.7",
+    "top_damage_type": "Curbs rash",
+    "avg_damage_claim_usd": "350",
+    "enforcement_strictness": "Strict",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "St. Louis",
+    "state": "MO",
+    "incident_rate_per_1000_valet_visits": "2.2",
+    "valet_density_score": "2.4",
+    "top_damage_type": "Door dings",
+    "avg_damage_claim_usd": "310",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Fall"
+  },
+  {
+    "city": "Pittsburgh",
+    "state": "PA",
+    "incident_rate_per_1000_valet_visits": "2.1",
+    "valet_density_score": "2.6",
+    "top_damage_type": "Scratched bumper",
+    "avg_damage_claim_usd": "340",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "Tampa",
+    "state": "FL",
+    "incident_rate_per_1000_valet_visits": "2.0",
+    "valet_density_score": "2.9",
+    "top_damage_type": "Bumper scrape",
+    "avg_damage_claim_usd": "270",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Spring"
+  },
+  {
+    "city": "Minneapolis",
+    "state": "MN",
+    "incident_rate_per_1000_valet_visits": "1.9",
+    "valet_density_score": "2.2",
+    "top_damage_type": "Curbs rash",
+    "avg_damage_claim_usd": "320",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Winter"
+  },
+  {
+    "city": "Virginia Beach",
+    "state": "VA",
+    "incident_rate_per_1000_valet_visits": "1.7",
+    "valet_density_score": "1.5",
+    "top_damage_type": "Scratched bumper",
+    "avg_damage_claim_usd": "250",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Summer"
+  },
+  {
+    "city": "Raleigh",
+    "state": "NC",
+    "incident_rate_per_1000_valet_visits": "1.6",
+    "valet_density_score": "1.8",
+    "top_damage_type": "Door dings",
+    "avg_damage_claim_usd": "280",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Fall"
+  },
+  {
+    "city": "New Orleans",
+    "state": "LA",
+    "incident_rate_per_1000_valet_visits": "1.5",
+    "valet_density_score": "3.1",
+    "top_damage_type": "Bumper scrape",
+    "avg_damage_claim_usd": "360",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Spring"
+  },
+  {
+    "city": "Louisville",
+    "state": "KY",
+    "incident_rate_per_1000_valet_visits": "1.4",
+    "valet_density_score": "1.6",
+    "top_damage_type": "Curbs rash",
+    "avg_damage_claim_usd": "270",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Fall"
+  },
+  {
+    "city": "Memphis",
+    "state": "TN",
+    "incident_rate_per_1000_valet_visits": "1.3",
+    "valet_density_score": "1.4",
+    "top_damage_type": "Scratched bumper",
+    "avg_damage_claim_usd": "290",
+    "enforcement_strictness": "Loose",
+    "season_peak": "Summer"
+  },
+  {
+    "city": "Sacramento",
+    "state": "CA",
+    "incident_rate_per_1000_valet_visits": "1.2",
+    "valet_density_score": "1.7",
+    "top_damage_type": "Door dings",
+    "avg_damage_claim_usd": "260",
+    "enforcement_strictness": "Moderate",
+    "season_peak": "Spring"
+  }
+]
