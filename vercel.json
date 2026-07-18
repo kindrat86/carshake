@@ -144,8 +144,13 @@
       "destination": "/cost/:slug.html"
     },
     {
+<<<<<<< HEAD
       "source": "/state/:slug",
       "destination": "/state/:slug/index.html"
+=======
+      "source": "/free",
+      "destination": "/free/index.html"
+>>>>>>> growth/2026-07-18-carshake
     }
   ],
   "headers": [
