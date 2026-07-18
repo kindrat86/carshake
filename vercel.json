@@ -176,18 +176,34 @@
       "destination": "/blog/:slug/index.html"
     },
     {
-      "source": "source",
-      "destination": "destination"
-    },
-    {
       "source": "/valet-damage-calculator",
       "destination": "/valet-damage-calculator.html"
+    },
+    {
+      "source": "/calculators/:slug",
+      "destination": "/calculators/:slug/index.html"
+    },
+    {
+      "source": "/redflags/:slug",
+      "destination": "/redflags/:slug/index.html"
+    },
+    {
+      "source": "/benchmarks/:slug",
+      "destination": "/benchmarks/:slug/index.html"
+    },
+    {
+      "source": "/sectors/:slug",
+      "destination": "/sectors/:slug/index.html"
     }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
         {
           "key": "X-Frame-Options",
           "value": "DENY"
