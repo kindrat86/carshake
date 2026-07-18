@@ -558,6 +558,7 @@ function bodyCity({ displayName, city, slug }) {
     <a href="/">Home</a> / <a href="/city">City Guides</a> / <span>${displayName}</span>
   </nav>
   <h1 class="cs-h1">Protect Your Car at Valet Parking in ${displayName}</h1>
+  <p class="cs-body" style="background:var(--cs-card-bg);border-left:3px solid var(--cs-gold);padding:var(--cs-space-3);margin-bottom:var(--cs-space-4);border-radius:0 var(--cs-radius) var(--cs-radius) 0"><strong>In a nutshell:</strong> CarShake's free 60-second AI scan documents your car's condition before valet parking in ${displayName}. GPS-timestamped photos, QR handover receipt, and AI comparison at pickup create court-admissible proof of new damage. No app download needed.</p>
   ${brunsonStorySection()}
   <p class="cs-body">${displayName}, ${city.state} is ${city.parkingNotable}. When you hand your keys to a valet, you're trusting someone with a vehicle worth thousands of dollars. Without documented proof of your car's condition before the handover, you have no defense if damage appears at pickup.</p>
   <p class="cs-body">CarShake creates a signed, timestamped, AI-verified record of your car's condition in 60 seconds — right from your phone, no app download needed. The parking attendant scans your QR code and confirms. Both sides sign. Both sides are protected.</p>
@@ -579,6 +580,7 @@ function bodyState({ displayName, data, slug }) {
   return `${headerHtml()}
 <main class="cs-container cs-section">
   <h1 class="cs-h1">Valet Parking Liability Laws in ${displayName}</h1>
+  <p class="cs-body" style="background:var(--cs-card-bg);border-left:3px solid var(--cs-gold);padding:var(--cs-space-3);margin-bottom:var(--cs-space-4);border-radius:0 var(--cs-radius) var(--cs-radius) 0"><strong>In a nutshell:</strong> ${displayName} valet damage liability follows bailment law — the valet company has a duty of care, but you need proof of pre-existing condition to win a dispute. CarShake creates that proof in 60 seconds with AI-verified, GPS-timestamped scans.</p>
   ${brunsonStorySection()}
   <div class="cs-stack cs-stack-md" style="margin-bottom:var(--cs-space-5)">
     <div class="cs-card">
