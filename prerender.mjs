@@ -711,6 +711,7 @@ for (const [slug, data] of Object.entries(STATES)) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
+    headline: title,
     name: title,
     description,
     about: `Valet parking liability laws in ${displayName}`,
@@ -731,6 +732,7 @@ for (const [slug, uc] of Object.entries(USE_CASES)) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
+    headline: title,
     name: title,
     description,
     about: `Protecting your car during ${displayName}`,
@@ -750,6 +752,7 @@ for (const [slug, v] of Object.entries(VEHICLES)) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
+    headline: title,
     name: title,
     description,
     about: `Protecting ${v.display} vehicles at valet parking`,
@@ -789,6 +792,7 @@ for (const [slug, s] of Object.entries(SCENARIOS)) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
+    headline: title,
     name: title,
     description,
     about: `Protecting your car during ${s.display}`,
