@@ -80,6 +80,10 @@
       "destination": "/about.html"
     },
     {
+      "source": "/walkthrough",
+      "destination": "/walkthrough.html"
+    },
+    {
       "source": "/mcp",
       "destination": "/mcp.html"
     },
@@ -166,6 +170,10 @@
     {
       "source": "source",
       "destination": "destination"
+    },
+    {
+      "source": "/valet-damage-calculator",
+      "destination": "/valet-damage-calculator.html"
     }
   ],
   "headers": [

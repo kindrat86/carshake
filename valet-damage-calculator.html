@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Valet Damage Cost Calculator — What You Risk Every Time You Hand Over Your Keys | CarShake</title>
+<meta name="description" content="Calculate what valet damage could cost you. Enter your car value, location, and parking type — see the estimated out-of-pocket cost if a valet damages your car and you have no proof. Free, instant.">
+<link rel="canonical" href="https://carshake.online/valet-damage-calculator">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Valet Damage Cost Calculator — What You Risk">
+<meta property="og:description" content="See what valet damage could cost you — before it happens. Free 30-second calculator.">
+<meta property="og:url" content="https://carshake.online/valet-damage-calculator">
+<meta property="og:image" content="https://carshake.online/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Valet Damage Cost Calculator">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Valet Damage Cost Calculator",
+  "applicationCategory": "LifestyleApplication",
+  "description": "Free interactive calculator estimating out-of-pocket valet damage costs based on vehicle value, location, and parking type. Shows what you risk without timestamped proof.",
+  "url": "https://carshake.online/valet-damage-calculator",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<style>
+:root{color-scheme:light dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#1a1a1a;background:#fff;max-width:820px;margin:0 auto;padding:2rem 1.25rem}
+@media(prefers-color-scheme:dark){body{background:#0a0a0a;color:#e5e5e5}}
+nav{margin-bottom:1.5rem;font-size:.9rem}
+nav a{color:#0066cc;text-decoration:none;font-weight:500}
+h1{font-size:2rem;line-height:1.2;margin:.3em 0 .2em}
+.lede{font-size:1.1rem;color:#555;margin-bottom:1.5rem}
+@media(prefers-color-scheme:dark){.lede{color:#9ca3af}}
+.calc{background:#f9fafb;border:1px solid #e5e7eb;border-radius:14px;padding:1.5rem;margin:1.5rem 0}
+@media(prefers-color-scheme:dark){.calc{background:#111827;border-color:#1f2937}}
+.calc label{display:block;font-weight:600;font-size:.9rem;margin:1rem 0 .25rem}
+.calc select,.calc input[type=range]{width:100%}
+.calc select{padding:.5rem;border:1px solid #d1d5db;border-radius:6px;font-size:1rem;background:#fff;margin-bottom:.5rem}
+@media(prefers-color-scheme:dark){.calc select{background:#0a0a0a;border-color:#374151;color:#e5e5e5}}
+.calc .range-val{font-size:.85rem;color:#6b7280;text-align:right}
+.result{text-align:center;padding:2rem;margin:1.5rem 0;border-radius:14px;display:none}
+.result.show{display:block;background:linear-gradient(135deg,#dc262622,#d9770622);border:1px solid #dc262633}
+.result .risk-amount{font-size:3.5rem;font-weight:800;color:#dc2626;line-height:1}
+.result .risk-label{color:#991b1b;font-size:1rem;margin:.25rem 0 1rem}
+.result .savings{font-size:1.2rem;color:#059669;font-weight:600;margin-top:.75rem}
+.cta-btn{display:inline-block;padding:12px 28px;background:#0066cc;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;margin-top:1rem}
+footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid #e5e7eb;color:#6b7280;font-size:.9rem}
+@media(prefers-color-scheme:dark){footer{border-color:#1f2937;color:#9ca3af}}
+.scenarios{margin-top:2rem}
+.scenarios h2{font-size:1.2rem;margin-bottom:.5rem}
+.scenarios table{width:100%;border-collapse:collapse;font-size:.9rem}
+.scenarios td{padding:.5rem .75rem;border-bottom:1px solid #e5e7eb}
+.scenarios td:last-child{text-align:right;font-weight:600;color:#dc2626}
+@media(prefers-color-scheme:dark){.scenarios td{border-color:#1f2937}}
+</style>
+</head>
+<body>
+
+<nav><a href="/">CarShake</a> › <span>Valet Damage Calculator</span></nav>
+
+<h1>Valet Damage Cost Calculator</h1>
+<p class="lede">What valet damage actually costs — based on your car, your city, and where you park. This is what you risk every time you hand over your keys <strong>without a timestamped pre-handover scan</strong>. With CarShake, the cost is $0.</p>
+
+<div class="calc">
+  <label>Vehicle Value</label>
+  <select id="carValue" onchange="update()">
+    <option value="15000">Economy ($15,000)</option>
+    <option value="35000" selected>Mid-Range ($35,000)</option>
+    <option value="65000">Premium ($65,000)</option>
+    <option value="120000">Luxury ($120,000+)</option>
+  </select>
+
+  <label>Parking Location</label>
+  <select id="location" onchange="update()">
+    <option value="hotel" selected>Hotel Valet</option>
+    <option value="restaurant">Restaurant Valet</option>
+    <option value="airport">Airport Parking</option>
+    <option value="casino">Casino Valet</option>
+    <option value="venue">Event Venue</option>
+    <option value="rental">Rental Car Return</option>
+  </select>
+
+  <label>City Tier</label>
+  <select id="city" onchange="update()">
+    <option value="tier1" selected>Tier 1 (NYC, LA, SF, Miami)</option>
+    <option value="tier2">Tier 2 (Chicago, Boston, DC, Seattle)</option>
+    <option value="tier3">Tier 3 (Austin, Denver, Nashville, Portland)</option>
+    <option value="other">Other / Smaller City</option>
+  </select>
+</div>
+
+<div class="result show" id="result">
+  <div class="risk-amount" id="riskAmount">$2,450</div>
+  <div class="risk-label" id="riskLabel">estimated out-of-pocket cost if valet damages your car and you have NO proof</div>
+  <div class="savings">With CarShake: <strong>$0</strong> — the timestamped scan proves it wasn't you</div>
+  <a href="/" class="cta-btn">Protect Yourself — Get CarShake Free →</a>
+</div>
+
+<div class="scenarios">
+  <h2>Real damage costs by scenario</h2>
+  <table>
+    <tr><td>Door scratch (hotel valet, premium car, NYC)</td><td>$2,800</td></tr>
+    <tr><td>Bumper scuff (restaurant valet, mid-range, LA)</td><td>$1,200</td></tr>
+    <tr><td>Rim rash (casino valet, luxury car, Vegas)</td><td>$3,500</td></tr>
+    <tr><td>Windshield chip (airport parking, economy car)</td><td>$600</td></tr>
+    <tr><td>Dent from adjacent car (event venue, premium)</td><td>$1,800</td></tr>
+    <tr><td>Rental return damage claim (airport, any car)</td><td>$850–$3,000</td></tr>
+  </table>
+</div>
+
+<footer>
+  <p>© 2026 CarShake. <a href="/">Home</a> · <a href="/answers">FAQ</a> · <a href="/case-studies">Case Studies</a> · <a href="https://sipiteno.com">Built by Sipiteno</a></p>
+</footer>
+
+<script>
+const locationMultipliers={hotel:1.4,restaurant:1.1,airport:1.0,casino:1.6,venue:1.15,rental:0.8};
+const cityMultipliers={tier1:1.5,tier2:1.25,tier3:1.0,other:0.7};
+const baseRepairRates={scratch:0.04,dent:0.06,bumper:0.035,rim:0.025,windshield:0.012};
+
+function update(){
+  const carVal=parseInt(document.getElementById('carValue').value);
+  const loc=document.getElementById('location').value;
+  const city=document.getElementById('city').value;
+  const locM=locationMultipliers[loc]||1;
+  const cityM=cityMultipliers[city]||1;
+  
+  // Average repair: scratch(40%) + dent(25%) + bumper(20%) + rim(10%) + windshield(5%)
+  const avgRate=baseRepairRates.scratch*0.4+baseRepairRates.dent*0.25+baseRepairRates.bumper*0.2+baseRepairRates.rim*0.1+baseRepairRates.windshield*0.05;
+  const cost=Math.round(carVal*avgRate*locM*cityM/50)*50;
+  
+  document.getElementById('riskAmount').textContent='$'+cost.toLocaleString();
+  document.getElementById('riskLabel').textContent='estimated out-of-pocket cost for '+document.getElementById('location').selectedOptions[0].text+' — without proof';
+}
+update();
+</script>
+</body>
+</html>
