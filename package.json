@@ -9,6 +9,7 @@
   },
   "scripts": {
     "prerender": "node prerender.mjs",
-    "deploy": "npm run prerender && npx vercel --prod --yes"
+    "guard:positioning": "node scripts/guard-positioning.mjs",
+    "deploy": "npm run prerender && node scripts/guard-positioning.mjs && npx vercel --prod --yes"
   }
 }
