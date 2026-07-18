@@ -138,6 +138,10 @@
     {
       "source": "/cost/:slug",
       "destination": "/cost/:slug.html"
+    },
+    {
+      "source": "/state/:slug",
+      "destination": "/state/:slug/index.html"
     }
   ],
   "headers": [
