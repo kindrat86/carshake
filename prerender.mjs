@@ -130,7 +130,13 @@ function injectMetaBody(baseHtml, { title, description, canonical, ogTitle, ogDe
       else depth++;
     }
     if (rootEnd !== -1) {
-      const rootEl = `<div id="root">\n      <div class="cs-page">\n        ${bodyHtml.trim()}\n      </div>\n    </div>`;
+      // Auto-inject TL;DR after first <h1> for AEO scoring (E4). Skip if page already has one.
+      let bodyWithTLDR = bodyHtml.trim();
+      if (description && !/<p[^>]*class="[^"]*tldr[^"]*"/i.test(bodyWithTLDR) && !/TL;DR/i.test(bodyWithTLDR)) {
+        const tldrHtml = `<p class="tldr cs-body-sm" style="background:var(--cs-card-bg);border-left:3px solid var(--cs-gold);padding:var(--cs-space-3);margin:0 0 var(--cs-space-4);border-radius:0 var(--cs-radius) var(--cs-radius) 0;font-style:italic"><strong>TL;DR:</strong> ${escapeHtml(description)}</p>`;
+        bodyWithTLDR = bodyWithTLDR.replace(/(<h1[^>]*>[^<]*<\/h1>)/i, `$1\n${tldrHtml}`);
+      }
+      const rootEl = `<div id="root">\n      <div class="cs-page">\n        ${bodyWithTLDR}\n      </div>\n    </div>`;
       html = html.slice(0, rootStart) + rootEl + html.slice(rootEnd);
     }
   }

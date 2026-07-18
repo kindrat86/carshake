@@ -120,6 +120,18 @@
       "destination": "/case-studies.html"
     },
     {
+      "source": "/checklists",
+      "destination": "/checklists.html"
+    },
+    {
+      "source": "/cities",
+      "destination": "/cities.html"
+    },
+    {
+      "source": "/cost-of",
+      "destination": "/cost-of.html"
+    },
+    {
       "source": "/AGENTS.md",
       "destination": "/agents.md"
     },

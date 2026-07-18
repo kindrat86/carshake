@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://carshake.online/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://carshake.online/city/new-york</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -109,4 +109,4 @@
   <url><loc>https://carshake.online/blog/valet-damage-cities</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://carshake.online/blog/ai-valet-comparison</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://carshake.online/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-<url><loc>https://carshake.online/free</loc><changefreq>monthly</changefreq><priority>0.8</priority></url><url><loc>https://carshake.online/blog/what-to-do-valet-damages-your-car</loc><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://carshake.online/checklists/valet-handover</loc><changefreq>monthly</changefreq><priority>0.7</priority></url></urlset>
+</urlset>
