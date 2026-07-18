@@ -1,18 +1,18 @@
 # CarShake — Agent Reference
 
-> Valet Damage Proof & Vehicle Handover App. CarShake provides a three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Court-admissible timestamps and photos.
+> The free valet-damage-proof & car-handover app.. CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims. (CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) — not a B2B insurance damage-detection API.)
 
 ## What this product does
 
-CarShake provides a three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Court-admissible timestamps and photos. Built for Valet operators, rental car companies, body shops, car dealerships, parking facilities.
+CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims. Built for drivers, valet operators, rental fleets, car dealerships, body shops, and parking facilities.
 
 ## Target Audience
 
-Valet operators, rental car companies, body shops, car dealerships, parking facilities
+drivers, valet operators, rental fleets, car dealerships, body shops, and parking facilities
 
 ## Key Pages
 
-- [Homepage](https://carshake.online/): Valet Damage Proof & Vehicle Handover App
+- [Homepage](https://carshake.online/): The free valet-damage-proof & car-handover app.
 - [FAQ](https://carshake.online/faq): Common questions
 - [About](https://carshake.online/about): About CarShake
 

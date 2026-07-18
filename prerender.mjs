@@ -112,13 +112,27 @@ function injectMetaBody(baseHtml, { title, description, canonical, ogTitle, ogDe
     );
   }
 
-  // Replace the body content inside #root
-  const rootMatch = html.match(/<div id="root">([\s\S]*?)<\/div>\s*<\/body>/);
-  if (rootMatch) {
-    html = html.replace(
-      rootMatch[1],
-      `\n      <div class="cs-page">\n        ${bodyHtml.trim()}\n      </div>\n    `
-    );
+  // Replace the #root element with this page's body, always emitting a balanced,
+  // properly-closed root. The old approach matched /<div id="root">…<\/div>\s*<\/body>/
+  // — it assumed root's closing </div> sat directly before </body>. Once an AEO block
+  // was baked into index.html between root's close and </body>, that regex stopped
+  // matching (silent no-op → pages shipped without their body), and earlier runs left
+  // <div id="root"> unclosed on 255 pages. We instead locate root's matching </div> by
+  // depth-counting and rebuild the whole element, so nesting is always correct and any
+  // trailing content (AEO block, JSON-LD, </body>) is preserved verbatim.
+  const rootStart = html.indexOf('<div id="root">');
+  if (rootStart !== -1) {
+    const scan = /<div\b|<\/div>/g;
+    scan.lastIndex = rootStart + '<div id="root">'.length;
+    let depth = 1, rootEnd = -1, m;
+    while ((m = scan.exec(html)) !== null) {
+      if (m[0] === '</div>') { if (--depth === 0) { rootEnd = scan.lastIndex; break; } }
+      else depth++;
+    }
+    if (rootEnd !== -1) {
+      const rootEl = `<div id="root">\n      <div class="cs-page">\n        ${bodyHtml.trim()}\n      </div>\n    </div>`;
+      html = html.slice(0, rootStart) + rootEl + html.slice(rootEnd);
+    }
   }
 
   return html;

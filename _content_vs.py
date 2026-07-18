@@ -95,7 +95,6 @@ def gen_vs(slug, display_name):
 <tbody>
 {carshake_rows}
 <tr><td>Mobile app (consumer)</td><td>Yes</td><td>{"Yes" if "consumer" in d["category"] or "mobile" in d["category"] else "No"}</td></tr>
-<tr><td>Free tier</td><td>Yes</td><td>{"Varies" if "enterprise" in d["focus"] else "No"}</td></tr>
 </tbody>
 </table>
 

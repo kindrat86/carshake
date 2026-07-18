@@ -71,6 +71,16 @@ def process_file(filepath, gen_func, slug, display_name=None):
     if wc_before >= 300:
         return ("skip_ok", wc_before)
 
+    # Never staple a second comparison onto a page that already has one. The round15
+    # pages ship a "Quick comparison" table plus an FAQ but run under 300 words, so
+    # without this guard they get a duplicate "Feature comparison" section (and a second
+    # FAQ) appended on every run.
+    low = content.lower()
+    if ("feature comparison:" in low
+            or "quick comparison" in low
+            or "<!-- isenberg-round" in low):
+        return ("skip_has_comparison", wc_before)
+
     new_html = gen_func(slug, display_name) if display_name else gen_func(slug)
     if not new_html:
         return ("no_template", wc_before)

@@ -1,42 +1,37 @@
 {
+  "schemaVersion": "0.1",
   "name": "carshake",
   "displayName": "CarShake",
-  "description": "CarShake is a valet damage proof and vehicle handover app. Three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Built for valet operat",
-  "version": "1.0.0",
-  "vendor": {
+  "description": "Valet damage proof and vehicle handover documentation app.",
+  "homepageUrl": "https://carshake.online/mcp",
+  "contactEmail": "support@carshake.online",
+  "publisher": {
     "name": "CarShake",
     "url": "https://carshake.online"
   },
-  "license": "MIT",
-  "homepage": "https://carshake.online",
-  "categories": [
-    "productivity"
+  "endpoints": {
+    "streamableHttp": "https://carshake.online/api/mcp"
+  },
+  "transports": [
+    "streamable-http"
   ],
-  "tags": [
-    "valet damage",
-    "car damage proof",
-    "vehicle handover",
-    "parking damage",
-    "bailment law",
-    "qr handover"
-  ],
-  "protocol": {
-    "version": "2025-06-18",
-    "transport": [
-      "streamable-http"
-    ]
+  "capabilities": {
+    "tools": true,
+    "prompts": false,
+    "resources": false
   },
   "tools": [
     {
-      "name": "create_handover_receipt",
-      "description": "Generate a QR-coded vehicle handover receipt with timestamped condition photos.",
-      "readOnly": true,
-      "idempotent": true
+      "name": "create_handover_checklist",
+      "summary": "Generate a vehicle handover checklist."
+    },
+    {
+      "name": "get_damage_documentation_guide",
+      "summary": "Get best practices for documenting vehicle damage."
+    },
+    {
+      "name": "list_valet_faq",
+      "summary": "Search vehicle handover FAQ."
     }
-  ],
-  "privacy": {
-    "piiCollected": false,
-    "dataStored": false,
-    "thirdPartyData": false
-  }
+  ]
 }
