@@ -37,17 +37,9 @@
   <link rel="alternate" hreflang="ru" href="https://carshake.online/ru" />
   <link rel="alternate" hreflang="ur" href="https://carshake.online/ur" />
   <link rel="alternate" hreflang="id" href="https://carshake.online/id" />
-  <link rel="alternate" hreflang="de" href="https://carshake.online/de" />
-  <link rel="alternate" hreflang="ja" href="https://carshake.online/ja" />
-  <link rel="alternate" hreflang="ko" href="https://carshake.online/ko" />
-  <link rel="alternate" hreflang="it" href="https://carshake.online/it" />
-  <link rel="alternate" hreflang="th" href="https://carshake.online/th" />
-  <link rel="alternate" hreflang="pl" href="https://carshake.online/pl" />
-  <link rel="alternate" hreflang="nl" href="https://carshake.online/nl" />
-  <link rel="alternate" hreflang="tr" href="https://carshake.online/tr" />
-  <link rel="alternate" hreflang="vi" href="https://carshake.online/vi" />
-  <link rel="alternate" hreflang="he" href="https://carshake.online/he" />
-  <link rel="alternate" hreflang="sv" href="https://carshake.online/sv" />
+  <!-- AEO fix 2026-07-18: removed 11 hreflang tags for locales with no pages (de/ja/ko/it/th/pl/nl/tr/vi/he/sv).
+       Advertising URLs that 404 is a textbook AI-hallucinated-URL problem (AI sends users to 404s 2.87× more than Google).
+       Re-add each tag only after the locale dir is generated via i18n/generate-all.mjs. -->
   <link rel="alternate" hreflang="x-default" href="https://carshake.online/" />
   <script type="application/ld+json">{
     "@context": "https://schema.org",
@@ -317,17 +309,8 @@
                   <option value="/bn">বাংলা</option>
                   <option value="/pt">Português</option>
                   <option value="/ru">Русский</option>
-                  <option value="/de">Deutsch</option>
-                  <option value="/ja">日本語</option>
-                  <option value="/ko">한국어</option>
-                  <option value="/it">Italiano</option>
-                  <option value="/th">ไทย</option>
-                  <option value="/vi">Tiếng Việt</option>
-                  <option value="/tr">Türkçe</option>
-                  <option value="/pl">Polski</option>
-                  <option value="/nl">Nederlands</option>
-                  <option value="/he">עברית</option>
-                  <option value="/sv">Svenska</option>
+                  <!-- AEO fix 2026-07-18: removed 11 options pointing to 404 locales (de/ja/ko/it/th/pl/nl/tr/vi/he/sv).
+                       Re-add only after the locale is generated. Clicking these sent users to a 404. -->
                 </select>
               </div>
             </nav>
