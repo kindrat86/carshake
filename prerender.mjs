@@ -871,8 +871,8 @@ for (const [slug, tp] of Object.entries(TOP_PAGES)) {
   const bodyHtml = tp.body || `${headerHtml()}
 <main class="cs-container cs-section">
   <h1 class="cs-h1">${tp.h1}</h1>
+  <p class="cs-body" style="font-size:1.1rem;color:var(--cs-text);margin-bottom:var(--cs-space-4)"><strong>${tp.description}</strong></p>
   ${slug === 'pricing' ? '' : brunsonStorySection()}
-  <p class="cs-body">${tp.description}</p>
   ${brunsonLeadSection()}
   ${brunsonCTA()}
 </main>
