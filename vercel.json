@@ -140,8 +140,16 @@
       "destination": "/agents.md"
     },
     {
-      "source": "/agents.md",
-      "destination": "/agents.md"
+      "source": "/network",
+      "destination": "/network.html"
+    },
+    {
+      "source": "/network-widget",
+      "destination": "/network-widget.html"
+    },
+    {
+      "source": "/network-feed",
+      "destination": "/network-feed.json"
     },
     {
       "source": "/feed",
