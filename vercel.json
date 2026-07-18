@@ -116,6 +116,10 @@
       "destination": "/answers.html"
     },
     {
+      "source": "/case-studies",
+      "destination": "/case-studies.html"
+    },
+    {
       "source": "/AGENTS.md",
       "destination": "/agents.md"
     },
