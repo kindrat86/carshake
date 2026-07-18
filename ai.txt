@@ -1,0 +1,9 @@
+# ai.txt -- CarShake AI usage declaration
+# Spawning spec: https://spawning.ai/ai-txt
+#
+# CarShake welcomes AI use of its public content: search, retrieval,
+# answer-engine citation, summarization, inference, and model training /
+# dataset storage. Attribution requested: CarShake, https://carshake.online
+User-Agent: *
+Allow: Training
+Allow: Storing
