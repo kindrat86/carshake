@@ -65,7 +65,7 @@
   <script type="module" crossorigin src="/assets/index-fzxhT5D0.js"></script>
   <!-- Email capture handler for SSR pages -->
 <script>
-(function(){var u="https://eoenjehnkuhknjybjgzr.supabase.co",k="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvZW5qZWhua3Voa25qeWJqZ3pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5ODYzMzAsImV4cCI6MjA4ODU2MjMzMH0.PzMXARHR4LX9wRkCHmq0kUmUXFv3-cRSRn_uyfpzmkc";document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".cs-email-form").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();var i=f.querySelector(".cs-email-input"),b=f.querySelector(".cs-email-btn"),s=f.parentElement.querySelector(".cs-email-success");if(!i||!i.value)return;b.disabled=true;b.textContent="Sending...";fetch(u+"/rest/v1/scans",{method:"POST",headers:{"Content-Type":"application/json","apikey":k,"Authorization":"Bearer "+k,"Prefer":"return=minimal"},body:JSON.stringify({email:i.value,source:f.getAttribute("data-source")||"seo-page",signup_source:"carshake_seo"})}).then(function(r){if(r.ok||r.status===201){f.style.display="none";s.style.display="block";try{window.posthog&&window.posthog.capture("email_captured",{location:f.getAttribute("data-source")})}catch(e){}}else{b.disabled=false;b.textContent="Send Me The Free Playbook \u2192";alert("Something went wrong.")}}).catch(function(){b.disabled=false;b.textContent="Send Me The Free Playbook \u2192";alert("Network error.")})})})})})();
+(function(){var u="https://eoenjehnkuhknjybjgzr.supabase.co",k="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvZW5qZWhua3Voa25qeWJqZ3pyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5ODYzMzAsImV4cCI6MjA4ODU2MjMzMH0.PzMXARHR4LX9wRkCHmq0kUmUXFv3-cRSRn_uyfpzmkc";document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".cs-email-form").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();var i=f.querySelector(".cs-email-input"),b=f.querySelector(".cs-email-btn"),s=f.parentElement.querySelector(".cs-email-success"),srcSel=f.querySelector(".cs-email-source");if(!i||!i.value)return;var attribution=srcSel&&srcSel.value?srcSel.value:null;b.disabled=true;b.textContent="Sending...";var payload={email:i.value,source:f.getAttribute("data-source")||"seo-page",signup_source:"carshake_seo"};if(attribution){payload.attribution=attribution;}fetch(u+"/rest/v1/scans",{method:"POST",headers:{"Content-Type":"application/json","apikey":k,"Authorization":"Bearer "+k,"Prefer":"return=minimal"},body:JSON.stringify(payload)}).then(function(r){if(r.ok||r.status===201){f.style.display="none";s.style.display="block";try{window.posthog&&window.posthog.capture("email_captured",{location:f.getAttribute("data-source"),attribution:attribution||"unanswered"})}catch(e){}}else{b.disabled=false;b.textContent="Send Me The Free Playbook \u2192";alert("Something went wrong.")}}).catch(function(){b.disabled=false;b.textContent="Send Me The Free Playbook \u2192";alert("Network error.")})})})})})();
 </script>
 
 <!-- Organization Schema -->
@@ -79,7 +79,7 @@
   "description": "Three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Court-admissible timestamps and photos.",
   "disambiguatingDescription": "CarShake is a free, consumer-side vehicle-handover proof tool for drivers — not to be confused with Carscan, Chex.ai, or Spyne, which are B2B AI damage-detection platforms for insurers and fleets.",
   "logo": "https://carshake.online/og-image.png",
-  "sameAs": ["https://twitter.com/carshake", "https://instagram.com/carshake"]
+  "sameAs": ["https://twitter.com/carshake", "https://www.instagram.com/carshake", "https://github.com/kindrat86"]
 }
 </script>
 
@@ -156,6 +156,54 @@
         "@type": "Answer",
         "text": "Yes. CarShake produces timestamped, GPS-verified photo evidence with SHA-256 hashing. Both parties digitally confirm the car's condition via the QR handover receipt. This creates court-admissible documentation that ties damage to a specific time window — invaluable for valet disputes, insurance claims, and rental car damage cases."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How many photos does a CarShake scan capture, and how long does it take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A CarShake scan captures exactly 8 timestamped, GPS-verified photos covering every exterior angle of the vehicle — front, rear, both sides, and all four wheel corners. The full scan takes about 60 seconds. No app download is required; it runs in any smartphone browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CarShake work for rental cars, or only valet parking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CarShake works for any vehicle handover where you want proof of condition: valet parking, rental car pickup and return, hotel and airport parking, dealership service drops, body shop handovers, and private car sales. The same 3-Stop Protocol (scan, QR handover receipt, rescan) applies to every scenario."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if the valet or attendant refuses to scan the QR code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the attendant refuses the QR handshake, your pre-handover scan is still timestamped, GPS-verified, and SHA-256 hashed — you have documented the car's condition before the handover regardless. The QR receipt strengthens the evidence by creating mutual acknowledgment, but a refused scan does not invalidate your pre-scan. Note the refusal in your records; courts and insurers weight a timestamped before-state photo heavily even without the attendant's sign-off."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is CarShake available outside the United States?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. CarShake is a web app available worldwide in 10 languages: English, Simplified Chinese, Hindi, Spanish, French, Arabic, Bengali, Portuguese, Russian, Urdu, and Indonesian. It works in any country. City-specific guides are available for major US cities including New York, Los Angeles, Chicago, Miami, San Francisco, Boston, Austin, Atlanta, and Las Vegas, plus international cities including London, Paris, Tokyo, Dubai, Barcelona, Milan, and Singapore."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who built CarShake, and when was it launched?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CarShake was built by its founder after a hotel valet in Beverly Hills damaged his car in December 2023 — the valet manager's defense ('how do we know it wasn't already like that?') was unanswerable without before-state evidence. The founder paid $4,200 for the repair out of pocket and built CarShake so no driver faces the same powerless position. The product launched in 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is CarShake different from taking photos with my phone camera?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Phone photos alone are weak evidence: they lack verified timestamps, GPS coordinates, cryptographic integrity (SHA-256 hashing), and mutual acknowledgment. CarShake's 3-Stop Protocol produces a structured, court-admissible record where every photo is timestamped, location-stamped, hashed, and tied to a QR handover receipt that both parties acknowledged the condition. Courts and insurers weight structured, verified documentation far above unstructured phone photos."
+      }
     }
   ]
 }
@@ -175,7 +223,7 @@
       "name": "CarShake",
       "url": "https://carshake.online",
       "description": "Valet Damage Proof & Vehicle Handover App. Scan before valet, QR handover receipt, post-retrieval proof.",
-      "sameAs": ["https://twitter.com/carshake", "https://github.com/kindrat86"]
+      "sameAs": ["https://twitter.com/carshake", "https://www.instagram.com/carshake", "https://github.com/kindrat86"]
     },
     {
       "@type": "WebSite",
@@ -195,7 +243,7 @@
 <!-- Traffic-Readiness JSON-LD org+website schema -->
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "CarShake \u2014 Valet Damage Proof & Vehicle Handover", "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".cs-hero-text", ".tldr"]}, "url": "https://carshake.online"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "CarShake", "alternateName": "CarShake Online", "url": "https://carshake.online", "logo": "https://carshake.online/og-image.png", "description": "CarShake is a free valet damage protection app that creates timestamped, GPS-verified proof of your car's condition before and after valet parking. The 3-Stop Protocol (scan, QR handover, rescan) produces court-admissible evidence.", "slogan": "Never pay for valet damage you didn't cause.", "foundingDate": "2026", "email": "hello@carshake.online", "applicationCategory": "AutoMobileApplication", "knowsAbout": ["valet parking damage", "vehicle handover documentation", "bailment law", "car damage proof", "parking lot damage", "rental car inspection", "timestamped vehicle photos", "QR handover receipts", "small claims court evidence"], "sameAs": ["https://carshake.online", "https://github.com/carshake"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "CarShake", "alternateName": "CarShake Online", "url": "https://carshake.online", "logo": "https://carshake.online/og-image.png", "description": "CarShake is a free valet damage protection app that creates timestamped, GPS-verified proof of your car's condition before and after valet parking. The 3-Stop Protocol (scan, QR handover, rescan) produces court-admissible evidence.", "slogan": "Never pay for valet damage you didn't cause.", "foundingDate": "2026", "email": "hello@carshake.online", "applicationCategory": "AutoMobileApplication", "knowsAbout": ["valet parking damage", "vehicle handover documentation", "bailment law", "car damage proof", "parking lot damage", "rental car inspection", "timestamped vehicle photos", "QR handover receipts", "small claims court evidence"], "sameAs": ["https://twitter.com/carshake", "https://www.instagram.com/carshake", "https://github.com/kindrat86"]}</script>
   <!-- entity-seo-mesh-carshake.online -->
   <script type="application/ld+json" data-entity-mesh="carshake.online">
 {
@@ -393,6 +441,20 @@
                 <form class="cs-email-form cs-form-stack" action="javascript:void(0)" data-source="homepage-hero">
                   <input type="email" class="cs-email-input" name="email" placeholder="your@email.com" required />
                   <input type="hidden" name="source" value="homepage-hero" />
+                  <!-- AEO module-4: self-reported attribution — the #1 way to tie AI visibility to signups -->
+                  <label style="font-size:0.75rem;color:var(--cs-text-muted);margin:0.5rem 0 0.25rem;text-align:left;display:block">How did you hear about us?</label>
+                  <select class="cs-email-source" name="attribution" style="padding:0.6rem;border:1px solid var(--cs-border);border-radius:var(--cs-radius-sm);font-size:0.875rem;background:var(--cs-bg);color:var(--cs-text);width:100%">
+                    <option value="">Select…</option>
+                    <option value="ai_chatgpt">AI assistant (ChatGPT / Claude / Gemini / Copilot)</option>
+                    <option value="ai_perplexity">Perplexity</option>
+                    <option value="ai_overviews">Google AI Overviews / AI Mode</option>
+                    <option value="google">Google search</option>
+                    <option value="reddit">Reddit / forum</option>
+                    <option value="social">Social media (X, Instagram, TikTok)</option>
+                    <option value="news">News article / blog</option>
+                    <option value="friend">Referral / friend</option>
+                    <option value="other">Other</option>
+                  </select>
                   <button type="submit" class="cs-email-btn">Send Me The Free Playbook →</button>
                 </form>
                 <div class="cs-email-success" style="display:none;padding:1rem;background:#065F46;border-radius:var(--cs-radius-md);color:white;font-size:0.875rem;font-weight:600">✓ Check your email for the free Valet Damage Playbook</div>
@@ -434,6 +496,7 @@
                   <a href="/protect/street-parking" class="cs-movement-link">Street Parking</a>
                   <a href="/protect/dealership-service" class="cs-movement-link">Dealership</a>
                 </div>
+                <p style="text-align:center;margin-top:var(--cs-space-3)"><a href="/ultimate-guide-valet-damage-proof" style="color:var(--cs-accent);font-weight:600;text-decoration:underline">📖 Read the complete guide: The Ultimate Guide to Valet Damage Proof →</a></p>
               </div>
             </div>
           </section>
