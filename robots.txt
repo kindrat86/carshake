@@ -29,3 +29,5 @@ Allow: /
 
 Sitemap: https://carshake.online/sitemap.xml
 Sitemap: https://carshake.online/sitemap-pseo.xml
+
+Sitemap: https://carshake.online/sitemap-index.xml

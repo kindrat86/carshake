@@ -44,6 +44,10 @@
       "destination": "/api/nlweb"
     },
     {
+      "source": "/api/mcp",
+      "destination": "/api/mcp"
+    },
+    {
       "source": "/api/email-capture",
       "destination": "/api/email-capture"
     },
@@ -74,6 +78,10 @@
     {
       "source": "/about",
       "destination": "/about.html"
+    },
+    {
+      "source": "/mcp",
+      "destination": "/mcp.html"
     },
     {
       "source": "/contact",
