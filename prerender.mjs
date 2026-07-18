@@ -907,6 +907,8 @@ ${movementHtml()}`;
 }
 
 // ── Sitemap generation ────────────────────────────────────────────
+// Custom static pages (served via Vercel rewrite, not prerendered)
+pages.push('https://carshake.online/about');
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${SITE}/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>

@@ -36,10 +36,6 @@
       "destination": "/free/:slug/index.html"
     },
     {
-      "source": "/tools/:slug",
-      "destination": "/tools/:slug/index.html"
-    },
-    {
       "source": "/api/a2a",
       "destination": "/api/a2a"
     },
@@ -222,6 +218,11 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/tools/damage-claim-letter-generator",
+      "destination": "/free/valet-damage-claim-letter",
+      "permanent": true
+    },
     {
       "source": "/de",
       "destination": "/",
