@@ -56,19 +56,27 @@ ul.cross{list-style:none;padding-left:0}ul.cross li::before{content:"✗  ";colo
 <p class="lede">CarShake&#x27;s three-stop protocol: scan before valet, QR-coded receipt, post-retrieval scan. Produces court-admissible condition timeline.</p>
 
 <h2>Three-stop protocol, explained</h2>
-<p>CarShake&#x27;s three-stop protocol: scan before valet, QR-coded receipt, post-retrieval scan. Produces court-admissible condition timeline. In the context of CarShake (Valet damage proof &amp; vehicle handover), three-stop protocol is one of the core concepts vehicle condition app users need to understand.</p>
+<p>The three-stop protocol is CarShake's core workflow for producing court-admissible vehicle condition evidence. It is named for the three discrete moments at which condition is recorded: before handover, at the moment of handover, and after retrieval. Each stop produces a specific type of evidence that, taken together, form an unbroken chain of custody.</p>
+<p>The first stop is the pre-handover scan. Before you give your keys to a valet, attendant, or rental agent, you walk around the vehicle while CarShake captures a guided set of timestamped, geo-located photographs. The second stop is the QR handover receipt: at the exact moment custody transfers, CarShake generates a QR code that links to the pre-handover scan and stamps the time of transfer. The third stop is the post-retrieval scan, performed when the vehicle is returned. CarShake automatically compares it against the pre-handover scan and flags any new damage.</p>
+<p>The protocol is designed around the evidentiary standard courts and insurers actually apply. A single "before" photo or a single "after" photo proves nothing in isolation. What matters is an unbroken timeline anchored by tamper-evident timestamps from a neutral third party. The three-stop protocol produces that timeline automatically, with no user expertise required.</p>
 
 <h2>Why three-stop protocol matters</h2>
-<p>Understanding three-stop protocol matters because it directly affects how you use CarShake. Get the definition wrong and you will misconfigure your vehicle condition app. Get it right and the rest of the workflow follows.</p>
+<p>Valet damage disputes almost always come down to one question: did the damage exist before handover, or did it occur during the operator's custody? Without a documented timeline, that question is unanswerable, and the operator's insurer wins by default. The three-stop protocol converts a he-said-she-said dispute into a documented chain of evidence that the operator cannot credibly dispute.</p>
+<p>The protocol also matters because it is built for non-experts. Anyone can run a scan in under 60 seconds without training, which means the evidence gets captured consistently regardless of who is using the app. The result is a tamper-evident record that holds up in small claims court, in insurance arbitrations, and in formal litigation.</p>
+
+<h2>How CarShake handles this</h2>
+<p>CarShake encodes the three-stop protocol directly into the app's primary workflow. A pre-handover scan, a QR handover receipt, and a post-retrieval scan are each one tap. The app guides the user through each step and refuses to let a handover complete without the preceding scan. Server-side timestamps make the records tamper-evident, and the linked chain is exportable as a single PDF evidence file.</p>
 
 <h2>Related terms</h2>
-<p>See the full CarShake glossary for related concepts in the vehicle condition app space.</p>
+<p>See the full CarShake glossary for related concepts: <a href="/glossary/valet-handover">valet handover</a>, <a href="/glossary/pre-damage-capture">pre-damage capture</a>, <a href="/glossary/qr-handover-receipt">QR handover receipt</a>, <a href="/glossary/condition-timeline">condition timeline</a>, and <a href="/glossary/damage-proof">damage proof</a>.</p>
 
 <h2>Frequently asked questions</h2>
 <h3>What is three-stop protocol?</h3>
-<p>CarShake&#x27;s three-stop protocol: scan before valet, QR-coded receipt, post-retrieval scan. Produces court-admissible condition timeline.</p>
-<h3>How does CarShake handle three-stop protocol?</h3>
-<p>CarShake treats three-stop protocol as a first-class concept in its vehicle condition app workflow.</p>
+<p>CarShake's three-stop protocol is the workflow of recording vehicle condition at three specific moments — before handover, at handover, and after retrieval — to produce an unbroken chain of custody.</p>
+<h3>How long does a full three-stop cycle take?</h3>
+<p>About 90 seconds end to end. The pre-handover scan is roughly 45 seconds, the QR receipt is instant, and the post-retrieval scan is another 45 seconds.</p>
+<h3>Can I use only one or two of the three stops?</h3>
+<p>You can, but the chain of custody is weaker. The protocol is designed to be used as a complete set; missing any stop creates a gap the operator's insurer can exploit.</p>
 
 <div class="cta"><a href="https://carshake.online/">Try CarShake &rarr;</a></div>
 

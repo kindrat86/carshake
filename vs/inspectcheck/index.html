@@ -37,9 +37,44 @@
     </header>
     <main>
         <h1 style="font-size:2em;font-weight:800;margin-bottom:.5em;line-height:1.2">CarShake vs InspectCheck</h1>
-        <p style="font-size:1.1em;color:#555;margin-bottom:2em">InspectCheck is a general inspection tool. We're valet-specific.</p>
-        <p>Comparing CarShake vs InspectCheck: valet-specific QR handover vs general vehicle inspection. CarShake's 3-step protocol designed specifically for valet damage claims.</p>
-<p><a href="https://carshake.online" style="color:#0066cc">Back to CarShake →</a></p>
+        <p style="font-size:1.1em;color:#555;margin-bottom:2em">InspectCheck is a general vehicle inspection tool. CarShake is built for one job: valet handovers.</p>
+
+        <p>InspectCheck is a checklist-style inspection app used by rental agents, body shops, and fleet operators to walk around a vehicle, mark damage against a template, and export a signed PDF. It is a competent generalist: flexible templates, customizable damage categories, signature capture, and PDF export. What it does not have is a handover protocol — the moment where two parties exchange keys and need a shared, mutually confirmed record of who held the car and in what condition.</p>
+
+        <p>CarShake is purpose-built for that moment. The three-stop protocol (scan before, QR handover receipt, scan after) exists because the average valet damage dispute is not "what was wrong with the car?" — it's "whose fault is the new scratch?" That question is about custody and timing, which is exactly what InspectCheck does not capture.</p>
+
+        <h2>Feature comparison</h2>
+        <table style="width:100%;border-collapse:collapse;margin:1rem 0;font-size:.95rem">
+        <thead><tr style="background:#f9fafb"><th style="border:1px solid #e5e7eb;padding:.6rem .75rem;text-align:left">Capability</th><th style="border:1px solid #e5e7eb;padding:.6rem .75rem;text-align:left">CarShake</th><th style="border:1px solid #e5e7eb;padding:.6rem .75rem;text-align:left">InspectCheck</th></tr></thead>
+        <tbody>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Photo documentation</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Guided 8-angle AI scan</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Manual photo per checklist item</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Timestamp verification</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Immutable, court-admissible</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Report date, not per-photo</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">QR handover receipt</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Yes — mutual confirmation</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">No</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Multi-vehicle support</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Yes</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Yes</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Price</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Free (3 scans/mo); $2.97/mo unlimited</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Paid plans from ~$15/mo per user</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Court admissibility focus</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Core design goal</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Not a focus</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Sharing</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">One-tap PDF / link to anyone</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">PDF export, email attachment</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Offline mode</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Yes</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Yes</td></tr>
+        </tbody>
+        </table>
+
+        <h2>When to choose CarShake</h2>
+        <p>Choose CarShake when the use case is a handover, not an audit. The driver-side flow is built for someone with 60 seconds at a valet stand, not a technician with 10 minutes to fill out a form. The guided AI scan removes the decision of "what do I photograph?" and the QR-coded receipt creates a shared record both parties have acknowledged at the moment of transfer — the exact evidence missing from most valet disputes.</p>
+        <p>CarShake is also the better choice when the goal is to win a dispute, not just log one. Because every photo is stamped with an immutable timestamp and the handover receipt ties a specific vehicle condition to a specific moment of custody, the export is structured as evidence. InspectCheck produces a condition report; CarShake produces a chain of custody.</p>
+
+        <h2>When InspectCheck might be better</h2>
+        <p>InspectCheck wins when you need a flexible, template-driven inspection tool rather than a handover protocol. Body shops documenting incoming work, rental fleets doing exit inspections against a fixed checklist, and dealerships running used-car intake all benefit from a configurable form. If "I need to mark dent on the right rear door with a notes field and a signature line" describes your workflow better than "I need to prove this scratch existed before the valet," InspectCheck's generalist design fits better.</p>
+        <p>InspectCheck is also the stronger pick for organizations that already operate inside an inspection-heavy process and need their tool to bend to that process, not the other way around. CarShake's three-stop protocol is intentionally rigid — that is what makes it hold up in disputes — but rigidity is a liability when the job is open-ended documentation.</p>
+
+        <h2>Frequently asked questions</h2>
+        <details><summary><strong>Can I run both InspectCheck and CarShake?</strong></summary><p>Yes. A rental operator can use InspectCheck for the exit walk-around and CarShake for the customer-facing valet handover. They solve different problems and the data does not conflict.</p></details>
+        <details><summary><strong>Is CarShake really court-admissible?</strong></summary><p>CarShake evidence is timestamped, geotagged, and immutable — the properties small-claims courts and insurers look for in contemporaneous records. It is designed to be admissible; whether a specific court accepts it always depends on jurisdiction and the facts of the case.</p></details>
+        <details><summary><strong>Why does CarShake not use inspection templates?</strong></summary><p>Templates describe condition; CarShake proves custody. The 8-angle guided scan covers cosmetic condition without making the user fill out a form, which is what keeps the handover under 90 seconds.</p></details>
+        <details><summary><strong>Does InspectCheck have a QR handover receipt?</strong></summary><p>No. InspectCheck produces a PDF condition report, typically signed by one party. There is no mutually-confirmed receipt tying a specific condition to a specific moment of key transfer.</p></details>
+
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I run both InspectCheck and CarShake?","acceptedAnswer":{"@type":"Answer","text":"Yes. A rental operator can use InspectCheck for the exit walk-around and CarShake for the customer-facing valet handover. They solve different problems."}},{"@type":"Question","name":"Is CarShake really court-admissible?","acceptedAnswer":{"@type":"Answer","text":"CarShake evidence is timestamped, geotagged, and immutable — the properties small-claims courts and insurers look for in contemporaneous records."}},{"@type":"Question","name":"Why does CarShake not use inspection templates?","acceptedAnswer":{"@type":"Answer","text":"Templates describe condition; CarShake proves custody. The 8-angle guided scan covers cosmetic condition without making the user fill out a form."}}]}</script>
+
+        <p style="margin-top:2em"><a href="https://carshake.online" style="color:#0066cc;font-weight:600">Try CarShake →</a></p>
     </main>
     <section style="margin-top:40px;padding-top:20px;border-top:1px solid #e0e0e0">
         <h3 style="font-size:1.1em;font-weight:700;margin-bottom:12px">Related pages</h3>

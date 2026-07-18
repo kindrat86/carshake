@@ -44,7 +44,54 @@
             </ul>
         </section>
     </main>
-    <footer style="margin-top:60px;padding-top:20px;border-top:1px solid #e0e0e0;color:#888;font-size:.85em">
+    
+<section>
+<h2>How the integration works</h2>
+<p>This integration connects CarShake's vehicle condition documentation with your existing parking or event workflow. When a session starts (a parking transaction, an event check-in, or a valet handover), CarShake is automatically triggered to capture a timestamped baseline of the vehicle's condition. At the end of the session, a second scan verifies whether any new damage occurred during the custody period.</p>
+<p>The integration uses CarShake's open API, which fires on session start and session end events. No new hardware is required. Drivers simply use the CarShake mobile app, and operators see the condition reports flow into their existing dashboard alongside parking transactions or event attendance records.</p>
+
+<h2>Setup steps</h2>
+<ol>
+<li><strong>Create a CarShake operator account</strong> at carshake.online and generate an API key from the dashboard.</li>
+<li><strong>Connect your existing system</strong> by adding the CarShake webhook URL to your parking or event platform's integration settings.</li>
+<li><strong>Map your session events</strong> to CarShake triggers (session start fires pre-scan, session end fires post-scan).</li>
+<li><strong>Train your valet or attendant staff</strong> to scan the QR code on each driver's phone at handover (takes about 5 seconds per vehicle).</li>
+<li><strong>Configure alerts</strong> so your operations team is notified when a post-session scan detects new damage.</li>
+<li><strong>Review condition reports</strong> in your dashboard, where CarShake documentation appears next to the corresponding parking or event session.</li>
+</ol>
+
+<h2>Use cases</h2>
+<ul>
+<li><strong>Valet operators:</strong> Automatically document every vehicle at handover and retrieval, reducing damage disputes and insurance claim friction.</li>
+<li><strong>Parking facility managers:</strong> Create a defensible record of vehicle condition for every car entering and exiting your lot.</li>
+<li><strong>Event organizers:</strong> Offer branded damage protection to attendees at weddings, corporate events, and conferences where third-party valets handle guest vehicles.</li>
+<li><strong>Fleet operators:</strong> Track vehicle condition across multiple drivers and parking locations without manual paperwork.</li>
+</ul>
+
+<h2>Why integrate</h2>
+<p>The integration eliminates the manual overhead of condition documentation. Instead of paper checklists or ad-hoc phone photos, every vehicle gets a consistent, timestamped, court-admissible record automatically. For operators, this reduces damage dispute resolution time from weeks to hours and lowers insurance premiums by demonstrating rigorous documentation practices.</p>
+<p>For drivers, the integration is invisible: they open the CarShake app, scan their car, and hand over the keys. The integration handles the workflow connection behind the scenes.</p>
+
+<h2>Frequently asked questions</h2>
+<details>
+<summary>What platforms does this integration support?</summary>
+<p>CarShake's API uses standard webhooks and REST endpoints, so it works with any parking, event, or fleet management platform that supports HTTP integrations. Popular options include ParkMobile, SpotHero, Ticketmaster, OpenTable, and custom enterprise systems.</p>
+</details>
+<details>
+<summary>Do drivers need to install a separate app?</summary>
+<p>Yes, drivers use the CarShake mobile app to scan their vehicle and generate the QR handover receipt. The app is free and takes less than a minute to set up. The integration then links their scans to your operator dashboard.</p>
+</details>
+<details>
+<summary>How much does the integration cost?</summary>
+<p>The integration is included with CarShake operator plans. Driver scans are always free. Contact sales at hello@carshake.online for operator pricing based on your session volume.</p>
+</details>
+<details>
+<summary>Can the integration work offline?</summary>
+<p>CarShake captures photos and timestamps offline, then syncs when the device reconnects. This is critical for underground parking garages and event venues with poor cellular coverage.</p>
+</details>
+</section>
+
+<footer style="margin-top:60px;padding-top:20px;border-top:1px solid #e0e0e0;color:#888;font-size:.85em">
         <p><strong>CarShake</strong> — Valet damage proof — scan before, receipt on handover, prove after.</p>
         <p><a href="https://carshake.online" style="color:#555">Home</a> · <a href="https://carshake.online/sitemap.xml" style="color:#555">Sitemap</a></p>
     </footer>

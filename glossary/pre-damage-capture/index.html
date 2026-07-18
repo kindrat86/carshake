@@ -56,19 +56,27 @@ ul.cross{list-style:none;padding-left:0}ul.cross li::before{content:"✗  ";colo
 <p class="lede">Pre-damage capture is the practice of documenting vehicle condition before transferring custody. CarShake automates this.</p>
 
 <h2>Pre-damage capture, explained</h2>
-<p>Pre-damage capture is the practice of documenting vehicle condition before transferring custody. CarShake automates this. In the context of CarShake (Valet damage proof &amp; vehicle handover), pre-damage capture is one of the core concepts vehicle condition app users need to understand.</p>
+<p>Pre-damage capture is the practice of documenting a vehicle's condition immediately before transferring custody to a third party — a valet, rental agent, body shop, or dealership. The captured record establishes the baseline against which any later damage claim is measured. Without it, the operator's insurer can credibly argue that any damage you later discover was pre-existing, and the claim collapses.</p>
+<p>Effective pre-damage capture has three requirements. First, the record must be comprehensive: it should cover all four sides of the vehicle, the wheels, the bumpers, the roof, and the interior. A single wide-angle photo of one side is useless if the dispute involves a curbed wheel. Second, the timestamp must be verifiable. Smartphone EXIF metadata is editable, which means a defense attorney can challenge its authenticity. A neutral third-party timestamp — the kind CarShake produces server-side — is far harder to dispute. Third, the record must be captured at the right moment: as close to the actual handover as possible, ideally within minutes.</p>
+<p>The legal value of pre-damage capture comes from the doctrine of bailment. When you hand your car to a valet, the law presumes the bailee (the valet) is responsible for any damage that occurs during custody. But that presumption is rebuttable: the operator can defeat it by showing the damage existed before. Pre-damage capture is the evidence that prevents that rebuttal.</p>
 
 <h2>Why pre-damage capture matters</h2>
-<p>Understanding pre-damage capture matters because it directly affects how you use CarShake. Get the definition wrong and you will misconfigure your vehicle condition app. Get it right and the rest of the workflow follows.</p>
+<p>The single most common reason valet damage claims fail is the absence of a pre-handover record. Operators and their insurers know this, which is why "pre-existing damage" is the first defense raised in nearly every dispute. A documented pre-damage capture eliminates that defense before it is even raised.</p>
+<p>Pre-damage capture also matters in rental car contexts. Rental companies routinely bill customers for damage that was present at pickup, banking on the fact that most renters did not photograph the car before driving off. A timestamped pre-rental scan defeats these bills the moment it is presented.</p>
+
+<h2>How CarShake handles this</h2>
+<p>CarShake's pre-handover scan is the app's implementation of pre-damage capture. A single guided walk-around produces a comprehensive set of timestamped, geo-located photographs in under 60 seconds. The server-side timestamp is tamper-evident, and the scan links automatically to the QR handover receipt and the post-retrieval scan to form the three-stop protocol's chain of custody.</p>
 
 <h2>Related terms</h2>
-<p>See the full CarShake glossary for related concepts in the vehicle condition app space.</p>
+<p>See the full CarShake glossary for related concepts: <a href="/glossary/three-stop-protocol">three-stop protocol</a>, <a href="/glossary/qr-handover-receipt">QR handover receipt</a>, <a href="/glossary/valet-handover">valet handover</a>, <a href="/glossary/condition-timeline">condition timeline</a>, and <a href="/glossary/damage-proof">damage proof</a>.</p>
 
 <h2>Frequently asked questions</h2>
 <h3>What is pre-damage capture?</h3>
-<p>Pre-damage capture is the practice of documenting vehicle condition before transferring custody. CarShake automates this.</p>
-<h3>How does CarShake handle pre-damage capture?</h3>
-<p>CarShake treats pre-damage capture as a first-class concept in its vehicle condition app workflow.</p>
+<p>Pre-damage capture is the act of documenting a vehicle's condition before transferring custody to a third party, so any later damage can be attributed to that party.</p>
+<h3>Do smartphone photos count as pre-damage capture?</h3>
+<p>They can, but their evidentiary value is weak because EXIF metadata is editable. Server-side timestamps from CarShake are far stronger.</p>
+<h3>When should I capture the pre-damage record?</h3>
+<p>As close to the moment of handover as possible — ideally within five minutes. The shorter the gap between capture and handover, the harder it is for an operator to dispute.</p>
 
 <div class="cta"><a href="https://carshake.online/">Try CarShake &rarr;</a></div>
 

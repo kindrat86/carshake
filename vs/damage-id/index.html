@@ -38,8 +38,44 @@
 
     <main>
         <h1 style="font-size:2em;font-weight:800;margin-bottom:.5em;line-height:1.2">CarShake vs Damage iD</h1>
-        <p style="font-size:1.1em;color:#555;margin-bottom:2em">An honest comparison. Damage iD is a vehicle inspection system without the 3-step valet protocol.</p>
-        <h2>Why choose CarShake over Damage iD?</h2><p>a vehicle inspection system without the 3-step valet protocol.</p><p>CarShake is built for a different use case. Valet damage proof — scan before, receipt on handover, prove after.</p><p><a href="https://carshake.online" style="color:#0066cc">Try CarShake →</a></p>
+        <p style="font-size:1.1em;color:#555;margin-bottom:2em">A vehicle inspection system without a handover protocol vs. one built entirely around it.</p>
+
+        <p>Damage iD is an enterprise vehicle inspection platform sold to rental fleets, dealerships, and logistics operators. Its core workflow is condition documentation: an inspector photographs the vehicle against a structured damage taxonomy, the system classifies and annotates the damage, and a branded condition report is filed to the fleet management system. The product is strong at classification — turning raw photos into structured damage records that operations teams can act on. It is weaker at the moment that matters most in a dispute: proving who held the keys when.</p>
+
+        <p>CarShake is built backwards from that moment. The three-stop protocol (scan before, QR handover receipt, scan after) is not an inspection workflow — it is an evidence chain. The product assumes the user is the driver, not the operator; that the dispute is the goal, not a side effect; and that 60 seconds at a valet stand is all the time the user has. Below is how the two stack up.</p>
+
+        <h2>Feature comparison</h2>
+        <table style="width:100%;border-collapse:collapse;margin:1rem 0;font-size:.95rem">
+        <thead><tr style="background:#f9fafb"><th style="border:1px solid #e5e7eb;padding:.6rem .75rem;text-align:left">Capability</th><th style="border:1px solid #e5e7eb;padding:.6rem .75rem;text-align:left">CarShake</th><th style="border:1px solid #e5e7eb;padding:.6rem .75rem;text-align:left">Damage iD</th></tr></thead>
+        <tbody>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Designed for</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Driver-side handover proof</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Operator-side damage classification</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Photo documentation</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Guided 8-angle AI scan</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Structured damage taxonomy + AI annotation</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Timestamp verification</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Immutable, court-admissible</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Report-level</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">QR handover receipt</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Yes — mutual confirmation</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">No</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Setup</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Download and scan</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Enterprise deployment + training</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Price</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Free (3 scans/mo); $2.97/mo unlimited</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Enterprise contract</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Who holds the evidence</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">The driver</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">The operator</td></tr>
+        <tr><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Works outside a fixed facility</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">Yes — anywhere with a phone</td><td style="border:1px solid #e5e7eb;padding:.6rem .75rem">No — tied to operator workflow</td></tr>
+        </tbody>
+        </table>
+
+        <h2>When to choose CarShake</h2>
+        <p>Choose CarShake when you are the person who is about to lose custody of your car for a few hours — handing it to a valet, a rental agent, a mechanic, a friend. The protocol assumes nothing about the operator on the other side of the counter. You scan, you generate a QR receipt both parties confirm, you walk away with a timestamped record. If damage shows up on return, you have evidence of pre-existing condition and proof of when custody transferred. Damage iD's classification engine does not help you here because it never runs on your phone.</p>
+        <p>CarShake is also the right pick when portability matters. A driver hands their car over at hotel valets, airport parking, concert valets, body shops, and rental counters in the same month. Damage iD's value exists only at the operator sites that have deployed it. CarShake's value exists wherever your phone is, which is everywhere.</p>
+
+        <h2>When Damage iD might be better</h2>
+        <p>Damage iD is the right tool for an operator who needs to classify and triage damage at scale. If you run a rental fleet and your back office needs structured damage records — dent on driver door, severity 3, estimated repair $480 — feeding into a workflow that decides whether to charge the customer or send the car to the body shop, Damage iD's taxonomy and annotation layer are purpose-built for that. CarShake deliberately does not try to classify damage; it only proves custody and condition.</p>
+        <p>Damage iD is also the stronger choice inside an enterprise stack that already has a fleet management system, a damage recovery team, and standardized inspection procedures. The integration story matters more than the consumer experience, and Damage iD is designed to slot into that stack rather than to live in a driver's pocket.</p>
+
+        <h2>Frequently asked questions</h2>
+        <details><summary><strong>Does Damage iD have a QR handover receipt?</strong></summary><p>No. Damage iD produces a classified condition report. There is no mutually-confirmed receipt tying condition to the exact moment of key transfer, which is what makes CarShake's evidence chain useful in disputes.</p></details>
+        <details><summary><strong>Can a Damage iD customer also use CarShake?</strong></summary><p>Yes. An operator running Damage iD can recommend CarShake to customers for handovers outside the inspected facility — hotel valets, body shop loans, private parking.</p></details>
+        <details><summary><strong>Does CarShake classify damage like Damage iD?</strong></summary><p>No. CarShake captures and timestamps condition; it deliberately does not classify dent severity or estimate repair costs. Classification is an operator-side problem; CarShake is built for the driver.</p></details>
+        <details><summary><strong>Why is CarShake free when Damage iD is an enterprise contract?</strong></summary><p>Different buyers. CarShake is a consumer self-serve product with a free tier (3 scans/mo) and a $2.97/month unlimited tier. Damage iD is sold per-seat into enterprise fleets.</p></details>
+
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Damage iD have a QR handover receipt?","acceptedAnswer":{"@type":"Answer","text":"No. Damage iD produces a classified condition report. There is no mutually-confirmed receipt tying condition to the exact moment of key transfer."}},{"@type":"Question","name":"Can a Damage iD customer also use CarShake?","acceptedAnswer":{"@type":"Answer","text":"Yes. An operator running Damage iD can recommend CarShake to customers for handovers outside the inspected facility."}},{"@type":"Question","name":"Does CarShake classify damage like Damage iD?","acceptedAnswer":{"@type":"Answer","text":"No. CarShake captures and timestamps condition; it deliberately does not classify dent severity or estimate repair costs."}}]}</script>
+
+        <p style="margin-top:2em"><a href="https://carshake.online" style="color:#0066cc;font-weight:600">Try CarShake →</a></p>
     </main>
 
     <section style="margin-top:40px;padding-top:20px;border-top:1px solid #e0e0e0">
