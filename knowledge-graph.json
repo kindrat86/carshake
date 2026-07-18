@@ -1,0 +1,40 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://carshake.online/#organization",
+  "name": "CarShake",
+  "alternateName": [
+    "CarShake.online",
+    "Car Shake"
+  ],
+  "description": "Free valet-damage-proof vehicle handover app with time-stamped photo scans and QR-coded court-admissible receipts.",
+  "url": "https://carshake.online",
+  "sameAs": [],
+  "knowsAbout": [
+    "Vehicle Handover Inspections",
+    "Valet Damage Prevention",
+    "Digital Vehicle Condition Reports",
+    "Court-Admissible Photo Evidence",
+    "Fleet Vehicle Management"
+  ],
+  "areaServed": "Worldwide",
+  "foundingDate": "2024",
+  "dateModified": "2026-07-18T17:06:43Z",
+  "hasPart": [
+    {
+      "@type": "WebSite",
+      "@id": "https://carshake.online/answers/#website",
+      "name": "CarShake Answers",
+      "description": "Structured Q&A hub for CarShake",
+      "url": "https://carshake.online/answers/"
+    }
+  ],
+  "subjectOf": [
+    {
+      "@type": "DataFeed",
+      "name": "CarShake Answer Feed",
+      "url": "https://carshake.online/answers/feed.json",
+      "description": "JSON Feed of structured Q&A content for AI consumption."
+    }
+  ]
+}
