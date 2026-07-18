@@ -1,58 +1,306 @@
 {
   "version": "https://jsonfeed.org/version/1.1",
-  "title": "CarShake Blog",
-  "description": "Valet damage proof, vehicle handover tips, and legal guides.",
-  "home_page_url": "https://carshake.online",
+  "title": "CarShake",
+  "description": "Valet Damage Proof & Vehicle Handover App — three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Court-admissible timestamps and photos for valet operators, rental car companies, and parking facilities.",
+  "home_page_url": "https://carshake.online/",
   "feed_url": "https://carshake.online/feed.json",
+  "language": "en",
+  "authors": [
+    {
+      "name": "CarShake",
+      "url": "https://carshake.online/about"
+    }
+  ],
+  "_hubs": [
+    "https://pubsubhubbub.appspot.com/",
+    "https://pubsubhubbub.superfeedr.com/",
+    "https://websubhub.com/"
+  ],
+  "_site": {
+    "domain": "carshake.online",
+    "generator": "Hermes WebSub Feed Generator",
+    "generated_at": "2026-07-18T09:01:47Z"
+  },
   "items": [
     {
-      "id": "https://carshake.online/blog/3-stop-protocol",
-      "url": "https://carshake.online/blog/3-stop-protocol",
-      "title": "The 3-Stop Valet Handover Protocol",
-      "content_text": "The complete 3-step protocol for documenting your car's condition at valet drop-off and pickup.",
-      "date_published": "2026-07-08T00:00:00Z"
+      "id": "https://carshake.online",
+      "url": "https://carshake.online",
+      "title": "CarShake — Never Pay for Valet Damage Again. AI Car Scans, Free.",
+      "content_text": "60-second AI-powered car scan before valet. QR handover proof between you and the attendant. Free — no app download. Used by 1,822+ drivers saving thousands.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
     },
     {
-      "id": "https://carshake.online/blog/bailment-law-valet",
-      "url": "https://carshake.online/blog/bailment-law-valet",
-      "title": "Bailment Law: Your Legal Rights at Valet",
-      "content_text": "Understanding bailment law and how it protects you when a valet damages your car.",
-      "date_published": "2026-07-08T00:00:00Z"
+      "id": "https://carshake.online/faq",
+      "url": "https://carshake.online/faq",
+      "title": "Frequently Asked Questions — CarShake",
+      "content_text": "Everything you need to know about CarShake: pricing, how scans work, QR handover, legal evidence, and more.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
     },
     {
-      "id": "https://carshake.online/blog/valet-damage-cities",
-      "url": "https://carshake.online/blog/valet-damage-cities",
-      "title": "Valet Damage by City: Where It Happens Most",
-      "content_text": "Analysis of valet damage patterns across major US cities.",
-      "date_published": "2026-07-07T00:00:00Z"
+      "id": "https://carshake.online/pricing",
+      "url": "https://carshake.online/pricing",
+      "title": "CarShake Pricing — Free Valet Protection",
+      "content_text": "Free plan includes 3 scans per month. Shield+ at $2.97/month for unlimited scans, PDF reports, and priority support.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
     },
     {
-      "id": "https://carshake.online/ultimate-guide-valet-damage-proof",
-      "url": "https://carshake.online/ultimate-guide-valet-damage-proof",
-      "title": "The Ultimate Guide to Valet Damage Proof",
-      "content_text": "Everything you need to know about proving valet parking damage: the legal framework, the 3-stop protocol, and how to never pay for damage you didn't cause.",
-      "date_published": "2026-07-09T00:00:00Z"
+      "id": "https://carshake.online/vehicle",
+      "url": "https://carshake.online/vehicle",
+      "title": "Vehicle-Specific Valet Parking Protection — CarShake",
+      "content_text": "Find the right valet protection guide for your vehicle type. SUV, sedan, truck, luxury, EV, and family vehicle guides.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
     },
     {
-      "id": "https://carshake.online/valet-damage-report-2026",
-      "url": "https://carshake.online/valet-damage-report-2026",
-      "title": "The Valet Damage Report 2026",
-      "content_text": "Our comprehensive data study on valet damage patterns, costs, and city-level risk across the United States.",
-      "date_published": "2026-07-09T00:00:00Z"
+      "id": "https://carshake.online/trust",
+      "url": "https://carshake.online/trust",
+      "title": "Trust & Security — CarShake",
+      "content_text": "SHA-256 hashing, GPS verification, server timestamps. Your car condition data is secure and admissible as evidence.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
     },
     {
-      "id": "https://carshake.online/free/valet-damage-claim-letter",
-      "url": "https://carshake.online/free/valet-damage-claim-letter",
-      "title": "Free Valet Damage Claim Letter Generator",
-      "content_text": "Generate a ready-to-send demand letter citing bailment law in 60 seconds. Free, no signup.",
-      "date_published": "2026-07-09T00:00:00Z"
+      "id": "https://carshake.online/how-it-works",
+      "url": "https://carshake.online/how-it-works",
+      "title": "How CarShake Works — AI-Powered Car Protection",
+      "content_text": "Scan your car in 60 seconds. QR handover proof. AI compares every angle at pickup. Free, no app download needed.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
     },
     {
-      "id": "https://carshake.online/how-to/dispute-valet-damage",
-      "url": "https://carshake.online/how-to/dispute-valet-damage",
-      "title": "How to Dispute Valet Damage and Win",
-      "content_text": "Step-by-step guide to disputing valet parking damage: document, report, demand letter, small claims.",
-      "date_published": "2026-07-09T00:00:00Z"
+      "id": "https://carshake.online/compare",
+      "url": "https://carshake.online/compare",
+      "title": "CarShake vs The Alternatives — Why Evidence Matters",
+      "content_text": "Why CarShake beats camera photos, dash cams, insurance claims, and valet inspections. The only tool with AI-verified, QR-confirmed, court-admissible...",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
+    },
+    {
+      "id": "https://carshake.online/city",
+      "url": "https://carshake.online/city",
+      "title": "Valet Parking Protection by City — CarShake City Guides",
+      "content_text": "Find your city guide for protecting your car at valet parking. AI-verified car condition scans available in 40+ US cities.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
+    },
+    {
+      "id": "https://carshake.online/blog",
+      "url": "https://carshake.online/blog",
+      "title": "Valet Parking Protection Blog — CarShake",
+      "content_text": "Tips, guides, and updates about valet parking protection, car damage prevention, and AI-powered documentation.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
+    },
+    {
+      "id": "https://carshake.online/vehicle/truck",
+      "url": "https://carshake.online/vehicle/truck",
+      "title": "Protect Your Pickup Truck at Valet — CarShake",
+      "content_text": "Full-size trucks have unique valet risks: bed rails, tailgates, and step bars. AI-verified documentation.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
+    },
+    {
+      "id": "https://carshake.online/vehicle/suv",
+      "url": "https://carshake.online/vehicle/suv",
+      "title": "Protect Your SUV at Valet Parking — CarShake",
+      "content_text": "SUVs are high-value valet targets. AI-verified condition scans before & after. Document your Escalade, Tahoe, or Grand Cherokee in 60 seconds.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
+    },
+    {
+      "id": "https://carshake.online/vehicle/sedan",
+      "url": "https://carshake.online/vehicle/sedan",
+      "title": "Protect Your Sedan at Valet Parking — CarShake",
+      "content_text": "Compact and mid-size sedans get overlooked. AI-verified documentation catches every valet scratch.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
+    },
+    {
+      "id": "https://carshake.online/vehicle/minivan",
+      "url": "https://carshake.online/vehicle/minivan",
+      "title": "Protect Your Minivan or Family Vehicle at Valet — CarShake",
+      "content_text": "Family vehicles get the most daily use. AI-verified scans protect your family car at valet.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
+    },
+    {
+      "id": "https://carshake.online/vehicle/luxury",
+      "url": "https://carshake.online/vehicle/luxury",
+      "title": "Protect Your Luxury or Exotic Car at Valet — CarShake",
+      "content_text": "Luxury and exotic cars need special protection at valet. AI-verified documentation for Ferraris, Lamborghinis, Bentleys, and more.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
+    },
+    {
+      "id": "https://carshake.online/vehicle/ev",
+      "url": "https://carshake.online/vehicle/ev",
+      "title": "Protect Your Electric Vehicle at Valet — CarShake",
+      "content_text": "EVs have unique valet risks: glass roofs, charging ports, sensors. AI-verified documentation for Teslas, Rivians, Lucids.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
+    },
+    {
+      "id": "https://carshake.online/state/wisconsin",
+      "url": "https://carshake.online/state/wisconsin",
+      "title": "Valet Parking Liability in Wisconsin — CarShake Legal Guide",
+      "content_text": "Learn about valet parking bailment laws, liability limits, and statute of limitations in Wisconsin. Protect your car with AI-verified documentation.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
+    },
+    {
+      "id": "https://carshake.online/state/washington",
+      "url": "https://carshake.online/state/washington",
+      "title": "Valet Parking Liability in Washington — CarShake Legal Guide",
+      "content_text": "Learn about valet parking bailment laws, liability limits, and statute of limitations in Washington. Protect your car with AI-verified documentation.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
+    },
+    {
+      "id": "https://carshake.online/state/virginia",
+      "url": "https://carshake.online/state/virginia",
+      "title": "Valet Parking Liability in Virginia — CarShake Legal Guide",
+      "content_text": "Learn about valet parking bailment laws, liability limits, and statute of limitations in Virginia. Protect your car with AI-verified documentation.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
+    },
+    {
+      "id": "https://carshake.online/state/texas",
+      "url": "https://carshake.online/state/texas",
+      "title": "Valet Parking Liability in Texas — CarShake Legal Guide",
+      "content_text": "Learn about valet parking bailment laws, liability limits, and statute of limitations in Texas. Protect your car with AI-verified documentation.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
+    },
+    {
+      "id": "https://carshake.online/state/tennessee",
+      "url": "https://carshake.online/state/tennessee",
+      "title": "Valet Parking Liability in Tennessee — CarShake Legal Guide",
+      "content_text": "Learn about valet parking bailment laws, liability limits, and statute of limitations in Tennessee. Protect your car with AI-verified documentation.",
+      "date_published": "2026-07-08T00:00:00Z",
+      "authors": [
+        {
+          "name": "CarShake"
+        }
+      ],
+      "image": "https://carshake.online/og-image.png",
+      "banner_image": "https://carshake.online/og-image.png"
     }
   ]
 }

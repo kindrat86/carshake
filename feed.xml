@@ -1,60 +1,198 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>CarShake Blog</title>
-    <link>https://carshake.online/blog</link>
-    <description>Valet damage proof, vehicle handover tips, and legal guides from CarShake.</description>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jul 2026 00:38:22 +0000</lastBuildDate>
+    <title>CarShake</title>
+    <link>https://carshake.online</link>
+    <description>Valet Damage Proof &amp; Vehicle Handover App — three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Court-admissible timestamps and photos for valet operators, rental car companies, and parking facilities.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 18 Jul 2026 09:01:47 GMT</lastBuildDate>
+    <generator>Hermes WebSub Feed Generator</generator>
+    <ttl>60</ttl>
     <atom:link href="https://carshake.online/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://carshake.online/rss.xml" rel="alternate" type="application/rss+xml"/>
+    <atom:link href="https://carshake.online/feed.json" rel="alternate" type="application/json"/>
+    <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
+    <atom:link href="https://pubsubhubbub.superfeedr.com/" rel="hub"/>
+    <atom:link href="https://websubhub.com/" rel="hub"/>
     <item>
-      <title>The 3-Stop Valet Handover Protocol</title>
-      <link>https://carshake.online/blog/3-stop-protocol</link>
-      <description>The complete 3-step protocol for documenting your car's condition at valet drop-off and pickup.</description>
-      <pubDate>2026-07-08T00:00:00+0000</pubDate>
-      <guid>https://carshake.online/blog/3-stop-protocol</guid>
+      <title>CarShake — Never Pay for Valet Damage Again. AI Car Scans, Free.</title>
+      <link>https://carshake.online</link>
+      <guid isPermaLink="true">https://carshake.online</guid>
+      <description>60-second AI-powered car scan before valet. QR handover proof between you and the attendant. Free — no app download. Used by 1,822+ drivers saving thousands.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
     </item>
     <item>
-      <title>Bailment Law: Your Legal Rights at Valet</title>
-      <link>https://carshake.online/blog/bailment-law-valet</link>
-      <description>Understanding bailment law and how it protects you when a valet damages your car.</description>
-      <pubDate>2026-07-08T00:00:00+0000</pubDate>
-      <guid>https://carshake.online/blog/bailment-law-valet</guid>
+      <title>Frequently Asked Questions — CarShake</title>
+      <link>https://carshake.online/faq</link>
+      <guid isPermaLink="true">https://carshake.online/faq</guid>
+      <description>Everything you need to know about CarShake: pricing, how scans work, QR handover, legal evidence, and more.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
     </item>
     <item>
-      <title>Valet Damage by City: Where It Happens Most</title>
-      <link>https://carshake.online/blog/valet-damage-cities</link>
-      <description>Analysis of valet damage patterns across major US cities.</description>
-      <pubDate>2026-07-07T00:00:00+0000</pubDate>
-      <guid>https://carshake.online/blog/valet-damage-cities</guid>
+      <title>CarShake Pricing — Free Valet Protection</title>
+      <link>https://carshake.online/pricing</link>
+      <guid isPermaLink="true">https://carshake.online/pricing</guid>
+      <description>Free plan includes 3 scans per month. Shield+ at $2.97/month for unlimited scans, PDF reports, and priority support.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
     </item>
     <item>
-      <title>The Ultimate Guide to Valet Damage Proof</title>
-      <link>https://carshake.online/ultimate-guide-valet-damage-proof</link>
-      <description>Everything you need to know about proving valet parking damage: the legal framework, the 3-stop protocol, and how to never pay for damage you didn't cause.</description>
-      <pubDate>2026-07-09T00:00:00+0000</pubDate>
-      <guid>https://carshake.online/ultimate-guide-valet-damage-proof</guid>
+      <title>Vehicle-Specific Valet Parking Protection — CarShake</title>
+      <link>https://carshake.online/vehicle</link>
+      <guid isPermaLink="true">https://carshake.online/vehicle</guid>
+      <description>Find the right valet protection guide for your vehicle type. SUV, sedan, truck, luxury, EV, and family vehicle guides.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
     </item>
     <item>
-      <title>The Valet Damage Report 2026</title>
-      <link>https://carshake.online/valet-damage-report-2026</link>
-      <description>Our comprehensive data study on valet damage patterns, costs, and city-level risk across the United States.</description>
-      <pubDate>2026-07-09T00:00:00+0000</pubDate>
-      <guid>https://carshake.online/valet-damage-report-2026</guid>
+      <title>Trust &amp; Security — CarShake</title>
+      <link>https://carshake.online/trust</link>
+      <guid isPermaLink="true">https://carshake.online/trust</guid>
+      <description>SHA-256 hashing, GPS verification, server timestamps. Your car condition data is secure and admissible as evidence.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
     </item>
     <item>
-      <title>Free Valet Damage Claim Letter Generator</title>
-      <link>https://carshake.online/free/valet-damage-claim-letter</link>
-      <description>Generate a ready-to-send demand letter citing bailment law in 60 seconds. Free, no signup.</description>
-      <pubDate>2026-07-09T00:00:00+0000</pubDate>
-      <guid>https://carshake.online/free/valet-damage-claim-letter</guid>
+      <title>How CarShake Works — AI-Powered Car Protection</title>
+      <link>https://carshake.online/how-it-works</link>
+      <guid isPermaLink="true">https://carshake.online/how-it-works</guid>
+      <description>Scan your car in 60 seconds. QR handover proof. AI compares every angle at pickup. Free, no app download needed.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
     </item>
     <item>
-      <title>How to Dispute Valet Damage and Win</title>
-      <link>https://carshake.online/how-to/dispute-valet-damage</link>
-      <description>Step-by-step guide to disputing valet parking damage: document, report, demand letter, small claims.</description>
-      <pubDate>2026-07-09T00:00:00+0000</pubDate>
-      <guid>https://carshake.online/how-to/dispute-valet-damage</guid>
+      <title>CarShake vs The Alternatives — Why Evidence Matters</title>
+      <link>https://carshake.online/compare</link>
+      <guid isPermaLink="true">https://carshake.online/compare</guid>
+      <description>Why CarShake beats camera photos, dash cams, insurance claims, and valet inspections. The only tool with AI-verified, QR-confirmed, court-admissible...</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Valet Parking Protection by City — CarShake City Guides</title>
+      <link>https://carshake.online/city</link>
+      <guid isPermaLink="true">https://carshake.online/city</guid>
+      <description>Find your city guide for protecting your car at valet parking. AI-verified car condition scans available in 40+ US cities.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Valet Parking Protection Blog — CarShake</title>
+      <link>https://carshake.online/blog</link>
+      <guid isPermaLink="true">https://carshake.online/blog</guid>
+      <description>Tips, guides, and updates about valet parking protection, car damage prevention, and AI-powered documentation.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Protect Your Pickup Truck at Valet — CarShake</title>
+      <link>https://carshake.online/vehicle/truck</link>
+      <guid isPermaLink="true">https://carshake.online/vehicle/truck</guid>
+      <description>Full-size trucks have unique valet risks: bed rails, tailgates, and step bars. AI-verified documentation.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Protect Your SUV at Valet Parking — CarShake</title>
+      <link>https://carshake.online/vehicle/suv</link>
+      <guid isPermaLink="true">https://carshake.online/vehicle/suv</guid>
+      <description>SUVs are high-value valet targets. AI-verified condition scans before &amp; after. Document your Escalade, Tahoe, or Grand Cherokee in 60 seconds.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Protect Your Sedan at Valet Parking — CarShake</title>
+      <link>https://carshake.online/vehicle/sedan</link>
+      <guid isPermaLink="true">https://carshake.online/vehicle/sedan</guid>
+      <description>Compact and mid-size sedans get overlooked. AI-verified documentation catches every valet scratch.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Protect Your Minivan or Family Vehicle at Valet — CarShake</title>
+      <link>https://carshake.online/vehicle/minivan</link>
+      <guid isPermaLink="true">https://carshake.online/vehicle/minivan</guid>
+      <description>Family vehicles get the most daily use. AI-verified scans protect your family car at valet.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Protect Your Luxury or Exotic Car at Valet — CarShake</title>
+      <link>https://carshake.online/vehicle/luxury</link>
+      <guid isPermaLink="true">https://carshake.online/vehicle/luxury</guid>
+      <description>Luxury and exotic cars need special protection at valet. AI-verified documentation for Ferraris, Lamborghinis, Bentleys, and more.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Protect Your Electric Vehicle at Valet — CarShake</title>
+      <link>https://carshake.online/vehicle/ev</link>
+      <guid isPermaLink="true">https://carshake.online/vehicle/ev</guid>
+      <description>EVs have unique valet risks: glass roofs, charging ports, sensors. AI-verified documentation for Teslas, Rivians, Lucids.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Valet Parking Liability in Wisconsin — CarShake Legal Guide</title>
+      <link>https://carshake.online/state/wisconsin</link>
+      <guid isPermaLink="true">https://carshake.online/state/wisconsin</guid>
+      <description>Learn about valet parking bailment laws, liability limits, and statute of limitations in Wisconsin. Protect your car with AI-verified documentation.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Valet Parking Liability in Washington — CarShake Legal Guide</title>
+      <link>https://carshake.online/state/washington</link>
+      <guid isPermaLink="true">https://carshake.online/state/washington</guid>
+      <description>Learn about valet parking bailment laws, liability limits, and statute of limitations in Washington. Protect your car with AI-verified documentation.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Valet Parking Liability in Virginia — CarShake Legal Guide</title>
+      <link>https://carshake.online/state/virginia</link>
+      <guid isPermaLink="true">https://carshake.online/state/virginia</guid>
+      <description>Learn about valet parking bailment laws, liability limits, and statute of limitations in Virginia. Protect your car with AI-verified documentation.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Valet Parking Liability in Texas — CarShake Legal Guide</title>
+      <link>https://carshake.online/state/texas</link>
+      <guid isPermaLink="true">https://carshake.online/state/texas</guid>
+      <description>Learn about valet parking bailment laws, liability limits, and statute of limitations in Texas. Protect your car with AI-verified documentation.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Valet Parking Liability in Tennessee — CarShake Legal Guide</title>
+      <link>https://carshake.online/state/tennessee</link>
+      <guid isPermaLink="true">https://carshake.online/state/tennessee</guid>
+      <description>Learn about valet parking bailment laws, liability limits, and statute of limitations in Tennessee. Protect your car with AI-verified documentation.</description>
+      <dc:creator>CarShake</dc:creator>
+      <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
+      <media:content url="https://carshake.online/og-image.png" medium="image"/>
     </item>
   </channel>
 </rss>
