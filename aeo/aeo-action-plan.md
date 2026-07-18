@@ -1,6 +1,7 @@
 # AEO Action Plan — CarShake (carshake.online)
 
 _Prepared 2026-07-18 · Ahrefs AEO methodology. Author: AEO Architect skill._
+_Last updated: 2026-07-18 — all on-site items completed._
 
 ## TL;DR — the one-sentence diagnosis
 
