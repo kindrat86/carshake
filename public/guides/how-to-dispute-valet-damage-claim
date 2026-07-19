@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to Dispute a Valet Damage Claim | CarShake</title>
+<link rel="stylesheet" href="/ux.css">
+<meta name="description" content="Step-by-step process for disputing a valet damage claim using timestamped evidence and legal strategies.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://carshake.online/guides/how-to-dispute-valet-damage-claim">
+<link rel="alternate" hreflang="en" href="https://carshake.online/guides/how-to-dispute-valet-damage-claim">
+<link rel="alternate" hreflang="x-default" href="https://carshake.online/guides/how-to-dispute-valet-damage-claim">
+<meta property="og:title" content="How to Dispute a Valet Damage Claim | CarShake">
+<meta property="og:description" content="Step-by-step process for disputing a valet damage claim using timestamped evidence and legal strategies.">
+<meta property="og:url" content="https://carshake.online/guides/how-to-dispute-valet-damage-claim">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6;color:#1a1a1a;max-width:760px;margin:0 auto;padding:20px}
+h1{font-size:2rem;margin-bottom:8px}
+h2{font-size:1.4rem;margin-top:32px;margin-bottom:12px}
+p{margin-bottom:16px}
+ul{margin-bottom:16px;padding-left:20px}
+li{margin-bottom:6px}
+details{border:1px solid #e0e0e0;border-radius:8px;padding:12px;margin-bottom:8px}
+summary{cursor:pointer;font-size:1.05rem}
+details[open] summary{margin-bottom:8px}
+nav{margin:20px 0;padding:12px 0;border-bottom:1px solid #eee}
+nav a{margin-right:16px;text-decoration:none;color:#0066cc}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid #eee;color:#666;font-size:0.85rem}
+.tldr{background:#f0f7ff;border-left:4px solid #0066cc;padding:12px 16px;margin:16px 0;border-radius:4px}
+.cta{background:linear-gradient(135deg,#f0f9ff,#e8f5e9);border-radius:12px;padding:24px;margin:32px 0;text-align:center;border:2px solid #0066cc30}
+.cta a{display:inline-block;background:#0066cc;color:white;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:700;margin-top:8px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://carshake.online/#org",
+      "name": "CarShake",
+      "url": "https://carshake.online",
+      "description": "CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims.",
+      "sameAs": ["https://twitter.com/carshake", "https://github.com/kindrat86"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://carshake.online/#website",
+      "url": "https://carshake.online",
+      "name": "CarShake",
+      "publisher": {"@id": "https://carshake.online/#org"}
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": ["Home", "FAQ", "About"],
+      "url": ["https://carshake.online/", "https://carshake.online/faq", "https://carshake.online/about"]
+    }
+  ]
+}
+</script>
+<script>(function(){if(window.posthog&&window.posthog.__loaded)return;var s=document.createElement("script");s.type="text/javascript";s.crossOrigin="anonymous";s.defer=true;s.src="https://eu.i.posthog.com/static/array.js";s.onload=function(){window.posthog.init("phc_lyZCgvTpicjLzAO3rY2GhxuX5WUc5jQjP8ZVwwJqauX",{api_host:"https://eu.i.posthog.com",person_profiles:"identified_only",defaults:"2025-05-24",capture_pageview:false});window.posthog.capture("$pageview",{$viewport_height:window.innerHeight,$viewport_width:window.innerWidth})};document.head.appendChild(s);})();</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "CarShake", "url": "https://carshake.online", "description": "CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims.", "disambiguatingDescription": "CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) — not a B2B insurance damage-detection API."}</script>
+<script src="/ux.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type": "ListItem", "position": 1, "name": "CarShake", "item": "https://carshake.online"},{"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://carshake.online/guides"},{"@type": "ListItem", "position": 3, "name": "How to Dispute a Valet Damage Claim", "item": "https://carshake.online/guides/how-to-dispute-valet-damage-claim"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"How to Dispute a Valet Damage Claim","url":"https://carshake.online/guides/how-to-dispute-valet-damage-claim","description":"Step-by-step process for disputing a valet damage claim using timestamped evidence and legal strategies.","isPartOf":{"@type":"WebSite","name":"CarShake","url":"https://carshake.online"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "How long does dispute a valet damage claim?", "acceptedAnswer": {"@type": "Answer", "text": "The core process takes about 2-5 minutes. The time investment pays for itself the first time you avoid a damage claim."}},{"@type": "Question", "name": "Do I need special equipment?", "acceptedAnswer": {"@type": "Answer", "text": "No. CarShake runs on any smartphone. No additional hardware, scanners, or tools required."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","author":{"@type":"Organization","name":"CarShake","url":"https://carshake.online"},"publisher":{"@type":"Organization","name":"CarShake","url":"https://carshake.online"},"datePublished":"2026-07-19","dateModified":"2026-07-19","headline":"How to Dispute a Valet Damage Claim","description":"Step-by-step process for disputing a valet damage claim using timestamped evidence and legal strategies.","mainEntityOfPage":{"@type":"WebPage","@id":"https://carshake.online/guides/how-to-dispute-valet-damage-claim"}}</script>
+</head>
+<body>
+<nav><a href="https://carshake.online/">CarShake</a><a href="https://carshake.online/about">About</a><a href="https://carshake.online/blog">Blog</a><a href="https://carshake.online/faq">FAQ</a></nav>
+<h1>How to Dispute a Valet Damage Claim</h1>
+<div class="tldr"><p><strong>TL;DR:</strong> If a valet claims you caused damage, stay calm.</p></div>
+<h2>Why This Matters</h2>
+<p>If a valet claims you caused damage, stay calm. Request their condition report. Present your pre-handover scan. If they can't produce a pre-handover report, your timestamped evidence typically wins. Escalate to management; most claims are dropped when faced with documentary proof.</p>
+<h2>How CarShake Helps</h2>
+<p>CarShake automates every step of this process. Open the app, scan the vehicle, and get a timestamped QR receipt — all in under 2 minutes.</p>
+<div class="cta">
+<h2>Ready to protect your car?</h2>
+<p>Scan before handover. Get timestamped proof. Defeat false damage claims — free.</p>
+<a href="https://carshake.online/">Try CarShake Free →</a>
+</div><h2>Frequently Asked Questions</h2>
+<details><summary>How long does dispute a valet damage claim?</summary><p>The core process takes about 2-5 minutes. The time investment pays for itself the first time you avoid a damage claim.</p></details>
+<details><summary>Do I need special equipment?</summary><p>No. CarShake runs on any smartphone. No additional hardware, scanners, or tools required.</p></details>
+<div style="margin:32px 0;padding:20px;background:#f9f9f9;border-radius:8px">
+<h3 style="margin-top:0">Explore More</h3>
+<ul style="columns:2"><li><a href="https://carshake.online/guides">All Guides</a></li>
+<li><a href="https://carshake.online/glossary">Glossary</a></li>
+<li><a href="https://carshake.online/faq">FAQ</a></li>
+<li><a href="https://carshake.online/for">Use Cases</a></li></ul>
+</div><footer>
+<p><strong>CarShake</strong> — Free valet-damage-proof & car-handover app</p>
+<p>© 2026 CarShake. All rights reserved. <a href="https://carshake.online/privacy">Privacy</a> · <a href="https://carshake.online/terms">Terms</a></p>
+</footer>
+</body>
+</html>

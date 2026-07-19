@@ -1,0 +1,17 @@
+Damage Type,Location,Average Repair Cost,Most Common Cause,Prevention Tip,Detection Difficulty
+Door ding,Parking lot,$150-$500,Adjacent car door opening,Park in end spots or away from cart returns,Medium
+Bumper scratch,Front/Rear,$300-$1,200,Parking barrier or curb contact,Use backup camera and go slow on approach,Easy
+Key scratch,Side panels,$500-$2,500,Vandalism or accidental contact,Park in well-lit areas and use dashcam,Easy
+Rim curb rash,Wheels,$100-$400 per wheel,Parallel parking too close to curb,Practice parallel parking and use rim protectors,Medium
+Side mirror damage,Side mirrors,$200-$800,Narrow garage entry or street parking,Fold mirrors in when parked,Medium
+Front lip scrape,Front bumper,$300-$900,Steep driveway or parking ramp,Approach at an angle,Medium
+Paint chip,Hood/Bumper,$100-$500,Road debris or gravel,Maintain safe following distance and mud flaps,Hard
+Dent from shopping cart,Side panels,$200-$700,Parked near cart return or loose carts,Park away from cart returns and on inclines,Medium
+Undercarriage scrape,Underbody,$200-$1,500,Speed bump or pothole,Slow down over bumps and potholes,Hard
+Windshield chip/crack,Windshield,$100-$800,Road debris or temperature change,Avoid tailgating and sudden temp changes,Medium
+Antenna damage,Roof,$50-$300,Low garage clearance or car wash,Check clearance before entering and retract antenna,Easy
+Spoiler/trim damage,Rear,$300-$1,500,Improper loading or low clearance,Check clearance and secure cargo,Easy
+Convertible top damage,Roof,$800-$3,000,Operating top with debris present,Clean top before operation and inspect seals,Medium
+Sunroof damage,Roof,$400-$1,500,Debris in tracks or ice,Clean tracks regularly and do not force,Easy
+License plate damage,Front/Rear,$50-$200,Parking barrier or car wash,Remove plate before automated car wash,Easy
+Source: Industry repair cost estimates, 2024-2026. CC BY 4.0. Cite as: CarShake (carshake.online), "Vehicle Damage Cost Database", 2026. Actual costs vary by vehicle make, model, location, and repair shop.

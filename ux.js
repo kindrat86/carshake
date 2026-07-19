@@ -1,5 +1,5 @@
 /**
- * ux.js — World-Class Interactive UX Enhancements (R16)
+ * ux.js — World-Class Interactive UX Enhancements (R17)
  * Zero dependencies. Progressive enhancement.
  * Features: reading progress bar, back-to-top, lazy image loading,
  * accordions, smooth scroll, exit-intent detection, mobile bottom nav,
