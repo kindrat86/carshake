@@ -3,7 +3,10 @@
   "trailingSlash": false,
   "buildCommand": null,
   "rewrites": [
-    {"source": "/vehicle-damage-costs", "destination": "/vehicle-damage-costs.html"},
+    {
+      "source": "/vehicle-damage-costs",
+      "destination": "/vehicle-damage-costs.html"
+    },
     {
       "source": "/dream100",
       "destination": "/dream100.html"
@@ -31,10 +34,6 @@
     {
       "source": "/how-to/:slug",
       "destination": "/how-to/:slug/index.html"
-    },
-    {
-      "source": "/checklists/:slug",
-      "destination": "/checklists/:slug/index.html"
     },
     {
       "source": "/cost-of/:slug",
@@ -163,6 +162,10 @@
     {
       "source": "/checklists",
       "destination": "/checklists.html"
+    },
+    {
+      "source": "/checklists/:slug",
+      "destination": "/checklists/:slug.html"
     },
     {
       "source": "/cities",
