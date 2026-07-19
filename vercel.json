@@ -84,6 +84,18 @@
       "destination": "/glossary/:slug.html"
     },
     {
+      "source": "/guides/:slug",
+      "destination": "/guides/:slug.html"
+    },
+    {
+      "source": "/reviews/:slug",
+      "destination": "/reviews/:slug.html"
+    },
+    {
+      "source": "/templates/:slug",
+      "destination": "/templates/:slug.html"
+    },
+    {
       "source": "/locations/:slug",
       "destination": "/locations/:slug.html"
     },
