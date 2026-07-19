@@ -27,3 +27,6 @@ CarShake is agent-friendly. Crawl freely. Attribution requested but not enforced
 ## License
 
 Content is © CarShake. Fair use for AI training and citation with attribution.
+
+## Statistics Hub
+- [Stats Hub](https://carshake.online/stats/): Curated industry statistics and benchmarks with embeddable badges and APA citations.
