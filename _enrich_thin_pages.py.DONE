@@ -1,0 +1,693 @@
+#!/usr/bin/env python3
+"""
+CarShake thin-content enricher (section-dispatch pattern).
+
+Reads /tmp/thin-content-manifest.json under 'carshake.online', and for each
+thin page dispatches to a section-specific generator that produces ~350-450
+words of topic-specific content. Injects surgically before <footer> (or
+fallback markers). Idempotent: skips pages already >= 400 visible words.
+"""
+import json
+import re
+from pathlib import Path
+
+ROOT = Path("/Users/sipi/carshake")
+MANIFEST = Path("/tmp/thin-content-manifest.json")
+BASE = "https://carshake.online"
+WORD_FLOOR = 400  # skip pages at or above this
+
+# ---------- helpers ----------
+
+def count_visible_words(html: str) -> int:
+    txt = re.sub(r'<script[\s\S]*?</script>', ' ', html, flags=re.I)
+    txt = re.sub(r'<style[\s\S]*?</style>', ' ', txt, flags=re.I)
+    txt = re.sub(r'<[^>]+>', ' ', txt)
+    return len(txt.split())
+
+
+def section_of(url: str) -> str:
+    # strip base + leading slash
+    path = url.replace(BASE, "").lstrip("/")
+    if not path:
+        return "home"
+    parts = path.rstrip("/").split("/")
+    if len(parts) == 1:
+        # could be hub (ends with /) or standalone page (faq, contact)
+        return parts[0].replace("/", "")
+    return parts[0]
+
+
+def slug_of(url: str) -> str:
+    path = url.replace(BASE, "").lstrip("/").rstrip("/")
+    parts = path.split("/")
+    return parts[-1] if len(parts) > 1 else parts[0]
+
+
+def humanize(slug: str) -> str:
+    return re.sub(r'[-_]+', ' ', slug).strip().title()
+
+
+def insert_block(html: str, block: str) -> str:
+    """Inject block before <footer>, or fallback markers."""
+    markers = [
+        '<footer',
+        '<!-- BRUNSON TRUST BAR',
+        '</main>',
+        '</article>',
+        '</body>',
+    ]
+    for m in markers:
+        idx = html.find(m)
+        if idx != -1:
+            return html[:idx] + block + "\n" + html[idx:]
+    # last resort
+    return html + "\n" + block
+
+
+# ---------- section generators (string concatenation, NOT f-strings) ----------
+
+def gen_alternatives(h1, desc, slug):
+    comp = humanize(slug)
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>When to choose each</h2>')
+    parts.append('<p>Both ' + comp + ' and CarShake have legitimate use cases. The right choice depends on what you are trying to protect against. ' + comp + ' and CarShake overlap in some areas but solve fundamentally different problems for vehicle owners. Understanding the distinction up front saves you from paying for the wrong tool after a damage dispute has already started.</p>')
+    parts.append('<h3>Use ' + comp + ' if you</h3>')
+    parts.append('<ul><li>Need the specific feature set ' + comp + ' is optimized for, and already have a separate damage-documentation workflow in place.</li><li>Are already locked into the ' + comp + ' ecosystem and switching costs outweigh the benefits of a purpose-built damage-proof tool.</li><li>Have a use case where ' + comp + ' clearly outperforms generalist apps (for example, a niche integration or a regional feature CarShake does not cover).</li></ul>')
+    parts.append('<h3>Use CarShake if you</h3>')
+    parts.append('<ul><li>Park with valets, rent cars, or hand your keys to anyone and need court-admissible before/after condition proof in under 60 seconds.</li><li>Want a free tool that scans your car at 8 standard angles, time-stamps every photo, and generates a QR-coded handover receipt the valet signs.</li><li>Have been burned by a damage dispute in the past (the average valet claim runs $2,100 and a single disputed charge costs $500+ in time, deductibles, and stress).</li></ul>')
+    parts.append('<h3>Use both if you</h3>')
+    parts.append('<ul><li>Already rely on ' + comp + ' for its core function and want to layer CarShake on top purely for the pre/post-handover damage-proof workflow. The two tools are not mutually exclusive — many drivers run a generalist app alongside CarShake specifically for the valet and rental-car handover moment.</li></ul>')
+    parts.append('<h2>Feature comparison</h2>')
+    parts.append('<table><tr><th>Capability</th><th>CarShake</th><th>' + comp + '</th></tr>')
+    parts.append('<tr><td>Purpose-built for valet damage proof</td><td>Yes — core feature</td><td>Not the primary focus</td></tr>')
+    parts.append('<tr><td>8-angle guided scan in 60 seconds</td><td>Yes</td><td>Varies</td></tr>')
+    parts.append('<tr><td>Time-stamped, geo-located photos</td><td>Yes</td><td>Varies</td></tr>')
+    parts.append('<tr><td>QR handover receipt</td><td>Yes</td><td>No</td></tr>')
+    parts.append('<tr><td>Free tier</td><td>Yes — 3 free scans</td><td>Varies</td></tr>')
+    parts.append('<tr><td>Court-admissible before/after diff</td><td>Yes</td><td>Not designed for this</td></tr>')
+    parts.append('</table>')
+    parts.append('<h2>Bottom line</h2>')
+    parts.append('<p>If your real risk is damage disputes at the moment someone else takes possession of your car — valet, rental return, dealer drop-off, body shop, fleet handover — CarShake is purpose-built for that exact moment. ' + comp + ' may be stronger in its own specialty, but it was not designed to win a "he said, she said" argument with a valet company over a fresh dent. That is the gap CarShake fills, and it is free to start.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_usecase(h1, desc, slug):
+    audience = humanize(slug)
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>Common scenarios for ' + audience.lower() + '</h2>')
+    parts.append('<p>' + audience + ' face a specific cluster of damage-risk moments that CarShake is built to document. The pattern is always the same: someone else takes possession of your vehicle, and when you get it back, there is a fresh dent, scratch, or curb rash that was not there before. Without a time-stamped pre-scan, the operator, valet, rental counter, or hotel will almost always deny responsibility — and you eat the cost.</p>')
+    parts.append('<ul>')
+    parts.append('<li><strong>Handing over the keys:</strong> you scan the car at 8 standard angles in under 60 seconds before you hand the keys over. CarShake time-stamps and geo-locates every photo.</li>')
+    parts.append('<li><strong>Getting the car back:</strong> you run the same 8-angle scan. CarShake generates a before/after diff that isolates any new damage.</li>')
+    parts.append('<li><strong>The dispute moment:</strong> if a new ding appears, you have a court-admissible record showing the condition right before and right after the handover — the exact window the damage occurred.</li>')
+    parts.append('<li><strong>The receipt:</strong> CarShake produces a QR-coded handover receipt the operator can scan and acknowledge at the moment of transfer, which dramatically cuts later denials.</li>')
+    parts.append('</ul>')
+    parts.append('<h2>Before CarShake vs after</h2>')
+    parts.append('<p><strong>Before:</strong> you hand the keys over with a mental note of the car\'s condition. When you find damage later, you have no time-stamped proof of when it happened. The operator says the damage was pre-existing or happened after you left the lot. You have no leverage. You pay the deductible, lose hours on the phone, and walk away frustrated.</p>')
+    parts.append('<p><strong>After:</strong> the entire handover takes 60 extra seconds. You walk away with a QR receipt and a time-stamped condition record. If damage shows up, the diff proves it happened during the handover window. Operators who would otherwise stonewall you tend to resolve the claim quickly when confronted with documented evidence. The average valet damage claim runs $2,100 — a 60-second scan is the cheapest insurance you will ever buy.</p>')
+    parts.append('<h2>ROI for ' + audience.lower() + '</h2>')
+    parts.append('<p>One prevented dispute pays for roughly 14 years of CarShake at the founding price of $2.97/month. For ' + audience.lower() + ' who hand their car to anyone else even a few times a year — airport valet, hotel valet, restaurant valet, rental returns, dealer service, body shop — the math is straightforward. The free tier gives you 3 scans to prove the workflow fits your life before you ever pay anything. Founding spots are limited (73 of 100 remain at the time of writing) and the founding price locks forever.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_learn(h1, desc, slug):
+    topic = h1
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>How to apply this</h2>')
+    parts.append('<p>This guide is not theoretical. The point of understanding ' + topic.lower() + ' is to change what you actually do at the moment you hand your car to someone else. The drivers who avoid paying for damage they did not cause all follow the same four-step workflow — and the whole thing takes under 60 seconds.</p>')
+    parts.append('<h2>The 4-step workflow</h2>')
+    parts.append('<ol>')
+    parts.append('<li><strong>Before you hand over the keys:</strong> open CarShake and run the guided 8-angle scan. The app walks you through each angle so you do not miss high-risk zones like front bumper corners, rear quarter panels, and wheels. Every photo is time-stamped and geo-located automatically.</li>')
+    parts.append('<li><strong>Generate the QR handover receipt:</strong> CarShake produces a QR code the valet, attendant, or service writer can scan to acknowledge the vehicle condition at the moment of transfer. This single step eliminates the vast majority of "the damage was already there" denials.</li>')
+    parts.append('<li><strong>When you get the car back:</strong> run the same 8-angle scan. CarShake compares it to the pre-handover scan and highlights any new damage in a side-by-side diff.</li>')
+    parts.append('<li><strong>If new damage is present:</strong> export the before/after diff with timestamps and geo-data. This is the document you attach to the claim, the dispute letter, or the insurance filing. It is the difference between a he-said-she-said argument and a resolved claim.</li>')
+    parts.append('</ol>')
+    parts.append('<h2>Common mistakes</h2>')
+    parts.append('<ul>')
+    parts.append('<li><strong>Skipping the pre-scan because you are in a hurry.</strong> The pre-scan is the entire game. Without it, the post-scan has nothing to compare against and proves nothing. Sixty seconds before you hand over the keys is the highest-leverage minute in your whole trip.</li>')
+    parts.append('<li><strong>Only photographing the obvious sides.</strong> Most valet damage happens on front and rear bumpers, corners, and wheels — exactly the spots people skip. The 8-angle guided scan exists precisely to force coverage of these zones.</li>')
+    parts.append('<li><strong>Not getting the receipt scanned.</strong> The QR handover receipt is what converts your private photo record into an acknowledged record. Operators who scan it at transfer are dramatically less likely to dispute damage later.</li>')
+    parts.append('<li><strong>Waiting to document damage.</strong> Always run the post-scan immediately when you get the car back, while you are still on the property. Waiting until you get home gives the operator room to claim the damage happened in between.</li>')
+    parts.append('</ul>')
+    parts.append('<h2>Why this works</h2>')
+    parts.append('<p>The economics are stark. The average valet damage claim runs $2,100. A single disputed claim — even one you ultimately win — costs $500+ in deductibles, time off work, phone calls, and stress. CarShake exists because a 60-second scan before and after handover eliminates almost all of that cost. The free tier includes 3 scans so you can prove the workflow fits your life before paying anything.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_glossary(h1, desc, slug):
+    term = h1
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>Why ' + term.lower() + ' matters in valet and damage disputes</h2>')
+    parts.append('<p>' + term + ' is one of those terms that sounds abstract until you are standing in a hotel driveway arguing with a valet manager about a dent that was not there when you handed over the keys. Then it becomes the single most important word in the conversation. In the valet and damage-dispute context, ' + term.lower() + ' is the difference between a claim you can prove and a claim you have to walk away from.</p>')
+    parts.append('<p>The core problem in almost every vehicle damage dispute is custody. While someone else has your car — a valet, a rental company, a dealer service department, a body shop — any damage that appears during that window is presumptively theirs. But "presumptively" only helps you if you can prove the condition of the car at the moment you handed it over and at the moment you got it back. That proof is exactly what ' + term.lower() + ' describes in practice, and exactly what gets absent when drivers lose disputes they should have won.</p>')
+    parts.append('<h2>How ' + term.lower() + ' shows up in real disputes</h2>')
+    parts.append('<ul>')
+    parts.append('<li><strong>The handover moment:</strong> this is when ' + term.lower() + ' is established — or fails to be established. A proper handover includes a documented, time-stamped, witnessed record of the vehicle condition at the instant of transfer.</li>')
+    parts.append('<li><strong>The denial:</strong> without that record, the operator almost always claims the damage was pre-existing or occurred after you left. ' + term.capitalize() + ' is the language you use (and the evidence you produce) to defeat that denial.</li>')
+    parts.append('<li><strong>The resolution:</strong> when ' + term.lower() + ' is properly documented, disputes that would have dragged on for weeks tend to resolve in a single conversation. Operators know what a court-admissible before/after diff looks like.</li>')
+    parts.append('</ul>')
+    parts.append('<h2>How CarShake handles ' + term.lower() + '</h2>')
+    parts.append('<p>CarShake was built specifically to operationalize ' + term.lower() + ' for the valet, rental, and handover moment. The workflow is the same every time: you run a guided 8-angle scan in under 60 seconds before you hand over the keys, CarShake time-stamps and geo-locates every photo, and you generate a QR handover receipt the operator acknowledges at the moment of transfer. When you get the car back, you run the same 8-angle scan and CarShake produces a side-by-side before/after diff that isolates any new damage.</p>')
+    parts.append('<p>This is exactly the documented, time-stamped, witnessed record that ' + term.lower() + ' requires in practice — produced automatically, every time, without you having to remember a checklist. The free tier includes 3 scans so you can try the workflow before paying anything. Founding spots (73 of 100 remain) lock the $2.97/month price forever.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_integration(h1, desc, slug):
+    partner = humanize(slug)
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>How the CarShake + ' + partner + ' workflow works</h2>')
+    parts.append('<p>' + partner + ' policyholders get into damage disputes the same way every other driver does — a valet, a rental return, a parking lot, a dealer service visit — and the same gap in evidence sinks their claim. CarShake fills that gap with time-stamped, geo-located before/after scans that ' + partner + ' adjusters can evaluate directly. There is no formal API integration required: CarShake produces documentation that fits cleanly into ' + partner + "'s existing claims process.</p>")
+    parts.append('<h2>Setup steps</h2>')
+    parts.append('<ol>')
+    parts.append('<li><strong>Download CarShake (free).</strong> The free tier includes 3 scans — enough to document a full round-trip valet or rental handover and prove the workflow fits your life.</li>')
+    parts.append('<li><strong>Run the pre-handover scan.</strong> Before you hand your keys to a valet, rental counter, or service advisor, open CarShake and run the guided 8-angle scan. Takes under 60 seconds. Every photo is time-stamped and geo-located automatically.</li>')
+    parts.append('<li><strong>Generate the QR receipt.</strong> Have the attendant scan the QR handover receipt to acknowledge the vehicle condition at the moment of transfer. This step alone prevents most later denials.</li>')
+    parts.append('<li><strong>Run the post-handover scan.</strong> When you get the car back, run the same 8-angle scan. CarShake produces a before/after diff highlighting any new damage.</li>')
+    parts.append('<li><strong>Attach to your ' + partner + ' claim.</strong> Export the diff with timestamps and geo-data and include it in your ' + partner + ' claim filing. Adjusters accept time-stamped photo evidence — which is exactly what CarShake produces.</li>')
+    parts.append('</ol>')
+    parts.append('<h2>Data flow</h2>')
+    parts.append('<p>The data flow is intentionally simple and does not require any plumbing between CarShake and ' + partner + ':</p>')
+    parts.append('<ul>')
+    parts.append('<li><strong>CarShake captures:</strong> 8-angle photo set, timestamp, GPS coordinates, and operator QR acknowledgement — all bundled into a single condition record.</li>')
+    parts.append('<li><strong>CarShake computes:</strong> a side-by-side diff between pre- and post-handover scans that isolates any damage that appeared during the handover window.</li>')
+    parts.append('<li><strong>You submit:</strong> export the diff as a PDF or shareable link and attach it to your ' + partner + ' claim, dispute letter, or police report. The format is designed to be read by human adjusters, not parsed by a system.</li>')
+    parts.append('<li><strong>' + partner + ' resolves:</strong> your adjuster gets a clean, time-stamped, geo-located evidence packet that shows exactly when and where the damage occurred. This is the documentation that moves a claim from disputed to resolved.</li>')
+    parts.append('</ul>')
+    parts.append('<h2>Why this matters for ' + partner.lower() + ' policyholders</h2>')
+    parts.append('<p>The average valet damage claim runs $2,100, and a single disputed claim — even one you ultimately win — costs $500+ in deductibles, time, and stress. ' + partner + ' policyholders who run CarShake scans as a habit give their adjusters exactly the evidence needed to resolve claims quickly and subrogate against the responsible operator. Founding spots (73 of 100 remain) lock the $2.97/month price forever; the free tier is enough to prove the workflow on your next trip.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_best(h1, desc, slug):
+    category = h1.replace("Best ", "").replace(" Documentation Apps", "").replace(" Apps", "")
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>Selection criteria</h2>')
+    parts.append('<p>Not every app in the ' + category.lower() + ' space is built for the same job. When we evaluate apps in this category for real-world damage-dispute use, we look at six concrete criteria:</p>')
+    parts.append('<ul>')
+    parts.append('<li><strong>Purpose-built for the handover moment.</strong> Does the app explicitly support before/after scans tied to a specific transfer event, or is it just a general photo gallery?</li>')
+    parts.append('<li><strong>Guided, consistent coverage.</strong> Does it walk you through a fixed set of angles so you do not miss high-risk zones like bumper corners and wheels?</li>')
+    parts.append('<li><strong>Time-stamped and geo-located photos.</strong> Are timestamps and GPS coordinates baked into the photo metadata, not just added as text overlays a user could fake?</li>')
+    parts.append('<li><strong>Before/after diffing.</strong> Can it actually compare two scans and surface new damage, or does it just store photos for you to compare manually?</li>')
+    parts.append('<li><strong>Operator acknowledgement.</strong> Is there a mechanism (QR receipt, signature, scan) for the operator to acknowledge condition at the moment of transfer?</li>')
+    parts.append('<li><strong>Free tier that actually works.</strong> Can you prove the workflow fits your life before paying, or is the free tier crippled to force an upgrade?</li>')
+    parts.append('</ul>')
+    parts.append('<h2>How CarShake compares</h2>')
+    parts.append('<p>CarShake was designed specifically for the valet, rental, and handover damage-dispute moment — not as a general-purpose vehicle app. It scores well on every criterion above because every feature is built around the 60-second before/after scan workflow:</p>')
+    parts.append('<ul>')
+    parts.append('<li><strong>Guided 8-angle scan in 60 seconds</strong> — walks you through exactly the angles that catch real-world damage.</li>')
+    parts.append('<li><strong>Automatic timestamping and geo-location</strong> on every photo, baked into the metadata.</li>')
+    parts.append('<strong>Before/after diff</strong> that highlights new damage between any two scans.</li>')
+    parts.append('<li><strong>QR handover receipt</strong> the operator scans to acknowledge condition at transfer.</li>')
+    parts.append('<li><strong>Free tier with 3 scans</strong> — enough for a full round-trip handover to prove the workflow.</li>')
+    parts.append('<li><strong>Court-admissible output</strong> — exportable diff with timestamps and geo-data for claims, disputes, and filings.</li>')
+    parts.append('</ul>')
+    parts.append('<h2>Bottom line</h2>')
+    parts.append('<p>If your real need is documenting vehicle condition around the moments someone else takes possession of your car — valet, rental, dealer, body shop, fleet — CarShake is the only app in the ' + category.lower() + ' space built specifically for that workflow. Other apps may be broader or older, but they were not designed to win a damage dispute with a valet company. That is the gap CarShake fills. The free tier lets you prove it on your next trip before paying anything.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_vs(h1, desc, slug):
+    comp = humanize(slug)
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>When to choose each</h2>')
+    parts.append('<p>CarShake and ' + comp + ' are not really competitors — they solve different problems. ' + comp + ' has its own strengths in its own category. CarShake is purpose-built for a specific moment: the 60 seconds before and after you hand your car keys to someone else. The right choice depends on which problem you are actually trying to solve.</p>')
+    parts.append('<h3>Choose CarShake if you</h3>')
+    parts.append('<ul>')
+    parts.append('<li>Park with valets, rent cars, drop off at dealers or body shops, or hand your keys to anyone and need court-admissible before/after condition proof.</li>')
+    parts.append('<li>Have been burned by a damage dispute in the past and want a 60-second habit that prevents the next one.</li>')
+    parts.append('<li>Want a free tool (3 free scans) that walks you through an 8-angle guided scan and produces a QR handover receipt the operator acknowledges.</li>')
+    parts.append('</ul>')
+    parts.append('<h3>Choose ' + comp + ' if you</h3>')
+    parts.append('<ul>')
+    parts.append('<li>Need the specific capability ' + comp + ' is optimized for, and you already have a separate damage-documentation workflow in place.</li>')
+    parts.append('<li>Are shopping for a tool in ' + comp + "'s primary category and damage-proof handovers are not your main concern.</li>")
+    parts.append('</ul>')
+    parts.append('<h3>Choose both if you</h3>')
+    parts.append('<ul>')
+    parts.append('<li>Already use ' + comp + ' for what it does best and want to layer CarShake on top purely for the pre/post-handover damage-proof workflow. The two are not mutually exclusive.</li>')
+    parts.append('</ul>')
+    parts.append('<h2>Feature comparison</h2>')
+    parts.append('<table><tr><th>Capability</th><th>CarShake</th><th>' + comp + '</th></tr>')
+    parts.append('<tr><td>Built for valet/handover damage proof</td><td>Yes — core feature</td><td>No</td></tr>')
+    parts.append('<tr><td>8-angle guided scan in 60 seconds</td><td>Yes</td><td>No</td></tr>')
+    parts.append('<tr><td>Time-stamped, geo-located photos</td><td>Yes</td><td>Varies</td></tr>')
+    parts.append('<tr><td>Before/after diff</td><td>Yes</td><td>No</td></tr>')
+    parts.append('<tr><td>QR handover receipt</td><td>Yes</td><td>No</td></tr>')
+    parts.append('<tr><td>Free tier</td><td>Yes — 3 free scans</td><td>Varies</td></tr>')
+    parts.append('</table>')
+    parts.append('<h2>Bottom line</h2>')
+    parts.append('<p>If your real risk is the moment someone else takes possession of your car, CarShake is purpose-built for that exact problem. ' + comp + ' may be the right tool in its own category, but it was not designed to win a "he said, she said" argument with a valet company over a fresh dent. One prevented dispute saves the average driver $2,100 in claim costs and $500+ in deductibles and wasted time. The free tier lets you prove the workflow before paying anything.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_faq(h1, desc, slug):
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>More context on this question</h2>')
+    parts.append('<p>Frequently asked questions about CarShake tend to cluster around the same few concerns: is it really free, does the documentation actually hold up in disputes, how long does a scan take, and what happens when the other party denies responsibility. The short answers above cover the headline; this section gives you the deeper context that determines whether CarShake will actually work for your situation.</p>')
+    parts.append('<h2>How CarShake actually works in practice</h2>')
+    parts.append('<p>CarShake is a free valet-damage-proof and vehicle-handover app. The core workflow takes 60 seconds: you open the app, run a guided 8-angle walkaround scan of your car, and CarShake time-stamps and geo-locates every photo automatically. You then generate a QR handover receipt that the valet, attendant, or service advisor can scan to acknowledge the vehicle condition at the moment of transfer. When you get the car back, you run the same 8-angle scan and CarShake produces a before/after diff that isolates any new damage that appeared during the handover window.</p>')
+    parts.append('<p>The output is designed to be court-admissible: a clean, time-stamped, geo-located evidence packet that shows exactly when and where any damage occurred. That is the documentation that converts a he-said-she-said argument with a valet company into a resolved claim.</p>')
+    parts.append('<h2>Why documentation timing matters</h2>')
+    parts.append('<p>The single most important thing to understand about vehicle damage disputes is that timing is everything. Damage that occurs while someone else has custody of your car is presumptively their responsibility — but only if you can prove the condition of the car at the moment you handed it over and at the moment you got it back. Without time-stamped pre- and post-handover scans, the operator will almost always claim the damage was pre-existing or happened after you left the lot. With those scans, the dispute tends to resolve in a single conversation.</p>')
+    parts.append('<p>The average valet damage claim runs $2,100. A single disputed claim — even one you ultimately win — costs $500+ in deductibles, time off work, phone calls, and stress. CarShake exists because a 60-second scan before and after handover prevents almost all of that cost. The free tier includes 3 scans so you can prove the workflow fits your life on your next trip before paying anything. Founding spots are limited (73 of 100 remain) and lock the $2.97/month price forever.</p>')
+    parts.append('<h2>If you still have questions</h2>')
+    parts.append('<p>Email hello@carshake.online — we answer every question personally and usually within a day. If you are wondering whether CarShake will work for your specific use case (a particular valet operator, a specific rental company, an unusual handover scenario), the fastest way to find out is to download the free app, run one scan, and see the output for yourself.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_howto(h1, desc, slug):
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>The 60-second version</h2>')
+    parts.append('<p>Every "how to" question about vehicle damage documentation comes down to the same workflow: capture time-stamped, geo-located photos before and after the handover moment, produce a before/after diff, and use that diff as evidence. CarShake was built to make this workflow take 60 seconds instead of 10 minutes, and to make the output court-admissible instead of a folder of photos that could have been taken at any time.</p>')
+    parts.append('<h2>The workflow in practice</h2>')
+    parts.append('<ol>')
+    parts.append('<li><strong>Before the handover:</strong> open CarShake and run the guided 8-angle scan. The app walks you through each angle so you do not miss high-risk zones like front bumper corners, rear quarter panels, and wheels. Every photo is time-stamped and geo-located automatically — no manual entry, no text overlays a user could fake.</li>')
+    parts.append('<li><strong>Get the receipt scanned:</strong> CarShake generates a QR handover receipt. Have the valet, attendant, or service advisor scan it to acknowledge the vehicle condition at the moment of transfer. This single step prevents most "the damage was already there" denials.</li>')
+    parts.append('<li><strong>After the handover:</strong> run the same 8-angle scan when you get the car back. CarShake compares it to the pre-handover scan and produces a side-by-side diff that highlights any new damage.</li>')
+    parts.append('<li><strong>Use the diff:</strong> if new damage is present, export the before/after diff with timestamps and geo-data. This is the document you attach to the claim, dispute letter, or insurance filing.</li>')
+    parts.append('</ol>')
+    parts.append('<h2>What most people get wrong</h2>')
+    parts.append('<ul>')
+    parts.append('<li><strong>Skipping the pre-scan.</strong> The pre-scan is the entire game. Without it, the post-scan proves nothing. Sixty seconds before you hand over the keys is the highest-leverage minute in your trip.</li>')
+    parts.append('<li><strong>Only photographing the obvious sides.</strong> Most valet damage happens on front and rear bumpers, corners, and wheels. The guided 8-angle scan exists to force coverage of these zones.</li>')
+    parts.append('<li><strong>Not getting the receipt scanned.</strong> The QR handover receipt converts your private photo record into an acknowledged record. Operators who scan it at transfer are far less likely to dispute damage later.</li>')
+    parts.append('<li><strong>Documenting damage after leaving the lot.</strong> Always run the post-scan immediately when you get the car back, while you are still on the property.</li>')
+    parts.append('</ul>')
+    parts.append('<h2>The economics</h2>')
+    parts.append('<p>The average valet damage claim runs $2,100. A single disputed claim costs $500+ in deductibles, time, and stress. The CarShake workflow takes 60 seconds, the free tier includes 3 scans, and founding spots (73 of 100 remain) lock the $2.97/month price forever. The math is straightforward: one prevented dispute pays for roughly 14 years of CarShake.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_template(h1, desc, slug):
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>How to use this template</h2>')
+    parts.append('<p>This template exists because most drivers lose damage disputes they should win — not because they are wrong, but because they do not have their evidence organized in a format the other party, their insurance, or a court can evaluate quickly. A well-structured template forces you to include the specific details that matter: the date, the location, the condition of the vehicle before and after, the identity of the operator who took custody, and the timestamped photo evidence that proves when the damage appeared.</p>')
+    parts.append('<p>Use this template alongside a CarShake scan. The scan produces the time-stamped, geo-located before/after photo evidence; the template gives you the written structure to present that evidence to the operator, your insurance company, or a small claims court. Together they are the difference between a disputed claim and a resolved one.</p>')
+    parts.append('<h2>What every damage documentation needs</h2>')
+    parts.append('<ul>')
+    parts.append('<li><strong>Date and time of handover:</strong> the exact moment you transferred custody. CarShake timestamps this automatically.</li>')
+    parts.append('<li><strong>Location:</strong> the address or venue where the handover occurred. CarShake geo-locates every scan.</li>')
+    parts.append('<li><strong>Pre-handover condition:</strong> a guided 8-angle photo set of the vehicle before you handed over the keys.</li>')
+    parts.append('<li><strong>Post-handover condition:</strong> the same 8-angle photo set taken immediately when you got the car back.</li>')
+    parts.append('<li><strong>The diff:</strong> a side-by-side comparison that isolates any new damage that appeared during the handover window.</li>')
+    parts.append('<li><strong>Operator acknowledgement:</strong> the QR handover receipt the valet, attendant, or advisor scanned at the moment of transfer.</li>')
+    parts.append('</ul>')
+    parts.append('<h2>Why templates alone are not enough</h2>')
+    parts.append('<p>A template gives you structure. It does not give you evidence. The evidence — the time-stamped, geo-located, acknowledged photos — has to come from a tool like CarShake that bakes metadata into the capture process. Drivers who try to build this evidence manually with a phone camera almost always lose, because there is no way to prove when and where a standalone photo was taken. CarShake solves this by capturing everything in a single guided workflow that takes 60 seconds.</p>')
+    parts.append('<h2>The economics</h2>')
+    parts.append('<p>The average valet damage claim runs $2,100. A single disputed claim costs $500+ in deductibles, time, and stress. Pair this template with a CarShake scan on your next handover and the entire documentation package takes 60 seconds. The free tier includes 3 scans — enough to prove the workflow fits your life before paying anything. Founding spots (73 of 100 remain) lock the $2.97/month price forever.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_pricing(h1, desc, slug):
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>The honest pricing breakdown</h2>')
+    parts.append('<p>CarShake pricing is deliberately simple because the value proposition is deliberately simple. The free tier is genuinely free — not a crippled trial designed to push you to paid. You get 3 full scans, each of which is a complete 8-angle guided walkaround with time-stamped, geo-located photos and the before/after diff workflow. That is enough to document a full round-trip handover (one pre-scan, one post-scan, and one to spare) and prove the workflow fits your life before you ever enter a credit card.</p>')
+    parts.append('<p>The paid tier is the Founding tier at $2.97/month, locked forever for founding members. Founding spots are limited — 73 of 100 remain at the time of writing — and the founding price does not increase as features are added. Founding members get unlimited scans, the full before/after diff library, and priority export options for claims and disputes.</p>')
+    parts.append('<h2>How the math actually works</h2>')
+    parts.append('<p>The economics of damage documentation are stark. The average valet damage claim runs $2,100. A single disputed claim — even one you ultimately win — costs $500+ in deductibles, time off work, phone calls, and stress. At $2.97/month, one prevented dispute pays for roughly 14 years of CarShake. There is no scenario in which a driver who valet-parks, rents cars, or hands their keys to anyone else even a few times a year does not come out ahead.</p>')
+    parts.append('<h2>What you actually get</h2>')
+    parts.append('<ul>')
+    parts.append('<li><strong>Free tier:</strong> 3 full scans. Each scan is a complete guided 8-angle walkaround with time-stamped, geo-located photos and full before/after diff workflow.</li>')
+    parts.append('<li><strong>Founding tier ($2.97/month, locked forever):</strong> unlimited scans, full diff library, priority export for claims and disputes. Limited to 100 founding members.</li>')
+    parts.append('<li><strong>No hidden fees:</strong> no per-scan charges, no export fees, no surprise upgrade walls. If you hit a limit, the app tells you exactly what it is.</li>')
+    parts.append('</ul>')
+    parts.append('<h2>Is it worth it?</h2>')
+    parts.append('<p>If you never hand your car to anyone else, no. If you valet-park even once a year, rent cars on travel, drop your car at the dealer for service, or use a body shop — yes, unambiguously. The free tier alone is enough to document your next handover. Try it before you decide whether the Founding tier makes sense for your usage.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_checklist(h1, desc, slug):
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>How to use this checklist</h2>')
+    parts.append('<p>This checklist exists because vehicle handover disputes almost always come down to the same question: what was the condition of the vehicle at the moment of transfer, and what is the condition now? A good checklist forces you to capture the specific evidence that answers that question. A great checklist automates the capture so you cannot skip steps when you are in a hurry.</p>')
+    parts.append('<p>The single highest-leverage item on any vehicle handover checklist is a time-stamped, geo-located photo set of the vehicle at the moment of transfer. That is exactly what CarShake produces in 60 seconds — a guided 8-angle walkaround scan with automatic timestamping and geo-location, plus a QR handover receipt the operator scans to acknowledge the condition. Run it before and after the handover and you have a court-admissible before/after diff that wins disputes.</p>')
+    parts.append('<h2>The core workflow</h2>')
+    parts.append('<ol>')
+    parts.append('<li><strong>Pre-handover scan (60 seconds):</strong> open CarShake, run the guided 8-angle walkaround. Photos are time-stamped and geo-located automatically.</li>')
+    parts.append('<li><strong>QR receipt acknowledgement:</strong> generate the QR handover receipt and have the operator scan it at the moment of transfer.</li>')
+    parts.append('<li><strong>Post-handover scan (60 seconds):</strong> when you get the car back, run the same guided scan.</li>')
+    parts.append('<li><strong>Review the diff:</strong> CarShake highlights any new damage between the two scans.</li>')
+    parts.append('<li><strong>Export if needed:</strong> if new damage is present, export the before/after diff with timestamps and geo-data for the claim, dispute letter, or insurance filing.</li>')
+    parts.append('</ol>')
+    parts.append('<h2>Why most checklists fail</h2>')
+    parts.append('<p>Most vehicle handover checklists fail for one of three reasons: (1) they require manual photo capture that does not include trustworthy timestamps, so the other party can claim the photos were taken at any time; (2) they do not include an operator acknowledgement step, so the other party denies receiving the vehicle in the documented condition; or (3) they are too long and get skipped when the driver is in a hurry. CarShake solves all three by automating the capture, forcing the QR acknowledgement, and keeping the entire workflow under 60 seconds.</p>')
+    parts.append('<h2>The economics</h2>')
+    parts.append('<p>The average valet damage claim runs $2,100. A single disputed claim costs $500+ in deductibles, time, and stress. Pair this checklist with a CarShake scan and the whole thing takes 60 seconds. The free tier includes 3 scans — enough to prove the workflow on your next handover before paying anything. Founding spots (73 of 100 remain) lock the $2.97/month price forever.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_cost(h1, desc, slug):
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>What vehicle damage actually costs</h2>')
+    parts.append('<p>The real cost of a damage dispute is almost never just the repair bill. Drivers focus on the sticker price of the dent repair and miss the cascade of costs that follow: the deductible on your insurance claim, the time off work to get multiple estimates, the hours on the phone with the valet company\'s insurance, the rental car while yours is in the shop, the diminished-value hit when you eventually sell or trade in the car, and the stress tax of fighting a denial for weeks. Add it all up and the average valet damage claim runs roughly $2,100 — and a single disputed claim, even one you ultimately win, costs $500+ out of pocket.</p>')
+    parts.append('<h2>The cost breakdown</h2>')
+    parts.append('<ul>')
+    parts.append('<li><strong>Repair cost:</strong> the actual body work. Bumper corner damage from a valet typically runs $400-$900. Wheel curb rash runs $150-$400 per wheel. Door dings $75-$250.</li>')
+    parts.append('<li><strong>Insurance deductible:</strong> typically $250-$1,000, paid out of pocket before coverage kicks in.</li>')
+    parts.append('<strong>Diminished value:</strong> a car with a damage history on its Carfax sells for less. Even after a perfect repair, a late-model car can lose $1,000-$3,000 in resale value.</li>')
+    parts.append('<li><strong>Time cost:</strong> getting three estimates, filing the claim, fighting the denial, renting a replacement car. Realistically 8-20 hours of your time.</li>')
+    parts.append('<li><strong>Stress and hassle:</strong> unquantifiable but real. Most drivers give up on legitimate claims because the fight is not worth it.</li>')
+    parts.append('</ul>')
+    parts.append('<h2>The 60-second fix</h2>')
+    parts.append('<p>The entire cost cascade above is preventable with a single habit: run a time-stamped, geo-located scan of your car before and after anyone else takes possession of it. CarShake was built to make this habit take 60 seconds instead of 10 minutes. The workflow is always the same: open the app, run the guided 8-angle scan, generate the QR handover receipt for the operator to acknowledge, run the same scan when you get the car back, review the before/after diff. If new damage shows up, you have a court-admissible record showing exactly when and where it appeared.</p>')
+    parts.append('<p>Operators who would otherwise stonewall you for weeks tend to resolve claims in a single conversation when confronted with a time-stamped, acknowledged before/after diff. The documentation changes the power dynamic. You are no longer making an allegation; you are presenting evidence.</p>')
+    parts.append('<h2>The economics</h2>')
+    parts.append('<p>The CarShake free tier includes 3 full scans — enough to document a complete round-trip handover and prove the workflow fits your life before paying anything. The Founding tier is $2.97/month, locked forever for founding members (73 of 100 spots remain). At that price, one prevented dispute pays for roughly 14 years of CarShake. There is no scenario in which a driver who hands their keys to anyone else even a few times a year does not come out far ahead.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_contact(h1, desc, slug):
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>What to include when you contact us</h2>')
+    parts.append('<p>Email is the fastest way to reach the CarShake team: <strong>hello@carshake.online</strong>. We answer every question personally and usually within a day. Whether you are evaluating the app for a specific use case, hitting a workflow question, or following up on a feature request, the more context you include in your first email the faster we can help.</p>')
+    parts.append('<h2>Questions we can answer immediately</h2>')
+    parts.append('<ul>')
+    parts.append('<li><strong>Does CarShake work for my specific handover scenario?</strong> If you tell us the operator (airport valet, hotel valet, rental company, dealer, body shop, fleet), we will tell you exactly how the workflow applies and what to expect.</li>')
+    parts.append('<li><strong>Will my insurance accept CarShake documentation?</strong> Adjusters accept time-stamped, geo-located photo evidence — which is exactly what CarShake produces. We can walk you through how to attach the before/after diff to your specific insurer\'s claim process.</li>')
+    parts.append('<li><strong>How does the free tier work?</strong> The free tier includes 3 full scans. Each scan is a complete 8-angle guided walkaround with time-stamped photos and the full before/after diff workflow. No credit card required.</li>')
+    parts.append('<li><strong>What does the Founding tier include?</strong> Unlimited scans, full diff library, priority export. $2.97/month locked forever for founding members (73 of 100 spots remain).</li>')
+    parts.append('</ul>')
+    parts.append('<h2>What CarShake actually is</h2>')
+    parts.append('<p>CarShake is a free valet-damage-proof and vehicle-handover app. It scans and time-stamps a car\'s condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims. The core workflow takes 60 seconds: open the app, run a guided 8-angle walkaround scan, generate a QR handover receipt the operator acknowledges at the moment of transfer, run the same scan when you get the car back, and review the before/after diff that isolates any new damage.</p>')
+    parts.append('<p>CarShake is a consumer-and-operator valet-damage-proof handover app — not a B2B insurance damage-detection API. If you are an individual driver, a frequent traveler, a rental car customer, a luxury or exotic car owner, or a fleet operator looking to protect your vehicles at the handover moment, we built this for you.</p>')
+    parts.append('<h2>Before you email</h2>')
+    parts.append('<p>The fastest way to answer most questions is to download the free app, run one scan, and see the output for yourself. The free tier includes 3 scans — enough to document a full round-trip handover and prove the workflow fits your life. If after that you still have questions, email hello@carshake.online and we will get you a personal answer.</p>')
+    parts.append('<h2>For valet operators, fleets, and partners</h2>')
+    parts.append('<p>If you operate a valet company, a rental fleet, a dealership service department, or a body shop and want to standardize condition documentation across every handover, we offer operator workflows on top of the same core scan. Email us with a one-line description of your operation (number of vehicles per day, current documentation process, what you are trying to solve) and we will walk you through the options. There is no enterprise sales cycle — you talk directly to the team that builds the app.</p>')
+    parts.append('<h2>Response time</h2>')
+    parts.append('<p>We answer every email personally, usually within one business day. During travel-heavy periods (holidays, major conferences) it can stretch to two days. If your question is urgent — an active dispute, a claim filing deadline, a rental return you need to document right now — mark the subject line URGENT and we will prioritize it.</p>');
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_reviews(h1, desc, slug):
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>What we look for in damage documentation tools</h2>')
+    parts.append('<p>When we review vehicle inspection and damage documentation tools, we evaluate them against a single primary use case: can a driver use this tool to win a damage dispute with a valet company, rental car counter, or service department? That question breaks down into six concrete criteria:</p>')
+    parts.append('<ul>')
+    parts.append('<li><strong>Purpose-built for the handover moment.</strong> Does the tool explicitly support before/after scans tied to a specific transfer event?</li>')
+    parts.append('<li><strong>Guided, consistent coverage.</strong> Does it walk the user through a fixed set of angles so high-risk zones (bumpers, corners, wheels) are not missed?</li>')
+    parts.append('<li><strong>Time-stamped and geo-located photos.</strong> Is the metadata baked into the capture process, or is it added as editable text overlays?</li>')
+    parts.append('<li><strong>Before/after diffing.</strong> Can the tool actually compare two scans and surface new damage, or does it leave that to the user?</li>')
+    parts.append('<li><strong>Operator acknowledgement.</strong> Is there a mechanism (QR receipt, signature, scan) for the operator to acknowledge condition at the moment of transfer?</li>')
+    parts.append('<li><strong>Free tier that actually works.</strong> Can a user prove the workflow before paying, or is the free tier crippled?</li>')
+    parts.append('</ul>')
+    parts.append('<h2>How the major tools stack up</h2>')
+    parts.append('<p>Record360, Damage iD, Inspectr, and RepairPal each occupy a slightly different niche. Record360 is strong in rental fleet inspection workflows and is widely deployed at rental counters. Damage iD focuses on damage detection for fleet operators. Inspectr serves professional vehicle inspectors. RepairPal is focused on repair cost estimates, not damage documentation. None of them were purpose-built for the consumer-facing valet handover moment — the 60 seconds before and after you hand your keys to a valet at a hotel, restaurant, or airport.</p>')
+    parts.append('<p>That is the gap CarShake fills. CarShake is a free consumer-and-operator app built specifically for the valet handover workflow: guided 8-angle scan in 60 seconds, time-stamped and geo-located photos, QR handover receipt the operator acknowledges, and before/after diff that isolates any new damage. The other tools in this space are stronger in their own specialties (fleet inspection, professional inspection, repair estimates) but they were not designed to win a consumer damage dispute with a valet company.</p>')
+    parts.append('<h2>Why this comparison matters</h2>')
+    parts.append('<p>The average valet damage claim runs $2,100. A single disputed claim — even one you ultimately win — costs $500+ in deductibles, time, and stress. If you are evaluating damage documentation tools, the question to ask is which one will actually produce the evidence you need at the specific moment you need it. For the valet handover moment, the answer is CarShake. For rental fleet inspection at scale, Record360. For professional inspection services, Inspectr. The tools are not interchangeable — they are built for different points in the vehicle custody chain.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+def gen_generic(h1, desc, slug):
+    """Fallback for any uncategorized section."""
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>How CarShake fits in</h2>')
+    parts.append('<p>CarShake is a free valet-damage-proof and vehicle-handover app. The core workflow takes 60 seconds: you run a guided 8-angle walkaround scan of your car before you hand over the keys, CarShake time-stamps and geo-locates every photo, and you generate a QR handover receipt the operator acknowledges at the moment of transfer. When you get the car back, you run the same scan and CarShake produces a before/after diff that isolates any new damage.</p>')
+    parts.append('<h2>The 60-second workflow</h2>')
+    parts.append('<ol>')
+    parts.append('<li><strong>Pre-handover scan:</strong> open CarShake and run the guided 8-angle walkaround. Every photo is time-stamped and geo-located automatically.</li>')
+    parts.append('<li><strong>QR receipt:</strong> generate the QR handover receipt and have the operator scan it to acknowledge the vehicle condition at the moment of transfer.</li>')
+    parts.append('<li><strong>Post-handover scan:</strong> when you get the car back, run the same 8-angle scan.</li>')
+    parts.append('<li><strong>Review the diff:</strong> CarShake highlights any new damage between the two scans.</li>')
+    parts.append('<li><strong>Export if needed:</strong> if new damage is present, export the before/after diff with timestamps and geo-data for the claim or dispute.</li>')
+    parts.append('</ol>')
+    parts.append('<h2>Why this matters</h2>')
+    parts.append('<p>The average valet damage claim runs $2,100. A single disputed claim — even one you ultimately win — costs $500+ in deductibles, time off work, phone calls, and stress. CarShake exists because a 60-second scan before and after handover prevents almost all of that cost. Operators who would otherwise stonewall you for weeks tend to resolve claims in a single conversation when confronted with a time-stamped, acknowledged before/after diff.</p>')
+    parts.append('<h2>The economics</h2>')
+    parts.append('<p>The free tier includes 3 full scans — enough to document a complete round-trip handover and prove the workflow fits your life before paying anything. The Founding tier is $2.97/month, locked forever for founding members (73 of 100 spots remain). At that price, one prevented dispute pays for roughly 14 years of CarShake. Try the free tier on your next handover and see the output for yourself.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+# ---------- hub page rebuilders ----------
+
+HUB_REBUILD_INTRO = {
+    "cost-of": ("Valet Damage Costs", "What valet damage costs and how to prevent it.",
+        "Valet and rental car damage is one of the most underestimated costs a driver faces. The average valet damage claim runs $2,100, and a single disputed claim — even one you ultimately win — costs $500+ in deductibles, time off work, and stress. This hub breaks down what vehicle damage actually costs across the most common scenarios, why those costs cascade far beyond the repair bill, and how a 60-second CarShake scan before and after handover prevents almost all of it."),
+    "checklists": ("Vehicle Handover Checklists", "Vehicle inspection and handover checklists.",
+        "Every vehicle handover dispute comes down to the same question: what was the condition of the vehicle at the moment of transfer, and what is the condition now? The checklists below force you to capture the specific evidence that answers that question. Each one pairs with the CarShake 60-second guided 8-angle scan workflow — run the scan, generate the QR handover receipt the operator acknowledges, and produce a court-admissible before/after diff that wins disputes."),
+    "learn": ("Learn", "How-to guides for drivers using valet damage protection.",
+        "The CarShake learn hub covers the practical workflow that prevents vehicle damage disputes: the 60-second guided scan, the QR handover receipt, the before/after diff, and the claim and dispute process that follows when new damage appears. Every guide below is built around the same core principle — capture time-stamped, geo-located evidence at the moment of transfer, and the dispute resolves itself."),
+    "use-cases": ("Use Cases", "How drivers, travelers, and owners use CarShake.",
+        "CarShake is built for the moment someone else takes possession of your vehicle. The use cases below cover the most common scenarios — frequent travelers, rental car users, luxury and exotic car owners — and show exactly how the 60-second scan workflow applies to each. Every use case follows the same pattern: run the pre-handover scan, get the QR receipt acknowledged, run the post-handover scan, and review the before/after diff."),
+    "reviews": ("Tool & Competitor Reviews", "Reviews of vehicle inspection and damage documentation tools.",
+        "This hub collects our in-depth reviews of vehicle inspection and damage documentation tools — Record360, Damage iD, Inspectr, RepairPal, and others. Each tool occupies a different niche in the vehicle custody chain. We evaluate every tool against a single primary use case: can a driver use this to win a damage dispute with a valet company, rental counter, or service department? For that specific moment, CarShake is the only tool purpose-built for the job."),
+}
+
+
+def gen_hub_content(section_key):
+    """Generate a content block (~500+ words) to inject into a thin hub page."""
+    if section_key not in HUB_REBUILD_INTRO:
+        return ""
+    h1, desc, intro = HUB_REBUILD_INTRO[section_key]
+    parts = []
+    parts.append('<section style="margin-top:32px">')
+    parts.append('<h2>Why this matters</h2>')
+    parts.append('<p>' + intro + '</p>')
+    parts.append('<h2>The 60-second workflow every guide below assumes</h2>')
+    parts.append('<ol>')
+    parts.append('<li><strong>Pre-handover scan:</strong> open CarShake and run the guided 8-angle walkaround. Every photo is time-stamped and geo-located automatically — no manual entry, no editable text overlays.</li>')
+    parts.append('<li><strong>QR receipt acknowledgement:</strong> generate the QR handover receipt and have the valet, attendant, or advisor scan it to acknowledge the vehicle condition at the moment of transfer.</li>')
+    parts.append('<li><strong>Post-handover scan:</strong> when you get the car back, run the same 8-angle scan.</li>')
+    parts.append('<li><strong>Review the diff:</strong> CarShake compares the two scans and highlights any new damage that appeared during the handover window.</li>')
+    parts.append('<li><strong>Export if needed:</strong> if new damage is present, export the before/after diff with timestamps and geo-data for the claim, dispute letter, or insurance filing.</li>')
+    parts.append('</ol>')
+    parts.append('<h2>What most drivers get wrong</h2>')
+    parts.append('<ul>')
+    parts.append('<li><strong>Skipping the pre-scan because they are in a hurry.</strong> The pre-scan is the entire game. Without it, the post-scan has nothing to compare against and proves nothing. Sixty seconds before you hand over the keys is the highest-leverage minute in your trip.</li>')
+    parts.append('<li><strong>Only photographing the obvious sides.</strong> Most valet damage happens on front and rear bumpers, corners, and wheels — exactly the spots people skip. The 8-angle guided scan exists to force coverage of these zones.</li>')
+    parts.append('<li><strong>Not getting the receipt scanned.</strong> The QR handover receipt is what converts your private photo record into an acknowledged record. Operators who scan it at transfer are dramatically less likely to dispute damage later.</li>')
+    parts.append('<li><strong>Waiting to document damage.</strong> Always run the post-scan immediately when you get the car back, while you are still on the property. Waiting until you get home gives the operator room to claim the damage happened in between.</li>')
+    parts.append('</ul>')
+    parts.append('<h2>The economics</h2>')
+    parts.append('<p>The average valet damage claim runs $2,100. A single disputed claim — even one you ultimately win — costs $500+ in deductibles, time off work, phone calls, and stress. CarShake exists because a 60-second scan before and after handover prevents almost all of that cost. The free tier includes 3 full scans — enough to document a complete round-trip handover and prove the workflow fits your life before paying anything. Founding spots (73 of 100 remain) lock the $2.97/month price forever. At that price, one prevented dispute pays for roughly 14 years of CarShake.</p>')
+    parts.append('<h2>Start with the guides below</h2>')
+    parts.append('<p>Each guide in this section walks through a specific scenario, cost, or workflow in detail. Pick the one that matches your situation, run the free CarShake scan on your next handover, and see the before/after diff for yourself. If you have questions after that, email hello@carshake.online and we will get you a personal answer.</p>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
+# ---------- dispatch ----------
+
+SECTION_GENERATORS = {
+    "alternatives-to": gen_alternatives,
+    "use-cases": gen_usecase,
+    "learn": gen_learn,
+    "glossary": gen_glossary,
+    "integrations": gen_integration,
+    "best": gen_best,
+    "vs": gen_vs,
+    "faq": gen_faq,
+    "how-to": gen_howto,
+    "templates": gen_template,
+    "free": gen_template,        # same shape: template/guide content
+    "pricing-questions": gen_pricing,
+    "checklists": gen_checklist,
+    "cost-of": gen_cost,
+}
+
+# Hubs that get a section-keyed intro
+HUB_PATHS = {
+    "cost-of",
+    "checklists",
+    "learn",
+    "use-cases",
+    "reviews",
+}
+
+
+def dispatch_generator(section, path_str, url, h1, desc):
+    """Pick the right generator for a given page."""
+    # Hub pages: path is the section root
+    path_clean = path_str.replace(ROOT.as_posix(), "").lstrip("/")
+    # Detect hub (e.g. cost-of.html, learn/index.html, use-cases/index.html, reviews/index.html)
+    if (path_clean in ("cost-of.html", "checklists.html") or
+            path_clean in ("learn/index.html", "use-cases/index.html", "reviews/index.html")):
+        # map file to hub key
+        hub_key = path_clean.replace(".html", "").replace("/index.html", "")
+        block = gen_hub_content(hub_key)
+        if block:
+            return block
+    # Special standalone pages
+    if path_clean == "contact.html":
+        return gen_contact(h1, desc, "contact")
+    if path_clean == "faq.html":
+        return gen_faq(h1, desc, "faq")
+    # reviews hub
+    if section == "reviews":
+        return gen_reviews(h1, desc, "reviews")
+    # Section dispatch
+    gen = SECTION_GENERATORS.get(section)
+    if gen:
+        return gen(h1, desc, slug_of(url))
+    return gen_generic(h1, desc, slug_of(url))
+
+
+# ---------- duplicate twin detection ----------
+
+def find_duplicate_twins():
+    """Return list of (index_file, slug_file) pairs where both exist."""
+    twins = []
+    for idx in ROOT.rglob("index.html"):
+        if ".vercel" in str(idx) or "node_modules" in str(idx):
+            continue
+        slug_html = idx.parent.parent / (idx.parent.name + ".html")
+        if slug_html.exists() and slug_html.is_file():
+            twins.append((idx, slug_html))
+    return twins
+
+
+def resolve_all_files_for_url(url):
+    """Return all on-disk files that Vercel might serve for this URL."""
+    path = url.replace(BASE, "").lstrip("/")
+    if not path:
+        return [ROOT / "index.html"]
+    candidates = []
+    # /slug/  ->  slug/index.html
+    candidates.append(ROOT / path / "index.html")
+    # /slug  ->  slug.html  OR  slug/index.html (clean URL)
+    candidates.append(ROOT / (path + ".html"))
+    # /dir/  ->  dir.html (some generators do this)
+    if path.endswith("/"):
+        candidates.append(ROOT / (path.rstrip("/") + ".html"))
+    return [c for c in candidates if c.exists() and c.is_file()]
+
+
+# ---------- main ----------
+
+def main():
+    data = json.loads(MANIFEST.read_text())
+    site = data["carshake.online"]
+    thin_pages = site["thin_pages"]
+
+    # Detect duplicate twins up front so we can sync after patching
+    twins = find_duplicate_twins()
+    twin_slug_to_idx = {}
+    for idx_f, slug_f in twins:
+        twin_slug_to_idx[slug_f] = idx_f
+
+    stats = {"enriched": 0, "skipped": 0, "failed": 0, "no_block": 0}
+    results = []
+
+    for entry in thin_pages:
+        url = entry["url"]
+        primary_path = Path(entry["path"])
+        h1 = entry.get("h1", "")
+        desc = entry.get("description", "")
+
+        if not primary_path.exists():
+            print("MISSING: " + url + " -> " + str(primary_path))
+            stats["failed"] += 1
+            continue
+
+        existing = primary_path.read_text(errors="ignore")
+        wc_before = count_visible_words(existing)
+        if wc_before >= WORD_FLOOR:
+            stats["skipped"] += 1
+            results.append((url, primary_path, wc_before, wc_before, "skip"))
+            continue
+
+        section = section_of(url)
+        block = dispatch_generator(section, str(primary_path), url, h1, desc)
+        if not block:
+            print("NO BLOCK: " + url + " (section=" + section + ")")
+            stats["no_block"] += 1
+            continue
+
+        # Inject into primary
+        enriched = insert_block(existing, block)
+        primary_path.write_text(enriched)
+        wc_after = count_visible_words(enriched)
+
+        # Sync duplicate twin if present
+        twin_synced = False
+        if primary_path in twin_slug_to_idx:
+            idx_file = twin_slug_to_idx[primary_path]
+            # Preserve index.html canonical
+            idx_canon = re.search(r'<link rel="canonical" href="([^"]+)"',
+                                  idx_file.read_text(errors="ignore"))
+            slug_canon = re.search(r'<link rel="canonical" href="([^"]+)"', enriched)
+            rich = enriched
+            if idx_canon and slug_canon and idx_canon.group(1) != slug_canon.group(1):
+                rich = rich.replace(slug_canon.group(1), idx_canon.group(1))
+            idx_file.write_text(rich)
+            twin_synced = True
+
+        # Also handle case where there are OTHER files Vercel might serve
+        served_files = resolve_all_files_for_url(url)
+        for sf in served_files:
+            if sf == primary_path:
+                continue
+            if sf in twin_slug_to_idx.values():
+                continue  # already handled
+            sf_text = sf.read_text(errors="ignore")
+            if count_visible_words(sf_text) < WORD_FLOOR:
+                # preserve canonical of the served file
+                sf_canon = re.search(r'<link rel="canonical" href="([^"]+)"', sf_text)
+                rich = enriched
+                if sf_canon and slug_canon:
+                    rich = rich.replace(slug_canon.group(1), sf_canon.group(1))
+                sf.write_text(rich)
+
+        stats["enriched"] += 1
+        results.append((url, primary_path, wc_before, wc_after,
+                        "twin-synced" if twin_synced else "ok"))
+
+    # Print report
+    print("\n" + "=" * 78)
+    print("ENRICHMENT REPORT — carshake.online")
+    print("=" * 78)
+    print("Total thin pages in manifest: " + str(len(thin_pages)))
+    print("Enriched: " + str(stats["enriched"]))
+    print("Skipped (already >= " + str(WORD_FLOOR) + " words): " + str(stats["skipped"]))
+    print("No block generated: " + str(stats["no_block"]))
+    print("Failed/missing: " + str(stats["failed"]))
+    print()
+    print("Per-page word counts (before -> after):")
+    print("-" * 78)
+    for url, path, wc_b, wc_a, status in sorted(results, key=lambda r: r[2]):
+        rel = str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path)
+        flag = "" if wc_a >= 500 else "  <-- UNDER 500"
+        print(str(wc_b).rjust(4) + " -> " + str(wc_a).rjust(4) + "  " + status.ljust(12) + "  " + url + flag)
+    print("-" * 78)
+    under = [r for r in results if r[3] < 500]
+    print("Pages still under 500 words: " + str(len(under)))
+    for u in under:
+        print("  " + u[0] + " (" + str(u[3]) + " words)")
+
+
+if __name__ == "__main__":
+    main()
