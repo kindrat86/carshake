@@ -4,6 +4,18 @@
   "buildCommand": null,
   "rewrites": [
     {
+      "source": "/how-to-protect-car-valet-parking",
+      "destination": "/how-to-protect-car-valet-parking.html"
+    },
+    {
+      "source": "/how-to-document-pre-existing-damage",
+      "destination": "/how-to-document-pre-existing-damage.html"
+    },
+    {
+      "source": "/how-to-dispute-valet-damage",
+      "destination": "/how-to-dispute-valet-damage.html"
+    },
+    {
       "source": "/vehicle-damage-costs",
       "destination": "/vehicle-damage-costs.html"
     },
@@ -12,8 +24,16 @@
       "destination": "/dream100.html"
     },
     {
+      "source": "/calculator",
+      "destination": "/calculator.html"
+    },
+    {
       "source": "/tripwire",
       "destination": "/tripwire.html"
+    },
+    {
+      "source": "/oto",
+      "destination": "/oto.html"
     },
     {
       "source": "/content-calendar",

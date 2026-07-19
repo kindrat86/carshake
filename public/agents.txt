@@ -1,0 +1,5 @@
+# CarShake — Agent Reference
+# Free valet-damage-proof & car-handover app.
+# AI scans + QR handshake + court-admissible evidence.
+# Contact: hello@carshake.online
+# Site: https://carshake.online

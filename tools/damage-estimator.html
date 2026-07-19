@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Car Handover Damage Cost Estimator — CarShake</title>
+<meta name="description" content="Estimate common valet and handover damage costs for your vehicle. Free tool based on real repair data.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Car Handover Damage Cost Estimator","url":"https://carshake.online/tools/damage-estimator","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Estimate common valet and handover damage costs for your vehicle.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,system-ui,sans-serif;background:#0a0a0a;color:#e0e0e0;line-height:1.6;padding:20px;max-width:640px;margin:0 auto}
+h1{color:#fff;font-size:1.6em;margin-bottom:4px}
+h1 span{color:#f59e0b}
+.subtitle{color:#888;margin-bottom:24px;font-size:.95em}
+.card{background:#111;border:1px solid #1a1a1a;border-radius:12px;padding:20px;margin:16px 0}
+.card h3{color:#f59e0b;margin-bottom:12px;font-size:1em}
+label{display:block;color:#999;font-size:.85em;margin:10px 0 4px}
+select,input{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#e0e0e0;font-size:.95em}
+select:focus,input:focus{outline:none;border-color:#f59e0b}
+.result{padding:16px;border-radius:8px;margin-top:12px;font-weight:600}
+.result.warn{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:#f59e0b}
+.result.ok{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:#10b981}
+.btn{display:block;width:100%;padding:14px;border:none;border-radius:10px;background:#f59e0b;color:#0a0a0a;font-weight:700;font-size:1em;cursor:pointer;margin-top:16px;transition:transform .1s}
+.btn:hover{transform:translateY(-1px)}
+.total{font-size:1.4em;color:#fff;text-align:center;margin:20px 0}
+.breakdown{color:#888;font-size:.85em;margin-top:8px}
+.breakdown span{color:#e0e0e0}
+.embed-box{background:#111;border:1px solid #1a1a1a;border-radius:12px;padding:16px;margin:20px 0}
+.embed-box h4{color:#f59e0b;margin-bottom:8px;font-size:.9em}
+.embed-box pre{background:#0a0a0a;padding:12px;border-radius:8px;overflow-x:auto;font-size:.8em;color:#888}
+</style>
+</head>
+<body>
+
+<h1><span>🚗</span> Car Handover Damage Cost Estimator</h1>
+<p class="subtitle">Estimate repair costs for the 8 most common valet and handover damage types. Free, no sign-up.</p>
+
+<div class="card">
+  <h3>Vehicle Details</h3>
+  <label>Vehicle Type</label>
+  <select id="vehicleType">
+    <option value="compact">Compact (Honda Civic, Toyota Corolla)</option>
+    <option value="sedan" selected>Sedan (BMW 3, Mercedes C, Audi A4)</option>
+    <option value="suv">SUV / Crossover (Range Rover, X5, Q7)</option>
+    <option value="luxury">Luxury (Bentley, Rolls-Royce, Maybach)</option>
+    <option value="sports">Sports (Porsche, Ferrari, Lamborghini)</option>
+  </select>
+  
+  <label>Paint Type</label>
+  <select id="paintType">
+    <option value="standard">Standard</option>
+    <option value="metallic" selected>Metallic</option>
+    <option value="pearl">Pearl / Tri-coat</option>
+    <option value="matte">Matte</option>
+  </select>
+</div>
+
+<div class="card">
+  <h3>Damage Assessment</h3>
+  <p style="color:#888;font-size:.85em;margin-bottom:12px">Check each damage type observed:</p>
+  
+  <label><input type="checkbox" id="scratch" onchange="calculate()" style="width:auto;margin-right:8px"> Door scratch (3-6 inch)</label>
+  <select id="scratchSeverity" onchange="calculate()" style="margin-bottom:8px">
+    <option value="light">Light — clear coat only</option>
+    <option value="medium" selected>Medium — through paint</option>
+    <option value="deep">Deep — to metal</option>
+  </select>
+  
+  <label><input type="checkbox" id="dent" onchange="calculate()" style="width:auto;margin-right:8px"> Door ding / dent</label>
+  <select id="dentSeverity" onchange="calculate()" style="margin-bottom:8px">
+    <option value="minor" selected>Minor — PDR repairable</option>
+    <option value="moderate">Moderate — requires filler</option>
+    <option value="major">Major — panel replacement</option>
+  </select>
+  
+  <label><input type="checkbox" id="bumper" onchange="calculate()" style="width:auto;margin-right:8px"> Bumper scuff / crack</label>
+  <select id="bumperSeverity" onchange="calculate()" style="margin-bottom:8px">
+    <option value="scuff" selected>Scuff — polish out</option>
+    <option value="scratch">Deep scratch — repaint</option>
+    <option value="crack">Crack — replacement</option>
+  </select>
+  
+  <label><input type="checkbox" id="wheel" onchange="calculate()" style="width:auto;margin-right:8px"> Wheel / rim curb rash</label>
+  <select id="wheelSeverity" onchange="calculate()" style="margin-bottom:8px">
+    <option value="light" selected>Light — cosmetic</option>
+    <option value="medium">Medium — 25% of rim</option>
+    <option value="heavy">Heavy — full refinish</option>
+  </select>
+  
+  <label><input type="checkbox" id="mirror" onchange="calculate()" style="width:auto;margin-right:8px"> Mirror housing damage</label>
+  <label><input type="checkbox" id="glass" onchange="calculate()" style="width:auto;margin-right:8px"> Window / glass scratch</label>
+  <label><input type="checkbox" id="interior" onchange="calculate()" style="width:auto;margin-right:8px"> Interior scuff / stain</label>
+</div>
+
+<button class="btn" onclick="calculate()">Calculate Estimate</button>
+
+<div class="total" id="total">$0</div>
+<div class="breakdown" id="breakdown"></div>
+
+<div class="embed-box">
+  <h4>📋 Embed this tool on your site</h4>
+  <pre>&lt;iframe src="https://carshake.online/tools/damage-estimator" 
+        width="100%" height="600" style="border:none"&gt;&lt;/iframe&gt;</pre>
+</div>
+
+<script>
+const BASE_COSTS = {
+  compact: {scratch:[200,500,900], dent:[150,400,1200], bumper:[80,350,900], wheel:[100,250,500], mirror:350, glass:400, interior:200},
+  sedan:   {scratch:[350,800,1400], dent:[200,600,1800], bumper:[120,500,1200], wheel:[150,350,700], mirror:500, glass:600, interior:300},
+  suv:     {scratch:[400,950,1600], dent:[250,700,2200], bumper:[150,600,1400], wheel:[200,450,900], mirror:600, glass:700, interior:400},
+  luxury:  {scratch:[800,2000,4000], dent:[500,1500,5000], bumper:[300,1200,3500], wheel:[400,1000,2000], mirror:1200, glass:1500, interior:800},
+  sports:  {scratch:[600,1800,3500], dent:[400,1200,4500], bumper:[250,1000,3000], wheel:[500,1200,2500], mirror:1000, glass:1200, interior:600}
+};
+const PAINT_MULTIPLIER = {standard:1, metallic:1.2, pearl:1.5, matte:1.8};
+function calculate(){
+  let t=document.getElementById('vehicleType').value;
+  let pm=PAINT_MULTIPLIER[document.getElementById('paintType').value];
+  let costs=BASE_COSTS[t], total=0, items=[];
+  function add(name,key,sev){
+    let el=document.getElementById(key);
+    if(!el.checked)return;
+    let idx=['scratch','dent','bumper','wheel'].includes(key) ? document.getElementById(key+'Severity').value : null;
+    let cost=Array.isArray(costs[key]) ? costs[key][['light','minor','scuff','light'].includes(idx)?0:['medium','moderate','scratch','medium'].includes(idx)?1:2] : costs[key];
+    cost=Math.round(cost*pm);
+    total+=cost;
+    items.push(`<span>${name}</span>: $${cost.toLocaleString()}`);
+  }
+  add('Door scratch','scratch'); add('Door dent','dent'); add('Bumper damage','bumper');
+  add('Wheel rash','wheel'); add('Mirror housing','mirror'); add('Window/glass','glass'); add('Interior damage','interior');
+  document.getElementById('total').textContent='$'+total.toLocaleString();
+  document.getElementById('breakdown').innerHTML=items.length?items.join('<br>'):'<span style="color:#666">Select damage types above</span>';
+  let el=document.getElementById('total');
+  el.className='total '+(total>2000?'result warn':'result ok');
+  if(total===0)el.className='total';
+}
+</script>
+</body>
+</html>
