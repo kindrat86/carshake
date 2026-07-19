@@ -3,9 +3,18 @@
   "trailingSlash": false,
   "buildCommand": null,
   "rewrites": [
+    {"source": "/vehicle-damage-costs", "destination": "/vehicle-damage-costs.html"},
     {
       "source": "/dream100",
       "destination": "/dream100.html"
+    },
+    {
+      "source": "/tripwire",
+      "destination": "/tripwire.html"
+    },
+    {
+      "source": "/content-calendar",
+      "destination": "/content-calendar.html"
     },
     {
       "source": "/affiliates",
@@ -312,7 +321,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://*.posthog.com; connect-src 'self' https://*.supabase.co https://*.posthog.com; frame-ancestors 'none'; frame-src 'none'; base-uri 'self'; form-action 'self' https://*.supabase.co; object-src 'none'; upgrade-insecure-requests; require-trusted-types-for 'script'"
+          "value": "default-src 'self'; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://*.posthog.com https://connect.facebook.net https://www.redditstatic.com https://snap.licdn.com; connect-src 'self' https://*.supabase.co https://*.posthog.com https://connect.facebook.net https://www.redditstatic.com https://snap.licdn.com; frame-ancestors 'none'; frame-src 'none'; base-uri 'self'; form-action 'self' https://*.supabase.co; object-src 'none'; upgrade-insecure-requests; require-trusted-types-for 'script'"
         }
       ]
     },
