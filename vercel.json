@@ -234,7 +234,19 @@
         },
         {
           "key": "Permissions-Policy",
-          "value": "camera=(self), geolocation=(self)"
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=(), browsing-topics=(), interest-cohort=()"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Embedder-Policy",
+          "value": "credentialless"
+        },
+        {
+          "key": "X-DNS-Prefetch-Control",
+          "value": "on"
         }
       ]
     },
@@ -288,7 +300,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://*.posthog.com; connect-src 'self' https://*.supabase.co https://*.posthog.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://*.supabase.co; object-src 'none'"
+          "value": "default-src 'self'; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://*.posthog.com; connect-src 'self' https://*.supabase.co https://*.posthog.com; frame-ancestors 'none'; frame-src 'none'; base-uri 'self'; form-action 'self' https://*.supabase.co; object-src 'none'; upgrade-insecure-requests; require-trusted-types-for 'script'"
         }
       ]
     },
