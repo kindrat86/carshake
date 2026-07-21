@@ -76,7 +76,7 @@ INTEGRATION_CONTENT = """
 </ul>
 
 <h2>Why integrate</h2>
-<p>The integration eliminates the manual overhead of condition documentation. Instead of paper checklists or ad-hoc phone photos, every vehicle gets a consistent, timestamped, court-admissible record automatically. For operators, this reduces damage dispute resolution time from weeks to hours and lowers insurance premiums by demonstrating rigorous documentation practices.</p>
+<p>The integration eliminates the manual overhead of condition documentation. Instead of paper checklists or ad-hoc phone photos, every vehicle gets a consistent, timestamped, verifiable record automatically. For operators, this reduces damage dispute resolution time from weeks to hours and lowers insurance premiums by demonstrating rigorous documentation practices.</p>
 <p>For drivers, the integration is invisible: they open the CarShake app, scan their car, and hand over the keys. The integration handles the workflow connection behind the scenes.</p>
 
 <h2>Frequently asked questions</h2>
@@ -127,7 +127,7 @@ def gen_city_extra(slug):
 <li><strong>QR handover receipt:</strong> The valet scans a QR code that creates a cryptographic receipt linking them to your documented condition.</li>
 <li><strong>Scan at retrieval:</strong> When you pick up your car, repeat the scan. Any new damage is flagged and attributable to the valet period.</li>
 </ol>
-<p>This evidence is court-admissible and dramatically increases the success rate of {city} valet damage claims.</p>
+<p>This evidence provides verifiable, timestamped documentation and dramatically increases the success rate of {city} valet damage claims.</p>
 
 <h2>Frequently asked questions</h2>
 <details>

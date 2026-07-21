@@ -207,7 +207,7 @@ nav.breadcrumb a{color:#0066cc}
 <script type="application/ld+json">{json.dumps(article_json)}</script>
 <script type="application/ld+json">{json.dumps(breadcrumb_json)}</script>
 <script type="application/ld+json">{json.dumps(faq_json)}</script>
-<script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Organization","name":"CarShake","url":BASE,"description":"CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims.","disambiguatingDescription":"CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) — not a B2B insurance damage-detection API."})}</script>
+<script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Organization","name":"CarShake","url":BASE,"description":"CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets timestamped, GPS-verified proof to defeat false damage claims.","disambiguatingDescription":"CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) — not a B2B insurance damage-detection API."})}</script>
 <style>{css}</style>
 </head>
 <body>
@@ -227,7 +227,7 @@ nav.breadcrumb a{color:#0066cc}
 <li><strong>Before handover:</strong> open CarShake in your phone browser at the {venue_noun}'s valet stand and run the guided 8-angle scan. It takes about 60 seconds and captures timestamped, GPS-verified photos of every exterior surface.</li>
 <li><strong>QR handover receipt:</strong> the attendant scans a QR code that creates a mutual digital handshake — both parties have acknowledged the car's documented condition at a specific time.</li>
 <li><strong>At pickup:</strong> run the scan again. CarShake compares every angle and flags any new scratch, dent, or curb scuff with a timestamped before/after overlay.</li>
-<li><strong>If there's a dispute:</strong> export the PDF evidence report. The timestamped, SHA-256-hashed photos plus the QR receipt are court-admissible documentation that the {city_name} {venue_noun}'s valet operator cannot dismiss as "pre-existing."</li>
+<li><strong>If there's a dispute:</strong> export the PDF evidence report. The timestamped, SHA-256-hashed photos plus the QR receipt provide verifiable, timestamped documentation that the {city_name} {venue_noun}'s valet operator cannot dismiss as "pre-existing."</li>
 </ol>
 
 <div class="callout">

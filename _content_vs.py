@@ -5,7 +5,7 @@ COMPETITOR_DATA = {
     "inspectcheck": {
         "name": "InspectCheck", "category": "multi-point vehicle inspection app",
         "focus": "dealership service lane inspections and multi-point checklists",
-        "carshake_wins": ["consumer-focused valet damage proof", "QR handover receipts", "photo timestamping for disputes", "court-admissible evidence format"],
+        "carshake_wins": ["consumer-focused valet damage proof", "QR handover receipts", "photo timestamping for disputes", "verifiable, timestamped evidence format"],
         "competitor_wins": ["professional multi-point inspection forms", "service department workflow integration", "mechanic-friendly checklist templates", "dealer management system integration"],
     },
     "damage-id": {
@@ -47,7 +47,7 @@ COMPETITOR_DATA = {
     "parking-snapshot": {
         "name": "Parking Snapshot", "category": "parking lot photo documentation tool",
         "focus": "recording vehicle position in parking facilities",
-        "carshake_wins": ["complete valet handover protocol", "cryptographic timestamping", "court-admissible evidence", "QR receipt system"],
+        "carshake_wins": ["complete valet handover protocol", "cryptographic timestamping", "verifiable, timestamped evidence", "QR receipt system"],
         "competitor_wins": ["parking facility focused", "lot operator features", "entry/exit timestamping", "kiosk integration"],
     },
     "rental-condition-report": {
@@ -65,7 +65,7 @@ COMPETITOR_DATA = {
     "carshake-vs-inspectr": {
         "name": "Inspectr", "category": "vehicle inspection workflow tool",
         "focus": "dealership and fleet inspection management",
-        "carshake_wins": ["consumer valet focus", "QR handover receipts", "court-admissible evidence", "mobile-first design"],
+        "carshake_wins": ["consumer valet focus", "QR handover receipts", "verifiable, timestamped evidence", "mobile-first design"],
         "competitor_wins": ["professional inspection workflows", "enterprise fleet scale", "hardware integration options", "multi-point checklist templates"],
     },
     "carshake-vs-damageid": {
@@ -89,7 +89,7 @@ def gen_vs(slug, display_name):
     return f"""
 <section>
 <h2>Feature comparison: CarShake vs {d["name"]}</h2>
-<p>{d["name"]} is a {d["category"]} focused on {d["focus"]}. CarShake is purpose-built for a different problem: giving individual drivers court-admissible proof of their vehicle's condition at valet handovers, rental returns, and service visits.</p>
+<p>{d["name"]} is a {d["category"]} focused on {d["focus"]}. CarShake is purpose-built for a different problem: giving individual drivers verifiable, timestamped documentation of their vehicle's condition at valet handovers, rental returns, and service visits.</p>
 <table>
 <thead><tr><th>Feature</th><th>CarShake</th><th>{d["name"]}</th></tr></thead>
 <tbody>

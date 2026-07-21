@@ -138,7 +138,7 @@ def gen_city(slug, display_name):
 <li><strong>QR handover receipt:</strong> The valet scans a QR code that creates a cryptographic receipt linking them to your vehicle's documented condition at that exact moment.</li>
 <li><strong>Scan at pickup:</strong> When you retrieve your car, repeat the scan. Any new damage is immediately flagged and attributable to the valet period.</li>
 </ul>
-<p>This evidence is court-admissible and has resolved disputes at venues across {first_hood} and beyond. Insurance companies accept CarShake documentation as proof of prior condition, dramatically increasing the success rate of damage claims.</p>
+<p>This evidence provides verifiable, timestamped documentation and has resolved disputes at venues across {first_hood} and beyond. Insurance companies accept CarShake documentation as proof of prior condition, dramatically increasing the success rate of damage claims.</p>
 
 <h2>Common {display_name} valet damage scenarios</h2>
 <p>Based on reports from {display_name} drivers, the most frequent damage types include:</p>

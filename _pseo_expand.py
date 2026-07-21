@@ -98,7 +98,7 @@ ul.cross{{list-style:none;padding-left:0}}ul.cross li::before{{content:"\\\\2717
 </style>
 <!-- isenberg-round15 -->
 <script>(function(){{if(window.posthog&&window.posthog.__loaded)return;var s=document.createElement("script");s.type="text/javascript";s.crossOrigin="anonymous";s.defer=true;s.src="https://eu.i.posthog.com/static/array.js";s.onload=function(){{window.posthog.init("phc_lyZCgvTpicjLzAO3rY2GhxuX5WUc5jQjP8ZVwwJqauX",{{api_host:"https://eu.i.posthog.com",person_profiles:"identified_only",defaults:"2025-05-24",capture_pageview:false}});window.posthog.capture("$pageview",{{$viewport_height:window.innerHeight,$viewport_width:window.innerWidth}})}};document.head.appendChild(s);}})();</script>
-<!-- canonical-disambiguation --><script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"CarShake","url":"{BASE_URL}","description":"CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims.","disambiguatingDescription":"CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) \\u2014 not a B2B insurance damage-detection API."}}</script>
+<!-- canonical-disambiguation --><script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"CarShake","url":"{BASE_URL}","description":"CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets timestamped, GPS-verified proof to defeat false damage claims.","disambiguatingDescription":"CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) \\u2014 not a B2B insurance damage-detection API."}}</script>
 """
 
 
@@ -139,10 +139,10 @@ def _related_links(links):
 def industries_car_rental():
     path = "/industries/car-rental"
     title = "Valet Damage Protection for Car Rental Companies | CarShake"
-    desc = "How car rental companies use CarShake to eliminate false damage claims, streamline fleet handovers, and protect their bottom line with court-admissible timestamped evidence."
+    desc = "How car rental companies use CarShake to eliminate false damage claims, streamline fleet handovers, and protect their bottom line with verifiable, timestamped evidence."
     faq = _faq_jsonld([
         ("How does CarShake reduce damage disputes for rental companies?",
-         "CarShake creates a timestamped, geotagged scan of every vehicle at check-out and check-in. Both the agent and the renter confirm the condition via a QR handshake, eliminating he-said-she-said disputes. The evidence is court-admissible, so claims that can't be substantiated are dismissed quickly."),
+         "CarShake creates a timestamped, geotagged scan of every vehicle at check-out and check-in. Both the agent and the renter confirm the condition via a QR handshake, eliminating he-said-she-said disputes. The evidence is verifiable and timestamped, so claims that can't be substantiated are dismissed quickly."),
         ("Does CarShake integrate with our existing rental management system?",
          "CarShake is a standalone web app that works alongside your RMS. The handover receipt includes a unique ID you can reference in your system. For high-volume fleets, we offer an export API to pull scan data into your own reporting."),
         ("How long does a rental handover scan take?",
@@ -155,7 +155,7 @@ def industries_car_rental():
 <article>
 <header>
 <h1>{title}</h1>
-<p class="lede">Rental car companies process thousands of handovers every month — and every handover is an opportunity for a false damage claim. CarShake gives rental fleets a 60-second, court-admissible condition record that eliminates disputes before they start.</p>
+<p class="lede">Rental car companies process thousands of handovers every month — and every handover is an opportunity for a false damage claim. CarShake gives rental fleets a 60-second, verifiable, timestamped condition record that eliminates disputes before they start.</p>
 </header>
 
 <h2>Why rental companies choose CarShake</h2>
@@ -173,7 +173,7 @@ def industries_car_rental():
 
 <h2>Frequently asked questions</h2>
 <h3>How does CarShake reduce damage disputes for rental companies?</h3>
-<p>CarShake creates a timestamped, geotagged scan of every vehicle at check-out and check-in. Both the agent and the renter confirm the condition via a QR handshake, eliminating he-said-she-said disputes. The evidence is court-admissible, so claims that can't be substantiated are dismissed quickly.</p>
+<p>CarShake creates a timestamped, geotagged scan of every vehicle at check-out and check-in. Both the agent and the renter confirm the condition via a QR handshake, eliminating he-said-she-said disputes. The evidence is verifiable and timestamped, so claims that can't be substantiated are dismissed quickly.</p>
 <h3>Does CarShake integrate with our existing rental management system?</h3>
 <p>CarShake is a standalone web app that works alongside your RMS. The handover receipt includes a unique ID you can reference in your system. For high-volume fleets, we offer an export API to pull scan data into your own reporting.</p>
 <h3>How long does a rental handover scan take?</h3>
@@ -198,7 +198,7 @@ def industries_car_rental():
 def industries_dealerships():
     path = "/industries/dealerships"
     title = "Damage Documentation for Car Dealerships — Service, Loaners & Trade-ins | CarShake"
-    desc = "How car dealerships use CarShake to document vehicle condition for service drop-offs, loaner cars, test drives, and trade-in appraisals. Eliminate disputes with timestamped, court-admissible records."
+    desc = "How car dealerships use CarShake to document vehicle condition for service drop-offs, loaner cars, test drives, and trade-in appraisals. Eliminate disputes with timestamped, verifiable records."
     faq = _faq_jsonld([
         ("How do dealerships use CarShake in the service lane?",
          "The service advisor scans the vehicle at drop-off using the guided 8-angle walk-around (about 60 seconds). The customer confirms the condition via a QR handshake. At delivery, a re-scan shows exactly what changed — washing scratches and door dings are no longer ambiguous."),
@@ -264,7 +264,7 @@ def industries_rideshare():
 <article>
 <header>
 <h1>{title}</h1>
-<p class="lede">Rideshare drivers put their personal vehicles on the line every shift. One passenger incident — a spilled drink, a scratched door panel, a torn seat — can mean days of lost income fighting the platform's claims process. CarShake gives drivers timestamped, court-admissible proof of their vehicle's condition.</p>
+<p class="lede">Rideshare drivers put their personal vehicles on the line every shift. One passenger incident — a spilled drink, a scratched door panel, a torn seat — can mean days of lost income fighting the platform's claims process. CarShake gives drivers timestamped, verifiable proof of their vehicle's condition.</p>
 </header>
 
 <h2>Why rideshare drivers use CarShake</h2>
@@ -351,7 +351,7 @@ def industries_auto_insurance():
     ("CarShake for insurance claims", "/use-cases/insurance-claims"),
     ("CarShake for fleet managers", "/for/fleet-managers"),
     ("CarShake vs Damage ID", "/vs/damage-id"),
-    ("What is court-admissible timestamp?", "/glossary/court-admissible-timestamp"),
+    ("What is a verifiable timestamp?", "/glossary/court-admissible-timestamp"),
     ("CarShake pricing", "/pricing"),
     ("How CarShake works", "/how-it-works"),
 ])}
@@ -363,7 +363,7 @@ def industries_auto_insurance():
 def industries_fleet_management():
     path = "/industries/fleet-management"
     title = "Fleet Vehicle Condition Management — Damage Documentation at Scale | CarShake"
-    desc = "How fleet managers use CarShake to track vehicle condition across hundreds of assets, reduce damage disputes, lower insurance costs, and maintain a court-admissible audit trail for every vehicle in the fleet."
+    desc = "How fleet managers use CarShake to track vehicle condition across hundreds of assets, reduce damage disputes, lower insurance costs, and maintain a verifiable, timestamped audit trail for every vehicle in the fleet."
     faq = _faq_jsonld([
         ("How does CarShake scale for large fleets?",
          "CarShake's enterprise plan includes a centralized dashboard, bulk export, and API access. Fleet managers can view scan history across all vehicles, filter by location or date range, and export audit trails for compliance or insurance purposes."),
@@ -377,7 +377,7 @@ def industries_fleet_management():
 <article>
 <header>
 <h1>{title}</h1>
-<p class="lede">Managing a fleet means managing damage claims at scale. Every vehicle that leaves the yard and comes back is a potential dispute. CarShake gives fleet managers a continuous, court-admissible condition timeline for every asset — reducing claims, lowering insurance costs, and eliminating administrative overhead.</p>
+<p class="lede">Managing a fleet means managing damage claims at scale. Every vehicle that leaves the yard and comes back is a potential dispute. CarShake gives fleet managers a continuous, verifiable, timestamped condition timeline for every asset — reducing claims, lowering insurance costs, and eliminating administrative overhead.</p>
 </header>
 
 <h2>Why fleets choose CarShake</h2>
@@ -449,7 +449,7 @@ def industries_index():
 <article>
 <header>
 <h1>Auto Industry Solutions</h1>
-<p class="lede">CarShake serves every vertical in the automotive industry where vehicles change hands. Explore how your industry uses CarShake to eliminate damage disputes, reduce insurance costs, and create court-admissible audit trails.</p>
+<p class="lede">CarShake serves every vertical in the automotive industry where vehicles change hands. Explore how your industry uses CarShake to eliminate damage disputes, reduce insurance costs, and create verifiable, timestamped audit trails.</p>
 </header>
 
 <h2>Industries we serve</h2>
@@ -607,7 +607,7 @@ def reviews_damageid():
 <ul class="cross">
 <li>Focused on damage detection, not handover documentation or dispute prevention</li>
 <li>No QR-based mutual confirmation between parties</li>
-<li>No handover receipt or court-admissible protocol</li>
+<li>No handover receipt or documented custody protocol</li>
 <li>AI accuracy varies with lighting conditions and photo angles</li>
 </ul>
 
@@ -698,7 +698,7 @@ def reviews_inspectr():
 
 <div class="verdict">
 <h3>Our honest verdict</h3>
-<p>Inspectr is a capable inspection platform for dealership service lanes and body shops that need structured, multi-point checklists. For the handover moment — valet, rental, loaner, parking — CarShake's QR handshake and court-admissible protocol are faster, simpler, and accessible to everyone at free-to-start pricing.</p>
+<p>Inspectr is a capable inspection platform for dealership service lanes and body shops that need structured, multi-point checklists. For the handover moment — valet, rental, loaner, parking — CarShake's QR handshake and documented custody protocol are faster, simpler, and accessible to everyone at free-to-start pricing.</p>
 </div>
 
 <h2>Frequently asked questions</h2>
@@ -747,7 +747,7 @@ def reviews_repairpal():
 <thead><tr><th>Dimension</th><th>RepairPal</th><th>CarShake</th></tr></thead>
 <tbody>
 <tr><td>Positioning</td><td>Repair cost estimator &amp; shop finder</td><td>Valet damage proof &amp; vehicle handover</td></tr>
-<tr><td>Core value</td><td>Fair price estimates for common repairs</td><td>Timestamped, court-admissible condition records</td></tr>
+<tr><td>Core value</td><td>Fair price estimates for common repairs</td><td>Timestamped, verifiable condition records</td></tr>
 <tr><td>Pricing</td><td>Free to consumers</td><td>Free — $2.97/mo unlimited</td></tr>
 </tbody>
 </table>
