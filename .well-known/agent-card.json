@@ -1,10 +1,9 @@
 {
   "protocolVersion": "0.3.0",
   "name": "CarShake Agent",
-  "description": "CarShake is a valet damage proof and vehicle handover app. Three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Built for valet operators, rental fleets, body shops, dealerships, airport parking, hotel parking, concert parking, and st",
-  "url": "https://carshake.online",
+  "description": "Car reliability ratings and safety scores. Compare used cars by model year, check crash-test data, and find the safest vehicle for your budget.",
+  "url": "https://carshake.online/api/a2a",
   "preferredTransport": "JSONRPC",
-  "iconUrl": "https://carshake.online/icon.png",
   "version": "1.0.0",
   "capabilities": {
     "streaming": false,
@@ -21,38 +20,33 @@
   ],
   "skills": [
     {
-      "id": "create_handover_receipt",
-      "name": "Create Handover Receipt",
-      "description": "Generate a QR-coded vehicle handover receipt with timestamped condition photos.",
+      "id": "compare_cars",
+      "name": "Compare Car Safety",
+      "description": "Compare safety ratings, reliability scores, and crash-test results across car models and years.",
       "tags": [
-        "valet damage",
-        "car damage proof",
-        "vehicle handover",
-        "parking damage",
-        "bailment law"
+        "cars",
+        "safety",
+        "comparison",
+        "reviews"
       ],
-      "examples": []
-    }
-  ],
-  "attribution": "CarShake, https://carshake.online",
-  "content": [
-    {
-      "title": "CarShake \u2014 Valet Damage Proof App",
-      "url": "https://carshake.online/",
-      "description": "Scan cars before valet, generate QR-coded handover receipts, timestamped photo proof.",
-      "type": "homepage"
+      "examples": [
+        "Compare Toyota Camry vs Honda Accord",
+        "Safest SUVs under $30k"
+      ]
     },
     {
-      "title": "CarShake Pricing",
-      "url": "https://carshake.online/pricing",
-      "description": "Free for individuals. Pro plans for valet operators and fleets.",
-      "type": "pricing"
-    },
-    {
-      "title": "CarShake for Valet Operators",
-      "url": "https://carshake.online/for-valets",
-      "description": "Protect your valet business from false damage claims.",
-      "type": "landing"
+      "id": "check_reliability",
+      "name": "Check Reliability",
+      "description": "Get detailed reliability ratings and common issues for a specific car model and year.",
+      "tags": [
+        "cars",
+        "reliability",
+        "reviews"
+      ],
+      "examples": [
+        "Is the 2023 Tesla Model 3 reliable?",
+        "Common issues with Ford F-150"
+      ]
     }
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "name": "CarShake",
+  "description": "GPS-verified, AI-checked car condition photo records for valet, rental, and parking damage protection",
+  "version": "1.0.0",
+  "homepage": "https://carshake.online",
+  "resources": [
+    {
+      "uri": "https://carshake.online/vehicle-damage-costs",
+      "name": "Vehicle Damage Repair Costs",
+      "description": "Real 2026 body shop repair cost benchmarks for all common damage types and vehicle categories"
+    },
+    {
+      "uri": "https://carshake.online/tools/damage-cost-calculator",
+      "name": "Damage Cost Calculator",
+      "description": "Interactive valet damage repair estimate tool"
+    }
+  ],
+  "categories": [
+    "automotive",
+    "productivity"
+  ],
+  "tools": [],
+  "supports": {
+    "streaming": false,
+    "webhooks": false
+  }
+}

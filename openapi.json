@@ -1,23 +1,105 @@
 {
-  "openapi": "3.1.0",
+  "openapi": "3.0.0",
   "info": {
-    "title": "CarShake",
-    "description": "Valet damage proof and vehicle handover documentation app.",
-    "version": "1.0.0",
-    "contact": {
-      "url": "https://carshake.online"
-    }
+    "title": "CarShake API",
+    "description": "GPS-verified car condition documentation for valet, rental, and parking damage protection",
+    "version": "1.0.0"
   },
   "servers": [
     {
       "url": "https://carshake.online"
     }
   ],
-  "paths": {},
-  "tags": [
-    {
-      "name": "content",
-      "description": "Site content"
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Homepage \u2014 valet damage protection platform",
+        "operationId": "getHomepage"
+      }
+    },
+    "/about": {
+      "get": {
+        "summary": "About CarShake",
+        "operationId": "getAbout"
+      }
+    },
+    "/pricing": {
+      "get": {
+        "summary": "Pricing plans",
+        "operationId": "getPricing"
+      }
+    },
+    "/city/{slug}": {
+      "get": {
+        "summary": "City-specific valet protection guide",
+        "operationId": "getCityGuide",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/state/{slug}": {
+      "get": {
+        "summary": "State-specific valet liability legal guide",
+        "operationId": "getStateGuide",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/tools/damage-cost-calculator": {
+      "get": {
+        "summary": "Valet damage repair cost estimator",
+        "operationId": "getDamageCalculator"
+      }
+    },
+    "/glossary/{slug}": {
+      "get": {
+        "summary": "Valet parking terminology glossary",
+        "operationId": "getGlossaryTerm",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/vehicle-damage-costs": {
+      "get": {
+        "summary": "Vehicle damage repair cost benchmarks",
+        "operationId": "getDamageCosts"
+      }
+    },
+    "/llms.txt": {
+      "get": {
+        "summary": "LLM-readable site index",
+        "operationId": "getLlmsTxt"
+      }
+    },
+    "/sitemap.xml": {
+      "get": {
+        "summary": "XML sitemap",
+        "operationId": "getSitemap"
+      }
     }
-  ]
+  }
 }

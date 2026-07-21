@@ -1,0 +1,36 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "CarShake \u2014 Valet Damage Protection",
+  "name_for_model": "carshake",
+  "description_for_human": "GPS-verified, AI-checked photo records of your car before and after valet, rental, or parking. Free 60-second scan, court-admissible evidence.",
+  "description_for_model": "CarShake helps drivers create GPS-verified, dual-timestamped photo evidence of vehicle condition before and after valet parking, car rentals, or any situation where someone else handles the vehicle. Use for: valet damage disputes, rental car pickup/return documentation, parking garage condition records. The AI compares before/after images and flags new damage. NOT for: ride-sharing, car sales, mechanic diagnostics, or insurance claims processing.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://carshake.online/openapi.json"
+  },
+  "logo_url": "https://carshake.online/og-image.png",
+  "contact_email": "dom@carshake.online",
+  "legal_info_url": "https://carshake.online/about",
+  "categories": [
+    "automotive",
+    "productivity",
+    "travel"
+  ],
+  "target_audience": [
+    "car owners",
+    "frequent travelers",
+    "luxury vehicle owners",
+    "rental car users"
+  ],
+  "key_features": [
+    "60-second GPS-verified car condition scan",
+    "AI-powered before/after damage comparison",
+    "Dual-timestamped photo evidence (device + server)",
+    "SHA-256 hashed tamper-proof records",
+    "Court-admissible documentation",
+    "No app download \u2014 works in any mobile browser"
+  ]
+}

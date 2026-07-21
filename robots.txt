@@ -1,59 +1,62 @@
-User-Agent: *
-Disallow: /api/auth/
-Disallow: /api/webhook/
-Disallow: /api/cron/
-Disallow: /dashboard/
-Disallow: /account/
-Disallow: /login/
+User-agent: Googlebot
+Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: *
+Allow: /
+
+# Google Discover optimization
 max-image-preview:large
-max-video-preview:-1
 max-snippet:-1
-max-image-render:Standard
+max-video-preview:-1
 
-User-Agent: GPTBot
-Allow: /
 
-User-Agent: ChatGPT-User
-Allow: /
-
-User-Agent: PerplexityBot
-Allow: /
-
-User-Agent: ClaudeBot
-Allow: /
-
-User-Agent: anthropic-ai
-Allow: /
-
-User-Agent: Google-Extended
-Allow: /
-
-User-Agent: OAI-SearchBot
-Allow: /
-
-User-Agent: Cohere-AI
-Allow: /
-
-User-Agent: CCBot
-Allow: /
-
-User-Agent: FacebookBot
-Allow: /
-
-User-Agent: Applebot
-Allow: /
-
-User-Agent: Bytespider
-Allow: /
-
-User-Agent: Bingbot
-Allow: /
+# AI crawler discovery surfaces
+LLMs.txt: https://carshake.online/llms.txt
+AI-Plugin: https://carshake.online/ai-plugin.json
+MCP: https://carshake.online/mcp.json
+OpenAPI: https://carshake.online/openapi.json
+QA: https://carshake.online/qa.jsonl
+Agent-Card: https://carshake.online/agent-card.json
+Knowledge-Graph: https://carshake.online/knowledge-graph.json
 
 Sitemap: https://carshake.online/sitemap.xml
-Sitemap: https://carshake.online/sitemap-pseo.xml
-
-Sitemap: https://carshake.online/sitemap-index.xml
-
-# Image sitemap for Google Images indexing
 Sitemap: https://carshake.online/image-sitemap.xml

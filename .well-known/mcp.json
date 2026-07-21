@@ -1,37 +1,24 @@
 {
-  "schemaVersion": "0.1",
-  "name": "carshake",
-  "displayName": "CarShake",
-  "description": "Valet damage proof and vehicle handover documentation app.",
-  "homepageUrl": "https://carshake.online/mcp",
-  "contactEmail": "support@carshake.online",
-  "publisher": {
-    "name": "CarShake",
-    "url": "https://carshake.online"
-  },
-  "endpoints": {
-    "streamableHttp": "https://carshake.online/api/mcp"
-  },
-  "transports": [
-    "streamable-http"
-  ],
-  "capabilities": {
-    "tools": true,
-    "prompts": false,
-    "resources": false
-  },
+  "name": "CarShake",
+  "description": "GPS-verified photo evidence for valet, rental, and parking disputes. Free AI damage cost estimator and MCP tools.",
+  "url": "https://carshake.online",
+  "version": "1.1.0",
   "tools": [
     {
-      "name": "create_handover_checklist",
-      "summary": "Generate a vehicle handover checklist."
+      "name": "estimate_damage_cost",
+      "description": "Estimate repair costs for valet/parking car damage (scratch, dent, door ding, curb rash, bumper, keyed). Returns USD cost range by damage type + vehicle + severity.",
+      "endpoint": "https://carshake.online/api/mcp"
     },
     {
-      "name": "get_damage_documentation_guide",
-      "summary": "Get best practices for documenting vehicle damage."
+      "name": "valet_damage_guide",
+      "description": "Step-by-step guidance on what to do if a valet damages your car. Includes legal rights, insurance steps, and evidence best practices.",
+      "endpoint": "https://carshake.online/api/mcp"
     },
     {
-      "name": "list_valet_faq",
-      "summary": "Search vehicle handover FAQ."
+      "name": "lookup_car_protection",
+      "description": "Look up vehicle protection scenarios: valet parking, airport parking, car rental, body shop, car wash, dealership, concert parking, event valet.",
+      "endpoint": "https://carshake.online/api/mcp"
     }
-  ]
+  ],
+  "documentation": "https://carshake.online/llms.txt"
 }

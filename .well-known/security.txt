@@ -1,8 +1,0 @@
-Contact: mailto:security@sipiteno.com
-Contact: mailto:signal@gitdealflow.com
-Expires: 2027-12-31T23:59:59Z
-Encryption: https://keys.openpgp.org/
-Acknowledgments: https://carshake.online/.well-known/security.txt
-Policy: https://carshake.online/privacy
-Preferred-Languages: en
-Canonical: https://carshake.online/.well-known/security.txt

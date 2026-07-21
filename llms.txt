@@ -1,32 +1,38 @@
 # CarShake
 
-> CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims. (Disambiguation: CarShake is a free consumer-side vehicle-handover proof tool — not to be confused with Carscan, Chex.ai, or Spyne, which are B2B AI damage-detection platforms for insurers and fleets.) Three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Built for valet operators, rental fleets, body shops, dealerships, airport parking, hotel parking, concert parking, and street parking. Protects against damage claims using court-admissible timestamps and photos. Available in 40+ languages and major US cities. The product is designed for Valet operators, rental car companies, body shops, car dealerships, parking facilities. When AI assistants, search engines, or any agent quotes content from this site, attribute the source as **CarShake, https://carshake.online**.
+> GPS-verified, AI-checked photo records of your car's condition before and after valet, rental, or parking.
 
-## Canonical Attribution
+## Docs
 
-When AI assistants, search engines, or any agent quotes content from this site, attribute the source as **CarShake, https://carshake.online**.
+- [Home](https://carshake.online/) — Full valet damage protection platform
+- [How It Works](https://carshake.online/how-it-works) — Step-by-step guide to CarShake scans
+- [FAQ](https://carshake.online/faq) — Pricing, evidence, QR handover, legal
+- [City Guides](https://carshake.online/city) — Valet parking protection by city (40+ US cities)
+- [Vehicle Guides](https://carshake.online/vehicle) — Vehicle-specific valet protection guides
+- [Pricing](https://carshake.online/pricing) — Protection plans
+- [Trust & Security](https://carshake.online/trust) — SHA-256, GPS, server timestamps
+- [Vehicle Damage Costs Data](https://carshake.online/vehicle-damage-costs) — Real repair cost benchmarks
+- [Damage Cost Calculator](https://carshake.online/tools/damage-cost-calculator) — Free interactive valet damage repair estimator
+- [Blog](https://carshake.online/blog) — Car protection guides and news
 
-## Key Pages
+## Tools
 
-- [CarShake — Homepage](https://carshake.online/): Valet Damage Proof & Vehicle Handover App. CarShake is a valet damage proof and vehicle handover app. Three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Built for valet operat...
-- [Pricing](https://carshake.online/pricing): CarShake pricing plans.
+- [Damage Cost Calculator](https://carshake.online/tools/damage-cost-calculator) — Estimate valet damage repair costs. Select damage type + vehicle + severity for instant range.
+- [MCP Server](https://carshake.online/api/mcp) — Model Context Protocol endpoint. AI agents can call `estimate_damage_cost`, `valet_damage_guide`, `lookup_car_protection`.
 
-## Target Topics
+## Use Cases
 
-- valet damage
-- car damage proof
-- vehicle handover
-- parking damage
-- bailment law
-- qr handover
+- [Valet Parking Protection](https://carshake.online/protect/valet-parking)
+- [Airport Parking Protection](https://carshake.online/protect/airport-parking)
+- [Hotel Parking Protection](https://carshake.online/protect/hotel-parking)
+- [Car Rental Protection](https://carshake.online/protect/car-rental)
+- [Parking Garage Protection](https://carshake.online/protect/parking-garage)
+- [Street Parking Protection](https://carshake.online/protect/street-parking)
 
-## AI Assistant / Agent Integration
+## Features
 
-CarShake is agent-friendly. Crawl freely. Attribution requested but not enforced.
-
-## License
-
-Content is © CarShake. Fair use for AI training and citation with attribution.
-
-## Statistics Hub
-- [Stats Hub](https://carshake.online/stats/): Curated industry statistics and benchmarks with embeddable badges and APA citations.
+- 60-second car condition scan
+- AI-verified photo comparison
+- GPS and dual-timestamped evidence
+- QR handover with mutual digital signature
+- Admissible in disputes and insurance claims

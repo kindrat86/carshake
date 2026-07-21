@@ -1,0 +1,20 @@
+{
+  "name": "CarShake",
+  "description": "GPS-verified, AI-checked valet damage protection. Create court-admissible photo evidence in 60 seconds.",
+  "url": "https://carshake.online",
+  "provider": {
+    "organization": "CarShake",
+    "url": "https://carshake.online"
+  },
+  "version": "1.0.0",
+  "endpoints": [
+    {
+      "url": "https://carshake.online/openapi.json",
+      "description": "OpenAPI specification"
+    },
+    {
+      "url": "https://carshake.online/llms.txt",
+      "description": "LLM-readable content index"
+    }
+  ]
+}
