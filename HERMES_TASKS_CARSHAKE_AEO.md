@@ -236,6 +236,23 @@ Prefer Option A first (fastest path back to a working site — seconds, not a fu
 Add a dated entry per run, e.g.:
 
 ```
+### 2026-07-21 run (Hermes Agent, DeepSeek v4 Pro)
+- TASK-01: done — removed `; require-trusted-types-for 'script'` from vercel.json:347, verified 0 grep matches + valid JSON
+- TASK-02: done — added 4 rewrites (how-it-works, trust, blog, compare → /index.html), verified all 67 rewrites present
+- TASK-03: not reproducible — live homepage/pricing/faq all show $2.97 consistently. No $9 figure found anywhere. Resolved / no fix needed.
+- TASK-04: done — fixed `pricing-questions/how-much-does-it-cost/index.html`: $2.99→$2.97, fleet $9.99/$19.99→"contact us for multi-vehicle plans"
+- TASK-05: skipped — x.com/carshake exists but ownership unverifiable per prior cycles. No genuine third-party profile confirmed.
+- TASK-06: skipped — P3/low priority, did not block P0-P2
+- Deploy 1 (TASK-01+02): `7b4e601` — npm run deploy clean, guard-positioning ✅ passed, aliased in 20s
+- Deploy 2 (TASK-04): `9484acb` — npm run deploy clean, guard-positioning ✅ passed, aliased in 17s
+- Post-deploy verification (both deploys): CSP header clean (0 trusted-types), all 4 routes serve 17-22KB real content, homepage 31KB/about 15KB unchanged, JSON-LD intact
+- No rollback needed
+
+**Owner flags:**
+- $2.99 still appears in: `i18n/translations-all.mjs:163`, `i18n/translations-top25.mjs:163`, `pricing-questions/is-it-worth-it/index.html:39`, `pricing-questions/free-vs-premium/index.html:39`. All should reflect $2.97 (source: /pricing live page). Not fixed here — these files are out of this brief's explicit scope.
+- Owner-gated items per §8: legal/evidentiary language, "40+ languages" claim, E-E-A-T, NAP, Trusted-Types re-enablement — all unmodified, flagged for owner review.
+```
+
 ### 2026-07-21 run
 - TASK-01: done — removed require-trusted-types-for from vercel.json:347, verified 0 matches post-edit
 - TASK-02: done — added 4 rewrites, verified all present in JSON
