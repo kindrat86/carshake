@@ -342,20 +342,20 @@ PAGES = {
         ("is-it-worth-it", "Is CarShake Worth It? Honest Review for 2026", [
             "CarShake is free to download and free to use for the basics: scanning your car, timestamping photos, and storing condition records. The question isn't whether it's worth the cost (it's free)—it's whether you'll remember to use it.",
             "A single false damage claim costs $200–$2,000 on average. CarShake prevents every false claim where you have a pre-scan. Even using it once can save you hundreds of dollars. If you valet park more than twice a year, CarShake pays for itself many times over.",
-            "The paid tier ($2.99/month or $29/year) adds unlimited cloud storage, automated before/after comparison, PDF report generation, and fleet management features. For most users, the free tier—with 10 scans stored locally—is sufficient.",
+            "The paid tier ($2.97/month or $29/year) adds unlimited cloud storage, automated before/after comparison, PDF report generation, and fleet management features. For most users, the free tier—with 10 scans stored locally—is sufficient.",
         ], [("What's the free tier limit?", "The free tier stores up to 10 scans locally on your device, with timestamp and GPS data. This is enough for occasional valet users who scan before and after each parking event."), ("Can I try the paid features without committing?", "Yes. CarShake offers a 14-day free trial of premium features including unlimited cloud storage, automated comparison, and PDF export. Cancel anytime before the trial ends.")]),
 
         ("how-much-does-it-cost", "How Much Does CarShake Cost? Full Pricing Breakdown", [
             "CarShake is free for basic use. No credit card required to download and start scanning. Here's the full pricing breakdown as of 2026.",
             "Free tier: $0/month. Includes up to 10 scans, timestamped photos, GPS tagging, and basic condition documentation. Enough for most occasional users.",
-            "Premium tier: $2.99/month or $29/year. Includes unlimited scans, cloud backup across devices, automated before/after comparison, PDF report generation, and priority support.",
+            "Premium tier: $2.97/month or $29/year. Includes unlimited scans, cloud backup across devices, automated before/after comparison, PDF report generation, and priority support.",
             "Fleet tier: $9.99/month for 3 vehicles, $19.99/month for 10 vehicles, custom pricing for larger fleets. Includes all premium features plus fleet dashboard, QR-code vehicle identification, multi-driver handover records, and API access.",
         ], [("Is there a contract or commitment?", "No. The free tier has no commitment. Premium and Fleet tiers are month-to-month, cancel anytime. Annual payment option saves ~20%."), ("What payment methods are accepted?", "All major credit cards are accepted through secure Stripe processing. Apple Pay and Google Pay are also supported for in-app purchases.")]),
 
         ("free-vs-premium", "CarShake Free vs Premium: Which Plan Do You Need?", [
             "Choosing between CarShake Free and Premium depends on how often you scan your vehicle and your documentation needs. Here's a side-by-side comparison.",
             "CarShake Free includes: up to 10 local scans, timestamped photos with GPS data, basic condition notes, and QR-code handover receipts. This is ideal for drivers who valet park a few times per month or want basic rental car documentation.",
-            "CarShake Premium ($2.99/month) adds: unlimited cloud storage (scans accessible from any device), automated before/after scan comparison with visual difference highlighting, PDF condition report generation (court-admissible), and priority customer support.",
+            "CarShake Premium ($2.97/month) adds: unlimited cloud storage (scans accessible from any device), automated before/after scan comparison with visual difference highlighting, PDF condition report generation (court-admissible), and priority customer support.",
             "The premium auto-compare feature alone can save hours of manual photo sorting. When you scan after parking, Premium instantly compares the new scan to your most recent pre-park scan and highlights any changes.",
         ], [("Can I upgrade from Free to Premium anytime?", "Yes. Upgrading is instant within the app. Any scans you already created on the free tier remain accessible and are included in your cloud storage on Premium."), ("What happens to my scans if I cancel Premium?", "Your scans remain accessible on your device. Cloud-stored scans are retained for 30 days after cancellation so you can download them.")]),
 
