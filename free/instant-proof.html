@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com 'self'; img-src 'self' data: blob:; connect-src 'self';">
+<title>Free Car Proof Tool — Timestamp Your Car Photos Before Valet | CarShake</title>
+<meta name="description" content="Free, no-signup tool: snap before & after photos of your car and CarShake stamps the date, time, and location onto each one. Instant proof against valet, rental, or parking damage claims.">
+<link rel="canonical" href="https://carshake.online/free/instant-proof">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta property="og:title" content="Free Car Proof Tool — Timestamp Your Car Photos">
+<meta property="og:description" content="Snap before & after photos; CarShake stamps date, time & location. Free proof against valet/rental/parking damage.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://carshake.online/free/instant-proof">
+<meta property="og:image" content="https://carshake.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"CarShake Instant Proof","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free browser tool that stamps date, time and location onto your car photos to create timestamped proof before valet, rental, or parking.","url":"https://carshake.online/free/instant-proof","publisher":{"@type":"Organization","name":"CarShake","url":"https://carshake.online"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How to create timestamped proof of your car's condition","totalTime":"PT1M","step":[
+{"@type":"HowToStep","name":"Add a photo","text":"Tap 'Add photo' and take a picture of your car (or choose one you just took)."},
+{"@type":"HowToStep","name":"Add location","text":"Type where you are (e.g. 'Bellagio valet, Las Vegas'). Optional: tap 'Use my GPS' if your browser allows it."},
+{"@type":"HowToStep","name":"Stamp it","text":"CarShake overlays the current date, time, and location onto the photo."},
+{"@type":"HowToStep","name":"Download","text":"Download the stamped photo. That's your timestamped proof — keep it before and after the valet."}
+]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is this free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Instant Proof tool is free and needs no signup. Everything happens in your browser — your photos never leave your device."}},
+{"@type":"Question","name":"Does the timestamp prove when the photo was taken?","acceptedAnswer":{"@type":"Answer","text":"The tool stamps the current date and time from your device onto the image as a visible record. For the strongest proof, take the photo at the moment you hand over or collect your car, and take one before and one after."}},
+{"@type":"Question","name":"Do my photos get uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens locally in your browser. Nothing is uploaded."}}
+]}
+</script>
+<style>
+:root{--accent:#e11d48;--bg:#0b1120;--fg:#e2e8f0;--card:#111a2e;--line:#1e293b}
+@media(prefers-color-scheme:light){:root{--bg:#f8fafc;--fg:#0f172a;--card:#fff;--line:#e2e8f0}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+.wrap{max-width:760px;margin:0 auto;padding:1.5rem 1rem 4rem}
+h1{font-size:1.9rem;line-height:1.15;margin:.3rem 0}.lead{color:#94a3b8;font-size:1.05rem}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:.9rem;padding:1.25rem;margin:1.5rem 0}
+label{display:block;font-weight:600;margin:.9rem 0 .35rem}
+input[type=text]{width:100%;padding:.7rem;border:1px solid var(--line);border-radius:.5rem;background:transparent;color:var(--fg);font-size:1rem}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:.6rem;padding:.75rem 1.15rem;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none}
+.btn.sec{background:transparent;border:1px solid var(--line);color:var(--fg)}
+.file{display:block;margin:.4rem 0}
+canvas{max-width:100%;height:auto;border-radius:.5rem;margin-top:1rem;display:none;border:1px solid var(--line)}
+.row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem}
+.muted{color:#94a3b8;font-size:.9rem}
+h2{margin-top:2.2rem}ol{padding-left:1.2rem}details{border-top:1px solid var(--line);padding:.75rem 0}summary{cursor:pointer;font-weight:600}
+.cta{background:var(--accent);color:#fff;border-radius:.8rem;padding:1.2rem 1.35rem;margin:2rem 0}
+.cta a{color:#fff;text-decoration:underline}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="muted"><a href="/">CarShake</a> › <a href="/free">Free tools</a> › Instant Proof</p>
+<h1>Free car proof tool — stamp your photos before valet</h1>
+<p class="lead">Snap a photo of your car and CarShake stamps the <strong>date, time, and location</strong> onto it. Timestamped proof against valet, rental, or parking damage — free, no signup, nothing leaves your phone.</p>
+
+<div class="tool">
+  <label for="loc">Where are you? (shown on the photo)</label>
+  <input type="text" id="loc" placeholder="e.g. Bellagio valet, Las Vegas" autocomplete="off">
+  <div class="row"><button class="btn sec" id="geo" type="button">📍 Use my GPS (optional)</button></div>
+
+  <label class="file" for="file">📷 Add a photo of your car</label>
+  <input class="file" type="file" id="file" accept="image/*" capture="environment">
+
+  <canvas id="cv"></canvas>
+  <div class="row" id="actions" style="display:none">
+    <a class="btn" id="dl" download="carshake-proof.jpg">⬇ Download stamped proof</a>
+    <button class="btn sec" id="again" type="button">Add another photo</button>
+  </div>
+  <p class="muted">Tip: take one photo <strong>before</strong> you hand over the car and one <strong>after</strong> you get it back.</p>
+</div>
+
+<div class="cta"><strong>Want this automatic?</strong> The CarShake app captures GPS-verified, dual-timestamped, AI-checked before/after records for you — so you have airtight proof without thinking about it. <a href="/">See how CarShake works →</a></div>
+
+<h2>How it works</h2>
+<ol>
+<li><strong>Add a photo</strong> — tap and take a picture of your car (or pick one you just took).</li>
+<li><strong>Add location</strong> — type where you are; optionally tap "Use my GPS".</li>
+<li><strong>Stamp it</strong> — CarShake overlays the date, time, and location.</li>
+<li><strong>Download</strong> — save the stamped photo. Repeat before and after the valet.</li>
+</ol>
+
+<h2>FAQ</h2>
+<details><summary>Is this free?</summary><p>Yes — free, no signup. Everything runs in your browser; your photos never leave your device.</p></details>
+<details><summary>Does the timestamp prove when the photo was taken?</summary><p>It stamps your device's current date and time onto the image as a visible record. For the strongest proof, take the photo at the moment you hand over or collect the car — one before, one after.</p></details>
+<details><summary>Do my photos get uploaded?</summary><p>No. All processing is local in your browser. Nothing is uploaded anywhere.</p></details>
+
+<p class="muted" style="margin-top:2rem"><a href="/how-to-dispute-valet-damage">How to dispute valet damage →</a> · <a href="/faq/what-to-do-if-valet-damages-car">What to do if a valet damages your car →</a></p>
+</div>
+
+<script>
+(function(){
+  var file=document.getElementById('file'),cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+  var loc=document.getElementById('loc'),dl=document.getElementById('dl'),actions=document.getElementById('actions'),again=document.getElementById('again'),geo=document.getElementById('geo');
+  function stamp(img){
+    var maxW=1600, scale=Math.min(1, maxW/img.width), w=Math.round(img.width*scale), h=Math.round(img.height*scale);
+    cv.width=w; cv.height=h; ctx.drawImage(img,0,0,w,h);
+    var now=new Date();
+    var line1=now.toLocaleString();
+    var line2=(loc.value||'').trim();
+    var pad=Math.round(w*0.02), fs=Math.max(16, Math.round(w*0.028));
+    var lines=['CarShake proof · '+line1]; if(line2) lines.push(line2);
+    var barH=pad*2 + lines.length*(fs*1.35);
+    ctx.fillStyle='rgba(0,0,0,0.62)'; ctx.fillRect(0,h-barH,w,barH);
+    ctx.fillStyle='#fff'; ctx.font='600 '+fs+'px system-ui,sans-serif'; ctx.textBaseline='top';
+    lines.forEach(function(t,i){ ctx.fillText(t, pad, h-barH+pad + i*(fs*1.35)); });
+    cv.style.display='block'; actions.style.display='flex';
+    dl.href=cv.toDataURL('image/jpeg',0.92);
+  }
+  file.addEventListener('change',function(){
+    var f=file.files&&file.files[0]; if(!f) return;
+    var img=new Image(); img.onload=function(){ stamp(img); URL.revokeObjectURL(img.src); };
+    img.src=URL.createObjectURL(f);
+  });
+  again.addEventListener('click',function(){ file.value=''; file.click(); });
+  geo.addEventListener('click',function(){
+    if(!navigator.geolocation){ geo.textContent='GPS unavailable'; return; }
+    geo.textContent='Locating…';
+    navigator.geolocation.getCurrentPosition(function(p){
+      var lat=p.coords.latitude.toFixed(5), lon=p.coords.longitude.toFixed(5);
+      loc.value=(loc.value?loc.value+' · ':'')+lat+', '+lon; geo.textContent='📍 GPS added';
+    }, function(){ geo.textContent='📍 GPS blocked — type location instead'; }, {timeout:8000});
+  });
+})();
+</script>
+</body>
+</html>

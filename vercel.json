@@ -4,6 +4,10 @@
   "buildCommand": null,
   "rewrites": [
     {
+      "source": "/free/instant-proof",
+      "destination": "/free/instant-proof.html"
+    },
+    {
       "source": "/how-to-protect-car-valet-parking",
       "destination": "/how-to-protect-car-valet-parking.html"
     },

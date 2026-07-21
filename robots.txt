@@ -59,4 +59,3 @@ Agent-Card: https://carshake.online/agent-card.json
 Knowledge-Graph: https://carshake.online/knowledge-graph.json
 
 Sitemap: https://carshake.online/sitemap.xml
-Sitemap: https://carshake.online/image-sitemap.xml
