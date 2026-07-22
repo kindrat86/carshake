@@ -1,0 +1,446 @@
+# CarShake — Full Content for LLMs
+
+> carshake.online — Never Pay for Valet Damage You Didn't Cause
+
+## CarShake Homepage
+
+CarShake
+Home
+About
+Damage Costs
+Never Pay for Valet Damage You Didn't Cause
+CarShake creates GPS-verified, dual-timestamped, AI-checked photo records of your car's condition before and after valet, rental, or parking — so you have proof, not a dispute.
+Try CarShake — Free
+📷 Stamp date, time & location on your photos in 30 seconds — no signup needed
+How CarShake Protects You
+When you hand your keys to a valet, parking attendant, or rental agency, you're trusting a stranger with one of your most valuable possessions. If your car comes back with a scratch, dent, or ding, the burden of proof falls on you — and without a timestamped before-photo, you have no leverage. That's exactly the problem CarShake solves.
+CarShake guides you through a quick photo capture of your vehicle — all four sides, wheels, windshield, and any existing damage — before you hand over the keys. Each photo is automatically stamped with GPS coordinates and a dual timestamp from your device and our servers. When you get your car back, you repeat the process. CarShake's computer vision AI instantly compares the before-and-after images, highlighting any new damage, scratches, or dents that appeared while the car was out of your possession.
+Every photo record is SHA-256 hashed and stored immutably, making it admissible as evidence if you need to dispute a charge with a valet company, hotel, restaurant, rental agency, or insurance provider. The combination of GPS location data, dual independent timestamps, and cryptographic hashing creates a chain of evidence that's extremely difficult to challenge.
+Why Drivers Trust CarShake
+Unlike a regular camera app, CarShake adds multiple layers of verifiable evidence that make your photos legally meaningful. GPS verification proves your car was at the valet stand, parking garage, or rental lot when the photos were taken. Dual independent timestamps — from your phone and our servers — make it virtually impossible to dispute the timing. AI-powered damage detection catches scratches and dents you might overlook, especially in poor lighting or on complex body panels. And SHA-256 cryptographic hashing ensures that once a photo record is created, it cannot be edited, deleted, or tampered with — by you or anyone else.
+CarShake is completely free to use, works on any smartphone with a camera and web browser, and takes less than 60 seconds to create a full before-and-after record. Whether you valet once a year or every weekend, drive a sedan or a supercar, CarShake gives you the peace of mind that comes from having ironclad proof on your side.
+Real-World Scenarios Where CarShake Saves You Money
+Hotel Valet Parking: You check into a hotel, hand your keys to the valet, and come back the next morning to find a deep scratch on your passenger door. The hotel says it was there when you arrived. With CarShake, you have GPS-tagged, timestamped photos from the moment you pulled up — proving the scratch wasn't there before.
+Restaurant Valet: A valet at a busy restaurant scrapes your bumper against a concrete pillar. Without evidence, it's your word against theirs. CarShake's before-and-after record leaves no room for debate — the damage is clearly new and occurred during the valet's possession window.
+Rental Car Pickup & Return: You pick up a rental car and notice several pre-existing dings. The rental agent waves them off as "normal wear and tear." Two weeks later, you get a bill for $800 in damage repairs. CarShake's timestamped pickup photos prove those dings were there before you drove off the lot.
+Car Wash & Detail Shops: You drop your car off for a full detail and it comes back with swirl marks and a chipped side mirror. CarShake's before-photos show the mirror was intact and the paint was swirl-free before you handed over the keys.
+Mechanic & Service Shops: Your car goes in for routine maintenance and comes out with a new dent on the hood. CarShake's GPS-tagged before-photos prove the dent happened while the car was at the shop.
+Rideshare & Fleet Operations: Managing a fleet of vehicles across multiple drivers? CarShake provides consistent, timestamped condition documentation for every vehicle at every handoff — reducing disputes and protecting your fleet investment.
+How It Works in 3 Simple Steps
+Snap Before Photos
+Take photos of all vehicle sides before handing over your keys. GPS and timestamps are automatically recorded.
+Hand Over With Confidence
+Your photos are SHA-256 hashed and stored immutably. Tamper-proof evidence is ready if you need it.
+Snap After & Compare
+Repeat photos after pickup. AI compares before-and-after, flagging any new damage instantly.
+3 False Beliefs That Cost Drivers Thousands in Valet Damage
+LIE #1 — "The valet company's insurance will cover any damage."
+Most valet tickets contain fine print that limits liability to $250 or excludes "pre-existing conditions." Without timestamped proof of your car's condition at drop-off, the valet's insurance will almost certainly deny your claim. What ac
+
+---
+
+## CarShake FAQ
+
+CarShake
+CarShake FAQ
+Common questions about CarShake.
+Frequently Asked Questions
+How does CarShake prove vehicle condition?
+CarShake uses a three-stop protocol: scan the vehicle before valet, generate a QR-coded handover receipt with timestamped photos, and scan again on retrieval to document any changes.
+Are CarShake records court-admissible?
+CarShake records include cryptographic timestamps, GPS data, and photo evidence that are designed to help document vehicle condition for small claims and insurance disputes.
+What devices does CarShake work on?
+CarShake works on any smartphone with a camera. It is available in 10+ languages and works on iOS and Android.
+How much does CarShake cost?
+CarShake has transparent pricing plans for individuals and businesses. Visit the pricing page for current rates.
+Can CarShake be used for rental cars?
+Yes. Rental car companies use CarShake to document vehicle condition at pickup and return, eliminating disputes about pre-existing damage.
+More context on this question
+Frequently asked questions about CarShake tend to cluster around the same few concerns: is it really free, does the documentation actually hold up in disputes, how long does a scan take, and what happens when the other party denies responsibility. The short answers above cover the headline; this section gives you the deeper context that determines whether CarShake will actually work for your situation.
+How CarShake actually works in practice
+CarShake is a free valet-damage-proof and vehicle-handover app. The core workflow takes 60 seconds: you open the app, run a guided 8-angle walkaround scan of your car, and CarShake time-stamps and geo-locates every photo automatically. You then generate a QR handover receipt that the valet, attendant, or service advisor can scan to acknowledge the vehicle condition at the moment of transfer. When you get the car back, you run the same 8-angle scan and CarShake produces a before/after diff that isolates any new damage that appeared during the handover window.
+The output is designed to be court-admissible: a clean, time-stamped, geo-located evidence packet that shows exactly when and where any damage occurred. That is the documentation that converts a he-said-she-said argument with a valet company into a resolved claim.
+Why documentation timing matters
+The single most important thing to understand about vehicle damage disputes is that timing is everything. Damage that occurs while someone else has custody of your car is presumptively their responsibility — but only if you can prove the condition of the car at the moment you handed it over and at the moment you got it back. Without time-stamped pre- and post-handover scans, the operator will almost always claim the damage was pre-existing or happened after you left the lot. With those scans, the dispute tends to resolve in a single conversation.
+Valet damage disputes are commonly he-said-she-said without photo evidence. When damage appears and you cannot prove the car's condition at handover, the valet operator's standard defense — "it was already like that" — is difficult to refute. CarShake exists because a 60-second scan before and after handover gives you the documentation that converts an argument into a resolved claim. The free tier lets you try the workflow before committing to a paid plan.
+If you still have questions
+Email hello@carshake.online — we answer every question personally and usually within a day. If you are wondering whether CarShake will work for your specific use case (a particular valet operator, a specific rental company, an unusual handover scenario), the fastest way to find out is to download the free app, run one scan, and see the output for yourself.
+Try our free Instant Proof tool: Stamp date, time, and location onto your car photos — no signup needed →
+© 2026 CarShake. carshake.online
+60 sec
+Per Scan
+Angles Checked
+Valet damage disputes are commonly he-said-she-said without photo evidence. One scan before and after handover gives you the documentation that stops the argument cold.
+Try CarShake Free →
+🛡️ Free to try. Scan before and after every handover for peace of mind.
+
+---
+
+## Free Instant Proof Tool
+
+CarShake › Free tools › Instant Proof
+Free car proof tool — stamp your photos before valet
+Snap a photo of your car and CarShake stamps the date, time, and location onto it. Timestamped proof against valet, rental, or parking damage — free, no signup, nothing leaves your phone.
+Where are you? (shown on the photo)
+📍 Use my GPS (optional)
+📷 Add a photo of your car
+⬇ Download stamped proof
+Add another photo
+Tip: take one photo before you hand over the car and one after you get it back.
+Want this automatic? The CarShake app captures GPS-verified, dual-timestamped, AI-checked before/after records for you — so you have airtight proof without thinking about it. See how CarShake works →
+How it works
+Add a photo — tap and take a picture of your car (or pick one you just took).
+Add location — type where you are; optionally tap "Use my GPS".
+Stamp it — CarShake overlays the date, time, and location.
+Download — save the stamped photo. Repeat before and after the valet.
+FAQ
+Is this free?
+Yes — free, no signup. Everything runs in your browser; your photos never leave your device.
+Does the timestamp prove when the photo was taken?
+It stamps your device's current date and time onto the image as a visible record. For the strongest proof, take the photo at the moment you hand over or collect the car — one before, one after.
+Do my photos get uploaded?
+No. All processing is local in your browser. Nothing is uploaded anywhere.
+How to dispute valet damage → · What to do if a valet damages your car →
+Link to this tool
+Share this free tool on your site or social media. Copy the HTML below:
+<a href="https://carshake.online/free/instant-proof">Free Car Proof Tool — stamp date, time & location on your car photos | CarShake</a>
+
+---
+
+## City Page: New York
+
+CarShake
+Cities
+Pricing
+Try Free
+Home / City Guides / New York
+Protect Your Car at Valet Parking in New York
+TL;DR: AI-verified car scans before & after valet parking in New York. 60-second QR handover proof. Free, no app download. Trusted by New York drivers.
+In a nutshell: CarShake's free 60-second AI scan documents your car's condition before valet parking in New York. GPS-timestamped photos, QR handover receipt, and AI comparison at pickup create court-admissible proof of new damage. No app download needed.
+I built CarShake because my Ferrari got damaged at valet — and I had zero proof.
+December 2023. I handed my keys to a hotel valet in Beverly Hills. When the car came back, the front splitter was scraped — $4,200 in damage. The valet manager shrugged: "How do we know it wasn't like that when you dropped it?"
+He was right. I had nothing. No photos. No witness. No proof. I paid for the repair out of pocket — and I swore I'd never let it happen again.
+That's why I built CarShake. 60-second AI-verified car scans. QR handover proof. Both sides sign. When damage appears, you have irrefutable evidence. I couldn't save my $4,200 — but I can save yours.
+The Old Way vs. The CarShake Way
+❌ The Old Way
+Hand over your keys. Hope nothing happens. If damage appears — argue, fight, pay out of pocket. No proof = no leverage.
+✅ The CarShake Way
+60-second scan captures all 8 angles. QR code creates a mutual digital handshake. AI compares before & after. You have court-ready evidence before anyone touches your car.
+The CarShake 3-Stop Protocol™
+Most car damage disputes are lost before they start — because the victim can't prove when the damage happened. The 3-Stop Protocol fixes that. Three minutes. Three actions. Zero arguments.
+Stop & Scan
+Open CarShake. Walk around your car. 8 photos cover every vulnerable angle. Takes 60 seconds — less time than pumping gas.
+QR Handover Proof
+Show the attendant your QR code. They scan it. Both parties digitally confirm the car's condition. No more "he said, she said."
+AI Comparison at Pickup
+When you get your car back, scan again. AI compares every angle, flags every new scratch, dent, or scrape. GPS-timestamped. Court-admissible. Done.
+New York, New York is over 10,000 valet parking spots across Manhattan alone, with some of the highest parking rates in the country. When you hand your keys to a valet, you're trusting someone with a vehicle worth thousands of dollars. Without documented proof of your car's condition before the handover, you have no defense if damage appears at pickup.
+CarShake creates a signed, timestamped, AI-verified record of your car's condition in 60 seconds — right from your phone, no app download needed. The parking attendant scans your QR code and confirms. Both sides sign. Both sides are protected.
+With a population of 8.4M, New York has thousands of daily valet interactions. CarShake gives New York drivers peace of mind that every scratch, dent, and ding is documented before anyone else touches y
+
+---
+
+## City Page: Los Angeles
+
+CarShake
+Cities
+Pricing
+Try Free
+Home / City Guides / Los Angeles
+Protect Your Car at Valet Parking in Los Angeles
+TL;DR: AI-verified car scans before & after valet parking in Los Angeles. 60-second QR handover proof. Free, no app download. Trusted by Los Angeles drivers.
+In a nutshell: CarShake's free 60-second AI scan documents your car's condition before valet parking in Los Angeles. GPS-timestamped photos, QR handover receipt, and AI comparison at pickup create court-admissible proof of new damage. No app download needed.
+I built CarShake because my Ferrari got damaged at valet — and I had zero proof.
+December 2023. I handed my keys to a hotel valet in Beverly Hills. When the car came back, the front splitter was scraped — $4,200 in damage. The valet manager shrugged: "How do we know it wasn't like that when you dropped it?"
+He was right. I had nothing. No photos. No witness. No proof. I paid for the repair out of pocket — and I swore I'd never let it happen again.
+That's why I built CarShake. 60-second AI-verified car scans. QR handover proof. Both sides sign. When damage appears, you have irrefutable evidence. I couldn't save my $4,200 — but I can save yours.
+The Old Way vs. The CarShake Way
+❌ The Old Way
+Hand over your keys. Hope nothing happens. If damage appears — argue, fight, pay out of pocket. No proof = no leverage.
+✅ The CarShake Way
+60-second scan captures all 8 angles. QR code creates a mutual digital handshake. AI compares before & after. You have court-ready evidence before anyone touches your car.
+The CarShake 3-Stop Protocol™
+Most car damage disputes are lost before they start — because the victim can't prove when the damage happened. The 3-Stop Protocol fixes that. Three minutes. Three actions. Zero arguments.
+Stop & Scan
+Open CarShake. Walk around your car. 8 photos cover every vulnerable angle. Takes 60 seconds — less time than pumping gas.
+QR Handover Proof
+Show the attendant your QR code. They scan it. Both parties digitally confirm the car's condition. No more "he said, she said."
+AI Comparison at Pickup
+When you get your car back, scan again. AI compares every angle, flags every new scratch, dent, or scrape. GPS-timestamped. Court-admissible. Done.
+Los Angeles, California is one of the most car-dependent cities with extensive valet services at restaurants, hotels, and entertainment venues. When you hand your keys to a valet, you're trusting someone with a vehicle worth thousands of dollars. Without documented proof of your car's condition before the handover, you have no defense if damage appears at pickup.
+CarShake creates a signed, timestamped, AI-verified record of your car's condition in 60 seconds — right from your phone, no app download needed. The parking attendant scans your QR code and confirms. Both sides sign. Both sides are protected.
+With a population of 3.8M, Los Angeles has thousands of daily valet interactions. CarShake gives Los Angeles drivers peace of mind that every scratch, dent, and ding is documen
+
+---
+
+## City Page: Miami
+
+CarShake
+Cities
+Pricing
+Try Free
+Home / City Guides / Miami
+Protect Your Car at Valet Parking in Miami
+TL;DR: AI-verified car scans before & after valet parking in Miami. 60-second QR handover proof. Free, no app download. Trusted by Miami drivers.
+In a nutshell: CarShake's free 60-second AI scan documents your car's condition before valet parking in Miami. GPS-timestamped photos, QR handover receipt, and AI comparison at pickup create court-admissible proof of new damage. No app download needed.
+I built CarShake because my Ferrari got damaged at valet — and I had zero proof.
+December 2023. I handed my keys to a hotel valet in Beverly Hills. When the car came back, the front splitter was scraped — $4,200 in damage. The valet manager shrugged: "How do we know it wasn't like that when you dropped it?"
+He was right. I had nothing. No photos. No witness. No proof. I paid for the repair out of pocket — and I swore I'd never let it happen again.
+That's why I built CarShake. 60-second AI-verified car scans. QR handover proof. Both sides sign. When damage appears, you have irrefutable evidence. I couldn't save my $4,200 — but I can save yours.
+The Old Way vs. The CarShake Way
+❌ The Old Way
+Hand over your keys. Hope nothing happens. If damage appears — argue, fight, pay out of pocket. No proof = no leverage.
+✅ The CarShake Way
+60-second scan captures all 8 angles. QR code creates a mutual digital handshake. AI compares before & after. You have court-ready evidence before anyone touches your car.
+The CarShake 3-Stop Protocol™
+Most car damage disputes are lost before they start — because the victim can't prove when the damage happened. The 3-Stop Protocol fixes that. Three minutes. Three actions. Zero arguments.
+Stop & Scan
+Open CarShake. Walk around your car. 8 photos cover every vulnerable angle. Takes 60 seconds — less time than pumping gas.
+QR Handover Proof
+Show the attendant your QR code. They scan it. Both parties digitally confirm the car's condition. No more "he said, she said."
+AI Comparison at Pickup
+When you get your car back, scan again. AI compares every angle, flags every new scratch, dent, or scrape. GPS-timestamped. Court-admissible. Done.
+Miami, Florida is high-density valet scene at South Beach hotels, nightclubs, and restaurants with significant parking risk. When you hand your keys to a valet, you're trusting someone with a vehicle worth thousands of dollars. Without documented proof of your car's condition before the handover, you have no defense if damage appears at pickup.
+CarShake creates a signed, timestamped, AI-verified record of your car's condition in 60 seconds — right from your phone, no app download needed. The parking attendant scans your QR code and confirms. Both sides sign. Both sides are protected.
+With a population of 470K, Miami has thousands of daily valet interactions. CarShake gives Miami drivers peace of mind that every scratch, dent, and ding is documented before anyone else touches your car.
+Free: The Valet Dama
+
+---
+
+## City Page: Chicago
+
+CarShake
+Cities
+Pricing
+Try Free
+Home / City Guides / Chicago
+Protect Your Car at Valet Parking in Chicago
+TL;DR: AI-verified car scans before & after valet parking in Chicago. 60-second QR handover proof. Free, no app download. Trusted by Chicago drivers.
+In a nutshell: CarShake's free 60-second AI scan documents your car's condition before valet parking in Chicago. GPS-timestamped photos, QR handover receipt, and AI comparison at pickup create court-admissible proof of new damage. No app download needed.
+I built CarShake because my Ferrari got damaged at valet — and I had zero proof.
+December 2023. I handed my keys to a hotel valet in Beverly Hills. When the car came back, the front splitter was scraped — $4,200 in damage. The valet manager shrugged: "How do we know it wasn't like that when you dropped it?"
+He was right. I had nothing. No photos. No witness. No proof. I paid for the repair out of pocket — and I swore I'd never let it happen again.
+That's why I built CarShake. 60-second AI-verified car scans. QR handover proof. Both sides sign. When damage appears, you have irrefutable evidence. I couldn't save my $4,200 — but I can save yours.
+The Old Way vs. The CarShake Way
+❌ The Old Way
+Hand over your keys. Hope nothing happens. If damage appears — argue, fight, pay out of pocket. No proof = no leverage.
+✅ The CarShake Way
+60-second scan captures all 8 angles. QR code creates a mutual digital handshake. AI compares before & after. You have court-ready evidence before anyone touches your car.
+The CarShake 3-Stop Protocol™
+Most car damage disputes are lost before they start — because the victim can't prove when the damage happened. The 3-Stop Protocol fixes that. Three minutes. Three actions. Zero arguments.
+Stop & Scan
+Open CarShake. Walk around your car. 8 photos cover every vulnerable angle. Takes 60 seconds — less time than pumping gas.
+QR Handover Proof
+Show the attendant your QR code. They scan it. Both parties digitally confirm the car's condition. No more "he said, she said."
+AI Comparison at Pickup
+When you get your car back, scan again. AI compares every angle, flags every new scratch, dent, or scrape. GPS-timestamped. Court-admissible. Done.
+Chicago, Illinois is a major valet hub with thousands of parking garages and hotel valet services across the city. When you hand your keys to a valet, you're trusting someone with a vehicle worth thousands of dollars. Without documented proof of your car's condition before the handover, you have no defense if damage appears at pickup.
+CarShake creates a signed, timestamped, AI-verified record of your car's condition in 60 seconds — right from your phone, no app download needed. The parking attendant scans your QR code and confirms. Both sides sign. Both sides are protected.
+With a population of 2.7M, Chicago has thousands of daily valet interactions. CarShake gives Chicago drivers peace of mind that every scratch, dent, and ding is documented before anyone else touches your car.
+Free: The Valet 
+
+---
+
+## City Page: San Francisco
+
+CarShake
+Cities
+Pricing
+Try Free
+Home / City Guides / San Francisco
+Protect Your Car at Valet Parking in San Francisco
+TL;DR: AI-verified car scans before & after valet parking in San Francisco. 60-second QR handover proof. Free, no app download. Trusted by San Francisco drivers.
+In a nutshell: CarShake's free 60-second AI scan documents your car's condition before valet parking in San Francisco. GPS-timestamped photos, QR handover receipt, and AI comparison at pickup create court-admissible proof of new damage. No app download needed.
+I built CarShake because my Ferrari got damaged at valet — and I had zero proof.
+December 2023. I handed my keys to a hotel valet in Beverly Hills. When the car came back, the front splitter was scraped — $4,200 in damage. The valet manager shrugged: "How do we know it wasn't like that when you dropped it?"
+He was right. I had nothing. No photos. No witness. No proof. I paid for the repair out of pocket — and I swore I'd never let it happen again.
+That's why I built CarShake. 60-second AI-verified car scans. QR handover proof. Both sides sign. When damage appears, you have irrefutable evidence. I couldn't save my $4,200 — but I can save yours.
+The Old Way vs. The CarShake Way
+❌ The Old Way
+Hand over your keys. Hope nothing happens. If damage appears — argue, fight, pay out of pocket. No proof = no leverage.
+✅ The CarShake Way
+60-second scan captures all 8 angles. QR code creates a mutual digital handshake. AI compares before & after. You have court-ready evidence before anyone touches your car.
+The CarShake 3-Stop Protocol™
+Most car damage disputes are lost before they start — because the victim can't prove when the damage happened. The 3-Stop Protocol fixes that. Three minutes. Three actions. Zero arguments.
+Stop & Scan
+Open CarShake. Walk around your car. 8 photos cover every vulnerable angle. Takes 60 seconds — less time than pumping gas.
+QR Handover Proof
+Show the attendant your QR code. They scan it. Both parties digitally confirm the car's condition. No more "he said, she said."
+AI Comparison at Pickup
+When you get your car back, scan again. AI compares every angle, flags every new scratch, dent, or scrape. GPS-timestamped. Court-admissible. Done.
+San Francisco, California is notorious for car break-ins and parking damage, making pre-parking documentation essential. When you hand your keys to a valet, you're trusting someone with a vehicle worth thousands of dollars. Without documented proof of your car's condition before the handover, you have no defense if damage appears at pickup.
+CarShake creates a signed, timestamped, AI-verified record of your car's condition in 60 seconds — right from your phone, no app download needed. The parking attendant scans your QR code and confirms. Both sides sign. Both sides are protected.
+With a population of 815K, San Francisco has thousands of daily valet interactions. CarShake gives San Francisco drivers peace of mind that every scratch, dent, and ding is documented befor
+
+---
+
+## City Page: Las Vegas
+
+CarShake
+Cities
+Pricing
+Try Free
+Home / City Guides / Las Vegas
+Protect Your Car at Valet Parking in Las Vegas
+TL;DR: AI-verified car scans before & after valet parking in Las Vegas. 60-second QR handover proof. Free, no app download. Trusted by Las Vegas drivers.
+In a nutshell: CarShake's free 60-second AI scan documents your car's condition before valet parking in Las Vegas. GPS-timestamped photos, QR handover receipt, and AI comparison at pickup create court-admissible proof of new damage. No app download needed.
+I built CarShake because my Ferrari got damaged at valet — and I had zero proof.
+December 2023. I handed my keys to a hotel valet in Beverly Hills. When the car came back, the front splitter was scraped — $4,200 in damage. The valet manager shrugged: "How do we know it wasn't like that when you dropped it?"
+He was right. I had nothing. No photos. No witness. No proof. I paid for the repair out of pocket — and I swore I'd never let it happen again.
+That's why I built CarShake. 60-second AI-verified car scans. QR handover proof. Both sides sign. When damage appears, you have irrefutable evidence. I couldn't save my $4,200 — but I can save yours.
+The Old Way vs. The CarShake Way
+❌ The Old Way
+Hand over your keys. Hope nothing happens. If damage appears — argue, fight, pay out of pocket. No proof = no leverage.
+✅ The CarShake Way
+60-second scan captures all 8 angles. QR code creates a mutual digital handshake. AI compares before & after. You have court-ready evidence before anyone touches your car.
+The CarShake 3-Stop Protocol™
+Most car damage disputes are lost before they start — because the victim can't prove when the damage happened. The 3-Stop Protocol fixes that. Three minutes. Three actions. Zero arguments.
+Stop & Scan
+Open CarShake. Walk around your car. 8 photos cover every vulnerable angle. Takes 60 seconds — less time than pumping gas.
+QR Handover Proof
+Show the attendant your QR code. They scan it. Both parties digitally confirm the car's condition. No more "he said, she said."
+AI Comparison at Pickup
+When you get your car back, scan again. AI compares every angle, flags every new scratch, dent, or scrape. GPS-timestamped. Court-admissible. Done.
+Las Vegas, Nevada is the valet capital of America with every casino, hotel, and restaurant offering valet parking. When you hand your keys to a valet, you're trusting someone with a vehicle worth thousands of dollars. Without documented proof of your car's condition before the handover, you have no defense if damage appears at pickup.
+CarShake creates a signed, timestamped, AI-verified record of your car's condition in 60 seconds — right from your phone, no app download needed. The parking attendant scans your QR code and confirms. Both sides sign. Both sides are protected.
+With a population of 650K, Las Vegas has thousands of daily valet interactions. CarShake gives Las Vegas drivers peace of mind that every scratch, dent, and ding is documented before anyone else touches your car.
+Fr
+
+---
+
+## City Page: Washington Dc
+
+CarShake
+Cities
+Pricing
+Try Free
+Home / City Guides / Washington Dc
+Protect Your Car at Valet Parking in Washington Dc
+TL;DR: AI-verified car scans before & after valet parking in Washington Dc. 60-second QR handover proof. Free, no app download. Trusted by Washington Dc drivers.
+In a nutshell: CarShake's free 60-second AI scan documents your car's condition before valet parking in Washington Dc. GPS-timestamped photos, QR handover receipt, and AI comparison at pickup create court-admissible proof of new damage. No app download needed.
+I built CarShake because my Ferrari got damaged at valet — and I had zero proof.
+December 2023. I handed my keys to a hotel valet in Beverly Hills. When the car came back, the front splitter was scraped — $4,200 in damage. The valet manager shrugged: "How do we know it wasn't like that when you dropped it?"
+He was right. I had nothing. No photos. No witness. No proof. I paid for the repair out of pocket — and I swore I'd never let it happen again.
+That's why I built CarShake. 60-second AI-verified car scans. QR handover proof. Both sides sign. When damage appears, you have irrefutable evidence. I couldn't save my $4,200 — but I can save yours.
+The Old Way vs. The CarShake Way
+❌ The Old Way
+Hand over your keys. Hope nothing happens. If damage appears — argue, fight, pay out of pocket. No proof = no leverage.
+✅ The CarShake Way
+60-second scan captures all 8 angles. QR code creates a mutual digital handshake. AI compares before & after. You have court-ready evidence before anyone touches your car.
+The CarShake 3-Stop Protocol™
+Most car damage disputes are lost before they start — because the victim can't prove when the damage happened. The 3-Stop Protocol fixes that. Three minutes. Three actions. Zero arguments.
+Stop & Scan
+Open CarShake. Walk around your car. 8 photos cover every vulnerable angle. Takes 60 seconds — less time than pumping gas.
+QR Handover Proof
+Show the attendant your QR code. They scan it. Both parties digitally confirm the car's condition. No more "he said, she said."
+AI Comparison at Pickup
+When you get your car back, scan again. AI compares every angle, flags every new scratch, dent, or scrape. GPS-timestamped. Court-admissible. Done.
+Washington Dc, District of Columbia is high concentration of hotel valet services with limited street parking. When you hand your keys to a valet, you're trusting someone with a vehicle worth thousands of dollars. Without documented proof of your car's condition before the handover, you have no defense if damage appears at pickup.
+CarShake creates a signed, timestamped, AI-verified record of your car's condition in 60 seconds — right from your phone, no app download needed. The parking attendant scans your QR code and confirms. Both sides sign. Both sides are protected.
+With a population of 690K, Washington Dc has thousands of daily valet interactions. CarShake gives Washington Dc drivers peace of mind that every scratch, dent, and ding is documented before anyone e
+
+---
+
+## City Page: Boston
+
+CarShake
+Cities
+Pricing
+Try Free
+Home / City Guides / Boston
+Protect Your Car at Valet Parking in Boston
+TL;DR: AI-verified car scans before & after valet parking in Boston. 60-second QR handover proof. Free, no app download. Trusted by Boston drivers.
+In a nutshell: CarShake's free 60-second AI scan documents your car's condition before valet parking in Boston. GPS-timestamped photos, QR handover receipt, and AI comparison at pickup create court-admissible proof of new damage. No app download needed.
+I built CarShake because my Ferrari got damaged at valet — and I had zero proof.
+December 2023. I handed my keys to a hotel valet in Beverly Hills. When the car came back, the front splitter was scraped — $4,200 in damage. The valet manager shrugged: "How do we know it wasn't like that when you dropped it?"
+He was right. I had nothing. No photos. No witness. No proof. I paid for the repair out of pocket — and I swore I'd never let it happen again.
+That's why I built CarShake. 60-second AI-verified car scans. QR handover proof. Both sides sign. When damage appears, you have irrefutable evidence. I couldn't save my $4,200 — but I can save yours.
+The Old Way vs. The CarShake Way
+❌ The Old Way
+Hand over your keys. Hope nothing happens. If damage appears — argue, fight, pay out of pocket. No proof = no leverage.
+✅ The CarShake Way
+60-second scan captures all 8 angles. QR code creates a mutual digital handshake. AI compares before & after. You have court-ready evidence before anyone touches your car.
+The CarShake 3-Stop Protocol™
+Most car damage disputes are lost before they start — because the victim can't prove when the damage happened. The 3-Stop Protocol fixes that. Three minutes. Three actions. Zero arguments.
+Stop & Scan
+Open CarShake. Walk around your car. 8 photos cover every vulnerable angle. Takes 60 seconds — less time than pumping gas.
+QR Handover Proof
+Show the attendant your QR code. They scan it. Both parties digitally confirm the car's condition. No more "he said, she said."
+AI Comparison at Pickup
+When you get your car back, scan again. AI compares every angle, flags every new scratch, dent, or scrape. GPS-timestamped. Court-admissible. Done.
+Boston, Massachusetts is tight parking spaces and narrow streets make parking damage especially common. When you hand your keys to a valet, you're trusting someone with a vehicle worth thousands of dollars. Without documented proof of your car's condition before the handover, you have no defense if damage appears at pickup.
+CarShake creates a signed, timestamped, AI-verified record of your car's condition in 60 seconds — right from your phone, no app download needed. The parking attendant scans your QR code and confirms. Both sides sign. Both sides are protected.
+With a population of 675K, Boston has thousands of daily valet interactions. CarShake gives Boston drivers peace of mind that every scratch, dent, and ding is documented before anyone else touches your car.
+Free: The Valet Damage Playbook
+5 
+
+---
+
+## City Page: Dallas
+
+CarShake
+Cities
+Pricing
+Try Free
+Home / City Guides / Dallas
+Protect Your Car at Valet Parking in Dallas
+TL;DR: AI-verified car scans before & after valet parking in Dallas. 60-second QR handover proof. Free, no app download. Trusted by Dallas drivers.
+In a nutshell: CarShake's free 60-second AI scan documents your car's condition before valet parking in Dallas. GPS-timestamped photos, QR handover receipt, and AI comparison at pickup create court-admissible proof of new damage. No app download needed.
+I built CarShake because my Ferrari got damaged at valet — and I had zero proof.
+December 2023. I handed my keys to a hotel valet in Beverly Hills. When the car came back, the front splitter was scraped — $4,200 in damage. The valet manager shrugged: "How do we know it wasn't like that when you dropped it?"
+He was right. I had nothing. No photos. No witness. No proof. I paid for the repair out of pocket — and I swore I'd never let it happen again.
+That's why I built CarShake. 60-second AI-verified car scans. QR handover proof. Both sides sign. When damage appears, you have irrefutable evidence. I couldn't save my $4,200 — but I can save yours.
+The Old Way vs. The CarShake Way
+❌ The Old Way
+Hand over your keys. Hope nothing happens. If damage appears — argue, fight, pay out of pocket. No proof = no leverage.
+✅ The CarShake Way
+60-second scan captures all 8 angles. QR code creates a mutual digital handshake. AI compares before & after. You have court-ready evidence before anyone touches your car.
+The CarShake 3-Stop Protocol™
+Most car damage disputes are lost before they start — because the victim can't prove when the damage happened. The 3-Stop Protocol fixes that. Three minutes. Three actions. Zero arguments.
+Stop & Scan
+Open CarShake. Walk around your car. 8 photos cover every vulnerable angle. Takes 60 seconds — less time than pumping gas.
+QR Handover Proof
+Show the attendant your QR code. They scan it. Both parties digitally confirm the car's condition. No more "he said, she said."
+AI Comparison at Pickup
+When you get your car back, scan again. AI compares every angle, flags every new scratch, dent, or scrape. GPS-timestamped. Court-admissible. Done.
+Dallas, Texas is major business and entertainment district with high-volume valet operations. When you hand your keys to a valet, you're trusting someone with a vehicle worth thousands of dollars. Without documented proof of your car's condition before the handover, you have no defense if damage appears at pickup.
+CarShake creates a signed, timestamped, AI-verified record of your car's condition in 60 seconds — right from your phone, no app download needed. The parking attendant scans your QR code and confirms. Both sides sign. Both sides are protected.
+With a population of 1.3M, Dallas has thousands of daily valet interactions. CarShake gives Dallas drivers peace of mind that every scratch, dent, and ding is documented before anyone else touches your car.
+Free: The Valet Damage Playbook
+5 things val
+
+---
+
+## City Page: Houston
+
+CarShake
+Cities
+Pricing
+Try Free
+Home / City Guides / Houston
+Protect Your Car at Valet Parking in Houston
+TL;DR: AI-verified car scans before & after valet parking in Houston. 60-second QR handover proof. Free, no app download. Trusted by Houston drivers.
+In a nutshell: CarShake's free 60-second AI scan documents your car's condition before valet parking in Houston. GPS-timestamped photos, QR handover receipt, and AI comparison at pickup create court-admissible proof of new damage. No app download needed.
+I built CarShake because my Ferrari got damaged at valet — and I had zero proof.
+December 2023. I handed my keys to a hotel valet in Beverly Hills. When the car came back, the front splitter was scraped — $4,200 in damage. The valet manager shrugged: "How do we know it wasn't like that when you dropped it?"
+He was right. I had nothing. No photos. No witness. No proof. I paid for the repair out of pocket — and I swore I'd never let it happen again.
+That's why I built CarShake. 60-second AI-verified car scans. QR handover proof. Both sides sign. When damage appears, you have irrefutable evidence. I couldn't save my $4,200 — but I can save yours.
+The Old Way vs. The CarShake Way
+❌ The Old Way
+Hand over your keys. Hope nothing happens. If damage appears — argue, fight, pay out of pocket. No proof = no leverage.
+✅ The CarShake Way
+60-second scan captures all 8 angles. QR code creates a mutual digital handshake. AI compares before & after. You have court-ready evidence before anyone touches your car.
+The CarShake 3-Stop Protocol™
+Most car damage disputes are lost before they start — because the victim can't prove when the damage happened. The 3-Stop Protocol fixes that. Three minutes. Three actions. Zero arguments.
+Stop & Scan
+Open CarShake. Walk around your car. 8 photos cover every vulnerable angle. Takes 60 seconds — less time than pumping gas.
+QR Handover Proof
+Show the attendant your QR code. They scan it. Both parties digitally confirm the car's condition. No more "he said, she said."
+AI Comparison at Pickup
+When you get your car back, scan again. AI compares every angle, flags every new scratch, dent, or scrape. GPS-timestamped. Court-admissible. Done.
+Houston, Texas is sprawling city with high car ownership and extensive valet parking at restaurants and event venues. When you hand your keys to a valet, you're trusting someone with a vehicle worth thousands of dollars. Without documented proof of your car's condition before the handover, you have no defense if damage appears at pickup.
+CarShake creates a signed, timestamped, AI-verified record of your car's condition in 60 seconds — right from your phone, no app download needed. The parking attendant scans your QR code and confirms. Both sides sign. Both sides are protected.
+With a population of 2.3M, Houston has thousands of daily valet interactions. CarShake gives Houston drivers peace of mind that every scratch, dent, and ding is documented before anyone else touches your car.
+Free: The Val
+
+---
