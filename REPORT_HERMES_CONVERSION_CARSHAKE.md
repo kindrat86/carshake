@@ -59,10 +59,28 @@ Checked `free/instant-proof.html` — already handles the global `Permissions-Po
 
 **Live end-to-end verification after the fix**: curl to `/api/email-capture` with the corrected field returns `200 {"success":true,"stored":"analytics_fallback"}` (Supabase insert itself still fails — `SUPABASE_ANON_KEY` isn't set on Vercel either, a pre-existing gap already flagged in `CLAUDE.md`, not introduced by this fix — but the PostHog fallback succeeds, so the lead is captured as an analytics event rather than lost). Also drove an actual form submission in a real browser session against the live site: the inline message rendered "Check your inbox — your checklist is on the way." with no page navigation, confirming the JS handler works as intended.
 
+## Update 2026-07-23 (later still): owner clarified there is no Supabase — added a real Resend notification instead (commit `85d57b2`)
+
+Owner clarified directly: **there is no Supabase backend for this project** — everything is hosted on their Mac Mini. Investigated before changing anything further:
+
+- The `carshake.online` Supabase credential sitting in the portfolio vault is marked `status: "unknown"`, never validated — almost certainly a Lovable default auto-provision that was never actually wired up. Consistent with the owner's statement.
+- There **is** a local Postgres database named `carshake` on the Mac Mini (visible via Postgres.app, backed up nightly to `~/pg-backups/carshake_*.dump`), but it has zero tables — a reserved slot, not an active backend.
+- Vercel's serverless functions (where this site runs) can't reach that Mac Mini directly — no public path in, only Tailscale, which Vercel isn't on. Building a real bridge (e.g. Tailscale Funnel + a local receiver) is a bigger, new-infrastructure decision, so it was surfaced to the owner as an explicit option rather than assumed.
+
+Owner chose: **add a real-time Resend notification email** rather than build new Mac Mini infrastructure or leave it PostHog-only. Implemented:
+
+- `api/email-capture.js` now calls a `notifyOwner()` helper on every capture attempt (success via any storage path, and even on total failure, so a lead is never silently lost without at least an email record) — sends to `sales@sipiteno.com` from `leads@carshake.online` via Resend, with the email, source, signup_source, and which storage path (if any) actually persisted it.
+- Confirmed `carshake.online` is a verified Resend sending domain (`GET /domains` → `status: "verified"`, sending enabled) on the account holding a real, working API key (already used by other portfolio sites).
+- Set `RESEND_API_KEY` on the carshake Vercel project (`vercel env add ... production`) — this project had **zero** environment variables configured before this.
+- Deployed and verified with a real end-to-end test: POSTed a test lead to the live `/api/email-capture`, then queried the Resend API's send log directly and confirmed the notification email shows `"last_event": "delivered"` to `sales@sipiteno.com`. This is a genuine, observed delivery, not an assumption from a 200 response.
+
+`notifyOwner()` is purely additive — it never throws and doesn't change the response returned to the person submitting the form; PostHog remains the fallback path for the submitter-facing `success`/`stored` status.
+
 ## Owner actions required
 
 1. ~~Teach `prerender.mjs` about the pruned-city list~~ — **done**, see update above.
-2. ~~Prove end-to-end email capture~~ — **done**, see update above. Remaining gap: **set `SUPABASE_ANON_KEY` on the Vercel project** so leads land in the real `newsletter_subscribers`/`signups_cap` table instead of only the PostHog fallback event. Until then, captured leads are visible as `email_captured` events in PostHog, not as rows in Supabase.
+2. ~~Prove end-to-end email capture~~ — **done**, see updates above. Leads now generate a real, delivered notification email to sales@sipiteno.com on every capture, verified via Resend's own send log — not just PostHog analytics events.
 3. **SPA copy changes are out of reach from this repo**: the Lovable-managed bundle (`/assets/index-*.js`) has no source here. Any copy/honesty-label changes to the SPA's own content (e.g. labeling the "$2,100 saved" style cards as hypothetical, per the runbook's HONESTY GATE) must go through Lovable's own publish path, not this repo.
 4. **PostHog instrumentation on `/free/instant-proof`** was not added in this pass — out of scope, flagged for a future pass.
 5. **Longer-term**: the Lovable SPA + this repo's static/Vercel pipeline are two independently-published systems fighting for the same page. Recommend deciding which system owns `/` going forward (or formalizing the fallback-band pattern as the permanent bridge between them) rather than letting this recur.
+6. **If a real subscriber list/table is ever wanted** (not just email notifications + PostHog events), that requires either a hosted DB reachable from Vercel or a bridge into the Mac Mini (e.g. Tailscale Funnel + a small local receiver) — flagged as a future decision, not attempted here since it's new inbound infrastructure into the home network.
