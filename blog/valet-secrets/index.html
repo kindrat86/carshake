@@ -243,9 +243,24 @@
 </footer>
       </div>
     </div>
-        <div style="font-size:14px;letter-spacing:1px;text-transform:uppercase;color:#A1A1AA">Loading</div>
-      </div>
-      <style>@keyframes csSpin{to{transform:rotate(360deg)}}</style>
+    <!-- Persistent fallback conversion band: sibling of #root, NOT a descendant of it.
+         The SPA bundle only wipes/replaces the contents of #root on mount (ReactDOM.createRoot(root).render),
+         so this survives hydration and is visible to real browsers, not just to crawlers/curl reading the
+         static markup above. Kept intentionally slim (not a full duplicate hero/page) so it reads as a
+         footer band under the SPA's own content, not a competing/duplicate CTA. -->
+    <div id="fallback-cta" style="max-width:800px;margin:0 auto;padding:1.5rem 1.5rem 2.5rem;text-align:center;font-family:'DM Sans',sans-serif;background:#FAFAF8;border-top:1px solid #E4E4E7">
+      <p style="font-size:0.75rem;color:#9CA3AF;margin:1.5rem 0 1rem;text-transform:uppercase;letter-spacing:0.08em">Free tool &middot; one-time kit</p>
+      <p style="margin:0 0 1rem">
+        <a href="/free/instant-proof" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 1.5rem;border-radius:12px;background:#C9A237;color:white;font-weight:600;text-decoration:none;font-size:0.9375rem">📷 Try the Free Instant Proof Tool</a>
+      </p>
+      <form action="/api/subscribe" method="post" style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;max-width:420px;margin:0 auto 1rem">
+        <input type="email" name="EMAIL" placeholder="your@email.com" required style="flex:1;min-width:180px;padding:0.7rem 1rem;border:1px solid #E4E4E7;border-radius:10px;font-size:0.875rem;font-family:'DM Sans',sans-serif" />
+        <button type="submit" style="padding:0.7rem 1.4rem;border:none;border-radius:10px;background:#3F3F46;color:white;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.875rem">Get the Free Checklist</button>
+      </form>
+      <p style="margin:0">
+        <a href="https://buy.stripe.com/cNi4gyfRp18Y0W26vS0x20k" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 1.5rem;border-radius:12px;background:#059669;color:white;font-weight:600;text-decoration:none;font-size:0.9375rem">Get the Premium Kit — $7</a>
+      </p>
+      <p style="font-size:0.7rem;color:#B0B0B5;margin:0.75rem 0 0">Secure checkout via Stripe. Instant access after purchase. Not satisfied? Email us — we'll make it right.</p>
     </div>
   </body>
 </html>
