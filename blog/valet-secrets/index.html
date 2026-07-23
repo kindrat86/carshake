@@ -253,14 +253,63 @@
       <p style="margin:0 0 1rem">
         <a href="/free/instant-proof" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 1.5rem;border-radius:12px;background:#C9A237;color:white;font-weight:600;text-decoration:none;font-size:0.9375rem">📷 Try the Free Instant Proof Tool</a>
       </p>
-      <form action="/api/subscribe" method="post" style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;max-width:420px;margin:0 auto 1rem">
-        <input type="email" name="EMAIL" placeholder="your@email.com" required style="flex:1;min-width:180px;padding:0.7rem 1rem;border:1px solid #E4E4E7;border-radius:10px;font-size:0.875rem;font-family:'DM Sans',sans-serif" />
+      <form id="fallback-cta-form" action="/api/email-capture" method="post" style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;max-width:420px;margin:0 auto 1rem">
+        <input type="email" name="email" placeholder="your@email.com" required style="flex:1;min-width:180px;padding:0.7rem 1rem;border:1px solid #E4E4E7;border-radius:10px;font-size:0.875rem;font-family:'DM Sans',sans-serif" />
+        <input type="hidden" name="source" value="fallback-cta" />
+        <input type="hidden" name="signup_source" value="carshake_seo" />
+        <input type="text" name="website" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px" aria-hidden="true" />
         <button type="submit" style="padding:0.7rem 1.4rem;border:none;border-radius:10px;background:#3F3F46;color:white;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.875rem">Get the Free Checklist</button>
       </form>
+      <p id="fallback-cta-msg" style="margin:0 0 1rem;font-size:0.8125rem;min-height:1.2em"></p>
       <p style="margin:0">
         <a href="https://buy.stripe.com/cNi4gyfRp18Y0W26vS0x20k" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 1.5rem;border-radius:12px;background:#059669;color:white;font-weight:600;text-decoration:none;font-size:0.9375rem">Get the Premium Kit — $7</a>
       </p>
       <p style="font-size:0.7rem;color:#B0B0B5;margin:0.75rem 0 0">Secure checkout via Stripe. Instant access after purchase. Not satisfied? Email us — we'll make it right.</p>
     </div>
+    <script>
+      // Vanilla JS, no framework dependency — this whole block lives outside #root
+      // so it survives the SPA's hydration wipe. Intercepts the plain <form> post
+      // so a real submit doesn't navigate to a blank page of raw API JSON; falls
+      // back to the plain form POST (still functionally correct) if JS fails to attach.
+      (function () {
+        var form = document.getElementById('fallback-cta-form');
+        var msg = document.getElementById('fallback-cta-msg');
+        if (!form || !msg) return;
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var email = form.elements.email.value.trim();
+          var btn = form.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          msg.style.color = '#6B7280';
+          msg.textContent = 'Sending…';
+          fetch('/api/email-capture', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: email,
+              source: form.elements.source.value,
+              signup_source: form.elements.signup_source.value,
+              website: form.elements.website.value
+            })
+          }).then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+            .then(function (result) {
+              btn.disabled = false;
+              if (result.ok && result.data && result.data.success) {
+                msg.style.color = '#059669';
+                msg.textContent = 'Check your inbox — your checklist is on the way.';
+                form.reset();
+              } else {
+                msg.style.color = '#B91C1C';
+                msg.textContent = (result.data && result.data.error) || 'Could not save your email right now. Please try again.';
+              }
+            })
+            .catch(function () {
+              btn.disabled = false;
+              msg.style.color = '#B91C1C';
+              msg.textContent = 'Network error — please try again.';
+            });
+        });
+      })();
+    </script>
   </body>
 </html>
