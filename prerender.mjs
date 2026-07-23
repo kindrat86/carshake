@@ -59,9 +59,38 @@ const COMPARE_CATEGORIES = [
 // ── Load the base HTML template ──────────────────────────────────
 let baseHtml = readFileSync(resolve(DIST, 'index.html'), 'utf8');
 
+// City-consolidation decision from the 2026-07-23 traffic report
+// (REPORT_HERMES_CARSHAKE_20260723.md, "T3 — City Page Consolidation").
+// All 23 pruned cities from that report are listed here for completeness,
+// but only 20 of them (the ones also present in the CITIES object below)
+// actually get a prerendered city/<slug>/index.html — cincinnati,
+// jacksonville, and st-louis have no CITIES entry, so prerender.mjs never
+// touches those and this set is a no-op for them. Every prerender run must
+// keep these out of the sitemap and marked noindex,follow — that's the
+// bug that shipped in commit a796991 and got manually reverted; don't
+// let a future run silently undo it again. If you're revisiting the
+// pruning decision itself, edit this set (and re-sync with the report).
+const PRUNED_CITIES = new Set([
+  'anchorage', 'baltimore', 'charlotte', 'cincinnati', 'cleveland', 'columbus',
+  'detroit', 'honolulu', 'indianapolis', 'jacksonville', 'kansas-city', 'memphis',
+  'milwaukee', 'minneapolis', 'pittsburgh', 'portland', 'raleigh', 'richmond',
+  'sacramento', 'salt-lake-city', 'san-antonio', 'st-louis', 'tampa',
+]);
+
 // ── Helper: inject meta and body into index.html ─────────────────
-function injectMetaBody(baseHtml, { title, description, canonical, ogTitle, ogDesc, jsonLd, bodyHtml }) {
+function injectMetaBody(baseHtml, { title, description, canonical, ogTitle, ogDesc, jsonLd, bodyHtml, noindex }) {
   let html = baseHtml;
+
+  // Pruned pages: force noindex,follow. Insert if absent, overwrite if a
+  // stale value is already there — either way this always wins over
+  // whatever the base template happens to carry.
+  if (noindex) {
+    if (/<meta name="robots"[^>]*\/?>/.test(html)) {
+      html = html.replace(/<meta name="robots"[^>]*\/?>/, `<meta name="robots" content="noindex,follow">`);
+    } else {
+      html = html.replace(/<\/head>/, `<meta name="robots" content="noindex,follow">\n</head>`);
+    }
+  }
 
   // Replace title
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(title)}</title>`);
@@ -671,10 +700,11 @@ for (const [slug, city] of Object.entries(CITIES)) {
     url: canonical,
   };
   const bodyHtml = bodyCity({ displayName, city, slug });
-  const html = injectMetaBody(baseHtml, { title, description, canonical, ogTitle: title, ogDesc: description, jsonLd, bodyHtml });
+  const pruned = PRUNED_CITIES.has(slug);
+  const html = injectMetaBody(baseHtml, { title, description, canonical, ogTitle: title, ogDesc: description, jsonLd, bodyHtml, noindex: pruned });
   writePage(`city/${slug}`, 'index.html', html);
-  pages.push(canonical);
-  console.log(`  ✓ /city/${slug}`);
+  if (!pruned) pages.push(canonical);
+  console.log(`  ✓ /city/${slug}${pruned ? '  (pruned: noindex, excluded from sitemap)' : ''}`);
 }
 
 // ── 2. City index ─────────────────────────────────────────────────

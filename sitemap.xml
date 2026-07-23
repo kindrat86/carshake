@@ -18,29 +18,9 @@
   <url><loc>https://carshake.online/city/washington-dc</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://carshake.online/city/nashville</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://carshake.online/city/austin</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/portland</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://carshake.online/city/orlando</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://carshake.online/city/philadelphia</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/charlotte</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/detroit</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/minneapolis</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/san-antonio</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/sacramento</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/tampa</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/pittsburgh</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/baltimore</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/indianapolis</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/kansas-city</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/columbus</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/milwaukee</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/cleveland</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/salt-lake-city</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/raleigh</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/memphis</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/richmond</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://carshake.online/city/new-orleans</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/honolulu</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/city/anchorage</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://carshake.online/city</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://carshake.online/state/california</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://carshake.online/state/texas</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -109,5 +89,4 @@
   <url><loc>https://carshake.online/blog/valet-damage-cities</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://carshake.online/blog/ai-valet-comparison</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://carshake.online/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://carshake.online/free/instant-proof</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 </urlset>

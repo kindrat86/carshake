@@ -1,16 +1,51 @@
 // CarShake Email Capture Endpoint
-// Stores email submissions via Supabase REST API
-// Falls back to PostHog event capture when table doesn't exist
+// Stores email submissions as a PostHog event (Supabase is no longer part of
+// this portfolio's architecture — persistence lives on the Mac mini now, not
+// a hosted third-party DB; this endpoint doesn't attempt Supabase at all).
+// Also sends a real-time owner notification via Resend — the notification
+// email is the actual way leads get seen day to day.
 
 // Use environment variables so keys aren't in static build output.
-// SUPABASE_ANON_KEY intentionally has NO fallback: a missing env var must
-// fail loudly instead of silently skipping Supabase storage.
-const SUPABASE_URL = process.env.SUPABASE_URL || 'https://eoenjehnkuhknjybjgzr.supabase.co';
-const ANON_KEY = process.env.SUPABASE_ANON_KEY || '';
 const POSTHOG_KEY = process.env.POSTHOG_API_KEY || 'phc_lyZCgvTpicjLzAO3rY2GhxuX5WUc5jQjP8ZVwwJqauX';
 const POSTHOG_HOST = 'https://eu.i.posthog.com';
+const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
+const OWNER_EMAIL = 'sales@sipiteno.com';
 
 const ALLOWED_ORIGINS = ['https://carshake.online', 'https://www.carshake.online'];
+
+// Best-effort owner notification — never throws, never blocks the response
+// to the submitter. `stored` records which path actually persisted the
+// lead (or null) so the owner can tell a real capture from an
+// analytics-only fallback at a glance.
+async function notifyOwner(email, source, signupSource, stored) {
+  if (!RESEND_API_KEY) return;
+  try {
+    const resp = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'CarShake Leads <leads@carshake.online>',
+        to: OWNER_EMAIL,
+        subject: `New CarShake lead: ${email}`,
+        html: `<p><strong>${email}</strong> just signed up on carshake.online.</p>
+<ul>
+<li>Source: ${source}</li>
+<li>Signup source: ${signupSource}</li>
+<li>Stored via: ${stored || 'none (all storage failed)'}</li>
+<li>Time: ${new Date().toISOString()}</li>
+</ul>`,
+      }),
+    });
+    if (!resp.ok) {
+      console.error(`[EmailCapture] owner notification failed: HTTP ${resp.status}`);
+    }
+  } catch (e) {
+    console.error('[EmailCapture] owner notification failed:', e.message);
+  }
+}
 
 // Simple in-memory rate limiter
 const rateLimit = new Map();
@@ -85,56 +120,8 @@ export default async function handler(req, res) {
 
     let stored = null;
 
-    if (!ANON_KEY || ANON_KEY.length <= 20) {
-      console.error('[EmailCapture][CONFIG] SUPABASE_ANON_KEY is missing or invalid in the Vercel env — Supabase storage skipped for every request');
-    } else {
-      // Strategy 1: Try to insert into newsletter_subscribers
-      const sbRes1 = await fetch(`${SUPABASE_URL}/rest/v1/newsletter_subscribers`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': ANON_KEY,
-          'Authorization': `Bearer ${ANON_KEY}`,
-          'Prefer': 'return=minimal'
-        },
-        body: JSON.stringify({
-          email: sanitizedEmail,
-          source: sanitizedSource,
-          signup_source: sanitizedSignupSource
-        })
-      });
-
-      if (sbRes1.ok || sbRes1.status === 201) {
-        console.log(`[EmailCapture] Stored in newsletter_subscribers: ${sanitizedEmail}`);
-        res.status(200).json({ success: true, stored: 'newsletter_subscribers' });
-        return;
-      }
-      console.error(`[EmailCapture] newsletter_subscribers insert failed: HTTP ${sbRes1.status}`);
-
-      // Strategy 2: Try signups_cap table
-      const sbRes2 = await fetch(`${SUPABASE_URL}/rest/v1/signups_cap`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': ANON_KEY,
-          'Authorization': `Bearer ${ANON_KEY}`,
-          'Prefer': 'return=minimal'
-        },
-        body: JSON.stringify({
-          email: sanitizedEmail,
-          source: sanitizedSource,
-          signup_source: sanitizedSignupSource
-        })
-      });
-
-      if (sbRes2.ok || sbRes2.status === 201) {
-        res.status(200).json({ success: true, stored: 'signups_cap' });
-        return;
-      }
-      console.error(`[EmailCapture] signups_cap insert failed: HTTP ${sbRes2.status}`);
-    }
-
-    // Strategy 3: Send to PostHog as a captured event
+    // Send to PostHog as a captured event. This is the only storage path —
+    // see the file header for why there's no Supabase attempt here.
     try {
       const phRes = await fetch(`${POSTHOG_HOST}/capture/`, {
         method: 'POST',
@@ -152,25 +139,28 @@ export default async function handler(req, res) {
         })
       });
       if (phRes.ok) {
-        stored = 'analytics_fallback';
+        stored = 'posthog';
       } else {
-        console.error(`[EmailCapture] PostHog fallback failed: HTTP ${phRes.status}`);
+        console.error(`[EmailCapture] PostHog capture failed: HTTP ${phRes.status}`);
       }
     } catch (phErr) {
-      console.error('[EmailCapture] PostHog fallback failed:', phErr);
+      console.error('[EmailCapture] PostHog capture failed:', phErr);
     }
 
     if (stored) {
+      await notifyOwner(sanitizedEmail, sanitizedSource, sanitizedSignupSource, stored);
       res.status(200).json({
         success: true,
         stored,
-        note: 'Captured via analytics fallback'
+        note: 'Captured via PostHog'
       });
       return;
     }
 
-    // Every storage path failed — fail loudly instead of faking success
-    console.error(`[EmailCapture][LOST] All storage strategies failed for ${maskEmail(sanitizedEmail)} (source: ${sanitizedSource})`);
+    // PostHog capture failed — still tell the owner if we can, but fail
+    // loudly to the submitter instead of faking success.
+    console.error(`[EmailCapture][LOST] PostHog capture failed for ${maskEmail(sanitizedEmail)} (source: ${sanitizedSource})`);
+    await notifyOwner(sanitizedEmail, sanitizedSource, sanitizedSignupSource, null);
     res.status(502).json({
       success: false,
       error: 'Could not save your email right now. Please try again.',
