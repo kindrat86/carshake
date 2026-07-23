@@ -1,6 +1,9 @@
 // CarShake Email Capture Endpoint
 // Stores email submissions via Supabase REST API
 // Falls back to PostHog event capture when table doesn't exist
+// Also sends a real-time owner notification via Resend (there is no
+// Supabase project behind this in practice — see RESEND_API_KEY below —
+// the notification email is the actual way leads get seen day to day).
 
 // Use environment variables so keys aren't in static build output.
 // SUPABASE_ANON_KEY intentionally has NO fallback: a missing env var must
@@ -9,8 +12,44 @@ const SUPABASE_URL = process.env.SUPABASE_URL || 'https://eoenjehnkuhknjybjgzr.s
 const ANON_KEY = process.env.SUPABASE_ANON_KEY || '';
 const POSTHOG_KEY = process.env.POSTHOG_API_KEY || 'phc_lyZCgvTpicjLzAO3rY2GhxuX5WUc5jQjP8ZVwwJqauX';
 const POSTHOG_HOST = 'https://eu.i.posthog.com';
+const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
+const OWNER_EMAIL = 'sales@sipiteno.com';
 
 const ALLOWED_ORIGINS = ['https://carshake.online', 'https://www.carshake.online'];
+
+// Best-effort owner notification — never throws, never blocks the response
+// to the submitter. `stored` records which path actually persisted the
+// lead (or null) so the owner can tell a real capture from an
+// analytics-only fallback at a glance.
+async function notifyOwner(email, source, signupSource, stored) {
+  if (!RESEND_API_KEY) return;
+  try {
+    const resp = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'CarShake Leads <leads@carshake.online>',
+        to: OWNER_EMAIL,
+        subject: `New CarShake lead: ${email}`,
+        html: `<p><strong>${email}</strong> just signed up on carshake.online.</p>
+<ul>
+<li>Source: ${source}</li>
+<li>Signup source: ${signupSource}</li>
+<li>Stored via: ${stored || 'none (all storage failed)'}</li>
+<li>Time: ${new Date().toISOString()}</li>
+</ul>`,
+      }),
+    });
+    if (!resp.ok) {
+      console.error(`[EmailCapture] owner notification failed: HTTP ${resp.status}`);
+    }
+  } catch (e) {
+    console.error('[EmailCapture] owner notification failed:', e.message);
+  }
+}
 
 // Simple in-memory rate limiter
 const rateLimit = new Map();
@@ -106,6 +145,7 @@ export default async function handler(req, res) {
 
       if (sbRes1.ok || sbRes1.status === 201) {
         console.log(`[EmailCapture] Stored in newsletter_subscribers: ${sanitizedEmail}`);
+        await notifyOwner(sanitizedEmail, sanitizedSource, sanitizedSignupSource, 'newsletter_subscribers');
         res.status(200).json({ success: true, stored: 'newsletter_subscribers' });
         return;
       }
@@ -128,6 +168,7 @@ export default async function handler(req, res) {
       });
 
       if (sbRes2.ok || sbRes2.status === 201) {
+        await notifyOwner(sanitizedEmail, sanitizedSource, sanitizedSignupSource, 'signups_cap');
         res.status(200).json({ success: true, stored: 'signups_cap' });
         return;
       }
@@ -161,6 +202,7 @@ export default async function handler(req, res) {
     }
 
     if (stored) {
+      await notifyOwner(sanitizedEmail, sanitizedSource, sanitizedSignupSource, stored);
       res.status(200).json({
         success: true,
         stored,
@@ -169,8 +211,10 @@ export default async function handler(req, res) {
       return;
     }
 
-    // Every storage path failed — fail loudly instead of faking success
+    // Every storage path failed — still tell the owner if we can, but
+    // fail loudly to the submitter instead of faking success.
     console.error(`[EmailCapture][LOST] All storage strategies failed for ${maskEmail(sanitizedEmail)} (source: ${sanitizedSource})`);
+    await notifyOwner(sanitizedEmail, sanitizedSource, sanitizedSignupSource, null);
     res.status(502).json({
       success: false,
       error: 'Could not save your email right now. Please try again.',
