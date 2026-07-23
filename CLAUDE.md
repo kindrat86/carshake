@@ -7,6 +7,6 @@
 
 ## Критичні граблі
 - Глобальна Permissions-Policy БЛОКУЄ camera/geolocation — Instant Proof tool мусить використовувати file-capture (input capture), НЕ getUserMedia
-- CSP блокує Supabase email capture — ймовірна причина 0 підписників; не додавай нових зовнішніх endpoint-ів без правки CSP
+- Email capture = `/api/email-capture` → Resend audience "CarShake" (durable store) + checklist send + PostHog (analytics only). Supabase видалено 2026-07-23 — компанія більше не використовує Supabase. Локальна копія: `~/.carshake/funnel.db`, синк щогодини через launchd `com.carshake.funnel-db-sync` (`scripts/sync-local-db.py`, той самий патерн що й unlocksaas). Стара `/api/subscribe` видалена — її контент (реальний "Valet Damage Playbook" checklist) перенесено в `/api/email-capture`.
 - faq.html містить фабриковані статистики — не тиражувати
 - carshake = Lovable, publish вручну — PostHog правки не задеплояться самі
