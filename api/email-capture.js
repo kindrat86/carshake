@@ -248,6 +248,8 @@ export default async function handler(req, res) {
             email: sanitizedEmail,
             source: sanitizedSource,
             signup_source: sanitizedSignupSource,
+            $host: 'carshake.online',
+            product: 'carshake',
             $set: { email: sanitizedEmail },
           },
         }),
