@@ -338,7 +338,12 @@ function buildLocalizedHtml(langCode, texts, langDir) {
   );
 
   // ── Build hreflang links ──
-  const hreflangLinks = LANGUAGES.map(l =>
+  // Only advertise languages that actually have a built directory — LANGUAGES
+  // lists 97 target locales but only a subset are built at any given time;
+  // hreflang alternates that 404/redirect are worse than none (Google
+  // penalizes broken hreflang clusters).
+  const builtLanguages = LANGUAGES.filter(l => existsSync(resolve(DIST, l.dir)));
+  const hreflangLinks = builtLanguages.map(l =>
     `    <link rel="alternate" hreflang="${l.code}" href="https://carshake.online/${l.dir}" />`
   ).join('\n');
   baseHtml = baseHtml.replace('</head>', `    ${hreflangLinks}\n  </head>`);
