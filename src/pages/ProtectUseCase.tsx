@@ -113,7 +113,6 @@ const ProtectUseCase = () => {
     operatingSystem: 'Web',
     description: data.metaDescription,
     url: `https://carshake.online/protect/${usecase}`,
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   };
 
   return (

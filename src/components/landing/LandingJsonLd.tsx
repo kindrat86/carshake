@@ -4,8 +4,7 @@ const LandingJsonLd = () => {
     "@type": "SoftwareApplication",
     "name": "CarShake",
     "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Web Browser",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    "operatingSystem": "Web Browser"
   };
 
   const faqPage = {
