@@ -33,19 +33,11 @@ const LandingJsonLd = () => {
     ]
   };
 
-  const product = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "CarShake Shield+",
-    "offers": { "@type": "Offer", "price": "2.97", "priceCurrency": "USD" }
-  };
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApp) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPage) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howTo) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(product) }} />
     </>
   );
 };
