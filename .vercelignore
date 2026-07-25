@@ -4,3 +4,28 @@
 node_modules
 
 .vercel/output
+
+# --- internal docs & reports: repo root is the deploy root (outputDirectory "."),
+#     so anything left here is served publicly. Keep this list additive. ---
+/AUDIT_SCORECARD.md
+/CLAUDE.md
+/HERMES_*.md
+/OWNER_ACTIONS*.md
+/REPORT_*.md
+/aeo
+
+# --- internal tooling: pSEO generators + ops scripts ---
+/_*.py
+/_*.py.DONE
+/scripts
+
+# --- editor / conversion leftovers ---
+*.bak-conv
+
+# DO NOT add these — they are served on purpose:
+#   agents.md, agents.txt, ai.txt, llms.txt, llms-full.txt, qa.jsonl,
+#   ai-plugin.json, mcp.json, openapi.json, agent-card.json,
+#   knowledge-graph.json, glama.json, .well-known/   -> AI/AEO discovery surfaces
+#   <hex>.txt, pseo-carshake-online.txt              -> IndexNow keys
+#   BingSiteAuth.xml, google*.html                   -> search-engine verification
+#   vehicle-damage-costs-2026.csv                    -> linked from vehicle-damage-costs.html
