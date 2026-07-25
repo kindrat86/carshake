@@ -14,6 +14,17 @@ node_modules
 /REPORT_*.md
 /aeo
 
+# --- agent working files ---
+# 1,171 files, including a full Claude Code worktree under
+# .claude/worktrees/, were being served publicly: `outputDirectory` is "." in
+# vercel.json, so the repo root IS the deploy root and this directory shipped
+# with it. Live and indexable at /.claude/settings.local.json and
+# /.claude/worktrees/<id>/**, which put 962 duplicate HTML pages (a near-copy
+# of the whole site under a second path) and the api/ server source on the
+# public domain. It is untracked by git, so nothing in the normal review path
+# would ever have shown it.
+/.claude
+
 # --- internal tooling: pSEO generators + ops scripts ---
 /_*.py
 /_*.py.DONE
@@ -22,6 +33,15 @@ node_modules
 # being served 200 (repo root is the deploy root). Nothing references /i18n/ —
 # the localized PAGES live in /es, /fr, /pt, which are untouched by this.
 /i18n
+
+# Stray cross-brand page. calculator.html is ChurnLens's internal "Funnel Math
+# Calculator" (Brunson benchmark conversion rates, MRR) — it was live at
+# carshake.online/calculator with <title>Funnel Math Calculator — ChurnLens</title>
+# and `index, follow`, on a domain about valet damage. Orphaned (0 internal links,
+# absent from the sitemap) and it was the sole source of the dead /get-the-checklist
+# link, whose CTA offered ChurnLens's "23-Point Checklist". Not deleted — just not
+# served here.
+/calculator.html
 
 # --- editor / conversion leftovers ---
 *.bak-conv
