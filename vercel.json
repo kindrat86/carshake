@@ -684,6 +684,11 @@
       "source": "/checklists/car-lease-handover-checklist",
       "destination": "/checklists",
       "permanent": true
+    },
+    {
+      "source": "/scan",
+      "destination": "/free/instant-proof",
+      "permanent": true
     }
   ]
 }

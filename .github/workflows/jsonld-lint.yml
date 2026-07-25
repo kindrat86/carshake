@@ -36,3 +36,14 @@ jobs:
       # is the invocation people type by hand before a deploy.
       - name: Verify JSON-LD via the default target
         run: node scripts/verify-jsonld.mjs
+
+      # Internal-link guard. carshake shipped 35 dead internal links in two waves on
+      # 2026-07-25 — /for/*, /vs/*, /alternatives-to/* and then /glossary/*,
+      # /checklists/*, /templates/* from new funnel pages. Every one was a link to a
+      # slug the section never had, and NONE was visible to any check here: they were
+      # only found by crawling production hours after deploy. This models the site's
+      # real routing (outputDirectory ".", cleanUrls, vercel.json redirects/rewrites)
+      # and honours .vercelignore, so a link from or to a non-deployed file is judged
+      # correctly. Fails only on targets absent from the baseline, which is 0 today.
+      - name: No new broken internal links
+        run: node scripts/check-internal-links.mjs
