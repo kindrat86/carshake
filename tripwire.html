@@ -35,6 +35,18 @@
   .tw-decline a { color: #64748b; font-size: 0.85rem; text-decoration: underline; }
 </style>
 <!-- canonical-disambiguation --><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "CarShake", "url": "https://carshake.online", "description": "CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims.", "disambiguatingDescription": "CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) — not a B2B insurance damage-detection API."}</script>
+<!-- pixel-identifier-cleanup-2026-07-25 — clears the first-party identifiers the removed ad pixels dropped into
+     visitors' browsers. They are inert already (nothing reads them, and the tightened CSP
+     blocks any request that could carry them off-site), but they were set without consent,
+     so we delete rather than wait out the expiry. Safe to drop once visitors have cycled. -->
+<script>
+(function(){var s=['_rdt_uuid','_fbp','_fbc','_gcl_au','_ga'],h=location.hostname,
+d=['','; domain='+h,'; domain=.'+h.replace(/^www\./,'')];
+for(var i=0;i<s.length;i++){if(document.cookie.indexOf(s[i]+'=')<0)continue;
+for(var j=0;j<d.length;j++){document.cookie=s[i]+'=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT'+d[j];}}
+try{for(var k in localStorage){if(/^(_fb|_rdt|_ga|_gcl)/.test(k))localStorage.removeItem(k);}}catch(e){}
+})();
+</script>
 </head>
 <body style="background:#0b1120;color:#e2e8f0;font-family:'DM Sans',sans-serif;">
 
@@ -92,21 +104,11 @@
   </div>
 </div>
 
-<div class="tw-testimonial">
-  <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-    <span style="color:#f59e0b;font-size:1rem">★★★★★</span>
-    <span style="color:#64748b;font-size:0.8rem">Verified</span>
-  </div>
-  <p style="color:#cbd5e1;font-style:italic;line-height:1.6;margin:0 0 10px">
-    "I got a call from the valet company claiming I'd scratched their customer's 
-    bumper. I pulled up the time-stamped photos from CarShake, sent the QR receipt, 
-    and the claim was dropped in 72 hours. The scripts in this kit are exactly what 
-    I used to push back."
-  </p>
-  <p style="color:#64748b;font-size:0.8rem;margin:0">
-    — James R., Los Angeles · Saved $4,200
-  </p>
-</div>
+<!-- testimonial + 5-star "Verified" rating removed 2026-07-25: fabricated.
+     Both attributed a named customer outcome, and a star rating, to a product whose
+     checkout is still an unreplaced placeholder, so the purchase described has never
+     been possible and no one could have rated it. Restore only with a real,
+     attributable review from a paying customer. -->
 
 <div style="text-align:center;max-width:560px;margin:0 auto;padding:20px 0;">
   <h3 style="color:#f8fafc;font-size:1.1rem;margin-bottom:12px">Why I Made This Kit</h3>

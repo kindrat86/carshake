@@ -45,6 +45,18 @@
   .oto-card.get li::before { content:'✓ '; color:#00d4aa; }
 </style>
 <!-- canonical-disambiguation --><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "CarShake", "url": "https://carshake.online", "description": "CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims.", "disambiguatingDescription": "CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) — not a B2B insurance damage-detection API."}</script>
+<!-- pixel-identifier-cleanup-2026-07-25 — clears the first-party identifiers the removed ad pixels dropped into
+     visitors' browsers. They are inert already (nothing reads them, and the tightened CSP
+     blocks any request that could carry them off-site), but they were set without consent,
+     so we delete rather than wait out the expiry. Safe to drop once visitors have cycled. -->
+<script>
+(function(){var s=['_rdt_uuid','_fbp','_fbc','_gcl_au','_ga'],h=location.hostname,
+d=['','; domain='+h,'; domain=.'+h.replace(/^www\./,'')];
+for(var i=0;i<s.length;i++){if(document.cookie.indexOf(s[i]+'=')<0)continue;
+for(var j=0;j<d.length;j++){document.cookie=s[i]+'=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT'+d[j];}}
+try{for(var k in localStorage){if(/^(_fb|_rdt|_ga|_gcl)/.test(k))localStorage.removeItem(k);}}catch(e){}
+})();
+</script>
 </head>
 <body style="background:#0b1120;color:#e2e8f0;font-family:'DM Sans',sans-serif;">
 
@@ -123,18 +135,11 @@
   </div>
 </div>
 
-<div class="oto-testimonial">
-  <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-    <span style="color:#f59e0b;font-size:1rem">★★★★★</span>
-    <span style="color:#64748b;font-size:0.8rem">Shield+ Member</span>
-  </div>
-  <p style="color:#cbd5e1;font-style:italic;line-height:1.6;margin:0 0 10px">
-    "I signed up for Shield+ after a valet damage valet claim got dismissed because I had the QR receipt. 
-    The valet company's insurance called me — I sent the CarShake proof — they dropped it same day. 
-    $2.97/mo is absurd for this level of protection."
-  </p>
-  <p style="color:#64748b;font-size:0.8rem;margin:0">— David K., Shield+ Founding Member</p>
-</div>
+<!-- testimonial + 5-star "Verified" rating removed 2026-07-25: fabricated.
+     Both attributed a named customer outcome, and a star rating, to a product whose
+     checkout is still an unreplaced placeholder, so the purchase described has never
+     been possible and no one could have rated it. Restore only with a real,
+     attributable review from a paying customer. -->
 
 <div class="oto-faq">
   <h3 style="color:#f8fafc;text-align:center;margin-bottom:20px">Quick Answers</h3>
