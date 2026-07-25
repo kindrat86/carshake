@@ -207,7 +207,7 @@ try{for(var k in localStorage){if(/^(_fb|_rdt|_ga|_gcl)/.test(k))localStorage.re
         <a href="/free/instant-proof" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 1.5rem;border-radius:12px;background:#C9A237;color:white;font-weight:600;text-decoration:none;font-size:0.9375rem">📷 Try the Free Instant Proof Tool</a>
       </p>
       <form id="fallback-cta-form" action="/api/email-capture" method="post" style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;max-width:420px;margin:0 auto 1rem">
-        <input type="email" name="email" placeholder="your@email.com" required style="flex:1;min-width:180px;padding:0.7rem 1rem;border:1px solid #E4E4E7;border-radius:10px;font-size:0.875rem;font-family:'DM Sans',sans-serif" />
+        <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address" autocomplete="email" style="flex:1;min-width:180px;padding:0.7rem 1rem;border:1px solid #E4E4E7;border-radius:10px;font-size:0.875rem;font-family:'DM Sans',sans-serif" />
         <input type="hidden" name="source" value="fallback-cta" />
         <input type="hidden" name="signup_source" value="carshake_seo" />
         <input type="text" name="website" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px" aria-hidden="true" />
