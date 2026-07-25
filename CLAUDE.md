@@ -7,6 +7,20 @@
 - УВАГА: 07-23 зафіксовано split-brain (дві версії сайту з різних джерел) — перед правками зʼясуй, яке джерело реально live
 - OWNER_ACTIONS.md (07-23) згадує окремий "Lovable SPA bundle" (`/assets/index-*.js`) що нібито публікується окремо через Lovable — ЗАСТАРІЛО й спростовано 07-24: `assets/index-*.js` — звичайний закомічений файл у цьому ж репо, редагується і деплоїться разом з усім іншим через `vercel --prod`, жодного окремого Lovable-шляху не існує
 - **ЗАВЖДИ ПЕРЕЙМЕНОВУЙ chunk після ручного правлення `assets/*.js`.** vercel.json віддає `/assets/*` з `Cache-Control: public, max-age=31536000, immutable` — рік без ревалідації. Правка "на місці" зі старим імʼям НЕ доходить ні до Googlebot (WRS тримає свою копію JS), ні до постійних відвідувачів. Саме через це 07-24 фікси JSON-LD (видалення `Offer`) виглядали як "fix failed" у GSC Merchant listings, хоча origin був чистий. Порядок: порахуй новий хеш від вмісту → перейменуй `Name-<hash>.js` → заміни імʼя в УСІХ посиланнях (HTML + інші chunk-и, ~400 файлів для головного bundle) → задеплой (07-25: `index-fzxhT5D0`→`index-H0g4DRii`, `ExitIntentPopup-DXPZKENV`→`ExitIntentPopup-FByQ8X-v`, `PricingPage-CX9R2Eim`→`PricingPage-GSdOvdgd`, `ProtectUseCase-alX0T-8k`→`ProtectUseCase-UUL_0XUZ`; 07-25 пізніше: `PricingPage-GSdOvdgd`→`PricingPage-bYNrie9l`, `index-H0g4DRii`→`index-DywQoIAd`; 07-25 ще пізніше: `LandingSections-DViAFZF4`→`LandingSections-jitzOEI1`, `PricingPage-bYNrie9l`→`PricingPage-0qmmhGaZ`, `index-DywQoIAd`→`index-vYXulbb0`)
+- **2026-07-25 23:58 — артефакт ПЕРЕЗІБРАНО і зараз АКТУАЛЬНИЙ** (`vercel build --prod`):
+  1924 файли, `verify-jsonld .vercel/output` ПРОХОДИТЬ, і api/unsubscribe.js у ньому
+  містить актуальний handler. Тобто зауваження нижче про «зламаний JSON-LD в
+  артефакті» БІЛЬШЕ НЕ АКТУАЛЬНЕ — залишено як історія. Але сама пастка жива:
+  артефакт старіє з кожною правкою джерела.
+- **РЕАЛЬНИЙ ІНЦИДЕНТ 2026-07-25:** фікс `/api/unsubscribe` (78a5470) був
+  ЗАДЕПЛОЄНИЙ і перевірений, а потім МОВЧКИ ВІДКОЧЕНИЙ — інша сесія зробила
+  `vercel deploy --prebuilt` зі старим `.vercel/output` (11:54, до фікса о 17:01).
+  Git показував фікс у HEAD, сайт віддавав стару версію. **Діагностика:**
+  `grep -c confirmPage .vercel/output/functions/api/unsubscribe.func/api/unsubscribe.js`
+  — 0 означає, що артефакт старіший за джерело. **Лікування:** `vercel --prod --yes`
+  (джерело), потім `vercel build --prod` щоб артефакт не відкотив наступного разу.
+  Прим.: 1924 (джерело) vs 962 (старий артефакт) — це НЕ втрата половини сайту,
+  а дедуплікація двійників flat.html + dir/index.html. Не лякайся цього числа.
 - `.vercel/output/static/` — СТАРИЙ prebuilt-артефакт (build 07-22), містить ДОФІКСНІ бандли з `Offer`/Product schema. Звичайний `vercel --prod` його ігнорує, але будь-який `vercel deploy --prebuilt` відкотить сайт назад. Не деплой prebuilt, поки не перезібрано
 - **ПІДТВЕРДЖЕНО 2026-07-25 — той артефакт містить не тільки старі бандли, а й ЗЛАМАНИЙ JSON-LD на 11 сторінках** (`industries/auto-insurance` + 10 `locations/*/restaurants`): у тексті FAQ-відповідей неекранована лапка `"` всередині JSON-стрічки (`...says "not our staff"...`) → `Expected ',' or '}'`. У джерелі це вже виправлено (закомічене дерево чисте, 962 файли), живе ЛИШЕ в артефакті. Тобто `vercel deploy --prebuilt` тут = рівно та сама помилка "Unparsable structured data", яку GSC ловив на voicelogpro. **Перед будь-яким деплоєм цього сайту:** `node scripts/verify-jsonld.mjs .` (джерело) і, якщо все ж prebuilt, `node scripts/verify-jsonld.mjs .vercel/output` — зараз воно падає, і має падати, поки артефакт не перезібрано
 - `scripts/` у `.vercelignore` — гейт НЕ можна вішати на `vercel.json` `buildCommand` (файла не буде в build-контейнері → впадуть УСІ деплої). Тому тут гейт у CI + локально перед деплоєм
