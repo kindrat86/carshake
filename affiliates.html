@@ -35,6 +35,18 @@ a{color:#0066cc;text-decoration:none}
 @media(max-width:640px){.commission-box table{font-size:.85rem}}
 </style>
 <!-- canonical-disambiguation --><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "CarShake", "url": "https://carshake.online", "description": "CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims.", "disambiguatingDescription": "CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) — not a B2B insurance damage-detection API."}</script>
+<!-- pixel-identifier-cleanup-2026-07-25 — clears the first-party identifiers the removed ad pixels dropped into
+     visitors' browsers. They are inert already (nothing reads them, and the tightened CSP
+     blocks any request that could carry them off-site), but they were set without consent,
+     so we delete rather than wait out the expiry. Safe to drop once visitors have cycled. -->
+<script>
+(function(){var s=['_rdt_uuid','_fbp','_fbc','_gcl_au','_ga'],h=location.hostname,
+d=['','; domain='+h,'; domain=.'+h.replace(/^www\./,'')];
+for(var i=0;i<s.length;i++){if(document.cookie.indexOf(s[i]+'=')<0)continue;
+for(var j=0;j<d.length;j++){document.cookie=s[i]+'=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT'+d[j];}}
+try{for(var k in localStorage){if(/^(_fb|_rdt|_ga|_gcl)/.test(k))localStorage.removeItem(k);}}catch(e){}
+})();
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -44,11 +56,11 @@ a{color:#0066cc;text-decoration:none}
 <div class="commission-box">
 <h2 style="margin:0 0 16px">Your commission structure</h2>
 <table>
-<tr><th>Tier</th><th>Commission</th><th>Payout</th><th>Cookie</th></tr>
-<tr><td>Monthly</td><td class="commission">30%</td><td class="payout">Recurring</td><td>90 days</td></tr>
-<tr><td>Annual</td><td class="commission">30%</td><td class="payout">Upfront + recurring</td><td>90 days</td></tr>
+<tr><th>Tier</th><th>Commission</th><th>Payout</th><th>Attribution</th></tr>
+<tr><td>Monthly</td><td class="commission">30%</td><td class="payout">Recurring</td><td>You introduce them</td></tr>
+<tr><td>Annual</td><td class="commission">30%</td><td class="payout">Upfront + recurring</td><td>You introduce them</td></tr>
 </table>
-<p style="font-size:.85rem;color:#64748b;margin:12px 0 0">Paid on the 1st of each month. Your commission renews every month the customer stays.</p>
+<p style="font-size:.85rem;color:#64748b;margin:12px 0 0">We track referrals by hand right now -- there is no cookie or affiliate dashboard, so make the introduction directly or have them mention you. We pay out by bank transfer or PayPal once their payment clears, and keep paying for as long as they stay.</p>
 </div>
 
 <h2>Your swipe file kit</h2>
@@ -74,7 +86,7 @@ a{color:#0066cc;text-decoration:none}
 
 <h2>Ready to join?</h2>
 <div class="cta-box">
-<p>Sign up in 2 minutes. Every customer you refer pays you every month they stay.</p>
+<p>Email us and we'll set it up. Every customer you refer pays you every month they stay.</p>
 <a href="mailto:hello@carshake.online?subject=Affiliate%20Program%20Signup" class="btn">Join the affiliate program →</a>
 </div>
 
