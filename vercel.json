@@ -624,6 +624,66 @@
       "source": "/glossary/pre-condition-report",
       "destination": "/glossary",
       "permanent": true
+    },
+    {
+      "source": "/glossary/qr-receipt",
+      "destination": "/glossary/qr-handover",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/qr-handover-receipt",
+      "destination": "/glossary/qr-handover",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/post-condition-report",
+      "destination": "/glossary/vehicle-condition-report",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/pre-damage-capture",
+      "destination": "/glossary/pre-existing-damage",
+      "permanent": true
+    },
+    {
+      "source": "/checklists/pre-rental-checklist",
+      "destination": "/checklists/rental-car-pickup",
+      "permanent": true
+    },
+    {
+      "source": "/templates/damage-claim-letter-template",
+      "destination": "/templates/damage-claim-dispute-letter",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/condition-timeline",
+      "destination": "/glossary",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/damage-proof",
+      "destination": "/glossary",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/three-stop-protocol",
+      "destination": "/glossary",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/valet",
+      "destination": "/glossary",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/valet-handover",
+      "destination": "/glossary",
+      "permanent": true
+    },
+    {
+      "source": "/checklists/car-lease-handover-checklist",
+      "destination": "/checklists",
+      "permanent": true
     }
   ]
 }
