@@ -27,3 +27,12 @@ jobs:
       # HTML. See ~/.growth-engine/GUARDRAILS.md rule 3.
       - name: Verify shipped JSON-LD
         run: node scripts/verify-jsonld.mjs .
+      # The step above names "." explicitly and so can never lint the wrong tree.
+      # This one takes no argument on purpose: the default was hardcoded to
+      # `dist` until 2026-07-25, so an argument-less run died with `dist not found
+      # — run the build first` on a site that has no build, while CI stayed green
+      # — a broken invocation nobody's CI exercised. The default now reads
+      # vercel.json's outputDirectory; this step is what keeps it honest, since it
+      # is the invocation people type by hand before a deploy.
+      - name: Verify JSON-LD via the default target
+        run: node scripts/verify-jsonld.mjs
