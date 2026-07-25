@@ -509,6 +509,121 @@
       ],
       "destination": "https://carshake.online/$1",
       "permanent": true
+    },
+    {
+      "source": "/for/parking-facilities",
+      "destination": "/for/parking-garages",
+      "permanent": true
+    },
+    {
+      "source": "/for/ride-share-drivers",
+      "destination": "/for/rideshare-drivers",
+      "permanent": true
+    },
+    {
+      "source": "/for/rental-fleets",
+      "destination": "/for/rental-car-companies",
+      "permanent": true
+    },
+    {
+      "source": "/for/exotic-car-rentals",
+      "destination": "/for/rental-car-companies",
+      "permanent": true
+    },
+    {
+      "source": "/for/auto-transport",
+      "destination": "/for",
+      "permanent": true
+    },
+    {
+      "source": "/for/casinos",
+      "destination": "/for",
+      "permanent": true
+    },
+    {
+      "source": "/for/concert-venues",
+      "destination": "/for",
+      "permanent": true
+    },
+    {
+      "source": "/for/hospitals",
+      "destination": "/for",
+      "permanent": true
+    },
+    {
+      "source": "/vs/damage-iid",
+      "destination": "/vs/damage-id",
+      "permanent": true
+    },
+    {
+      "source": "/vs/carfax",
+      "destination": "/vs",
+      "permanent": true
+    },
+    {
+      "source": "/vs/uber",
+      "destination": "/vs",
+      "permanent": true
+    },
+    {
+      "source": "/vs/auto-md",
+      "destination": "/vs",
+      "permanent": true
+    },
+    {
+      "source": "/vs/bestparking",
+      "destination": "/vs",
+      "permanent": true
+    },
+    {
+      "source": "/vs/carshake-vs-inspectr",
+      "destination": "/vs",
+      "permanent": true
+    },
+    {
+      "source": "/vs/fleetio",
+      "destination": "/vs",
+      "permanent": true
+    },
+    {
+      "source": "/vs/rental-condition-report",
+      "destination": "/vs",
+      "permanent": true
+    },
+    {
+      "source": "/vs/repairpal",
+      "destination": "/vs",
+      "permanent": true
+    },
+    {
+      "source": "/vs/spothero",
+      "destination": "/vs",
+      "permanent": true
+    },
+    {
+      "source": "/vs/valet",
+      "destination": "/vs",
+      "permanent": true
+    },
+    {
+      "source": "/alternatives-to/carfax",
+      "destination": "/alternatives-to",
+      "permanent": true
+    },
+    {
+      "source": "/alternatives-to/uber",
+      "destination": "/alternatives-to",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/damage-walkaround",
+      "destination": "/glossary",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/pre-condition-report",
+      "destination": "/glossary",
+      "permanent": true
     }
   ]
 }

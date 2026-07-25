@@ -18,6 +18,10 @@ node_modules
 /_*.py
 /_*.py.DONE
 /scripts
+# Translation tooling. All 10 files here are .mjs generator scripts and were
+# being served 200 (repo root is the deploy root). Nothing references /i18n/ —
+# the localized PAGES live in /es, /fr, /pt, which are untouched by this.
+/i18n
 
 # --- editor / conversion leftovers ---
 *.bak-conv
