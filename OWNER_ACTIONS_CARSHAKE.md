@@ -117,3 +117,60 @@ The free tool at https://carshake.online/free/instant-proof is genuinely useful:
 - **Email capture broken by CSP**: The Supabase email capture form fails due to Content-Security-Policy blocking Supabase connections. This is flagged but NOT addressed in this run (CSP edits are explicitly out of scope per the runbook). The form will silently fail for users.
 - **Permissions-Policy blocks camera/geolocation**: Intentional — the Instant Proof tool uses file-capture, not camera APIs. Do NOT "improve" it toward getUserMedia.
 - **Locations directory**: The `locations/` directory has separate `.html` pages (not part of city/ consolidation). These were not touched.
+
+---
+
+## 7. Traffic Secrets Audit — Owner Actions (2026-07-26)
+
+Companion to `AUDIT_TRAFFIC_SECRETS.md` (composite score: **52/100**).
+What the code could NOT do — only a human can. Ranked by ROI.
+
+### Tier 1 — highest leverage (do first)
+
+**7.1 Record ONE Epiphany Bridge video (Secrets #6, #13, #16)**
+The single highest-leverage asset missing from the business. Script the "$4,200 claim overturned in 72 hours" story (already referenced on `tripwire.html`) into a 4–8 min hero's-journey video. It becomes:
+- the homepage centerpiece,
+- the tripwire's promised "4-Minute Video Walkthrough" (currently a placeholder),
+- the seed YouTube video (Secret #13),
+- the Perfect Webinar core story (Secret #16).
+One shoot, four uses. **This unlocks Secrets #6, #13, and #16 simultaneously.**
+
+**7.2 Launch the YouTube channel (Secret #13) — the biggest unlocked lever**
+Car content is a top-3 YouTube vertical and the entire Dream 100 (Doug DeMuro, Donut, ChrisFix, Stradman, Supercar Blondie) lives there. "How 3 photos + a timestamp beat a $4,200 valet claim" is a clickable thumbnail. Start with the Epiphany Bridge video, then a weekly cadence of: before/after damage breakdowns, "watch me dispute" walkthroughs, and Dream 100 reaction/collab bait.
+
+**7.3 Write + schedule the email nurture sequence (Secret #10 — the critical gap)**
+`/api/email-capture.js` captures + delivers the Playbook, then... silence. "Traffic You Own" requires you to actually mail the list. Write a 5-email sequence:
+- Email 1 (Day 0): Playbook delivery *(exists)*
+- Email 2 (Day 1): the Epiphany Bridge story *(teased in code, not written)*
+- Email 3 (Day 3): "3 False Beliefs" (repurpose the homepage section)
+- Email 4 (Day 5): tripwire pitch ($7 Emergency Kit)
+- Email 5 (Day 8+): Shield+ subscription pitch
+Then a **weekly broadcast** (Seinfeld/soap-opera style). Resend supports sequences via their Broadcasts/Audiences.
+
+### Tier 2 — wire the business properly
+
+**7.4 Configure Stripe `success_url` to chain tripwire → OTO (Secret #19)**
+The funnel architecture is now wired in *links* (this deploy added tripwire→OTO), but the true post-purchase redirect still requires a Stripe config change: set the $7 payment link's `success_url` to `https://carshake.online/oto` so buyers land on the Shield+ upsell automatically. *(Cannot be done from code — it's a Stripe Dashboard setting on the payment link `cNi4gyfRp18Y0W26vS0x20k`.)*
+
+**7.5 Execute the Dream 100 outreach (Secrets #2, #4, #17)**
+`dream100.html` is a static list, not a program. Pick the top 20, work the 6-step playbook already documented on that page (comment → share → add value → DM → propose → collab). Prioritize the **Reddit/YouTube/forum tiers** (where buyers gather) over the operator tiers (B2B partnerships, longer cycle). Consider making `dream100.html` `noindex` — it's currently public and telegraphs your playbook to targets.
+
+**7.6 Activate the Instagram handle (Secret #15)**
+`instagram.com/carshake` is now linked from the footer (this deploy) but has no content. Post before/after damage-proof photo pairs — this niche is *made* for IG. Cross-post YouTube shorts.
+
+**7.7 Build real affiliate tracking (Secrets #17, #20)**
+`affiliates.html` promises 30% recurring but admits "we track referrals by hand." Until there's real tracking (Rewardful / FirstPromoter / Tolt over Stripe), the affiliate channel cannot pay out and is effectively dead. Wire one of those services.
+
+### Tier 3 — paid traffic (only after Tiers 1–2)
+
+**7.8 Decide on + re-enable paid pixels (Secret #9)**
+Pixels were removed 2026-07-25 (deliberate). To run paid, you'll need to re-add tracking — but do it as **server-side / Conversions API** (CAPI) rather than client pixels, respecting the privacy-first CSP you built. Recommended first channel: **Reddit Ads** (cheap, Dream-100-adjacent audience, lower CAC than Meta/Google for this niche). The tripwire ($7 SLO) is built to self-liquidate — but it needs paid traffic to liquidate.
+
+**7.9 Stand up the Perfect Webinar (Secret #16)**
+The homepage "3 False Beliefs" section is already Brunson's 3-secret webinar structure in prose. Convert it to a 30-min evergreen webinar script, record it, host on YouTube unlisted, embed on a new `/webinar` squeeze page that gates the replay for an email.
+
+### Persona clarification (Secret #1)
+**7.10 Write the dream-customer persona down.** The site serves two buyers silently mashed together: (a) the anxious luxury/rental-car owner ($7 kit buyer) and (b) the fleet/operator buyer. Pick ONE primary for the homepage; spin operators to a dedicated `/for/operators` lane. Document it here:
+
+> **Primary dream customer:** _(fill in: age, car they drive, venues they valet at, the fear that keeps them up, where they hang out online)_
+

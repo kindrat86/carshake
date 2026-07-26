@@ -47,6 +47,8 @@ for(var j=0;j<d.length;j++){document.cookie=s[i]+'=; path=/; expires=Thu, 01 Jan
 try{for(var k in localStorage){if(/^(_fb|_rdt|_ga|_gcl)/.test(k))localStorage.removeItem(k);}}catch(e){}
 })();
 </script>
+    <!-- PostHog (first-party only; allowed by global CSP). Tracks tripwire views + CTA clicks. -->
+    <script>!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=!0}(document,window.posthog||[]);posthog.init("phc_lyZCgvTpicjLzAO3rY2GhxuX5WUc5jQjP8ZVwwJqauX",{api_host:"https://eu.i.posthog.com",person_profiles:"identified_only"});posthog.capture("$pageview",{view:'tripwire'});</script>
 </head>
 <body style="background:#0b1120;color:#e2e8f0;font-family:'DM Sans',sans-serif;">
 
@@ -101,6 +103,17 @@ try{for(var k in localStorage){if(/^(_fb|_rdt|_ga|_gcl)/.test(k))localStorage.re
       Get the Emergency Kit for $7 →
     </a>
     <p style="color:#64748b;font-size:0.75rem;margin-top:10px">Secure Stripe checkout. Instant delivery to your inbox.</p>
+  </div>
+
+  <!-- Secret #19 wiring: expose the post-purchase upsell (OTO) so the funnel is connected.
+       Honest framing — this is the one-time founding-price upgrade, dismissible. -->
+  <div style="max-width:560px;margin:8px auto 0;padding:16px 18px;border:1px dashed #334155;border-radius:12px;background:#0f172a">
+    <p style="margin:0 0 8px;color:#94a3b8;font-size:0.85rem;line-height:1.55">
+      <strong style="color:#e2e8f0">After you check out</strong>, you'll get a one-time chance to lock in
+      <strong style="color:#00d4aa">CarShake Shield+ at the $2.97/mo founding price</strong> (normally $19.97) —
+      ongoing AI scans + QR receipts + dispute support on every handover.
+      <a href="/oto" style="color:#00d4aa;text-decoration:underline">See the Shield+ offer →</a>
+    </p>
   </div>
 </div>
 
@@ -171,6 +184,13 @@ try{for(var k in localStorage){if(/^(_fb|_rdt|_ga|_gcl)/.test(k))localStorage.re
   }
   tick();
   setInterval(tick, 1000);
+})();
+// Track the $7 checkout click (Secret #9 — measure every paid-traffic step).
+(function(){
+  var cta=document.getElementById('tw-cta');
+  if(cta){cta.addEventListener('click',function(){try{window.posthog&&posthog.capture&&posthog.capture('tripwire_cta_clicked',{offer:'emergency_kit',price:7});}catch(e){}});}
+  var oto=document.querySelector('a[href="/oto"]');
+  if(oto){oto.addEventListener('click',function(){try{window.posthog&&posthog.capture&&posthog.capture('tripwire_oto_link_clicked');}catch(e){}});}
 })();
 </script>
 

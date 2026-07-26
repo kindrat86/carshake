@@ -38,6 +38,16 @@
 .wrap{max-width:760px;margin:0 auto;padding:1.5rem 1rem 4rem}
 h1{font-size:1.9rem;line-height:1.15;margin:.3rem 0}.lead{color:#94a3b8;font-size:1.05rem}
 .tool{background:var(--card);border:1px solid var(--line);border-radius:.9rem;padding:1.25rem;margin:1.5rem 0}
+/* Post-stamp opt-in: Brunson Secret #11 — exchange value for the email at peak reciprocity.
+   Surfaced only AFTER a photo is stamped, never gates the tool, never sends the photo. */
+.optin{margin-top:1.25rem;padding:1.1rem 1.2rem;border:1px solid var(--accent);border-radius:.8rem;background:rgba(225,29,72,.06)}
+.optin h3{margin:.2rem 0 .4rem;font-size:1.05rem;color:var(--fg)}
+.optin p{margin:0 0 .7rem;font-size:.9rem;color:#94a3b8;line-height:1.55}
+.optin form{display:flex;gap:.5rem;flex-wrap:wrap}
+.optin input[type=email]{flex:1;min-width:180px;padding:.65rem .8rem;border:1px solid var(--line);border-radius:.5rem;background:transparent;color:var(--fg);font-size:.95rem}
+.optin button{padding:.65rem 1.1rem;border:0;border-radius:.5rem;background:var(--accent);color:#fff;font-weight:600;cursor:pointer;font-size:.92rem}
+.optin .optin-msg{margin-top:.6rem;font-size:.85rem;min-height:1.1em}
+.optin .optin-skip{display:inline-block;margin-top:.7rem;font-size:.8rem;color:#64748b;text-decoration:none}
 label{display:block;font-weight:600;margin:.9rem 0 .35rem}
 input[type=text]{width:100%;padding:.7rem;border:1px solid var(--line);border-radius:.5rem;background:transparent;color:var(--fg);font-size:1rem}
 .btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:.6rem;padding:.75rem 1.15rem;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none}
@@ -72,6 +82,23 @@ a{color:var(--accent)}
     <button class="btn sec" id="again" type="button">Add another photo</button>
   </div>
   <p class="muted">Tip: take one photo <strong>before</strong> you hand over the car and one <strong>after</strong> you get it back.</p>
+
+  <!-- Post-stamp opt-in (Secret #11). Hidden until a proof is stamped. Only the email is
+       sent to /api/email-capture; the stamped photo stays on the device (per the page's
+       "nothing leaves your phone" promise). Dismissible. -->
+  <div class="optin" id="optin" style="display:none">
+    <h3>✓ Your proof is ready — want the full Valet Damage Playbook (free)?</h3>
+    <p>The <strong>8-Angle Scan Protocol</strong>, <strong>5 word-for-word dispute scripts</strong>, and the <strong>Time-Stamp Defense Checklist</strong> — the same playbook that overturns damage claims in 72 hours. Emailed to you free. (Your email is the only thing sent — never your photos.)</p>
+    <form id="optin-form">
+      <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address" />
+      <input type="hidden" name="source" value="instant-proof-poststamp" />
+      <input type="hidden" name="signup_source" value="carshake_free_tool" />
+      <input type="text" name="website" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px" aria-hidden="true" />
+      <button type="submit">Send me the Playbook</button>
+    </form>
+    <p class="optin-msg" id="optin-msg"></p>
+    <a class="optin-skip" href="#" id="optin-skip">No thanks — just keep my proof</a>
+  </div>
 </div>
 
 <div class="cta"><strong>Want this automatic?</strong> The CarShake app captures GPS-verified, dual-timestamped, AI-checked before/after records for you — so you have airtight proof without thinking about it. <a href="/">See how CarShake works →</a></div>
@@ -99,6 +126,7 @@ a{color:var(--accent)}
 (function(){
   var file=document.getElementById('file'),cv=document.getElementById('cv'),ctx=cv.getContext('2d');
   var loc=document.getElementById('loc'),dl=document.getElementById('dl'),actions=document.getElementById('actions'),again=document.getElementById('again'),geo=document.getElementById('geo');
+  var optin=document.getElementById('optin'),optinForm=document.getElementById('optin-form'),optinMsg=document.getElementById('optin-msg'),optinSkip=document.getElementById('optin-skip');
   function stamp(img){
     var maxW=1600, scale=Math.min(1, maxW/img.width), w=Math.round(img.width*scale), h=Math.round(img.height*scale);
     cv.width=w; cv.height=h; ctx.drawImage(img,0,0,w,h);
@@ -113,6 +141,9 @@ a{color:var(--accent)}
     lines.forEach(function(t,i){ ctx.fillText(t, pad, h-barH+pad + i*(fs*1.35)); });
     cv.style.display='block'; actions.style.display='flex';
     dl.href=cv.toDataURL('image/jpeg',0.92);
+    // Reveal the post-stamp opt-in at peak reciprocity (Secret #11). Opt-in is dismissible
+    // and only shows once per session so repeat photos don't nag.
+    if(optin && !sessionStorage.getItem('carshake_optin_seen')){ optin.style.display='block'; }
   }
   file.addEventListener('change',function(){
     var f=file.files&&file.files[0]; if(!f) return;
@@ -128,6 +159,39 @@ a{color:var(--accent)}
       loc.value=(loc.value?loc.value+' · ':'')+lat+', '+lon; geo.textContent='📍 GPS added';
     }, function(){ geo.textContent='📍 GPS blocked — type location instead'; }, {timeout:8000});
   });
+  // Post-stamp opt-in submit. Sends ONLY the email to the same-origin capture endpoint.
+  // The stamped photo is never uploaded — preserves the page's core promise.
+  if(optinForm){
+    optinForm.addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=optinForm.elements.email.value.trim();
+      if(!email){ optinMsg.style.color='#B91C1C'; optinMsg.textContent='Please enter your email.'; return; }
+      var btn=optinForm.querySelector('button[type="submit"]'); btn.disabled=true;
+      optinMsg.style.color='#94a3b8'; optinMsg.textContent='Sending…';
+      fetch('/api/email-capture',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email:email,source:optinForm.elements.source.value,signup_source:optinForm.elements.signup_source.value,website:optinForm.elements.website.value})
+      }).then(function(r){return r.json().then(function(d){return{ok:r.ok,data:d};});})
+        .then(function(res){
+          btn.disabled=false;
+          if(res.ok&&res.data&&res.data.success){
+            optinMsg.style.color='#00d4aa';
+            optinMsg.textContent='✓ Check your inbox — the Valet Damage Playbook is on its way.';
+            optinForm.reset();
+            sessionStorage.setItem('carshake_optin_seen','1');
+            try{window.posthog&&posthog.capture&&posthog.capture('proof_playbook_opted_in',{source:'instant-proof-poststamp'});}catch(err){}
+          }else{
+            optinMsg.style.color='#B91C1C';
+            optinMsg.textContent=(res.data&&res.data.error)||'Could not save your email right now. Please try again.';
+          }
+        })
+        .catch(function(){btn.disabled=false;optinMsg.style.color='#B91C1C';optinMsg.textContent='Network error — please try again.';});
+    });
+  }
+  if(optinSkip){
+    optinSkip.addEventListener('click',function(e){e.preventDefault();optin.style.display='none';sessionStorage.setItem('carshake_optin_seen','1');});
+  }
 })();
 </script>
 </body>
