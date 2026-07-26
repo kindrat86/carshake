@@ -13,8 +13,8 @@
     <meta property="og:image" content="https://carshake.online/og-image.png">
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://carshake.online/blog/ai-valet-comparison" />
-<link rel="alternate" hreflang="en" href="https://carshake.online/" />
-<link rel="alternate" hreflang="x-default" href="https://carshake.online/" />
+<link rel="alternate" hreflang="en" href="https://carshake.online/blog/ai-valet-comparison" />
+<link rel="alternate" hreflang="x-default" href="https://carshake.online/blog/ai-valet-comparison" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2" as="font" type="font/woff2" crossorigin />
@@ -191,19 +191,29 @@ try{for(var k in localStorage){if(/^(_fb|_rdt|_ga|_gcl)/.test(k))localStorage.re
 <main class="cs-container cs-section">
   <p class="cs-body-sm" style="margin-bottom:var(--cs-space-2)"><a href="/blog" class="cs-movement-link">&larr; Back to Blog</a></p>
   <p style="font-size:0.75rem;color:var(--cs-gold);font-weight:600;margin:0 0 var(--cs-space-1)">March 18, 2026</p>
-  <h2>AI vs. Valet: How Computer Vision Is Making Parking Safer</h2>
-<p>Computer vision has advanced dramatically in the last five years. The same AI that identifies pedestrians for self-driving cars can now detect microscopic paint damage on your vehicle.</p>
-<h3>How CarShake AI Works</h3>
-<p>CarShake's AI comparison engine takes your before and after scan photos and analyzes them pixel-by-pixel. It identifies:</p>
+  <h1 class="cs-h1">AI vs. Valet: How Computer Vision Is Making Parking Safer</h1>
+<p>Computer vision has advanced dramatically in the last five years. The same AI that identifies pedestrians for self-driving cars can now detect paint damage on a vehicle that a human eye would walk right past. For drivers who hand their keys to valets, that capability is changing the math of damage disputes entirely.</p>
+<p>The core problem with valet damage has never been that it happens — it is that it is invisible at the moment it matters. A scratch appears while your car is parked, the valet attendant does not notice or does not report it, and by the time you spot it at home the question of <em>when</em> it occurred is unanswerable. Computer vision closes that gap by comparing the condition of your car at two exact moments and flagging precisely what changed between them.</p>
+<h2>How CarShake's AI comparison works</h2>
+<p>CarShake's comparison engine takes your before-scan and after-scan photos and analyzes them to identify any difference between the two states. The damage types it is trained to detect include:</p>
 <ul>
-<li>New scratches and swirl marks</li>
-<li>Dents and dings</li>
-<li>Paint transfer from other vehicles</li>
-<li>Curb rash on wheels</li>
-<li>Bumper scrapes and scuffs</li>
-<li>Glass cracks and chips</li>
+<li><strong>New scratches and swirl marks</strong> — including clear-coat damage that only shows at certain angles of light</li>
+<li><strong>Dents and dings</strong> — from door impacts and tight parking-lot maneuvering</li>
+<li><strong>Paint transfer</strong> — residue left when another vehicle's paint rubs off onto yours</li>
+<li><strong>Curb rash on wheels</strong> — the scuffed alloy where a rim met a curb</li>
+<li><strong>Bumper scrapes and scuffs</strong> — the most common valet damage, from low-speed contact</li>
+<li><strong>Glass cracks and chips</strong> — windshield and light-housing damage</li>
 </ul>
-<p>The AI is trained on thousands of vehicle damage images and can detect damage that's invisible to the naked eye. Combined with GPS coordinates, server timestamps, and SHA-256 hashing, every comparison is forensically verifiable.</p>
+<p>The model is trained on a diverse set of vehicle damage imagery across body styles, paint colors, and lighting conditions. The point is not to replace a human adjuster's estimate of repair cost — it is to catch the damage at the moment of retrieval, when it is still attributable to the handover, rather than discovering it days later when attribution is impossible.</p>
+<h2>Why detection alone is not enough</h2>
+<p>Detecting damage is only half the problem. The other half is proving <em>when</em> it occurred. An AI that finds a scratch on your door tells you nothing about whether the valet caused it or it was already there from a grocery-store parking lot last week. That is why CarShake pairs the comparison with two things the AI cannot fabricate: GPS coordinates and dual timestamps.</p>
+<p>Every photo in a scan is tagged with its location and with a timestamp from your device plus a second timestamp from CarShake's servers. The before-scan is pinned to the valet stand at the moment you handed over the keys; the after-scan is pinned to the same location at the moment you retrieved the car. Damage that appears in the comparison therefore occurred inside that custody window — and that is the entire dispute, settled by data rather than argument.</p>
+<h2>The verification layer that holds up under scrutiny</h2>
+<p>Damage evidence is only useful if the other side cannot dismiss it as altered or fabricated. CarShake addresses this at the cryptographic level: every photo is hashed so that any modification after capture is immediately detectable, and the dual-timestamp system means the timing cannot be backdated from the device alone. The result is a record that an insurance adjuster, a garagekeepers claim, or a small-claims judge can examine and trust — because tampering would break the hashes, and the timing is corroborated by the server.</p>
+<p>This is what separates a serious evidence record from a folder of phone photos. Phone photos have no provenance; they could have been taken at any time, edited, or staged. A cryptographically timestamped, location-pinned comparison cannot be any of those things, which is exactly why it shifts disputes from "he said, she said" to documented fact.</p>
+<h2>What this means at the valet stand</h2>
+<p>The practical effect is straightforward. You spend 60 seconds scanning before you hand over the keys and 60 seconds scanning when you get the car back. If the AI comparison comes back clean, you drive away with peace of mind. If it flags new damage, you have a timestamped, verifiable record of exactly what changed and when — and you are still at the venue, where you can report it, request footage, and preserve the evidence while it is fresh.</p>
+<p>The technology has finally caught up to the problem. Valet damage disputes used to be unwinnable because the evidence did not exist; now it does, captured in the two minutes it takes to scan before and after.</p>
   <!-- Brunson: Email Capture / Lead Magnet -->
 <section class="cs-card cs-card-dark" style="text-align:center;margin:var(--cs-space-4) 0">
   <h3 class="cs-h3" style="color:white">Free: The Valet Damage Playbook</h3>
