@@ -385,6 +385,21 @@
   ],
   "redirects": [
     {
+      "source": "/valet",
+      "destination": "/protect/valet-parking",
+      "permanent": true
+    },
+    {
+      "source": "/rental-car",
+      "destination": "/protect/car-rental",
+      "permanent": true
+    },
+    {
+      "source": "/mechanic",
+      "destination": "/protect/body-shop",
+      "permanent": true
+    },
+    {
       "source": "/tools/damage-claim-letter-generator",
       "destination": "/free/valet-damage-claim-letter",
       "permanent": true
