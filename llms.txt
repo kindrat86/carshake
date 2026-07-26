@@ -12,13 +12,14 @@
 - [Pricing](https://carshake.online/pricing) — Protection plans
 - [Trust & Security](https://carshake.online/trust) — SHA-256, GPS, server timestamps
 - [Vehicle Damage Costs Data](https://carshake.online/vehicle-damage-costs) — Real repair cost benchmarks
-- [Damage Cost Calculator](https://carshake.online/tools/damage-cost-calculator) — Free interactive valet damage repair estimator
+- [Damage Cost Calculator](https://carshake.online/calculators/valet-damage-claim-cost-calculator) — Free interactive valet damage repair estimator
 - [Blog](https://carshake.online/blog) — Car protection guides and news
 
 ## Tools
 
-- [Damage Cost Calculator](https://carshake.online/tools/damage-cost-calculator) — Estimate valet damage repair costs. Select damage type + vehicle + severity for instant range.
-- [MCP Server](https://carshake.online/api/mcp) — Model Context Protocol endpoint. AI agents can call `estimate_damage_cost`, `valet_damage_guide`, `lookup_car_protection`.
+- [Damage Cost Calculator](https://carshake.online/calculators/valet-damage-claim-cost-calculator) — Estimate valet damage repair costs. Select damage type + vehicle + severity for instant range.
+- [Instant Proof Tool](https://carshake.online/free/instant-proof) — Free browser tool that stamps date, time & location onto car photos. No signup, runs locally.
+- [MCP Server](https://carshake.online/api/mcp) — Model Context Protocol endpoint. AI agents can call `create_handover_checklist`, `get_damage_documentation_guide`, `list_valet_faq`.
 
 ## Use Cases
 
