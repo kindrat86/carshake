@@ -41,11 +41,25 @@ def _faq_block(d):
     return json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":d["insurance_q"],"acceptedAnswer":{"@type":"Answer","text":d["insurance_a"]}},{"@type":"Question","name":d["valet_q"],"acceptedAnswer":{"@type":"Answer","text":d["valet_a"]}}]})
 
 
+def _siblings(d):
+    """Return up to 3 sibling damage-type links in the same category (excluding self)."""
+    out=[]
+    for other in DAMAGE_TYPES:
+        if other["slug"]==d["slug"] or other["category"]!=d["category"]:
+            continue
+        title=other["h1"].rstrip("?").split(":")[0].replace("Repair Cost","").replace("Cost","").strip()
+        out.append((title, f'/cost-of/{other["slug"]}'))
+        if len(out)>=3: break
+    return out
+
+
 def gen_cost_page(d):
     slug=d["slug"]; url=f"{BASE}/cost-of/{slug}"
     title=d["h1"].replace("?","")+" \u2014 CarShake"; desc=d["meta_desc"]
     cards_html="\n".join(f'<div class="cs-card"><h3 class="cs-h3" style="font-size:1rem;">{label}</h3><p style="font-size:1.3rem;font-weight:800;color:#0066cc;margin:6px 0">{price}</p><p class="cs-body-sm">{note}</p></div>' for label,price,note in d["cards"])
     related_html=" \u00b7 ".join(f'<a href="{href}">{label}</a>' for label,href in d["related"])
+    sibs=_siblings(d)
+    siblings_html=" \u00b7 ".join(f'<a href="{href}">{label}</a>' for label,href in sibs) if sibs else ""
     article_schema=json.dumps({"@context":"https://schema.org","@type":"Article","headline":d["h1"].rstrip("?"),"author":{"@type":"Organization","name":"CarShake"},"publisher":{"@type":"Organization","name":"CarShake","url":BASE},"datePublished":PUBDATE,"dateModified":PUBDATE,"mainEntityOfPage":url,"description":desc,"wordCount":750})
     breadcrumb_schema=json.dumps({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{BASE}/"},{"@type":"ListItem","position":2,"name":"Cost Guides","item":f"{BASE}/cost-of"},{"@type":"ListItem","position":3,"name":d["h1"].rstrip("?"),"item":url}]})
     faq_schema=_faq_block(d)
@@ -106,7 +120,7 @@ def gen_cost_page(d):
 <p class="cs-h3" style="color:white">Don't pay for damage you didn't cause</p>
 <p class="cs-body-sm" style="color:var(--cs-text-muted);max-width:520px;margin:0 auto var(--cs-space-3);line-height:1.5">CarShake documents your car's condition in 60 seconds before any handover \u2014 free, no download. Timestamped, QR-confirmed, court-ready.</p>
 <a href="/#demo" class="cs-nav-cta" style="display:inline-block">Try CarShake Free \u2192</a>
-</div><p class="cs-body" style="margin-top:var(--cs-space-3)"><strong>Related:</strong> {related_html}</p></main></div></div></div>
+</div><p class="cs-body" style="margin-top:var(--cs-space-3)"><strong>Related:</strong> {related_html}</p>{('<p class="cs-body-sm" style="margin-top:var(--cs-space-2)">Related damage-type costs: ' + siblings_html + '.</p>') if siblings_html else ''}</main></div></div></div>
 
 <!-- BRUNSON TRUST BAR \u2014 idempotency:trust-bar-v1 -->
 <section class="brunson-trust-bar" style="background:linear-gradient(135deg, #0f172a, #1e293b);color:#e8eaed;padding:40px 24px;margin:60px 0 0;border-top:3px solid #00d4aa;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
