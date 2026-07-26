@@ -25,6 +25,10 @@
       "destination": "/vehicle-damage-costs.html"
     },
     {
+      "source": "/valet-damaged-my-car",
+      "destination": "/valet-damaged-my-car.html"
+    },
+    {
       "source": "/dream100",
       "destination": "/dream100.html"
     },
@@ -59,6 +63,14 @@
     {
       "source": "/how-to/:slug",
       "destination": "/how-to/:slug/index.html"
+    },
+    {
+      "source": "/city-venue/:slug",
+      "destination": "/city-venue/:slug/index.html"
+    },
+    {
+      "source": "/state-venue/:slug",
+      "destination": "/state-venue/:slug/index.html"
     },
     {
       "source": "/cost-of/:slug",

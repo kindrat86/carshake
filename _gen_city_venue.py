@@ -3,16 +3,35 @@
 CarShake compound pSEO generator.
 Produces /city-venue/{city}-{venue}/index.html for 40 cities x 5 venue types = 200 pages.
 Matches the standalone HTML template used by /industries/{x}/ (self-contained inline CSS).
-Updates sitemap.xml with new URLs.
+Maintains a marker-delimited block in sitemap-pseo.xml (idempotent).
+
+2026-07-26 fixes:
+  - {venue_noun} template var was leaking into the FAQ answer (missing f-prefix).
+  - Indefinite article was hardcoded ("a Atlanta", "a Austin", "a Orlando", "a event venue").
+  - Removed fabricated 5-star reviews (invented reviewers + quotes) — honesty policy
+    in CLAUDE.md; the section is gone, not rewritten.
+  - ROOT is now the script's own directory (was hardcoded) so the generator is portable.
+  - datePublished stays at original publication; dateModified tracks regeneration.
 """
-import os
 import json
 import re
+from datetime import date
 from pathlib import Path
 
-ROOT = Path("/Users/sipi/carshake")
+ROOT = Path(__file__).resolve().parent
 BASE = "https://carshake.online"
-TODAY = "2026-07-18"
+PUBLISHED = "2026-07-18"           # original publication date of this page set
+MODIFIED = date.today().isoformat()
+
+
+def article(noun):
+    """Return 'an' if noun starts with a vowel sound, else 'a'.
+
+    Safe for this corpus: every vowel-initial noun we use (Atlanta, Austin,
+    Orlando, Indianapolis, 'event venue') takes a true vowel sound. Add
+    exceptions here only if a u-/h- word is introduced."""
+    return "an" if noun.lstrip().lower()[:1] in "aeiou" else "a"
+
 
 CITIES = [
     ("new-york", "New York"), ("los-angeles", "Los Angeles"), ("chicago", "Chicago"),
@@ -37,15 +56,6 @@ VENUES = [
     ("event-venues", "Event Venues", "event venue"),
     ("corporate-parking", "Corporate Parking", "corporate parking garage"),
     ("hospitals", "Hospitals", "hospital"),
-]
-
-# Reviewer archetypes for "What early users say"
-REVIEWERS = [
-    ("a wedding-guest in {city}", "Someone scratched my door at the valet line outside a downtown {venue_noun}. My CarShake pre-scan had a timestamp from 20 minutes earlier — claim closed in my favor the next morning."),
-    ("a business traveler in {city}", "I always scan at the hotel valet now. Caught a fresh curb-rash on my rental that the attendant tried to blame on me. Took 30 seconds and saved me the deductible."),
-    ("an event planner in {city}", "We tell every client to scan before they drop keys at our {venue_noun}. Three disputes resolved this year, zero paid out. The QR receipt is the whole game."),
-    ("a hospital visitor in {city}", "Parking garage said the dent was 'pre-existing.' My before-scan said otherwise. The timestamped photos ended the argument immediately."),
-    ("a rideshare driver in {city}", "I do pre-shift scans now at every {venue_noun} pickup. One passenger tear in the seat — I had proof it wasn't there 90 minutes earlier."),
 ]
 
 
@@ -87,7 +97,7 @@ def venue_context(venue_slug, venue_noun):
 
 
 def jd(name, q, a):
-    return {"@type": "Question", "name": q,
+    return {"@type": "Question", "name": name,
             "acceptedAnswer": {"@type": "Answer", "text": a}}
 
 
@@ -102,29 +112,16 @@ def build_page(city_slug, city_name, venue_slug, venue_label, venue_noun):
             f"Free 60-second pre-scan with timestamped, GPS-verified photos and a QR handover receipt. "
             f"Built for {city_name} drivers using {vc['scene']}.")
 
-    # FAQ — venue-specific
+    # FAQ — venue-specific. Indefinite article tracks the city (Q1/Q2) and the
+    # venue noun (Q1's first clause already uses "the"); both were buggy before.
     faqs = [
-        (f"How do I document my car before valet at a {city_name} {venue_noun}?",
+        (f"How do I document my car before valet at {article(city_name)} {city_name} {venue_noun}?",
          f"Open CarShake in your phone browser at the {venue_noun}'s valet stand and run the 60-second guided scan before you hand over the keys. CarShake captures 8 timestamped, GPS-verified photos covering every exterior angle, then generates a QR handover receipt the attendant confirms. The whole sequence takes about a minute and requires no app download."),
-        (f"Can I use CarShake evidence in a {city_name} {venue_noun} damage dispute?",
-         f"Yes. CarShake produces timestamped, GPS-verified photo evidence with SHA-256 hashing and a mutually acknowledged QR handover receipt. {city_name.title()} drivers use these PDF evidence reports to resolve disputes with {venue_noun} valet operators, garage management companies, and their own auto insurers. The timestamp ties any new damage to the specific window the {venue_noun} had custody of the vehicle."),
+        (f"Can I use CarShake evidence in {article(city_name)} {city_name} {venue_noun} damage dispute?",
+         f"Yes. CarShake produces timestamped, GPS-verified photo evidence with SHA-256 hashing and a mutually acknowledged QR handover receipt. {city_name} drivers use these PDF evidence reports to resolve disputes with {venue_noun} valet operators, garage management companies, and their own auto insurers. The timestamp ties any new damage to the specific window the {venue_noun} had custody of the vehicle."),
         (f"Is CarShake free for {city_name} drivers?",
-         "Yes. The free plan includes 3 scans per month — enough to cover a typical {venue_noun} visit. Shield+ at $2.97/month unlocks unlimited scans and PDF evidence reports, which is less than the cost of a single disputed cleaning fee or deductible."),
+         f"Yes. The free plan includes 3 scans per month — enough to cover a typical {venue_noun} visit. Shield+ at $2.97/month unlocks unlimited scans and PDF evidence reports, which is less than the cost of a single disputed cleaning fee or deductible."),
     ]
-
-    # What early users say (3 reviews, deterministic rotation)
-    picks = [(REVIEWERS[i % len(REVIEWERS)]) for i in range(3)]
-    reviews_html = []
-    for i, (who_tpl, quote_tpl) in enumerate(picks):
-        who = who_tpl.format(city=city_name, venue_noun=venue_noun)
-        quote = quote_tpl.format(city=city_name, venue_noun=venue_noun)
-        stars = 5
-        reviews_html.append(
-            f'<figure class="review">\n'
-            f'<figcaption><span aria-label="{stars} out of 5 stars">{"★"*stars}</span> — {who}</figcaption>\n'
-            f'<blockquote>{quote}</blockquote>\n</figure>'
-        )
-    reviews_section = "\n".join(reviews_html)
 
     faq_json = {"@context": "https://schema.org", "@type": "FAQPage",
                 "mainEntity": [jd(q, q, a) for q, a in faqs]}
@@ -135,7 +132,7 @@ def build_page(city_slug, city_name, venue_slug, venue_label, venue_noun):
         "author": {"@type": "Organization", "name": "CarShake", "url": BASE},
         "publisher": {"@type": "Organization", "name": "CarShake", "url": BASE},
         "mainEntityOfPage": {"@type": "WebPage", "@id": url},
-        "datePublished": TODAY, "dateModified": TODAY,
+        "datePublished": PUBLISHED, "dateModified": MODIFIED,
     }
     breadcrumb_json = {
         "@context": "https://schema.org", "@type": "BreadcrumbList",
@@ -146,7 +143,6 @@ def build_page(city_slug, city_name, venue_slug, venue_label, venue_noun):
         ],
     }
 
-    # Body copy — 400-600 words
     h1 = f"{city_name} {venue_label} Valet Parking Damage Claims"
     faq_visible = "\n".join(
         f'<h3>{q}</h3>\n<p>{a}</p>' for q, a in faqs
@@ -175,9 +171,6 @@ th{background:#f9fafb;font-weight:600}
 footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid #e5e7eb;color:#6b7280;font-size:.9rem}
 ul.check{list-style:none;padding-left:0}ul.check li::before{content:"\\2713  ";color:#059669;font-weight:700}
 ul.cross{list-style:none;padding-left:0}ul.cross li::before{content:"\\2717  ";color:#dc2626;font-weight:700}
-.review{margin:1.25rem 0;padding:1rem 1.25rem;border-left:3px solid #0066cc;background:#f9fafb;border-radius:0 .375rem .375rem 0}
-.review figcaption{font-size:.85rem;color:#6b7280;margin-bottom:.35rem}
-.review blockquote{margin:0;font-style:italic;color:#1f2937}
 nav.breadcrumb{font-size:.9rem;color:#6b7280;margin-bottom:1rem}
 nav.breadcrumb a{color:#0066cc}
 """
@@ -222,7 +215,7 @@ nav.breadcrumb a{color:#0066cc}
 <p>{city_name} {venue_label.lower()} operate under conditions that make damage disputes almost inevitable: {vc['risk']}. The typical pattern — {vc['claim_pattern']} — shows up most during {vc['ritual']}. Without a timestamped before-state record, the {venue_noun}'s valet operator can (and often does) claim the damage was pre-existing, and the driver has no way to prove otherwise.</p>
 <p>CarShake closes that gap. A 60-second scan before you hand over the keys, plus a second scan at pickup, produces a tamper-evident record that ties any new damage to the exact window the {venue_noun} had custody of your car.</p>
 
-<h2>How {city_name} drivers use CarShake at a {venue_noun}</h2>
+<h2>How {city_name} drivers use CarShake at {article(venue_noun)} {venue_noun}</h2>
 <ol>
 <li><strong>Before handover:</strong> open CarShake in your phone browser at the {venue_noun}'s valet stand and run the guided 8-angle scan. It takes about 60 seconds and captures timestamped, GPS-verified photos of every exterior surface.</li>
 <li><strong>QR handover receipt:</strong> the attendant scans a QR code that creates a mutual digital handshake — both parties have acknowledged the car's documented condition at a specific time.</li>
@@ -233,9 +226,6 @@ nav.breadcrumb a{color:#0066cc}
 <div class="callout">
 <strong>The {city_name} angle:</strong> local drivers report that disputes at {venue_noun}s are most often won or lost on <em>whether the driver can prove the before-state</em>. A CarShake pre-scan is the cheapest insurance you'll ever carry — it's free.
 </div>
-
-<h2>What early users say</h2>
-{reviews_section}
 
 <h2>What it costs</h2>
 <p>Free plan: 3 scans per month — enough to cover a typical month of {venue_noun} visits in {city_name}. Shield+ at <strong>$2.97/month</strong> unlocks unlimited scans and exportable PDF evidence reports. That is less than the cost of a single disputed cleaning fee or insurance deductible. See <a href="{BASE}/pricing">pricing</a>.</p>
@@ -270,18 +260,35 @@ nav.breadcrumb a{color:#0066cc}
     return url
 
 
+_EMPTY_SITEMAP = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+</urlset>
+"""
+
+MARK_BEGIN = "<!-- BEGIN city-venue -->"
+MARK_END = "<!-- END city-venue -->"
+
+
 def update_sitemap(urls):
-    sm = ROOT / "sitemap.xml"
-    text = sm.read_text(encoding="utf-8")
-    # Insert before </urlset>
-    additions = "\n".join(
-        f"  <url><loc>{u}</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>"
+    """Maintain a marker-delimited city-venue block in sitemap-pseo.xml.
+
+    Idempotent: replaces the block if markers exist, else inserts before
+    </urlset>. Other content in the sitemap is never touched."""
+    sm = ROOT / "sitemap-pseo.xml"
+    text = sm.read_text(encoding="utf-8") if sm.exists() else _EMPTY_SITEMAP
+    inner = "\n".join(
+        f"  <url><loc>{u}</loc><lastmod>{MODIFIED}</lastmod>"
+        f"<changefreq>monthly</changefreq><priority>0.6</priority></url>"
         for u in urls
     )
-    if "city-venue/" in text:
-        # Replace existing block to keep idempotent
-        text = re.sub(r"\n  <url><loc>[^\n]*city-venue/[^\n]*</url>\n*", "\n", text)
-    text = text.replace("</urlset>", additions + "\n</urlset>")
+    block = f"{MARK_BEGIN}\n{inner}\n{MARK_END}"
+    if MARK_BEGIN in text and MARK_END in text:
+        text = re.sub(
+            re.escape(MARK_BEGIN) + r".*?" + re.escape(MARK_END),
+            block, text, flags=re.DOTALL,
+        )
+    else:
+        text = text.replace("</urlset>", block + "\n</urlset>")
     sm.write_text(text, encoding="utf-8")
 
 
