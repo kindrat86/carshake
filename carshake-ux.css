@@ -1,0 +1,288 @@
+/* ════════════════════════════════════════════════════════════════════
+   CarShake UX Enhancement — R1 (2026-07-26)
+   Brand-tuned mobile-first layer: gold / cream / ink.
+   Linked AFTER the compiled bundle CSS so it layers over the React app
+   without touching the immutable hashed assets. Additive only — does not
+   rewrite the SPA's Tailwind rules, only enhances chrome & affordances.
+
+   Scope: every selector is namespaced under .cs-ux-* or #cs-ux-* to avoid
+   colliding with the app's utility classes.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── 0. DESIGN TOKENS (brand truth, from compiled theme) ─────────── */
+:root {
+  /* Brand — measured from the live compiled CSS */
+  --cs-ux-gold:        #c9a237;
+  --cs-ux-gold-strong: #8b6914;
+  --cs-ux-gold-soft:   #fff8e7;
+  --cs-ux-gold-line:   rgba(201, 162, 55, 0.18);
+  --cs-ux-paper:       #fafaf8;
+  --cs-ux-surface:     #ffffff;
+  --cs-ux-ink:         #18181b;
+  --cs-ux-ink-2:       #3f3f46;
+  --cs-ux-muted:       #636369;
+  --cs-ux-line:        #e4e4e7;
+
+  /* Tinted (gold-hued) shadows — never generic black */
+  --cs-ux-sh-sm: 0 1px 2px rgba(24, 24, 27, 0.04);
+  --cs-ux-sh-md: 0 4px 12px -3px rgba(139, 105, 20, 0.12), 0 2px 4px rgba(24, 24, 27, 0.04);
+  --cs-ux-sh-lg: 0 12px 32px -8px rgba(139, 105, 20, 0.18), 0 4px 8px rgba(24, 24, 27, 0.05);
+  --cs-ux-sh-glow: 0 8px 30px -6px rgba(201, 162, 55, 0.35);
+
+  /* Radius — varied, not uniform */
+  --cs-ux-r-md: 12px;
+  --cs-ux-r-lg: 16px;
+  --cs-ux-r-xl: 24px;
+
+  /* Safe areas (notched phones) */
+  --cs-ux-safe-top: env(safe-area-inset-top, 0px);
+  --cs-ux-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --cs-ux-safe-left: env(safe-area-inset-left, 0px);
+  --cs-ux-safe-right: env(safe-area-inset-right, 0px);
+
+  /* Motion */
+  --cs-ux-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --cs-ux-ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --cs-ux-fast: 160ms;
+  --cs-ux-base: 260ms;
+  --cs-ux-slow: 420ms;
+
+  /* Z-scale (clean, documented) */
+  --cs-ux-z-sticky: 9000;
+  --cs-ux-z-cta: 9100;
+  --cs-ux-z-totop: 9050;
+  --cs-ux-z-progress: 9200;
+}
+
+/* ── 1. BASE MOBILE POLISH (global, low-specificity) ─────────────── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(84px + var(--cs-ux-safe-top));
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overscroll-behavior-y: none;           /* kill accidental pull-to-refresh */
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent iOS input zoom (>=16px) without forcing it on the app */
+@supports (-webkit-touch-callout: none) {
+  input, select, textarea { font-size: max(1rem, 16px) !important; }
+}
+
+/* Brand text-selection */
+::selection { background: rgba(201, 162, 55, 0.22); color: var(--cs-ux-ink); }
+::-moz-selection { background: rgba(201, 162, 55, 0.22); }
+
+/* Respect reduced motion everywhere */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── 2. SKIP-TO-CONTENT (a11y, keyboard users) ──────────────────── */
+#cs-ux-skip {
+  position: absolute;
+  top: -120%;
+  left: 16px;
+  z-index: var(--cs-ux-z-progress);
+  padding: 0.7rem 1.1rem;
+  background: var(--cs-ux-ink);
+  color: var(--cs-ux-surface);
+  border-radius: var(--cs-ux-r-md);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: top var(--cs-ux-fast) var(--cs-ux-ease);
+}
+#cs-ux-skip:focus { top: calc(16px + var(--cs-ux-safe-top)); }
+
+/* ── 3. READING PROGRESS BAR (gold gradient) ─────────────────────── */
+#cs-ux-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  z-index: var(--cs-ux-z-progress);
+  background: linear-gradient(90deg, var(--cs-ux-gold), var(--cs-ux-gold-strong));
+  box-shadow: 0 0 8px rgba(201, 162, 55, 0.5);
+  transition: width 90ms linear;
+  pointer-events: none;
+}
+
+/* ── 4. STICKY MOBILE CTA BAR ───────────────────────────────────────
+   The single highest-impact mobile conversion fix. Appears once the hero
+   scrolls out of view; hides near the footer so it never overlaps the
+   final in-page CTA. Mobile-only. */
+#cs-ux-cta {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: var(--cs-ux-z-cta);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem
+          calc(0.85rem + var(--cs-ux-safe-right))
+          calc(0.7rem + var(--cs-ux-safe-bottom))
+          calc(0.85rem + var(--cs-ux-safe-left));
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  backdrop-filter: blur(18px) saturate(180%);
+  border-top: 1px solid var(--cs-ux-gold-line);
+  box-shadow: 0 -6px 24px -8px rgba(139, 105, 20, 0.18);
+  transform: translateY(110%);
+  transition: transform var(--cs-ux-base) var(--cs-ux-ease);
+}
+#cs-ux-cta.visible { transform: translateY(0); }
+
+#cs-ux-cta-label {
+  display: none;                       /* shown on tablets, see breakpoint */
+  flex: 1 1 auto;
+  min-width: 0;
+}
+#cs-ux-cta-label span {
+  display: block;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  line-height: 1.2;
+}
+#cs-ux-cta-label .t {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--cs-ux-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#cs-ux-cta-label .s {
+  font-size: 0.6875rem;
+  color: var(--cs-ux-muted);
+}
+
+.cs-ux-btn {
+  -webkit-appearance: none;
+  appearance: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 48px;                    /* touch target */
+  padding: 0 1.15rem;
+  border-radius: var(--cs-ux-r-md);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: transform var(--cs-ux-fast) var(--cs-ux-ease),
+              box-shadow var(--cs-ux-fast) var(--cs-ux-ease),
+              background var(--cs-ux-fast) var(--cs-ux-ease);
+}
+.cs-ux-btn--primary {
+  flex: 1 1 auto;
+  background: linear-gradient(135deg, var(--cs-ux-gold) 0%, var(--cs-ux-gold-strong) 100%);
+  color: #fff;
+  box-shadow: var(--cs-ux-sh-glow);
+}
+.cs-ux-btn--primary:active { transform: scale(0.97); }
+
+/* Leave room at the bottom of the page so the bar never covers content */
+body.cs-ux-cta-on main,
+body.cs-ux-cta-on footer { padding-bottom: calc(84px + var(--cs-ux-safe-bottom)); }
+
+/* Show the descriptive label only when there's room (≥380px) */
+@media (min-width: 380px) {
+  #cs-ux-cta-label { display: block; }
+  .cs-ux-btn--primary { flex: 0 0 auto; }
+}
+
+/* Desktop: hide the mobile CTA entirely */
+@media (min-width: 880px) {
+  #cs-ux-cta { display: none; }
+  body.cs-ux-cta-on main,
+  body.cs-ux-cta-on footer { padding-bottom: 0; }
+}
+
+/* ── 5. BACK-TO-TOP (gold, gold shadow) ─────────────────────────── */
+#cs-ux-totop {
+  position: fixed;
+  right: calc(16px + var(--cs-ux-safe-right));
+  bottom: calc(20px + var(--cs-ux-safe-bottom));
+  z-index: var(--cs-ux-z-totop);
+  width: 46px; height: 46px;
+  min-width: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--cs-ux-ink);
+  color: var(--cs-ux-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--cs-ux-sh-lg);
+  opacity: 0;
+  transform: translateY(14px) scale(0.9);
+  pointer-events: none;
+  transition: opacity var(--cs-ux-base) var(--cs-ux-ease),
+              transform var(--cs-ux-base) var(--cs-ux-ease-spring),
+              background var(--cs-ux-fast) var(--cs-ux-ease);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+#cs-ux-totop svg { width: 20px; height: 20px; display: block; }
+#cs-ux-totop.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+#cs-ux-totop:hover { background: var(--cs-ux-gold-strong); color: #fff; }
+#cs-ux-totop:active { transform: scale(0.92); }
+
+/* Lift the back-to-top button when the sticky CTA is visible */
+body.cs-ux-cta-on #cs-ux-totop {
+  bottom: calc(80px + var(--cs-ux-safe-bottom));
+}
+@media (min-width: 880px) {
+  body.cs-ux-cta-on #cs-ux-totop { bottom: calc(20px + var(--cs-ux-safe-bottom)); }
+}
+
+/* ── 6. SCROLL-REVEAL (progressive, no-JS friendly) ────────────────
+   Elements opt in with class "cs-ux-reveal". If the scroll-driven
+   animation API is unsupported, the element simply shows normally.   */
+@keyframes csUxFadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@supports (animation-timeline: view()) {
+  .cs-ux-reveal {
+    animation: csUxFadeUp 0.7s var(--cs-ux-ease) both;
+    animation-timeline: view();
+    animation-range: entry 6% cover 26%;
+  }
+}
+
+/* ── 7. GENTLE SCROLLBAR STYLING (desktop polish) ────────────────── */
+@media (pointer: fine) {
+  ::-webkit-scrollbar { width: 12px; height: 12px; }
+  ::-webkit-scrollbar-track { background: var(--cs-ux-paper); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--cs-ux-gold-line);
+    border: 3px solid var(--cs-ux-paper);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--cs-ux-gold); }
+}
+
+/* ── 8. PRINT ─────────────────────────────────────────────────────── */
+@media print {
+  #cs-ux-skip, #cs-ux-progress, #cs-ux-cta, #cs-ux-totop { display: none !important; }
+  body.cs-ux-cta-on main, body.cs-ux-cta-on footer { padding-bottom: 0 !important; }
+}
