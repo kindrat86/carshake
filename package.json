@@ -10,6 +10,7 @@
   "scripts": {
     "prerender": "node prerender.mjs",
     "guard:positioning": "node scripts/guard-positioning.mjs",
-    "deploy": "npm run prerender && python3 \"$HOME/.growth-engine/inject-disambiguation.py\" carshake && node scripts/guard-positioning.mjs && npx vercel --prod --yes"
+    "indexnow": "node scripts/indexnow-ping.mjs",
+    "deploy": "npm run prerender && python3 \"$HOME/.growth-engine/inject-disambiguation.py\" carshake && node scripts/guard-positioning.mjs && npx vercel --prod --yes && node scripts/indexnow-ping.mjs"
   }
 }

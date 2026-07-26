@@ -145,10 +145,6 @@
       "destination": "/walkthrough.html"
     },
     {
-      "source": "/mcp",
-      "destination": "/mcp.html"
-    },
-    {
       "source": "/contact",
       "destination": "/contact.html"
     },
@@ -688,6 +684,16 @@
     {
       "source": "/scan",
       "destination": "/free/instant-proof",
+      "permanent": true
+    },
+    {
+      "source": "/tools/damage-cost-calculator",
+      "destination": "/calculators/valet-damage-claim-cost-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/mcp",
+      "destination": "/api/mcp",
       "permanent": true
     }
   ]
