@@ -39,15 +39,12 @@ const CHECKLIST_HTML = `<!doctype html>
 <li><strong style="color:#e2e8f0;">5 Dispute-Winning Scripts</strong> — what to say when the valet manager pushes back</li>
 <li><strong style="color:#e2e8f0;">Time-Stamp Defense Checklist</strong> — how to make your photos court-admissible</li>
 </ul>
-<h2 style="color:#fff;font-size:1.1rem;">Day 2 preview: The 4 Valet Damage Tricks</h2>
-<ol style="color:#94a3b8;line-height:1.9;">
-<li><strong>Pre-existing damage claim</strong> — they say it was already there</li>
-<li><strong>Post-departure claim</strong> — damage reported after you left</li>
-<li><strong>Attribution swap</strong> — they blame another driver</li>
-<li><strong>Delay-and-deny</strong> — wait until evidence is gone</li>
-</ol>
+<h2 style="color:#fff;font-size:1.1rem;">Coming tomorrow</h2>
+<p style="color:#94a3b8;line-height:1.7;">The $4,200 hotel-valet scratch that started CarShake — and the exact moment I realised <em>"it was already like that"</em> is a defence you can't beat without timestamped proof.</p>
+<h2 style="color:#fff;font-size:1.1rem;">Later this week</h2>
+<p style="color:#94a3b8;line-height:1.7;">The 4 moves valet companies use to deny claims — and the counter to each. Real, usable stuff. No fluff.</p>
 <hr style="border-color:#334155;margin:1.5rem 0;">
-<p style="color:#64748b;font-size:0.85rem;">Tomorrow: A real dispute timeline — how one CarShake user saved $2,100 with 3 photos. Look out for it.</p>
+<p style="color:#64748b;font-size:0.85rem;">I'm the founder — I write these myself. Hit reply any time, I read every one.</p>
 <p style="color:#64748b;font-size:0.8rem;margin-top:1.5rem;">CarShake &middot; <a href="https://carshake.online" style="color:#00d4aa;">carshake.online</a></p>
 </div>
 </body></html>`;
