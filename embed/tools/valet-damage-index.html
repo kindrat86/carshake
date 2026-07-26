@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Valet Damage Index — US Cities Ranked | CarShake</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;color:#e2e8f0;padding:1rem;font-size:.85rem}
+.hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.75rem;flex-wrap:wrap;gap:.3rem}
+.hd h3{color:#38bdf8;font-size:.95rem;font-weight:700}
+.hd .sub{color:#64748b;font-size:.72rem}
+ul{list-style:none}
+.row{display:grid;grid-template-columns:20px 92px 1fr 32px;align-items:center;gap:.5rem;padding:.32rem 0;border-bottom:1px solid #1e293b}
+.rank{color:#475569;font-size:.72rem;text-align:right}
+.city{font-size:.82rem}
+.city a{color:#e2e8f0;text-decoration:none}
+.city a:hover{color:#38bdf8}
+.bar{background:#1e293b;border-radius:3px;height:9px;overflow:hidden}
+.fill{display:block;height:100%;background:linear-gradient(90deg,#38bdf8,#0ea5e9);border-radius:3px}
+.val{color:#f1f5f9;font-size:.8rem;font-weight:600;text-align:right}
+.foot{margin-top:.75rem;padding-top:.6rem;border-top:1px solid #1e293b;font-size:.68rem;color:#475569;text-align:center}
+.foot a{color:#38bdf8;text-decoration:none;font-weight:600}
+.badge{text-align:center;padding:.5rem}
+.badge .big{font-size:2.4rem;font-weight:800;color:#38bdf8;line-height:1}
+.badge .lbl{color:#94a3b8;font-size:.8rem;margin:.3rem 0}
+.badge .meta{color:#64748b;font-size:.7rem;margin-top:.5rem}
+.note{font-size:.68rem;color:#475569;text-align:center;margin-top:.4rem}
+</style>
+<!-- canonical-disambiguation --><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "CarShake", "url": "https://carshake.online", "description": "CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims.", "disambiguatingDescription": "CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) — not a B2B insurance damage-detection API."}</script>
+</head>
+<body>
+<div id="full">
+  <div class="hd">
+    <h3>Valet Damage Index 2026</h3>
+    <span class="sub">Top 10 of 40 US cities · per 1,000 valet visits</span>
+  </div>
+  <ul><li class="row" data-city="new-york">
+      <span class="rank">1</span>
+      <span class="city"><a href="https://carshake.online/research/valet-damage-index/new-york?ref=embed" target="_blank" rel="noopener">New York</a></span>
+      <span class="bar"><span class="fill" style="width:100%"></span></span>
+      <span class="val">12.4</span>
+    </li><li class="row" data-city="los-angeles">
+      <span class="rank">2</span>
+      <span class="city"><a href="https://carshake.online/research/valet-damage-index/los-angeles?ref=embed" target="_blank" rel="noopener">Los Angeles</a></span>
+      <span class="bar"><span class="fill" style="width:95%"></span></span>
+      <span class="val">11.8</span>
+    </li><li class="row" data-city="miami">
+      <span class="rank">3</span>
+      <span class="city"><a href="https://carshake.online/research/valet-damage-index/miami?ref=embed" target="_blank" rel="noopener">Miami</a></span>
+      <span class="bar"><span class="fill" style="width:88%"></span></span>
+      <span class="val">10.9</span>
+    </li><li class="row" data-city="chicago">
+      <span class="rank">4</span>
+      <span class="city"><a href="https://carshake.online/research/valet-damage-index/chicago?ref=embed" target="_blank" rel="noopener">Chicago</a></span>
+      <span class="bar"><span class="fill" style="width:85%"></span></span>
+      <span class="val">10.5</span>
+    </li><li class="row" data-city="san-francisco">
+      <span class="rank">5</span>
+      <span class="city"><a href="https://carshake.online/research/valet-damage-index/san-francisco?ref=embed" target="_blank" rel="noopener">San Francisco</a></span>
+      <span class="bar"><span class="fill" style="width:79%"></span></span>
+      <span class="val">9.8</span>
+    </li><li class="row" data-city="boston">
+      <span class="rank">6</span>
+      <span class="city"><a href="https://carshake.online/research/valet-damage-index/boston?ref=embed" target="_blank" rel="noopener">Boston</a></span>
+      <span class="bar"><span class="fill" style="width:74%"></span></span>
+      <span class="val">9.2</span>
+    </li><li class="row" data-city="dallas">
+      <span class="rank">7</span>
+      <span class="city"><a href="https://carshake.online/research/valet-damage-index/dallas?ref=embed" target="_blank" rel="noopener">Dallas</a></span>
+      <span class="bar"><span class="fill" style="width:70%"></span></span>
+      <span class="val">8.7</span>
+    </li><li class="row" data-city="austin">
+      <span class="rank">8</span>
+      <span class="city"><a href="https://carshake.online/research/valet-damage-index/austin?ref=embed" target="_blank" rel="noopener">Austin</a></span>
+      <span class="bar"><span class="fill" style="width:68%"></span></span>
+      <span class="val">8.4</span>
+    </li><li class="row" data-city="atlanta">
+      <span class="rank">9</span>
+      <span class="city"><a href="https://carshake.online/research/valet-damage-index/atlanta?ref=embed" target="_blank" rel="noopener">Atlanta</a></span>
+      <span class="bar"><span class="fill" style="width:64%"></span></span>
+      <span class="val">7.9</span>
+    </li><li class="row" data-city="houston">
+      <span class="rank">10</span>
+      <span class="city"><a href="https://carshake.online/research/valet-damage-index/houston?ref=embed" target="_blank" rel="noopener">Houston</a></span>
+      <span class="bar"><span class="fill" style="width:61%"></span></span>
+      <span class="val">7.6</span>
+    </li></ul>
+  <div class="foot">Data: <a href="https://carshake.online/research/valet-damage-index?ref=embed" target="_blank" rel="noopener">CarShake Valet Damage Index</a> · CC BY 4.0</div>
+</div>
+<div id="single" style="display:none"></div>
+<script>
+(function(){
+  var p=new URLSearchParams(location.search), city=p.get('city');
+  if(!city)return;
+  var DATA=[{"slug":"new-york","city":"New York","state":"NY","rate":12.4,"rank":1,"avgClaim":850,"topDamage":"Scratched bumper","enforcement":"Moderate"},{"slug":"los-angeles","city":"Los Angeles","state":"CA","rate":11.8,"rank":2,"avgClaim":720,"topDamage":"Curbs rash","enforcement":"Loose"},{"slug":"miami","city":"Miami","state":"FL","rate":10.9,"rank":3,"avgClaim":680,"topDamage":"Door dings","enforcement":"Loose"},{"slug":"chicago","city":"Chicago","state":"IL","rate":10.5,"rank":4,"avgClaim":780,"topDamage":"Scratched bumper","enforcement":"Moderate"},{"slug":"san-francisco","city":"San Francisco","state":"CA","rate":9.8,"rank":5,"avgClaim":620,"topDamage":"Door dings","enforcement":"Strict"},{"slug":"boston","city":"Boston","state":"MA","rate":9.2,"rank":6,"avgClaim":650,"topDamage":"Curbs rash","enforcement":"Strict"},{"slug":"dallas","city":"Dallas","state":"TX","rate":8.7,"rank":7,"avgClaim":540,"topDamage":"Bumper scrape","enforcement":"Loose"},{"slug":"austin","city":"Austin","state":"TX","rate":8.4,"rank":8,"avgClaim":500,"topDamage":"Bumper scrape","enforcement":"Loose"},{"slug":"atlanta","city":"Atlanta","state":"GA","rate":7.9,"rank":9,"avgClaim":490,"topDamage":"Door dings","enforcement":"Loose"},{"slug":"houston","city":"Houston","state":"TX","rate":7.6,"rank":10,"avgClaim":510,"topDamage":"Bumper scrape","enforcement":"Loose"},{"slug":"seattle","city":"Seattle","state":"WA","rate":7.3,"rank":11,"avgClaim":580,"topDamage":"Scratched bumper","enforcement":"Moderate"},{"slug":"denver","city":"Denver","state":"CO","rate":6.9,"rank":12,"avgClaim":470,"topDamage":"Curbs rash","enforcement":"Moderate"},{"slug":"philadelphia","city":"Philadelphia","state":"PA","rate":6.8,"rank":13,"avgClaim":520,"topDamage":"Door dings","enforcement":"Moderate"},{"slug":"san-diego","city":"San Diego","state":"CA","rate":6.5,"rank":14,"avgClaim":460,"topDamage":"Bumper scrape","enforcement":"Loose"},{"slug":"phoenix","city":"Phoenix","state":"AZ","rate":5.8,"rank":15,"avgClaim":390,"topDamage":"Curbs rash","enforcement":"Loose"},{"slug":"portland","city":"Portland","state":"OR","rate":5.5,"rank":16,"avgClaim":440,"topDamage":"Scratched bumper","enforcement":"Moderate"},{"slug":"las-vegas","city":"Las Vegas","state":"NV","rate":5.3,"rank":17,"avgClaim":420,"topDamage":"Door dings","enforcement":"Loose"},{"slug":"nashville","city":"Nashville","state":"TN","rate":4.9,"rank":18,"avgClaim":380,"topDamage":"Bumper scrape","enforcement":"Loose"},{"slug":"charlotte","city":"Charlotte","state":"NC","rate":4.6,"rank":19,"avgClaim":360,"topDamage":"Curbs rash","enforcement":"Moderate"},{"slug":"indianapolis","city":"Indianapolis","state":"IN","rate":4.2,"rank":20,"avgClaim":340,"topDamage":"Scratched bumper","enforcement":"Moderate"},{"slug":"detroit","city":"Detroit","state":"MI","rate":3.9,"rank":21,"avgClaim":410,"topDamage":"Door dings","enforcement":"Moderate"},{"slug":"columbus","city":"Columbus","state":"OH","rate":3.7,"rank":22,"avgClaim":320,"topDamage":"Bumper scrape","enforcement":"Loose"},{"slug":"san-antonio","city":"San Antonio","state":"TX","rate":3.5,"rank":23,"avgClaim":350,"topDamage":"Curbs rash","enforcement":"Loose"},{"slug":"baltimore","city":"Baltimore","state":"MD","rate":3.3,"rank":24,"avgClaim":380,"topDamage":"Scratched bumper","enforcement":"Moderate"},{"slug":"cincinnati","city":"Cincinnati","state":"OH","rate":3.1,"rank":25,"avgClaim":300,"topDamage":"Bumper scrape","enforcement":"Loose"},{"slug":"milwaukee","city":"Milwaukee","state":"WI","rate":2.9,"rank":26,"avgClaim":310,"topDamage":"Door dings","enforcement":"Moderate"},{"slug":"kansas-city","city":"Kansas City","state":"MO","rate":2.8,"rank":27,"avgClaim":290,"topDamage":"Curbs rash","enforcement":"Loose"},{"slug":"cleveland","city":"Cleveland","state":"OH","rate":2.7,"rank":28,"avgClaim":330,"topDamage":"Scratched bumper","enforcement":"Moderate"},{"slug":"jacksonville","city":"Jacksonville","state":"FL","rate":2.5,"rank":29,"avgClaim":280,"topDamage":"Bumper scrape","enforcement":"Loose"},{"slug":"honolulu","city":"Honolulu","state":"HI","rate":2.3,"rank":30,"avgClaim":350,"topDamage":"Curbs rash","enforcement":"Strict"},{"slug":"st-louis","city":"St. Louis","state":"MO","rate":2.2,"rank":31,"avgClaim":310,"topDamage":"Door dings","enforcement":"Loose"},{"slug":"pittsburgh","city":"Pittsburgh","state":"PA","rate":2.1,"rank":32,"avgClaim":340,"topDamage":"Scratched bumper","enforcement":"Moderate"},{"slug":"tampa","city":"Tampa","state":"FL","rate":2,"rank":33,"avgClaim":270,"topDamage":"Bumper scrape","enforcement":"Loose"},{"slug":"minneapolis","city":"Minneapolis","state":"MN","rate":1.9,"rank":34,"avgClaim":320,"topDamage":"Curbs rash","enforcement":"Moderate"},{"slug":"virginia-beach","city":"Virginia Beach","state":"VA","rate":1.7,"rank":35,"avgClaim":250,"topDamage":"Scratched bumper","enforcement":"Loose"},{"slug":"raleigh","city":"Raleigh","state":"NC","rate":1.6,"rank":36,"avgClaim":280,"topDamage":"Door dings","enforcement":"Moderate"},{"slug":"new-orleans","city":"New Orleans","state":"LA","rate":1.5,"rank":37,"avgClaim":360,"topDamage":"Bumper scrape","enforcement":"Loose"},{"slug":"louisville","city":"Louisville","state":"KY","rate":1.4,"rank":38,"avgClaim":270,"topDamage":"Curbs rash","enforcement":"Loose"},{"slug":"memphis","city":"Memphis","state":"TN","rate":1.3,"rank":39,"avgClaim":290,"topDamage":"Scratched bumper","enforcement":"Loose"},{"slug":"sacramento","city":"Sacramento","state":"CA","rate":1.2,"rank":40,"avgClaim":260,"topDamage":"Door dings","enforcement":"Moderate"}];
+  var mean=5.07, meanClaim=424;
+  var r=DATA.find(function(x){return x.slug===city;});
+  if(!r)return;
+  document.getElementById('full').style.display='none';
+  var s=document.getElementById('single'); s.style.display='block';
+  s.className='badge';
+  var cmp=r.rate>=mean?(Math.round(r.rate/mean*100-100)+'% above'):(Math.round(100-r.rate/mean*100)+'% below');
+  s.innerHTML='<div class="big">'+r.rate+'</div><div class="lbl">valet incidents / 1,000 visits</div><div style="color:#e2e8f0;font-size:.95rem;font-weight:700">'+r.city+', '+r.state+'</div><div class="meta">Rank #'+r.rank+' of 40 · '+cmp+' US avg · avg claim $'+r.avgClaim+'</div><div style="margin-top:.6rem"><a href="https://carshake.online/research/valet-damage-index'+r.slug+'?ref=embed" target="_blank" rel="noopener" style="color:#38bdf8;font-size:.72rem;text-decoration:none">Full '+r.city+' data →</a></div><div class="note">Source: CarShake Valet Damage Index · CC BY 4.0</div>';
+})();
+</script>
+</body>
+</html>
