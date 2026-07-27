@@ -12,8 +12,11 @@
  *                  (the file 618b15d7f76916fb1bebf862c8ed9f1d.txt ships from
  *                  repo root; it is not in .vercelignore, so it is reachable)
  *
- * IndexNow accepts up to 10,000 URLs per request. image-sitemap.xml is
- * intentionally excluded — its <loc> entries are image URLs, not pages.
+ * IndexNow's API documents a 10,000-URL-per-request limit, but in practice
+ * Bing rejects batches above ~50 URLs with HTTP 403. We chunk at 40 to stay
+ * safely under the observed threshold, with a 2s delay between batches to
+ * avoid the rate-limit throttle. image-sitemap.xml is intentionally excluded
+ * — its <loc> entries are image URLs, not pages.
  *
  * Exit code is always 0: search-engine pinging is best-effort and must not
  * block a deploy on a transient IndexNow outage.
@@ -27,7 +30,7 @@ const HOST = 'carshake.online';
 const KEY = '618b15d7f76916fb1bebf862c8ed9f1d';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const ENDPOINT = 'https://api.indexnow.org/indexnow';
-const BATCH_SIZE = 10000;
+const BATCH_SIZE = 40;
 const DEFAULT_SITEMAPS = ['sitemap.xml', 'sitemap-pseo.xml'];
 const SITEMAPS = (process.argv.slice(2).length ? process.argv.slice(2) : DEFAULT_SITEMAPS)
   .map(f => resolve(f));
@@ -86,21 +89,28 @@ async function main() {
 
   let okBatches = 0;
   let failBatches = 0;
+  const batches = [];
   for (let i = 0; i < deduped.length; i += BATCH_SIZE) {
-    const batch = deduped.slice(i, i + BATCH_SIZE);
-    const n = Math.floor(i / BATCH_SIZE) + 1;
+    batches.push(deduped.slice(i, i + BATCH_SIZE));
+  }
+  for (let n = 0; n < batches.length; n++) {
+    const batch = batches[n];
+    // Pace requests: Bing/IndexNow rate-limits (HTTP 403) when too many
+    // submissions arrive in quick succession. A short delay between batches
+    // keeps us under the throttle.
+    if (n > 0) await new Promise(r => setTimeout(r, 2000));
     try {
       const { status, ok } = await submitBatch(batch);
       if (ok) {
         okBatches++;
-        console.log(`[indexnow] batch ${n}: ${batch.length} URLs → HTTP ${status} (accepted)`);
+        console.log(`[indexnow] batch ${n + 1}: ${batch.length} URLs → HTTP ${status} (accepted)`);
       } else {
         failBatches++;
-        console.error(`[indexnow] batch ${n}: ${batch.length} URLs → HTTP ${status} (rejected)`);
+        console.error(`[indexnow] batch ${n + 1}: ${batch.length} URLs → HTTP ${status} (rejected)`);
       }
     } catch (e) {
       failBatches++;
-      console.error(`[indexnow] batch ${n}: network error — ${e.message}`);
+      console.error(`[indexnow] batch ${n + 1}: network error — ${e.message}`);
     }
   }
 
