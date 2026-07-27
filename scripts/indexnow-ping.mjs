@@ -7,9 +7,9 @@
  * Replaces scripts/indexnow-ping.sh, which hard-coded 24 URLs. This version
  * derives the URL list from sitemap.xml + sitemap-pseo.xml so every deployed
  * page is announced. The IndexNow key and key file are unchanged:
- *   key          = c03ed1532b4f4f4e1c9a5f8d7e6b2a1c0d
- *   keyLocation  = https://carshake.online/c03ed1532b4f4f4e1c9a5f8d7e6b2a1c0d.txt
- *                  (the file c03ed1532b4f4f4e1c9a5f8d7e6b2a1c0d.txt ships from
+ *   key          = 618b15d7f76916fb1bebf862c8ed9f1d
+ *   keyLocation  = https://carshake.online/618b15d7f76916fb1bebf862c8ed9f1d.txt
+ *                  (the file 618b15d7f76916fb1bebf862c8ed9f1d.txt ships from
  *                  repo root; it is not in .vercelignore, so it is reachable)
  *
  * IndexNow accepts up to 10,000 URLs per request. image-sitemap.xml is
@@ -24,7 +24,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const HOST = 'carshake.online';
-const KEY = 'c03ed1532b4f4f4e1c9a5f8d7e6b2a1c0d';
+const KEY = '618b15d7f76916fb1bebf862c8ed9f1d';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const ENDPOINT = 'https://api.indexnow.org/indexnow';
 const BATCH_SIZE = 10000;
