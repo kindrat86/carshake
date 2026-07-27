@@ -283,6 +283,38 @@
     {
       "source": "/sectors/:slug",
       "destination": "/sectors/:slug/index.html"
+    },
+    {
+      "source": "/auth/callback",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dashboard",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dashboard/scan/:id",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/scan/new",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/scan/:id",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/scan/:id/exit",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/business",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/business/dashboard",
+      "destination": "/index.html"
     }
   ],
   "headers": [
