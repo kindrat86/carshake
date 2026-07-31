@@ -7,7 +7,8 @@ node_modules
 
 # --- internal docs & reports: repo root is the deploy root (outputDirectory "."),
 #     so anything left here is served publicly. Keep this list additive. ---
-/AUDIT_SCORECARD.md
+/AUDIT_*.md
+/INCIDENT_*.md
 /CLAUDE.md
 /HERMES_*.md
 /OWNER_ACTIONS*.md
