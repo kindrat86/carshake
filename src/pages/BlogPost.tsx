@@ -175,7 +175,7 @@ const BlogPost = () => {
       <footer className="bg-dark py-8 px-4 mt-12">
         <div className="max-w-3xl mx-auto text-center">
           <p className="font-display text-gold text-lg font-bold mb-1">CarShake</p>
-          <p className="text-muted-custom text-sm font-body">© 2026 CarShake · carshake.online</p>
+          <p className="text-muted-custom text-sm font-body">© 2026 CarShake · carshake.online · <a href="https://x.com/sipiteno" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">X</a></p>
         </div>
       </footer>
     </div>

@@ -18,6 +18,16 @@ const AuthCallback = lazy(() => import("./pages/AuthCallback"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const ProtectUseCase = lazy(() => import("./pages/ProtectUseCase"));
+const CityPage = lazy(() => import("./pages/CityPage"));
+const CityIndex = lazy(() => import("./pages/CityIndex"));
+const StatePage = lazy(() => import("./pages/StatePage"));
+const VehiclePage = lazy(() => import("./pages/VehiclePage"));
+const VehicleIndex = lazy(() => import("./pages/VehicleIndex"));
+const HowItWorks = lazy(() => import("./pages/HowItWorks"));
+const FaqPage = lazy(() => import("./pages/FaqPage"));
+const PricingPage = lazy(() => import("./pages/PricingPage"));
+const TrustPage = lazy(() => import("./pages/TrustPage"));
+const ScenarioPage = lazy(() => import("./pages/ScenarioPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -43,6 +53,16 @@ const App = () => (
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:category/:slug" element={<BlogPost />} />
               <Route path="/protect/:usecase" element={<ProtectUseCase />} />
+              <Route path="/city" element={<CityIndex />} />
+              <Route path="/city/:cityName" element={<CityPage />} />
+              <Route path="/state/:stateName" element={<StatePage />} />
+              <Route path="/vehicle" element={<VehicleIndex />} />
+              <Route path="/vehicle/:vehicleType" element={<VehiclePage />} />
+              <Route path="/how-it-works" element={<HowItWorks />} />
+              <Route path="/faq" element={<FaqPage />} />
+              <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/trust" element={<TrustPage />} />
+              <Route path="/scenario/:scenarioName" element={<ScenarioPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

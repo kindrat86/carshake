@@ -88,11 +88,148 @@ const USE_CASES: Record<string, { h1: string; title: string; metaDescription: st
       { q: 'Should I scan every time I wash my car?', a: 'For automated washes where damage risk is higher, we recommend it. For trusted hand wash services, periodic scanning helps maintain a record.' },
     ],
   },
+  // NEW PSEO USE CASES
+  'parking-garage': {
+    h1: 'Protect Your Car in a Parking Garage',
+    title: 'Protect Your Car in a Parking Garage — CarShake',
+    metaDescription: 'Document your car before parking in a garage. AI comparison catches door dings, bumper bumps, and theft.',
+    paragraphs: [
+      'Parking garages are high-risk environments for vehicle damage. Tight spaces, low clearance, pillars, and other drivers mean door dings, bumper scrapes, and mirror damage are daily occurrences. Most drivers discover damage only after leaving the garage, with no way to prove when it happened.',
+      'CarShake lets you document your car\'s condition in 60 seconds before entering the garage. When you return, a quick scan and AI comparison flags any new damage — with exact location and severity.',
+      'Unlike street parking, garage damage can involve structural elements like low-hanging pipes, sharp concrete pillars, and tight spiral ramps. CarShake captures all 8 angles including roof clearance, side mirrors, and bumper overhangs that are most vulnerable in garage environments.',
+    ],
+    faqs: [
+      { q: 'Can I scan inside a dark garage?', a: 'Yes, but we recommend scanning before entering the garage in natural light for best results. CarShake\'s AI can still analyze photos taken in garage lighting.' },
+      { q: 'What if someone dings my car while parked?', a: 'CarShake documents your car\'s condition at entry. Compare with exit scan to identify new dings. Without this, proving when damage occurred in a busy garage is nearly impossible.' },
+    ],
+  },
+  'street-parking': {
+    h1: 'Protect Your Car on Street Parking',
+    title: 'Protect Your Car on Street Parking — CarShake',
+    metaDescription: 'Document your car before street parking. AI detects hit-and-run damage, vandalism, and parking tickets.',
+    paragraphs: [
+      'Street parking exposes your car to the highest risk of damage: passing traffic, parallel parking neighbors, cyclists, delivery trucks, and vandalism. Without documented proof of your car\'s pre-parking condition, insurance claims for street parking damage are notoriously difficult to prove.',
+      'Take 60 seconds to scan your car with CarShake before leaving it on the street. The AI comparison at return detects new dents, scratches, and damage that occurred while parked.',
+      'Street parking damage is especially challenging because the responsible party rarely leaves information. CarShake gives you the before-and-after evidence that insurance companies need to process claims without requiring the other driver\'s information.',
+    ],
+    faqs: [
+      { q: 'What about overnight street parking?', a: 'CarShake is perfect for overnight parking. Scan before leaving the car, scan again in the morning. Any overnight damage is captured with timestamped, GPS-verified evidence.' },
+      { q: 'Does CarShake help with parking tickets?', a: 'Not directly for tickets. But our timestamped photos can help prove your car\'s location and condition at a specific time, which may be useful in certain parking disputes.' },
+    ],
+  },
+  'dealership-service': {
+    h1: 'Protect Your Car at the Dealership',
+    title: 'Protect Your Car at Dealership Service — CarShake',
+    metaDescription: 'Document your car before dealership service visits. 8-angle AI scan catches every change.',
+    paragraphs: [
+      'Dealership service departments handle hundreds of cars daily. Despite their professional reputation, test drives, mechanic visits, and movement between bays create real damage risk. New scratches from the service drive, grease on upholstery, or accidental bumper taps — these happen more often than dealerships admit.',
+      'Scan your car before handing the keys to the service advisor. When you pick it up, scan again. CarShake\'s AI comparison catches any changes, including areas unrelated to the service performed.',
+      'Most dealership service receipts include disclaimers limiting liability. Having timestamped, GPS-verified before-and-after documentation gives you leverage that changes how seriously the dealership takes your damage claim.',
+    ],
+    faqs: [
+      { q: 'What areas should I focus on at the dealership?', a: 'Focus on front and rear bumpers (where cars are moved in tight service bays), door edges (where they\'re parked next to other vehicles), and the interior.' },
+      { q: 'Can I scan while waiting at the service counter?', a: 'Yes. CarShake takes 60 seconds. Do it before you hand over your keys, right in the parking lot or at the service drive.' },
+    ],
+  },
+  'concert-parking': {
+    h1: 'Protect Your Car at Concert Parking',
+    title: 'Protect Your Car at Concert Parking — CarShake',
+    metaDescription: 'Document your car before concert parking. AI comparison catches parking lot damage from large events.',
+    paragraphs: [
+      'Concerts and large events mean packed parking lots with thousands of cars, hurried drivers, tailgaters, and limited visibility. The combination of crowds, darkness, and alcohol often leads to door dings, bumper taps, and more serious parking lot collisions.',
+      'Scan your car before entering the event parking. After the concert, scan from the same angles. CarShake\'s AI comparison detects new damage — even subtle scratches from neighboring car doors.',
+      'Concert parking lots are often unmonitored, and hit-and-run is common in crowded event parking. CarShake gives you the proof you need to file an insurance claim, even without identifying the other driver.',
+    ],
+    faqs: [
+      { q: 'What if I tailgate before the concert?', a: 'Scan before tailgating starts. Then scan again before entering the venue and when you return. Multiple scans create a comprehensive record.' },
+      { q: 'Does CarShake work in dark concert parking lots?', a: 'Yes. Use your phone\'s flash or park near a light source. The AI can still detect changes even in lower light conditions.' },
+    ],
+  },
+  'restaurant-valet': {
+    h1: 'Protect Your Car at Restaurant Valet',
+    title: 'Protect Your Car at Restaurant Valet — CarShake',
+    metaDescription: 'AI-verified car scans before restaurant valet. 60-second QR handover proof. Free, no app.',
+    paragraphs: [
+      'Restaurant valet parking is one of the most common valet scenarios. You pull up, hand your keys to a valet, and rush inside to meet your party. In the rush, neither you nor the valet fully inspects the car. When damage is discovered after dinner, it\'s a he-said-she-said dispute with no clear evidence.',
+      'CarShake takes 60 seconds. Before you hand over your keys, scan your car from 8 angles. The valet scans your QR code and confirms. Dinner goes smoothly knowing your car\'s condition is documented.',
+      'Restaurant valet lots are often crowded with high-end vehicles being parked quickly. Attendants may park dozens of cars per hour. CarShake creates mutual accountability that protects both you and the valet service — reducing disputes and making every handover transparent.',
+    ],
+    faqs: [
+      { q: 'Will the valet be annoyed if I scan?', a: 'Most valets appreciate the clear documentation because it protects them from false claims too. The QR scan takes 10 seconds.' },
+      { q: 'What about crowded restaurant parking lots?', a: 'CarShake works in any lot. Position yourself away from traffic flow during the 60-second scan for safety and accuracy.' },
+    ],
+  },
+  'tailgating': {
+    h1: 'Protect Your Car While Tailgating',
+    title: 'Protect Your Car While Tailgating — CarShake',
+    metaDescription: 'Document your car before and after tailgating. AI catches parking lot damage from game day events.',
+    paragraphs: [
+      'Tailgating is a beloved tradition, but your car is at its most vulnerable: surrounded by other vehicles, people walking between cars, food and drinks, games being played, and general chaos. Door dings, spill damage, and accidental hits are extremely common during tailgate events.',
+      'Scan your car before you set up the tailgate. At the end of the day, scan again. CarShake\'s AI comparison catches any new damage — from scratches to dents to spills — giving you clear evidence for insurance or accountability.',
+      'Tailgate parking lots at stadiums have minimal security and surveillance. Thousands of cars parked in tight rows create ideal conditions for accidental damage. CarShake gives you before-and-after documentation that most tailgaters don\'t have.',
+    ],
+    faqs: [
+      { q: 'Does CarShake cover food and drink spills?', a: 'CarShake captures exterior condition. For interior spills, take additional interior photos through the app.' },
+      { q: 'Can I scan in a crowded tailgate lot?', a: 'Yes, but scan before the crowd arrives if possible. The 8-angle scan covers all vulnerable areas including sides that face neighboring tailgaters.' },
+    ],
+  },
+};
+
+const CATEGORY_LINKS: Record<string, { label: string; slug: string }[]> = {
+  'valet-parking': [
+    { label: 'Hotel Parking Protection', slug: 'hotel-parking' },
+    { label: 'Restaurant Valet Protection', slug: 'restaurant-valet' },
+  ],
+  'airport-parking': [
+    { label: 'Car Rental Protection', slug: 'car-rental' },
+    { label: 'Valet Parking Protection', slug: 'valet-parking' },
+  ],
+  'hotel-parking': [
+    { label: 'Valet Parking Protection', slug: 'valet-parking' },
+    { label: 'Parking Garage Protection', slug: 'parking-garage' },
+  ],
+  'body-shop': [
+    { label: 'Dealership Service Protection', slug: 'dealership-service' },
+    { label: 'Car Rental Protection', slug: 'car-rental' },
+  ],
+  'car-rental': [
+    { label: 'Airport Parking Protection', slug: 'airport-parking' },
+    { label: 'Valet Parking Protection', slug: 'valet-parking' },
+  ],
+  'car-wash': [
+    { label: 'Street Parking Protection', slug: 'street-parking' },
+    { label: 'Valet Parking Protection', slug: 'valet-parking' },
+  ],
+  'parking-garage': [
+    { label: 'Concert Parking Protection', slug: 'concert-parking' },
+    { label: 'Tailgating Protection', slug: 'tailgating' },
+  ],
+  'street-parking': [
+    { label: 'Parking Garage Protection', slug: 'parking-garage' },
+    { label: 'Tailgating Protection', slug: 'tailgating' },
+  ],
+  'dealership-service': [
+    { label: 'Body Shop Protection', slug: 'body-shop' },
+    { label: 'Car Rental Protection', slug: 'car-rental' },
+  ],
+  'concert-parking': [
+    { label: 'Tailgating Protection', slug: 'tailgating' },
+    { label: 'Parking Garage Protection', slug: 'parking-garage' },
+  ],
+  'restaurant-valet': [
+    { label: 'Valet Parking Protection', slug: 'valet-parking' },
+    { label: 'Hotel Parking Protection', slug: 'hotel-parking' },
+  ],
+  'tailgating': [
+    { label: 'Concert Parking Protection', slug: 'concert-parking' },
+    { label: 'Parking Garage Protection', slug: 'parking-garage' },
+  ],
 };
 
 const ProtectUseCase = () => {
   const { usecase } = useParams<{ usecase: string }>();
   const data = USE_CASES[usecase || ''];
+  const related = usecase ? CATEGORY_LINKS[usecase] || [] : [];
 
   if (!data) {
     return (
@@ -115,6 +252,16 @@ const ProtectUseCase = () => {
     url: `https://carshake.online/protect/${usecase}`,
   };
 
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: data.faqs.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-page">
       <Helmet>
@@ -124,6 +271,7 @@ const ProtectUseCase = () => {
         <meta property="og:description" content={data.metaDescription} />
         <link rel="canonical" href={`https://carshake.online/protect/${usecase}`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqLd)}</script>
       </Helmet>
 
       <header className="px-4 py-4 border-b border-border bg-white">
@@ -152,7 +300,7 @@ const ProtectUseCase = () => {
           </a>
         </div>
 
-        {/* FAQ */}
+        {/* FAQ Section */}
         <h2 className="font-display text-xl font-bold text-ink mb-4">Frequently Asked Questions</h2>
         <div className="space-y-4 mb-10">
           {data.faqs.map((faq, i) => (
@@ -162,6 +310,24 @@ const ProtectUseCase = () => {
             </div>
           ))}
         </div>
+
+        {/* Related use cases */}
+        {related.length > 0 && (
+          <div className="mb-10">
+            <h2 className="font-display text-xl font-bold text-ink mb-4">Related Protection Scenarios</h2>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {related.map((r) => (
+                <Link
+                  key={r.slug}
+                  to={`/protect/${r.slug}`}
+                  className="bg-white rounded-[14px] border border-border p-4 hover:shadow-lg hover:border-gold/30 transition"
+                >
+                  <h3 className="font-display text-sm font-bold text-ink">{r.label}</h3>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="text-center">
           <Link to="/" className="text-gold font-body font-semibold text-sm">← Back to CarShake home</Link>

@@ -16,29 +16,30 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
   return (
     <>
       {/* Section 4: Pain + False Beliefs */}
-      <section className="py-16 px-4 bg-page">
-        <div className="max-w-[680px] mx-auto">
-          <h2 className="font-display section-h2 text-ink text-center mb-3">
-            4 lies you believe about parking your car
-          </h2>
-          <p className="text-body font-body text-base text-center mb-10">
-            Every one of these costs you money. Let's break them.
-          </p>
+      <section className="py-20 px-4 bg-page">
+        <div className="max-w-[720px] mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-xs font-body font-bold tracking-[3px] uppercase text-gold mb-3">THE TRUTH ABOUT PARKING</p>
+            <h2 className="font-display section-h2 text-ink mb-3">
+              4 lies you believe about parking your car
+            </h2>
+            <p className="text-body font-body text-base">Every one of these costs you money. Let's break them.</p>
+          </div>
           <div className="space-y-4">
             {[
-              { icon: '🎫', title: '"The ticket says they\'re not liable."', body: "Legally, it often doesn't hold up. But here's the catch: without documented proof of your car's condition BEFORE handover, you can't win the dispute. The disclaimer works because you have no evidence — not because it's enforceable.", cost: 'Your insurance deductible: $500-1,000. For a scratch you didn\'t cause.' },
-              { icon: '📱', title: '"I snap a few photos with my phone."', body: "No structured angles. No metadata chain. No mutual confirmation. No comparison engine. In a dispute, the valet says 'those photos could be from any time.' And they'd be right.", cost: "A false sense of security that collapses the moment you need it." },
-              { icon: '🎲', title: '"It rarely happens."', body: "Parking lot incidents are among the most common low-speed damage claims in insurance data. Door dings, bumper scrapes, wheel curb rash — every single day, at every parking garage. Most go unreported because proving fault is impossible.", cost: '$1,000-5,000+ in cumulative damage you\'ll discover at trade-in.' },
-              { icon: '💸', title: '"It\'s not worth $2.97/month."', body: "One dispute costs $500+ in deductibles. One repair costs $800-3,000+. One missed claim reduces resale by thousands. CarShake pays for itself 170x over after a single incident.", cost: "That's 14 YEARS of CarShake in one avoided deductible." },
+              { icon: '🎫', title: '"The ticket says they\'re not liable."', body: "Legally, it often doesn't hold up. But here's the catch: without documented proof of your car's condition BEFORE handover, you can't win the dispute. The disclaimer works because you have no evidence — not because it's enforceable.", cost: 'Your insurance deductible: $500-1,000.' },
+              { icon: '📱', title: '"I snap a few photos with my phone."', body: "No structured angles. No metadata chain. No mutual confirmation. No comparison engine. In a dispute, the valet says 'those photos could be from any time.' And they'd be right.", cost: "A false sense of security that collapses when you need it." },
+              { icon: '🎲', title: '"It rarely happens."', body: "Parking lot incidents are among the most common low-speed damage claims. Door dings, bumper scrapes, wheel curb rash — every single day, at every parking garage. Most go unreported because proving fault is impossible.", cost: '$1,000-5,000+ in cumulative damage by trade-in.' },
+              { icon: '💸', title: '"It\'s not worth $2.97/month."', body: "One dispute costs $500+ in deductibles. One repair costs $800-3,000+. One missed claim reduces resale by thousands. CarShake pays for itself 170x over after a single incident.", cost: "14 YEARS of CarShake in one avoided deductible." },
             ].map((card, i) => (
-              <div key={i} className="bg-white rounded-card border border-border shadow-card p-6 border-l-4 border-l-status-red">
+              <div key={i} className="feature-card card-lift border-l-4 border-l-[#DC2626]">
                 <div className="flex items-start gap-3 mb-3">
                   <span className="text-2xl">{card.icon}</span>
                   <h3 className="font-display text-lg font-bold text-ink">{card.title}</h3>
                 </div>
                 <p className="text-body font-body text-[15px] leading-relaxed mb-4">{card.body}</p>
-                <div className="bg-status-red/5 rounded-lg p-3">
-                  <p className="text-sm font-body text-status-red font-medium">💥 Real cost: {card.cost}</p>
+                <div className="bg-[#FEF2F2] rounded-lg p-3 border border-[#FECACA]">
+                  <p className="text-sm font-body text-[#DC2626] font-semibold">💥 Real cost: {card.cost}</p>
                 </div>
               </div>
             ))}
@@ -46,21 +47,22 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
         </div>
       </section>
 
-      {/* Section 5: QR Handshake */}
-      <section className="py-16 px-4 bg-dark">
-        <div className="max-w-[680px] mx-auto">
-          <p className="text-xs font-body font-bold tracking-[3px] uppercase text-[#C9A237] mb-4 text-center">HOW THE PROTECTION WORKS</p>
-          <h2 className="font-display section-h2 text-white text-center mb-12">
-            The QR handshake: <em className="text-gold italic">a signed agreement both sides can't deny.</em>
+      {/* Section 5: QR Handshake — DARK */}
+      <section className="py-20 px-4 bg-dark dark-glow">
+        <div className="max-w-[720px] mx-auto relative z-10">
+          <p className="text-xs font-body font-bold tracking-[3px] uppercase text-gold mb-4 text-center">HOW THE PROTECTION WORKS</p>
+          <h2 className="font-display section-h2 text-white text-center mb-14">
+            The QR handshake:{' '}
+            <em className="text-gradient-gold not-italic italic">a signed agreement both sides can't deny.</em>
           </h2>
           {[
-            { icon: '📸', title: 'You scan. It\'s recorded.', body: "Open CarShake in your browser. Guided prompts walk you through 8 angles in 60 seconds. Each photo is stamped with GPS coordinates, exact time, and your device ID. This isn't a photo — it's a piece of evidence.", security: 'SHA-256 hash locks every photo. Any tampering breaks the chain.' },
-            { icon: '🤝', title: 'They scan your QR. They sign.', body: "A QR code appears on your screen. The parking attendant scans it with their own phone — no app needed. They see your photos. They tap 'Confirm Condition.' That tap is a digital signature — timestamped, device-fingerprinted, and stored permanently.", security: 'This is a mutual agreement. Both parties confirmed the car\'s condition. Neither side can later claim otherwise.' },
-            { icon: '🔍', title: 'You return. AI is your witness.', body: 'When you pick up your car, scan again from the same angles. Claude Vision AI compares every pair — pixel by pixel — and delivers a verdict in seconds: \'No changes\' or \'Differences found\' with exact locations and severity.', security: 'The comparison is timestamped and attached to both signed records. This is a complete evidence package.' },
+            { icon: '📸', title: "You scan. It's recorded.", body: "Open CarShake in your browser. Guided prompts walk you through 8 angles in 60 seconds. Each photo is stamped with GPS coordinates, exact time, and your device ID. This isn't a photo — it's a piece of evidence.", security: 'SHA-256 hash locks every photo. Any tampering breaks the chain.' },
+            { icon: '🤝', title: 'They scan your QR. They sign.', body: "A QR code appears on your screen. The parking attendant scans it with their own phone — no app needed. They see your photos. They tap 'Confirm Condition.' That tap is a digital signature — timestamped, device-fingerprinted, and stored permanently.", security: "Mutual agreement. Both parties confirmed the car's condition. Neither side can later claim otherwise." },
+            { icon: '🔍', title: 'You return. AI is your witness.', body: "When you pick up your car, scan again from the same angles. Claude Vision AI compares every pair — pixel by pixel — and delivers a verdict in seconds: 'No changes' or 'Differences found' with exact locations and severity.", security: 'The comparison is timestamped and attached to both signed records. Complete evidence package.' },
           ].map((step, i) => (
             <div key={i} className="mb-10">
               <div className="flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center text-2xl flex-shrink-0">{step.icon}</div>
+                <div className="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center text-2xl flex-shrink-0 border border-gold/20">{step.icon}</div>
                 <h3 className="font-display text-xl font-bold text-white">{step.title}</h3>
               </div>
               <p className="text-[#A1A1AA] font-body text-[15px] leading-relaxed mb-3 ml-16">{step.body}</p>
@@ -69,8 +71,8 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
               </div>
             </div>
           ))}
-          <div className="text-center mt-8">
-            <a href="#demo" className="inline-flex items-center justify-center min-h-[52px] px-8 rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
+          <div className="text-center mt-10">
+            <a href="#demo" className="btn-shimmer inline-flex items-center justify-center min-h-[52px] px-8 rounded-xl bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
               Try It Now — See AI Compare Your Photos
             </a>
           </div>
@@ -78,30 +80,31 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
       </section>
 
       {/* Section 6: Legal Shield */}
-      <section className="py-16 px-4 bg-surface">
-        <div className="max-w-[680px] mx-auto">
+      <section className="py-20 px-4 bg-surface">
+        <div className="max-w-[720px] mx-auto">
           <h2 className="font-display section-h2 text-ink text-center mb-3">
-            This isn't a camera app. <em className="text-gold italic">It's a legal shield.</em>
+            This isn't a camera app.{' '}
+            <em className="text-gradient-gold not-italic italic">It's a legal shield.</em>
           </h2>
-          <p className="text-body font-body text-base text-center mb-10">
-            Every piece of CarShake exists for one reason: to make sure you never lose a dispute you shouldn't lose.
+          <p className="text-body font-body text-base text-center mb-12">
+            Every piece of CarShake exists for one reason: you never lose a dispute you shouldn't lose.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               { icon: '📍', title: 'GPS-verified location', body: 'Proves exactly WHERE photos were taken.', shield: 'Accepted as digital evidence in US and EU courts.' },
-              { icon: '⏱️', title: 'Dual-verified timestamps', body: "Your phone + our server. Can't be faked.", shield: "Tamper-proof. Server timestamps can't be faked by either party." },
-              { icon: '✍️', title: "Attendant's digital signature", body: 'They scanned. They confirmed. They signed.', shield: "This is the evidence that ends 'he said, she said' forever." },
-              { icon: '🔐', title: 'SHA-256 tamper-proof hash', body: 'One changed pixel breaks the chain.', shield: 'The same cryptographic standard used by banks and blockchain.' },
-              { icon: '🧠', title: 'AI witness comparison', body: 'No human bias. The AI saw everything.', shield: "AI findings are attached to the evidence package with their own timestamp." },
-              { icon: '📄', title: 'Court-ready PDF evidence', body: 'Hand it to your lawyer or insurer.', shield: 'Formatted to match what insurance adjusters and courts actually need.' },
+              { icon: '⏱️', title: 'Dual-verified timestamps', body: "Your phone + our server. Can't be faked.", shield: "Tamper-proof. Server timestamps can't be faked." },
+              { icon: '✍️', title: "Attendant's digital signature", body: 'They scanned. They confirmed. They signed.', shield: "Ends 'he said, she said' forever." },
+              { icon: '🔐', title: 'SHA-256 tamper-proof hash', body: 'One changed pixel breaks the chain.', shield: 'Same cryptographic standard as banks and blockchain.' },
+              { icon: '🧠', title: 'AI witness comparison', body: 'No human bias. The AI saw everything.', shield: 'AI findings get their own timestamp.' },
+              { icon: '📄', title: 'Court-ready PDF evidence', body: 'Hand it to your lawyer or insurer.', shield: 'Formatted for insurance adjusters and courts.' },
             ].map((card, i) => (
-              <div key={i} className="bg-white rounded-card border border-border shadow-card p-5 border-l-4 border-l-gold">
+              <div key={i} className="feature-card card-lift border-l-4 border-l-gold">
                 <div className="flex items-center gap-2 mb-2">
                   <span>{card.icon}</span>
                   <h3 className="font-display text-[16px] font-bold text-ink">{card.title}</h3>
                 </div>
                 <p className="text-body font-body text-sm mb-2">{card.body}</p>
-                <p className="text-xs font-body text-gold">🛡️ {card.shield}</p>
+                <p className="text-xs font-body text-gold font-semibold">🛡️ {card.shield}</p>
               </div>
             ))}
           </div>
@@ -109,16 +112,16 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
       </section>
 
       {/* Section 7: Without CarShake */}
-      <section className="py-16 px-4 bg-page">
-        <div className="max-w-[680px] mx-auto">
-          <h2 className="font-display section-h2 text-ink text-center mb-8">
-            Without CarShake, here's what happens when you find a scratch:
+      <section className="py-20 px-4 bg-page">
+        <div className="max-w-[720px] mx-auto">
+          <h2 className="font-display section-h2 text-ink text-center mb-10">
+            Without CarShake, here's what happens:
           </h2>
-          <div className="bg-white rounded-card border border-border shadow-card p-6 mb-6">
+          <div className="feature-card p-6 mb-6">
             <ol className="space-y-4">
               {[
                 { emoji: '😠', action: 'You point out the damage.', response: "They say: 'It was already there.'" },
-                { emoji: '📋', action: 'You ask for the manager.', response: "Manager points at the ticket: 'We are not liable for damages.'" },
+                { emoji: '📋', action: 'You ask for the manager.', response: "Manager: 'We are not liable for damages.'" },
                 { emoji: '📱', action: 'You say you have phone photos.', response: "'Those could be from anywhere.'" },
                 { emoji: '💸', action: 'You file with YOUR insurance.', response: 'You pay your deductible: $500-1,000.' },
                 { emoji: '📈', action: 'Your premium goes up.', response: 'You pay more next year. For a scratch the valet caused.' },
@@ -135,23 +138,23 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
                 <span className="text-xl">🔥</span>
                 <div>
                   <strong className="text-ink">6. Total cost of one scratch you didn't cause:</strong>
-                  <p className="font-display text-3xl font-bold text-status-red mt-1">$1,500 - $5,000+</p>
+                  <p className="font-display text-4xl font-bold text-[#DC2626] mt-1">$1,500 – $5,000+</p>
                 </div>
               </li>
             </ol>
           </div>
-          <div className="bg-status-green/5 border border-status-green/20 rounded-card p-6">
+          <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-2xl p-6">
             <p className="font-body text-[15px] text-body leading-relaxed">
-              <strong className="text-ink">With CarShake, step 1 goes differently:</strong> You open the CarShake comparison report. You show the attendant: timestamped before photos, their own digital signature confirming the car was clean, and AI analysis showing exactly where the new scratch is. They call their manager. The manager sees the evidence. They pay for the repair.{' '}
-              <strong className="text-status-green">Total cost: $0. Time: 30 seconds.</strong>
+              <strong className="text-ink">With CarShake, step 1 goes differently:</strong> You open the comparison report. You show the attendant: timestamped before photos, their own digital signature, and AI analysis showing exactly where the new scratch is. They call their manager. The manager sees the evidence. They pay for the repair.{' '}
+              <strong className="text-[#15803D]">Total cost: $0. Time: 30 seconds.</strong>
             </p>
           </div>
         </div>
       </section>
 
       {/* Section 8: Epiphany Bridge */}
-      <section className="py-16 px-4 bg-page">
-        <div className="max-w-[680px] mx-auto">
+      <section className="py-20 px-4 bg-page">
+        <div className="max-w-[720px] mx-auto">
           <p className="text-xs font-body font-bold tracking-[3px] uppercase text-gold mb-6 text-center">WHY I BUILT THIS</p>
           <div className="border-l-[3px] border-gold pl-6">
             <blockquote className="font-display text-xl italic text-ink mb-6 leading-relaxed">
@@ -170,24 +173,24 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
       </section>
 
       {/* Section 9: Who Not For / Who For */}
-      <section className="py-16 px-4 bg-surface">
-        <div className="max-w-[680px] mx-auto grid sm:grid-cols-2 gap-6">
-          <div className="bg-white rounded-card border border-border shadow-card p-6">
-            <h3 className="font-display text-lg font-bold text-status-red mb-4">❌ CarShake is NOT for you if:</h3>
+      <section className="py-20 px-4 bg-surface">
+        <div className="max-w-[720px] mx-auto grid sm:grid-cols-2 gap-6">
+          <div className="feature-card p-6 border-l-4 border-l-[#DC2626]">
+            <h3 className="font-display text-lg font-bold text-[#DC2626] mb-4">❌ CarShake is NOT for you if:</h3>
             <ul className="space-y-3 font-body text-[15px] text-body">
               <li>• You enjoy paying for other people's mistakes</li>
               <li>• You trust that a paper ticket protects you</li>
               <li>• You think your camera roll counts as evidence</li>
-              <li>• You've never found an unexplained scratch on your car</li>
+              <li>• You've never found an unexplained scratch</li>
             </ul>
           </div>
-          <div className="bg-white rounded-card border border-border shadow-card p-6">
-            <h3 className="font-display text-lg font-bold text-status-green mb-4">✓ You need CarShake if:</h3>
+          <div className="feature-card p-6 border-l-4 border-l-[#15803D]">
+            <h3 className="font-display text-lg font-bold text-[#15803D] mb-4">✓ You need CarShake if:</h3>
             <ul className="space-y-3 font-body text-[15px] text-body">
-              <li>• You use valet, airport parking, hotel garages, or body shops</li>
-              <li>• You've paid a deductible for damage you didn't cause — even once</li>
-              <li>• You want the parking attendant to SIGN that your car was clean</li>
-              <li>• You believe 60 seconds of effort beats $1,500 of regret</li>
+              <li>• You use valet, airport, hotel, or body shops</li>
+              <li>• You've paid a deductible for damage you didn't cause</li>
+              <li>• You want the attendant to SIGN your car was clean</li>
+              <li>• You believe 60 seconds beats $1,500 of regret</li>
             </ul>
           </div>
         </div>
@@ -195,10 +198,10 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
 
       {/* Section 10: Mid-Page CTA */}
       <section className="py-16 px-4 bg-surface">
-        <div className="max-w-[680px] mx-auto text-center">
+        <div className="max-w-[720px] mx-auto text-center">
           <p className="font-display text-2xl font-bold text-ink mb-2">One scratch. One deductible. One premium increase.</p>
-          <p className="font-display text-2xl italic text-gold font-bold mb-8">Or 60 seconds of protection.</p>
-          <a href="#demo" className="inline-flex items-center justify-center min-h-[52px] px-8 rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
+          <p className="font-display text-2xl text-gradient-gold font-bold mb-8">Or 60 seconds of protection.</p>
+          <a href="#demo" className="btn-shimmer inline-flex items-center justify-center min-h-[52px] px-8 rounded-xl bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
             🛡️ Try CarShake AI — Free
           </a>
           <p className="text-muted-custom text-sm font-body mt-4">3 free scans/month. No credit card. No signup.</p>
@@ -206,16 +209,16 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
       </section>
 
       {/* Section 11: Social Proof */}
-      <section className="py-16 px-4 bg-page">
-        <div className="max-w-[680px] mx-auto">
+      <section className="py-20 px-4 bg-page">
+        <div className="max-w-[720px] mx-auto">
           <h2 className="font-display section-h2 text-ink text-center mb-10">What signed protection looks like</h2>
           <div className="space-y-4">
             {[
-              { icon: '✈️', location: 'Airport — JFK', color: 'border-l-status-green', saved: '$2,100 saved', story: 'Door ding discovered at pickup. CarShake comparison showed the exact panel — plus the attendant\'s own confirmation that it wasn\'t there before. Insurance paid in full, zero deductible.' },
-              { icon: '🍽️', location: 'Valet — Scottsdale', color: 'border-l-gold', saved: '7-minute resolution', story: "Curb rash on right rear wheel. The valet's manager saw the before/after comparison AND the attendant's digital signature. They paid for the repair on the spot." },
-              { icon: '🔧', location: 'Body Shop — Miami', color: 'border-l-status-amber', saved: '$4,800 in claims', story: 'Caught 2 separate incidents over 6 months of using CarShake. Without the evidence package, both would have been out-of-pocket.' },
+              { icon: '✈️', location: 'Airport — JFK', color: 'border-l-[#15803D]', saved: '$2,100 saved', story: "Door ding discovered at pickup. CarShake comparison showed the exact panel — plus the attendant\\'s own confirmation. Insurance paid in full, zero deductible." },
+              { icon: '🍽️', location: 'Valet — Scottsdale', color: 'border-l-gold', saved: '7-minute resolution', story: "Curb rash on rear wheel. The valet's manager saw the before/after comparison AND the attendant's digital signature. They paid on the spot." },
+              { icon: '🔧', location: 'Body Shop — Miami', color: 'border-l-[#D97706]', saved: '$4,800 in claims', story: 'Caught 2 separate incidents over 6 months. Without the evidence package, both would have been out-of-pocket.' },
             ].map((card, i) => (
-              <div key={i} className={`bg-white rounded-card border border-border shadow-card p-6 border-l-4 ${card.color}`}>
+              <div key={i} className={`feature-card card-lift p-6 border-l-4 ${card.color}`}>
                 <div className="flex items-center gap-2 mb-2">
                   <span>{card.icon}</span>
                   <span className="text-sm font-body text-muted-custom">{card.location}</span>
@@ -233,11 +236,11 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
       </section>
 
       {/* Section 12: Value Stack */}
-      <section className="py-16 px-4 bg-page">
-        <div className="max-w-[680px] mx-auto">
+      <section className="py-20 px-4 bg-page">
+        <div className="max-w-[720px] mx-auto">
           <h2 className="font-display section-h2 text-ink text-center mb-3">What $2.97/mo actually gets you</h2>
           <p className="text-body font-body text-base text-center mb-10">Manual cost vs. your CarShake Shield+ price</p>
-          <div className="bg-white rounded-card border-2 border-gold shadow-card p-6">
+          <div className="feature-card border-2 border-gold p-6">
             <div className="space-y-3 mb-6">
               {[
                 { feature: '8-angle guided capture', cost: '$30/scan' },
@@ -251,7 +254,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
               ].map((item, i) => (
                 <div key={i} className="flex items-center justify-between font-body text-sm">
                   <span className="text-ink flex items-center gap-2">
-                    <span className="text-status-green">✓</span> {item.feature}
+                    <span className="text-[#15803D]">✓</span> {item.feature}
                   </span>
                   <span className="text-muted-custom line-through">{item.cost}</span>
                 </div>
@@ -265,14 +268,14 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
             </div>
             <div className="text-center">
               <p className="text-sm font-body text-body mb-2">Founding member price:</p>
-              <p className="font-display text-[56px] font-bold text-gold leading-none">$2.97</p>
+              <p className="font-display text-[56px] font-bold text-gradient-gold leading-none">$2.97</p>
               <p className="font-body text-sm text-muted-custom">/mo</p>
               <p className="font-body text-base font-bold text-ink mt-2">99.6% off. Less than one parking meter.</p>
-              <div className="inline-block px-3 py-1 rounded-pill bg-gold/10 text-gold text-xs font-body font-semibold mt-3">
+              <div className="inline-block px-3 py-1 rounded-full bg-gold/10 text-gold text-xs font-body font-semibold mt-3">
                 No credit card to start · 3 free scans/month
               </div>
               <div className="mt-6">
-                <button onClick={onAuth} className="w-full max-w-[420px] min-h-[52px] rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
+                <button onClick={onAuth} className="btn-shimmer w-full max-w-[420px] min-h-[52px] rounded-xl bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
                   Start Protecting Your Car — Free
                 </button>
               </div>
@@ -282,18 +285,71 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
         </div>
       </section>
 
+      {/* Section 12b: What happens if you do nothing */}
+      <section className="py-20 px-4 bg-page">
+        <div className="max-w-[720px] mx-auto">
+          <div className="feature-card border-2 border-[#DC2626]/20 p-6 border-l-4 border-l-[#DC2626]">
+            <p className="text-xs font-body font-bold tracking-[3px] uppercase text-[#DC2626] mb-3 text-center">THE REAL COST OF DOING NOTHING</p>
+            <h2 className="font-display section-h2 text-ink text-center mb-6">
+              What happens if you <em className="text-[#DC2626] italic not-italic">don't</em> use CarShake?
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-6 mb-4">
+              <div className="bg-[#FEF2F2] rounded-xl p-5 border border-[#FECACA]">
+                <p className="font-body text-xs font-bold uppercase tracking-wider text-[#DC2626] mb-3">Without CarShake</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3 font-body text-sm"><span className="text-[#DC2626] text-base flex-shrink-0">✗</span><span>Scratch after valet. <strong>No evidence.</strong> Manager points at the ticket.</span></li>
+                  <li className="flex items-start gap-3 font-body text-sm"><span className="text-[#DC2626] text-base flex-shrink-0">✗</span><span>You pay <strong>$500-$1,000</strong> deductible. Premium goes up.</span></li>
+                  <li className="flex items-start gap-3 font-body text-sm"><span className="text-[#DC2626] text-base flex-shrink-0">✗</span><span>Every time you park, you worry. <strong>Nothing changed.</strong></span></li>
+                  <li className="flex items-start gap-3 font-body text-sm"><span className="text-[#DC2626] text-base flex-shrink-0">✗</span><span>You'll wish you'd protected yourself <strong>when you had the chance.</strong></span></li>
+                </ul>
+                <div className="mt-4 text-center">
+                  <p className="font-display text-[40px] font-bold text-[#DC2626] leading-none">$1,500</p>
+                  <p className="font-body text-xs text-body">Average cost of ONE parking dispute</p>
+                </div>
+              </div>
+              <div className="bg-[#F0FDF4] rounded-xl p-5 border border-[#BBF7D0]">
+                <p className="font-body text-xs font-bold uppercase tracking-wider text-[#15803D] mb-3">With CarShake ($2.97/mo)</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3 font-body text-sm"><span className="text-[#15803D] text-base flex-shrink-0">✓</span><span>Attendant <strong>signed and confirmed</strong> your car was clean.</span></li>
+                  <li className="flex items-start gap-3 font-body text-sm"><span className="text-[#15803D] text-base flex-shrink-0">✓</span><span>AI compares before/after. <strong>Zero deductible.</strong> Valet pays.</span></li>
+                  <li className="flex items-start gap-3 font-body text-sm"><span className="text-[#15803D] text-base flex-shrink-0">✓</span><span>Every handover — <strong>protected forever.</strong></span></li>
+                  <li className="flex items-start gap-3 font-body text-sm"><span className="text-[#15803D] text-base flex-shrink-0">✓</span><span>One prevented dispute = <strong>14 years</strong> of CarShake.</span></li>
+                </ul>
+                <div className="mt-4 text-center">
+                  <p className="font-display text-[40px] font-bold text-[#15803D] leading-none">$0</p>
+                  <p className="font-body text-xs text-body">Cost with CarShake Shield+</p>
+                </div>
+              </div>
+            </div>
+            <div className="text-center mt-4">
+              <a href="#demo" className="btn-shimmer inline-flex items-center justify-center min-h-[52px] px-8 rounded-xl bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
+                🛡️ Try CarShake — Free. 3 Scans Included.
+              </a>
+              <p className="text-muted-custom text-xs font-body mt-3">60 seconds. No app. No credit card. Cancel anytime.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Section 13: Guarantees */}
-      <section className="py-16 px-4 bg-surface">
-        <div className="max-w-[680px] mx-auto">
-          <h2 className="font-display section-h2 text-ink text-center mb-10">4 guarantees. Zero risk.</h2>
+      <section className="py-20 px-4 bg-surface">
+        <div className="max-w-[720px] mx-auto">
+          <h2 className="font-display section-h2 text-ink text-center mb-3">Better than risk-free.</h2>
+          <p className="text-body font-body text-base text-center mb-2">4 guarantees that make saying "yes" the safest choice.</p>
+          <div className="bg-gold/10 border border-gold/30 rounded-2xl p-4 mb-8 text-center">
+            <p className="font-body text-sm text-ink">
+              <strong>Better than risk-free:</strong> If CarShake doesn't save you from at least one parking dispute in your first year, 
+              we'll refund every penny. <em className="text-gold font-semibold">You keep your 3 free scans either way.</em>
+            </p>
+          </div>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              { icon: '🎯', title: 'Free protection guarantee', body: '3 scans/month including full AI comparison, QR handover, and evidence chain. No credit card. No trial trap.' },
-              { icon: '🔬', title: 'AI accuracy guarantee', body: 'If AI misses visible damage in your photos, we manually review and re-issue within 24 hours.' },
-              { icon: '⏱️', title: 'One-click cancel', body: 'Cancel from your dashboard. One button. No emails, no calls. Your scan history stays forever.' },
+              { icon: '🎯', title: 'Free protection guarantee', body: '3 scans/month including full AI comparison, QR handover, and evidence chain. No credit card.' },
+              { icon: '🔬', title: 'AI accuracy guarantee', body: 'If AI misses visible damage, we manually review and re-issue within 24 hours.' },
+              { icon: '⏱️', title: 'One-click cancel', body: 'Cancel from your dashboard. One button. No emails. Your scan history stays forever.' },
               { icon: '🔒', title: 'Founding price lock', body: 'First 100 users pay $2.97/mo forever. Even when we raise prices.' },
             ].map((g, i) => (
-              <div key={i} className="bg-white rounded-card border border-border shadow-card p-5">
+              <div key={i} className="feature-card card-lift p-5">
                 <div className="text-2xl mb-2">{g.icon}</div>
                 <h3 className="font-display text-base font-bold text-ink mb-2">{g.title}</h3>
                 <p className="font-body text-sm text-body">{g.body}</p>
@@ -304,42 +360,40 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
       </section>
 
       {/* Section 14: Pricing */}
-      <section id="pricing" className="py-16 px-4 bg-page">
-        <div className="max-w-[680px] mx-auto">
-          <h2 className="font-display section-h2 text-ink text-center mb-10">Pick your shield</h2>
+      <section id="pricing" className="py-20 px-4 bg-page">
+        <div className="max-w-[720px] mx-auto">
+          <h2 className="font-display section-h2 text-ink text-center mb-12">Pick your shield</h2>
 
           {/* Free */}
-          <div className="bg-white rounded-card border border-border shadow-card p-5 mb-4 flex items-center justify-between flex-wrap gap-4">
+          <div className="feature-card p-5 mb-4 flex items-center justify-between flex-wrap gap-4">
             <div>
               <h3 className="font-display text-lg font-bold text-ink">Free</h3>
               <p className="font-display text-2xl font-bold text-ink">$0<span className="text-sm font-body text-muted-custom font-normal">/forever</span></p>
               <p className="font-body text-sm text-body mt-1">3 scans/mo · AI comparison · QR handover</p>
             </div>
-            <button onClick={onAuth} className="min-h-[44px] px-6 rounded-[10px] border-2 border-border text-ink font-body font-semibold hover:bg-surface transition">
+            <button onClick={onAuth} className="min-h-[44px] px-6 rounded-xl border-2 border-border text-ink font-body font-semibold hover:bg-surface transition">
               Start Free
             </button>
           </div>
 
           {/* Shield+ */}
-          <div className="bg-white rounded-card border-2 border-gold shadow-card p-6 mb-4 relative">
-            <div className="absolute -top-3 left-6 px-3 py-1 rounded-pill bg-gold text-ink text-xs font-body font-semibold">Most Popular</div>
+          <div className="feature-card border-2 border-gold p-6 mb-4 relative">
+            <div className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-gold text-ink text-xs font-body font-semibold">Most Popular</div>
             <div className="flex items-start justify-between flex-wrap gap-4 mb-4">
               <div>
                 <h3 className="font-display text-lg font-bold text-ink">Shield+</h3>
-                <p className="font-display text-4xl font-bold text-gold">$2.97<span className="text-sm font-body text-muted-custom font-normal">/mo</span></p>
-                <div className="inline-block px-2 py-0.5 rounded-pill bg-gold/10 text-gold text-xs font-body font-semibold mt-1">
-                  Founding price · locks forever
-                </div>
+                <p className="font-display text-4xl font-bold text-gradient-gold">$2.97<span className="text-sm font-body text-muted-custom font-normal">/mo</span></p>
+                <div className="inline-block px-2 py-0.5 rounded-full bg-gold/10 text-gold text-xs font-body font-semibold mt-1">Founding price · locks forever</div>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2 mb-6">
               {['Unlimited scans', 'PDF evidence reports', 'Full scan history', 'Priority AI', 'Dispute letter generator', 'Insurance package', 'License plate timeline', 'Cancel anytime'].map((f) => (
                 <p key={f} className="text-sm font-body text-body flex items-center gap-1.5">
-                  <span className="text-status-green text-xs">✓</span> {f}
+                  <span className="text-[#15803D] text-xs">✓</span> {f}
                 </p>
               ))}
             </div>
-            <button onClick={onAuth} className="w-full min-h-[52px] rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
+            <button onClick={onAuth} className="btn-shimmer w-full min-h-[52px] rounded-xl bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition">
               Get Shield+ — Start Free →
             </button>
             <p className="text-center text-sm font-body text-body mt-3">🛡️ Full guarantee on every plan</p>
@@ -347,29 +401,25 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
 
           {/* Pro + Enterprise */}
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="bg-white rounded-card border border-border shadow-card p-5">
+            <div className="feature-card p-5">
               <h3 className="font-display text-base font-bold text-ink">Pro</h3>
               <p className="font-display text-xl font-bold text-ink mb-2">$19.97<span className="text-sm font-body text-muted-custom font-normal">/mo</span></p>
               <p className="font-body text-sm text-body mb-4">Location dashboard, staff accounts, branded QR, analytics</p>
-              <button onClick={onAuth} className="w-full min-h-[44px] rounded-[10px] border-2 border-border text-ink font-body font-semibold hover:bg-surface transition text-sm">
-                Go Pro
-              </button>
+              <button onClick={onAuth} className="w-full min-h-[44px] rounded-xl border-2 border-border text-ink font-body font-semibold hover:bg-surface transition text-sm">Go Pro</button>
             </div>
-            <div className="bg-white rounded-card border border-border shadow-card p-5">
+            <div className="feature-card p-5">
               <h3 className="font-display text-base font-bold text-ink">Enterprise</h3>
               <p className="font-display text-xl font-bold text-ink mb-2">$297<span className="text-sm font-body text-muted-custom font-normal">/mo</span></p>
               <p className="font-body text-sm text-body mb-4">Multi-location, API, white-label</p>
-              <button disabled className="w-full min-h-[44px] rounded-[10px] bg-surface text-muted-custom font-body font-semibold text-sm cursor-not-allowed">
-                Contact Us
-              </button>
+              <button disabled className="w-full min-h-[44px] rounded-xl bg-surface text-muted-custom font-body font-semibold text-sm cursor-not-allowed">Contact Us</button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Section 15: FAQ */}
-      <section id="faq" className="py-16 px-4 bg-surface">
-        <div className="max-w-[680px] mx-auto">
+      <section id="faq" className="py-20 px-4 bg-surface">
+        <div className="max-w-[720px] mx-auto">
           <h2 className="font-display section-h2 text-ink text-center mb-10">Frequently Asked Questions</h2>
           <Accordion type="single" collapsible className="space-y-2">
             {[
@@ -381,7 +431,7 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
               { q: 'Can this be used as legal evidence?', a: "CarShake creates GPS-verified, dual-timestamped, mutually confirmed records with SHA-256 cryptographic hashing. This evidence package is formatted to match what insurance adjusters and courts actually need." },
               { q: 'How do I cancel?', a: "One click from your dashboard. No emails, no calls, no retention tricks. Your scan history stays forever even after cancellation." },
             ].map((faq, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="bg-white rounded-card border border-border shadow-card px-5">
+              <AccordionItem key={i} value={`faq-${i}`} className="feature-card px-5">
                 <AccordionTrigger className="font-body font-semibold text-ink text-[15px] text-left py-4 min-h-[48px]">
                   {faq.q}
                 </AccordionTrigger>
@@ -395,22 +445,29 @@ const LandingSections = ({ scansCount, spotsLeft, onAuth }: Props) => {
       </section>
 
       {/* Section 16: Final CTA */}
-      <section className="py-16 px-4 bg-page">
-        <div className="max-w-[680px] mx-auto text-center">
-          <div className="inline-block px-4 py-1.5 rounded-pill bg-gold/10 text-gold text-xs font-body font-semibold mb-6">
-            {scansCount} cars protected · {spotsLeft} founding spots left
+      <section className="py-16 px-4">
+        <div className="max-w-[720px] mx-auto">
+          <div className="cta-gradient text-center relative z-10">
+            <div className="relative z-10">
+              <div className="inline-block px-4 py-1.5 rounded-full bg-white/15 text-white text-xs font-body font-semibold mb-6">
+                {scansCount} cars protected · {spotsLeft} founding spots left
+              </div>
+              <p className="text-white/80 font-body text-base mb-4">
+                Every handover without a signed record is a risk you don't need to take.
+              </p>
+              <h2 className="font-display hero-h1 text-white mb-8">
+                Stop hoping. <em className="italic not-italic">Start with proof.</em>
+              </h2>
+              <button onClick={onAuth} className="btn-shimmer w-full max-w-[420px] min-h-[56px] rounded-xl bg-white text-ink font-body font-bold text-lg hover:bg-white/90 transition mb-4 shadow-lg">
+                🛡️ Protect Your Car — Free
+              </button>
+              <p className="text-white/70 text-sm font-body mb-3">No app · No signup · No credit card · 60 seconds</p>
+              <div className="inline-block px-3 py-1 rounded-full bg-white/15 text-white text-xs font-body font-semibold mb-3">
+                ⏳ {spotsLeft} founding spots left at $2.97/mo — then $5.97
+              </div>
+              <p className="text-sm font-body text-white/80">🛡️ One prevented dispute = 14 years of CarShake.</p>
+            </div>
           </div>
-          <p className="text-body font-body text-base mb-4">
-            Every handover without a signed record is a risk you don't need to take.
-          </p>
-          <h2 className="font-display hero-h1 text-ink mb-8">
-            Stop hoping the valet is careful. <em className="text-gold italic">Start with proof.</em>
-          </h2>
-          <button onClick={onAuth} className="w-full max-w-[420px] min-h-[52px] rounded-[12px] bg-gold text-ink font-body font-semibold hover:bg-gold-dark transition mb-4">
-            🛡️ Protect Your Car — Free
-          </button>
-          <p className="text-muted-custom text-sm font-body mb-3">No app · No signup · No credit card · 60 seconds</p>
-          <p className="text-sm font-body text-body">🛡️ One prevented dispute = 14 years of CarShake protection.</p>
         </div>
       </section>
     </>

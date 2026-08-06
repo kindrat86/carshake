@@ -72,7 +72,7 @@ const Business = () => {
         <div className="max-w-[680px] mx-auto text-center">
           <h3 className="font-display text-gold text-xl font-bold mb-2">CarShake</h3>
           <p className="text-muted-custom text-sm font-body mb-6">Both sides sign. Both sides are protected.</p>
-          <p className="text-muted-custom text-xs font-body">© 2026 CarShake · carshake.online</p>
+          <p className="text-muted-custom text-xs font-body">© 2026 CarShake · carshake.online · <a href="https://x.com/sipiteno" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">X</a></p>
         </div>
       </footer>
 
