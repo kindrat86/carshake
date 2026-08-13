@@ -175,6 +175,10 @@ def main():
                'xmlns:xhtml="http://www.w3.org/1999/xhtml">')
     for url_path, abspath, lastmod, canonical, robots, is_noindex in indexable:
         loc = canonical or (BASE + (url_path if url_path != '/' else '/'))
+        # Canonical URLs in some prerendered pages carry a trailing slash, which
+        # 308-redirects. Emit the redirect-free form (keep the root slash).
+        if loc != BASE + '/' and loc.endswith('/'):
+            loc = loc.rstrip('/')
         out.append('  <url>')
         out.append(f'    <loc>{loc}</loc>')
         if lastmod:
