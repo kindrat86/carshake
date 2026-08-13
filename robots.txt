@@ -60,5 +60,4 @@ Knowledge-Graph: https://carshake.online/knowledge-graph.json
 
 Sitemap: https://carshake.online/sitemap-index.xml
 Sitemap: https://carshake.online/sitemap.xml
-Sitemap: https://carshake.online/sitemap-pseo.xml
 Sitemap: https://carshake.online/sitemap-news.xml

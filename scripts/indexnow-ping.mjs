@@ -5,7 +5,7 @@
  * `npm run deploy`.
  *
  * Replaces scripts/indexnow-ping.sh, which hard-coded 24 URLs. This version
- * derives the URL list from sitemap.xml + sitemap-pseo.xml so every deployed
+ * derives the URL list from sitemap.xml so every deployed page is announced.
  * The IndexNow key and key file are unchanged:
  *   key          = 3d7a0a3ab52446538a57a3c55a5a9023
  *   keyLocation  = https://carshake.online/3d7a0a3ab52446538a57a3c55a5a9023.txt
@@ -31,7 +31,7 @@ const KEY = '3d7a0a3ab52446538a57a3c55a5a9023';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const ENDPOINT = 'https://api.indexnow.org/indexnow';
 const BATCH_SIZE = 40;
-const DEFAULT_SITEMAPS = ['sitemap.xml', 'sitemap-pseo.xml'];
+const DEFAULT_SITEMAPS = ['sitemap.xml'];
 const SITEMAPS = (process.argv.slice(2).length ? process.argv.slice(2) : DEFAULT_SITEMAPS)
   .map(f => resolve(f));
 
