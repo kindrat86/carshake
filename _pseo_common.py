@@ -11,7 +11,8 @@ Keeps _gen_city_venue.py and _gen_state_venue.py consistent so a CSS or
 schema tweak lands in both corpora at once.
 """
 import json
-import re
+import subprocess
+import sys
 from datetime import date
 from pathlib import Path
 
@@ -109,26 +110,19 @@ def head_block(title, desc, url, schema_jsons):
 """
 
 
-def update_sitemap_block(section, urls, priority="0.6", changefreq="monthly"):
-    """Maintain a marker-delimited block for `section` in sitemap.xml.
+def sync_sitemap():
+    """Regenerate the unified sitemap.xml via scripts/gen-sitemap.py.
 
-    Idempotent and isolated: only the block bounded by
-    <!-- BEGIN {section} --> ... <!-- END {section} --> is touched.
-    Creates the file if missing."""
-    sm = ROOT / "sitemap.xml"
-    empty = ('<?xml version="1.0" encoding="UTF-8"?>\n'
-             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</urlset>')
-    text = sm.read_text(encoding="utf-8") if sm.exists() else empty
-    begin, end = f"<!-- BEGIN {section} -->", f"<!-- END {section} -->"
-    inner = "\n".join(
-        f"  <url><loc>{u}</loc><lastmod>{MODIFIED}</lastmod>"
-        f"<changefreq>{changefreq}</changefreq><priority>{priority}</priority></url>"
-        for u in urls
+    gen-sitemap.py is the single sitemap writer — it sweeps every index.html on
+    disk (which already includes all generator output), so a generator never
+    edits the sitemap itself. It just re-runs the full sweep after writing pages.
+    """
+    script = ROOT / "scripts" / "gen-sitemap.py"
+    result = subprocess.run(
+        [sys.executable, str(script)], cwd=str(ROOT),
+        capture_output=True, text=True,
     )
-    block = f"{begin}\n{inner}\n{end}"
-    if begin in text and end in text:
-        text = re.sub(re.escape(begin) + r".*?" + re.escape(end),
-                      block, text, flags=re.DOTALL)
-    else:
-        text = text.replace("</urlset>", block + "\n</urlset>")
-    sm.write_text(text, encoding="utf-8")
+    lines = (result.stdout or "").strip().splitlines()
+    summary = lines[-1] if lines else (result.stderr or "").strip()[:200]
+    print(f"[sitemap] gen-sitemap.py exit={result.returncode}: {summary}")
+    return result.returncode == 0

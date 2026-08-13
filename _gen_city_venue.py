@@ -18,6 +18,8 @@ import re
 from datetime import date
 from pathlib import Path
 
+from _pseo_common import sync_sitemap
+
 ROOT = Path(__file__).resolve().parent
 BASE = "https://carshake.online"
 PUBLISHED = "2026-07-18"           # original publication date of this page set
@@ -260,45 +262,13 @@ nav.breadcrumb a{color:#0066cc}
     return url
 
 
-_EMPTY_SITEMAP = """<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-</urlset>
-"""
-
-MARK_BEGIN = "<!-- BEGIN city-venue -->"
-MARK_END = "<!-- END city-venue -->"
-
-
-def update_sitemap(urls):
-    """Maintain a marker-delimited city-venue block in sitemap.xml.
-
-    Idempotent: replaces the block if markers exist, else inserts before
-    </urlset>. Other content in the sitemap is never touched."""
-    sm = ROOT / "sitemap.xml"
-    text = sm.read_text(encoding="utf-8") if sm.exists() else _EMPTY_SITEMAP
-    inner = "\n".join(
-        f"  <url><loc>{u}</loc><lastmod>{MODIFIED}</lastmod>"
-        f"<changefreq>monthly</changefreq><priority>0.6</priority></url>"
-        for u in urls
-    )
-    block = f"{MARK_BEGIN}\n{inner}\n{MARK_END}"
-    if MARK_BEGIN in text and MARK_END in text:
-        text = re.sub(
-            re.escape(MARK_BEGIN) + r".*?" + re.escape(MARK_END),
-            block, text, flags=re.DOTALL,
-        )
-    else:
-        text = text.replace("</urlset>", block + "\n</urlset>")
-    sm.write_text(text, encoding="utf-8")
-
-
 def main():
     urls = []
     for city_slug, city_name in CITIES:
         for venue_slug, venue_label, venue_noun in VENUES:
             url = build_page(city_slug, city_name, venue_slug, venue_label, venue_noun)
             urls.append(url)
-    update_sitemap(urls)
+    sync_sitemap()
     print(f"Generated {len(urls)} city-venue pages")
     print(f"Sample: {urls[0]}")
 

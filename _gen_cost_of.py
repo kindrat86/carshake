@@ -13,6 +13,8 @@ Usage: python3 _gen_cost_of.py [--hub]
 import re, json
 from pathlib import Path
 
+from _pseo_common import sync_sitemap
+
 ROOT = Path("/Users/sipi/carshake")
 BASE = "https://carshake.online"
 TODAY = "2026-07-26"
@@ -219,19 +221,6 @@ def gen_hub():
 <!-- /BRUNSON TRUST BAR -->
 
 </body></html>"""
-
-
-def sync_sitemap():
-    sitemap=ROOT/"sitemap.xml"; text=sitemap.read_text()
-    existing=set(re.findall(r"<loc>(https://carshake\.online/cost-of/[^<]+)</loc>",text))
-    new_lines=[]
-    for d in DAMAGE_TYPES:
-        url=f"{BASE}/cost-of/{d['slug']}"
-        if url not in existing: new_lines.append(f'  <url><loc>{url}</loc><lastmod>{TODAY}</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>')
-    if new_lines:
-        text=text.replace("</urlset>","\n".join(new_lines)+"\n</urlset>"); sitemap.write_text(text)
-        print(f"[sitemap] added {len(new_lines)} cost-of URLs")
-    else: print("[sitemap] all cost-of URLs present")
 
 
 def main():

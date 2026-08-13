@@ -17,7 +17,7 @@ import json
 from pathlib import Path
 
 from _pseo_common import (
-    BASE, MODIFIED, ROOT, article, head_block, org_schema, update_sitemap_block,
+    BASE, MODIFIED, ROOT, article, head_block, org_schema, sync_sitemap,
 )
 
 PUBLISHED = "2026-07-26"   # first publication of the state-venue page set
@@ -244,7 +244,7 @@ def main():
         for venue_slug, venue_label, venue_noun in VENUES:
             url = build_page(state_slug, state_name, venue_slug, venue_label, venue_noun)
             urls.append(url)
-    update_sitemap_block("state-venue", urls, priority="0.6")
+    sync_sitemap()
     print(f"Generated {len(urls)} state-venue pages ({len(STATES)} states x {len(VENUES)} venues)")
     print(f"Sample: {urls[0]}")
 
