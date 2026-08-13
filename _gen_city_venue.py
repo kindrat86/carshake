@@ -3,7 +3,7 @@
 CarShake compound pSEO generator.
 Produces /city-venue/{city}-{venue}/index.html for 40 cities x 5 venue types = 200 pages.
 Matches the standalone HTML template used by /industries/{x}/ (self-contained inline CSS).
-Maintains a marker-delimited block in sitemap-pseo.xml (idempotent).
+Maintains a marker-delimited block in sitemap.xml (idempotent).
 
 2026-07-26 fixes:
   - {venue_noun} template var was leaking into the FAQ answer (missing f-prefix).
@@ -270,11 +270,11 @@ MARK_END = "<!-- END city-venue -->"
 
 
 def update_sitemap(urls):
-    """Maintain a marker-delimited city-venue block in sitemap-pseo.xml.
+    """Maintain a marker-delimited city-venue block in sitemap.xml.
 
     Idempotent: replaces the block if markers exist, else inserts before
     </urlset>. Other content in the sitemap is never touched."""
-    sm = ROOT / "sitemap-pseo.xml"
+    sm = ROOT / "sitemap.xml"
     text = sm.read_text(encoding="utf-8") if sm.exists() else _EMPTY_SITEMAP
     inner = "\n".join(
         f"  <url><loc>{u}</loc><lastmod>{MODIFIED}</lastmod>"

@@ -110,12 +110,12 @@ def head_block(title, desc, url, schema_jsons):
 
 
 def update_sitemap_block(section, urls, priority="0.6", changefreq="monthly"):
-    """Maintain a marker-delimited block for `section` in sitemap-pseo.xml.
+    """Maintain a marker-delimited block for `section` in sitemap.xml.
 
     Idempotent and isolated: only the block bounded by
     <!-- BEGIN {section} --> ... <!-- END {section} --> is touched.
     Creates the file if missing."""
-    sm = ROOT / "sitemap-pseo.xml"
+    sm = ROOT / "sitemap.xml"
     empty = ('<?xml version="1.0" encoding="UTF-8"?>\n'
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</urlset>')
     text = sm.read_text(encoding="utf-8") if sm.exists() else empty

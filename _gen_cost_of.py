@@ -222,7 +222,7 @@ def gen_hub():
 
 
 def sync_sitemap():
-    sitemap=ROOT/"sitemap-pseo.xml"; text=sitemap.read_text()
+    sitemap=ROOT/"sitemap.xml"; text=sitemap.read_text()
     existing=set(re.findall(r"<loc>(https://carshake\.online/cost-of/[^<]+)</loc>",text))
     new_lines=[]
     for d in DAMAGE_TYPES:
