@@ -195,5 +195,18 @@ a{color:var(--accent)}
   }
 })();
 </script>
+<script>
+/* Prefill the location field from ?loc= (used by personalized pitch pages and
+   printed QR tickets, e.g. /free/instant-proof?loc=Curbstand%20Valet) */
+(function(){
+  try{
+    var l = new URLSearchParams(location.search).get('loc');
+    if(l){
+      var i = document.getElementById('loc');
+      if(i && !i.value){ i.value = l.slice(0, 80); }
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
