@@ -59,23 +59,15 @@ const COMPARE_CATEGORIES = [
 // ── Load the base HTML template ──────────────────────────────────
 let baseHtml = readFileSync(resolve(DIST, 'index.html'), 'utf8');
 
-// City-consolidation decision from the 2026-07-23 traffic report
+// ── City-consolidation decision from the 2026-07-23 traffic report
 // (REPORT_HERMES_CARSHAKE_20260723.md, "T3 — City Page Consolidation").
-// All 23 pruned cities from that report are listed here for completeness,
-// but only 20 of them (the ones also present in the CITIES object below)
-// actually get a prerendered city/<slug>/index.html — cincinnati,
-// jacksonville, and st-louis have no CITIES entry, so prerender.mjs never
-// touches those and this set is a no-op for them. Every prerender run must
-// keep these out of the sitemap and marked noindex,follow — that's the
-// bug that shipped in commit a796991 and got manually reverted; don't
-// let a future run silently undo it again. If you're revisiting the
-// pruning decision itself, edit this set (and re-sync with the report).
-const PRUNED_CITIES = new Set([
-  'anchorage', 'baltimore', 'charlotte', 'cincinnati', 'cleveland', 'columbus',
-  'detroit', 'honolulu', 'indianapolis', 'jacksonville', 'kansas-city', 'memphis',
-  'milwaukee', 'minneapolis', 'pittsburgh', 'portland', 'raleigh', 'richmond',
-  'sacramento', 'salt-lake-city', 'san-antonio', 'st-louis', 'tampa',
-]);
+// This set was previously used to mark pruned cities noindex and exclude
+// them from the sitemap, but that produced GSC "excluded by noindex" flags
+// on live indexed pages. As of the fix in this commit the set is empty and
+// every CITIES entry is indexed. If a future consolidation decision is made,
+// add the slug to CITIES_REMOVED (and remove its CITIES entry) rather than
+// reintroducing PRUNED_CITIES.
+const PRUNED_CITIES = new Set([]);
 
 // ── Helper: inject meta and body into index.html ─────────────────
 function injectMetaBody(baseHtml, { title, description, canonical, ogTitle, ogDesc, jsonLd, bodyHtml, noindex }) {
