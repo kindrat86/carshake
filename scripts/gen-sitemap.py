@@ -84,6 +84,23 @@ def is_external_canonical(canonical):
     """A sitemap must never emit a canonical URL owned by another host."""
     return bool(canonical and canonical != BASE and not canonical.startswith(BASE + '/'))
 
+def update_sitemap_index(lastmod):
+    """Keep the sitemap index's main-sitemap lastmod aligned with real changes."""
+    path = os.path.join(ROOT, 'sitemap-index.xml')
+    if not os.path.exists(path):
+        return
+    with open(path, encoding='utf-8') as f:
+        current = f.read()
+    updated, count = re.subn(
+        r'(<loc>https://carshake\.online/sitemap\.xml</loc>\s*<lastmod>)[^<]+',
+        rf'\g<1>{lastmod}',
+        current,
+        count=1,
+    )
+    if count == 1 and updated != current:
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(updated)
+
 def collect_pages():
     """Yield (url_path, abspath, lastmod, canonical, robots, is_noindex)."""
     pages = []
@@ -235,6 +252,16 @@ def main():
     target = os.path.join(ROOT, 'sitemap.xml')
     with open(target, 'w', encoding='utf-8') as f:
         f.write('\n'.join(out) + '\n')
+    # A dirty generated sitemap has changed today. Otherwise use its latest
+    # committed content date. This avoids build-date lastmod churn.
+    dirty = subprocess.run(
+        ['git', 'diff', '--quiet', '--', 'sitemap.xml'], cwd=ROOT
+    ).returncode != 0
+    sitemap_lastmod = datetime.now().date().isoformat() if dirty else (
+        git_lastmod('sitemap.xml') or file_lastmod(target)
+    )
+    if sitemap_lastmod:
+        update_sitemap_index(sitemap_lastmod)
     print(f"Wrote {target}: {len(indexable)} indexable URLs ({noindex_count} noindex excluded)")
 
 if __name__ == '__main__':
