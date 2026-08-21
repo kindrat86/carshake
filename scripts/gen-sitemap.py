@@ -21,12 +21,19 @@ BASE = "https://carshake.online"
 EXCLUDED_DIRS = {
     '.git', '.vercel', '.claude', '.well-known', '.github', 'node_modules',
     'scripts', 'i18n', 'public', 'templates', 'data', 'images', 'api',
+    # HTML fragments and iframe/embed artifacts are not standalone search pages.
+    'embed', 'widgets',
     # locale translations — handled via hreflang alternates on canonical pages
     'ae','ar','bn','es','fr','hi','id','pt','ru','ur','zh-CN',
     'de','it','ja','ko','fa','pl','tr','vi','th',
 }
 EXCLUDED_FILES = {
     '404.html',
+    'network-widget.html',
+    'related-tools.html',
+}
+EXCLUDED_REL_FILES = {
+    'network/widget.html',
 }
 # Excluded by .vercelignore pattern (repo-root docs/reports)
 EXCLUDED_ROOT_DOCS = re.compile(
@@ -64,6 +71,19 @@ def get_robots(html):
         return m.group(1)
     return None
 
+def is_excluded_html(rel, fn):
+    """Exclude support artifacts that happen to use an .html extension."""
+    rel_posix = rel.replace(os.sep, '/')
+    return (
+        fn in EXCLUDED_FILES
+        or rel_posix in EXCLUDED_REL_FILES
+        or ('/' not in rel_posix and re.match(r'^google[^/]*\.html$', fn, re.I))
+    )
+
+def is_external_canonical(canonical):
+    """A sitemap must never emit a canonical URL owned by another host."""
+    return bool(canonical and canonical != BASE and not canonical.startswith(BASE + '/'))
+
 def collect_pages():
     """Yield (url_path, abspath, lastmod, canonical, robots, is_noindex)."""
     pages = []
@@ -75,7 +95,6 @@ def collect_pages():
             continue
 
         for fn in filenames:
-            if fn in EXCLUDED_FILES: continue
             if not fn.endswith('.html') and fn != 'index.html':
                 # include .html files that have a vercel rewrite (we detect via vercel.json)
                 continue
@@ -83,6 +102,8 @@ def collect_pages():
                 continue  # .html files handled separately (cleanUrls rewrite)
             abspath = os.path.join(dirpath, fn)
             rel = os.path.relpath(abspath, ROOT)
+            if is_excluded_html(rel, fn):
+                continue
             # skip vercelignored root docs
             base = os.path.basename(rel)
             top = rel.split(os.sep)[0]
@@ -106,6 +127,8 @@ def collect_pages():
             robots = get_robots(html)
             is_noindex = bool(robots and 'noindex' in robots.lower())
             canonical = get_canonical(html)
+            if is_external_canonical(canonical):
+                continue
             lastmod = git_lastmod(rel) or file_lastmod(abspath)
             pages.append((url_path, abspath, lastmod, canonical, robots, is_noindex))
     return pages
@@ -134,6 +157,8 @@ def collect_html_cleanurls():
             if fn == 'index.html' or not fn.endswith('.html'): continue
             abspath = os.path.join(dirpath, fn)
             rel = os.path.relpath(abspath, ROOT)
+            if is_excluded_html(rel, fn):
+                continue
             top = rel.split(os.sep)[0]
             if EXCLUDED_ROOT_DOCS.match(top) or top in EXCLUDED_DIRS:
                 continue
@@ -151,6 +176,8 @@ def collect_html_cleanurls():
             with open(abspath, encoding='utf-8', errors='ignore') as f:
                 html = f.read(4096)
             canonical = get_canonical(html)
+            if is_external_canonical(canonical):
+                continue
             robots = get_robots(html)
             is_noindex = bool(robots and 'noindex' in robots.lower())
             lastmod = git_lastmod(rel) or file_lastmod(abspath)
@@ -167,18 +194,31 @@ def main():
             seen[up] = p
     pages = sorted(seen.values(), key=lambda p: p[0])
 
-    indexable = [p for p in pages if not p[5]]
-    noindex_count = len(pages) - len(indexable)
+    raw_indexable = [p for p in pages if not p[5]]
+    noindex_count = len(pages) - len(raw_indexable)
 
-    out = ['<?xml version="1.0" encoding="UTF-8"?>']
-    out.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
-               'xmlns:xhtml="http://www.w3.org/1999/xhtml">')
-    for url_path, abspath, lastmod, canonical, robots, is_noindex in indexable:
-        loc = canonical or (BASE + (url_path if url_path != '/' else '/'))
+    # Dedupe by the final canonical URL, not by source file path. Legacy aliases
+    # can have different files and url_paths while pointing at one canonical.
+    by_loc = {}
+    for p in raw_indexable:
+        url_path, _, _, canonical, _, _ = p
+        self_url = BASE + (url_path if url_path != '/' else '/')
+        loc = canonical or self_url
         # Canonical URLs in some prerendered pages carry a trailing slash, which
         # 308-redirects. Emit the redirect-free form (keep the root slash).
         if loc != BASE + '/' and loc.endswith('/'):
             loc = loc.rstrip('/')
+        self_url_normalized = self_url if self_url == BASE + '/' else self_url.rstrip('/')
+        is_self_canonical = loc == self_url_normalized
+        if loc not in by_loc or (is_self_canonical and not by_loc[loc][1]):
+            by_loc[loc] = (p, is_self_canonical)
+    indexable = sorted(((loc, item[0]) for loc, item in by_loc.items()), key=lambda x: x[0])
+
+    out = ['<?xml version="1.0" encoding="UTF-8"?>']
+    out.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+               'xmlns:xhtml="http://www.w3.org/1999/xhtml">')
+    for loc, page in indexable:
+        url_path, abspath, lastmod, canonical, robots, is_noindex = page
         out.append('  <url>')
         out.append(f'    <loc>{loc}</loc>')
         if lastmod:
