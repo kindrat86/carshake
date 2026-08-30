@@ -94,7 +94,7 @@ const REMAINING = [
 function makeTranslations(t, nav, lead, heroTop, heroBot, ph) {
   return {
     pageTitle: t("CarShake — Never Pay for Valet Damage Again. AI Car Scans, Free."),
-    pageDesc: t("60-second AI-powered car scan before valet. QR handover proof between you and the attendant. Free — no app download. Used by 1,822+ drivers saving thousands."),
+    pageDesc: t("60-second AI-powered car scan before valet. QR handover proof between you and the attendant. Free — no app download."),
     navLogo: "CarShake",
     navHowItWorks: nav["How It Works"],
     navPricing: nav["Pricing"],
@@ -106,7 +106,6 @@ function makeTranslations(t, nav, lead, heroTop, heroBot, ph) {
     heroBody: t("60-second AI car scan. QR handover proof. Both sides sign. When damage appears, you have irrefutable court-ready evidence. Free — no app download."),
     heroCTAPrimary: ph("Scan Your Car — Free →"),
     heroCTASecondary: nav["See How It Works"] || nav["How It Works"],
-    proofScans: ph("⭐ 1,822+ scans created"),
     proofCities: ph("📍 40+ US cities"),
     proofVerified: ph("🔒 SHA-256 verified"),
     storyQuote: t("\"I built CarShake because my Ferrari got damaged at valet — and I had zero proof.\""),

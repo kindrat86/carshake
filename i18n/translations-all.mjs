@@ -7,7 +7,7 @@ const LANG_DATA = {
   // ============================================================
   'zh-CN': {
     pageTitle: "CarShake — 永远不再为代客泊车损伤买单。AI汽车扫描，免费。",
-    pageDesc: "代客泊车前60秒AI动力汽车扫描。您和侍者之间的二维码交接证明。免费 — 无需下载应用。已有1,822+位驾驶员节省了数千美元。",
+    pageDesc: "代客泊车前60秒AI动力汽车扫描。您和侍者之间的二维码交接证明。免费 — 无需下载应用。",
     navLogo: "CarShake",
     navHowItWorks: "工作原理",
     navPricing: "价格",
@@ -19,7 +19,6 @@ const LANG_DATA = {
     heroBody: "60秒AI汽车扫描。二维码交接证明。双方签署。当损伤出现时，你有无可辩驳的法庭级证据。免费 — 无需下载应用。",
     heroCTAPrimary: "扫描你的汽车 — 免费 →",
     heroCTASecondary: "了解工作原理",
-    proofScans: "⭐ 已创建1,822+次扫描",
     proofCities: "📍 美国40+城市",
     proofVerified: "🔒 SHA-256验证",
     storyQuote: "\"我建造CarShake是因为我的法拉利在代客泊车时受损了 — 而我没有任何证据。\"",
@@ -91,7 +90,7 @@ const LANG_DATA = {
   // ============================================================
   'hi': {
     pageTitle: "CarShake — वैलेट पार्किंग क्षति के लिए फिर कभी भुगतान न करें। AI कार स्कैन, मुफ्त।",
-    pageDesc: "वैलेट पार्किंग से पहले 60 सेकंड का AI-संचालित कार स्कैन। आप और वैलेट के बीच QR कोड हैंडओवर प्रमाण। मुफ्त — कोई ऐप डाउनलोड नहीं। 1,822+ ड्राइवरों ने हजारों बचाए हैं।",
+    pageDesc: "वैलेट पार्किंग से पहले 60 सेकंड का AI-संचालित कार स्कैन। आप और वैलेट के बीच QR कोड हैंडओवर प्रमाण। मुफ्त — कोई ऐप डाउनलोड नहीं।",
     navLogo: "CarShake",
     navHowItWorks: "यह कैसे काम करता है",
     navPricing: "मूल्य निर्धारण",
@@ -103,7 +102,6 @@ const LANG_DATA = {
     heroBody: "60 सेकंड का AI कार स्कैन। QR कोड हैंडओवर प्रमाण। दोनों पक्षों द्वारा हस्ताक्षरित। जब क्षति होती है, आपके पास अकाट्य न्यायालय-स्तरीय सबूत होते हैं। मुफ्त — कोई ऐप डाउनलोड नहीं।",
     heroCTAPrimary: "अपनी कार स्कैन करें — मुफ्त →",
     heroCTASecondary: "यह कैसे काम करता है जानें",
-    proofScans: "⭐ 1,822+ स्कैन बनाए गए",
     proofCities: "📍 40+ अमेरिकी शहर",
     proofVerified: "🔒 SHA-256 सत्यापित",
     storyQuote: "\"मैंने CarShake इसलिए बनाया क्योंकि वैलेट पार्किंग में मेरी फेरारी क्षतिग्रस्त हो गई — और मेरे पास कोई सबूत नहीं था।\"",
@@ -175,7 +173,7 @@ const LANG_DATA = {
   // ============================================================
   'es': {
     pageTitle: "CarShake — Nunca más pagues por daños del valet parking. Escaneo de autos con IA, gratis.",
-    pageDesc: "Escaneo de autos con IA en 60 segundos antes del valet parking. Prueba de entrega con código QR entre tú y el valet. Gratis — sin descargar apps. Más de 1,822 conductores han ahorrado miles.",
+    pageDesc: "Escaneo de autos con IA en 60 segundos antes del valet parking. Prueba de entrega con código QR entre tú y el valet. Gratis — sin descargar apps.",
     navLogo: "CarShake",
     navHowItWorks: "Cómo funciona",
     navPricing: "Precios",
@@ -187,7 +185,6 @@ const LANG_DATA = {
     heroBody: "Escaneo de autos con IA en 60 segundos. Prueba de entrega con código QR. Firmado por ambas partes. Cuando aparecen daños, tienes evidencia irrefutable a nivel judicial. Gratis — sin descargar apps.",
     heroCTAPrimary: "Escanea tu auto — gratis →",
     heroCTASecondary: "Cómo funciona",
-    proofScans: "⭐ Más de 1,822 escaneos creados",
     proofCities: "📍 Más de 40 ciudades en EE.UU.",
     proofVerified: "🔒 Verificado con SHA-256",
     storyQuote: "\"Creé CarShake porque dañaron mi Ferrari en el valet parking — y no tenía ninguna prueba.\"",
@@ -259,7 +256,7 @@ const LANG_DATA = {
   // ============================================================
   'fr': {
     pageTitle: "CarShake — Ne payez plus jamais pour les dégâts du voiturier. Scan auto IA, gratuit.",
-    pageDesc: "Scan auto piloté par l'IA en 60 secondes avant le voiturier. Preuve de remise par QR code entre vous et le voiturier. Gratuit — sans téléchargement d'application. Plus de 1 822 conducteurs ont économisé des milliers d'euros.",
+    pageDesc: "Scan auto piloté par l'IA en 60 secondes avant le voiturier. Preuve de remise par QR code entre vous et le voiturier. Gratuit — sans téléchargement d'application.",
     navLogo: "CarShake",
     navHowItWorks: "Comment ça marche",
     navPricing: "Tarifs",
@@ -271,7 +268,6 @@ const LANG_DATA = {
     heroBody: "Scan auto IA en 60 secondes. Preuve de remise par QR code. Signé par les deux parties. Quand des dommages apparaissent, vous avez des preuves irréfutables de niveau judiciaire. Gratuit — sans téléchargement d'application.",
     heroCTAPrimary: "Scannez votre voiture — gratuit →",
     heroCTASecondary: "Comment ça marche",
-    proofScans: "⭐ Plus de 1 822 scans créés",
     proofCities: "📍 40+ villes aux États-Unis",
     proofVerified: "🔒 Vérifié SHA-256",
     storyQuote: "\"J'ai créé CarShake parce que ma Ferrari a été endommagée au voiturier — et je n'avais aucune preuve.\"",
@@ -343,7 +339,7 @@ const LANG_DATA = {
   // ============================================================
   'ar': {
     pageTitle: "CarShake — لا تدفع مرة أخرى مقابل أضرار خدمة صف السيارات. فحص السيارة بالذكاء الاصطناعي، مجاناً.",
-    pageDesc: "فحص السيارة بتقنية الذكاء الاصطناعي في 60 ثانية قبل خدمة صف السيارات. إثبات تسليم برمز QR بينك وبين السائق. مجاناً — بدون تنزيل تطبيق. أكثر من 1,822 سائقاً وفروا الآلاف.",
+    pageDesc: "فحص السيارة بتقنية الذكاء الاصطناعي في 60 ثانية قبل خدمة صف السيارات. إثبات تسليم برمز QR بينك وبين السائق. مجاناً — بدون تنزيل تطبيق.",
     navLogo: "CarShake",
     navHowItWorks: "كيف يعمل",
     navPricing: "الأسعار",
@@ -355,7 +351,6 @@ const LANG_DATA = {
     heroBody: "فحص سيارة بالذكاء الاصطناعي في 60 ثانية. إثبات تسليم برمز QR. موقع من الطرفين. عند ظهور الأضرار، لديك أدلة قاطعة على المستوى القضائي. مجاناً — بدون تنزيل تطبيق.",
     heroCTAPrimary: "افحص سيارتك — مجاناً ←",
     heroCTASecondary: "تعرف على كيفية العمل",
-    proofScans: "⭐ تم إنشاء أكثر من 1,822 فحصاً",
     proofCities: "📍 أكثر من 40 مدينة أمريكية",
     proofVerified: "🔒 تم التحقق بـ SHA-256",
     storyQuote: "\"بنيت CarShake لأن سيارتي الفيراري تضررت في خدمة صف السيارات — ولم يكن لدي أي دليل.\"",
@@ -427,7 +422,7 @@ const LANG_DATA = {
   // ============================================================
   'bn': {
     pageTitle: "CarShake — ভ্যালেট পার্কিংয়ের ক্ষতির জন্য আর কখনও টাকা দেবেন না। AI গাড়ি স্ক্যান, বিনামূল্যে।",
-    pageDesc: "ভ্যালেট পার্কিংয়ের আগে ৬০ সেকেন্ডের AI চালিত গাড়ি স্ক্যান। আপনার এবং ভ্যালেটের মধ্যে QR কোড হ্যান্ডওভার প্রমাণ। বিনামূল্যে — কোনো অ্যাপ ডাউনলোডের প্রয়োজন নেই। ১,৮২২+ ড্রাইভার হাজার হাজার টাকা বাঁচিয়েছেন।",
+    pageDesc: "ভ্যালেট পার্কিংয়ের আগে ৬০ সেকেন্ডের AI চালিত গাড়ি স্ক্যান। আপনার এবং ভ্যালেটের মধ্যে QR কোড হ্যান্ডওভার প্রমাণ। বিনামূল্যে — কোনো অ্যাপ ডাউনলোডের প্রয়োজন নেই।",
     navLogo: "CarShake",
     navHowItWorks: "কীভাবে কাজ করে",
     navPricing: "মূল্য নির্ধারণ",
@@ -439,7 +434,6 @@ const LANG_DATA = {
     heroBody: "৬০ সেকেন্ডের AI গাড়ি স্ক্যান। QR কোড হ্যান্ডওভার প্রমাণ। উভয় পক্ষ স্বাক্ষরিত। যখন ক্ষতি দেখা দেয়, আপনার কাছে অকাট্য আদালত-স্তরের প্রমাণ থাকে। বিনামূল্যে — কোনো অ্যাপ ডাউনলোডের প্রয়োজন নেই।",
     heroCTAPrimary: "আপনার গাড়ি স্ক্যান করুন — বিনামূল্যে →",
     heroCTASecondary: "কীভাবে কাজ করে জানুন",
-    proofScans: "⭐ ১,৮২২+ স্ক্যান তৈরি হয়েছে",
     proofCities: "📍 মার্কিন যুক্তরাষ্ট্রের ৪০+ শহর",
     proofVerified: "🔒 SHA-256 যাচাইকৃত",
     storyQuote: "\"আমি CarShake তৈরি করেছি কারণ ভ্যালেট পার্কিংয়ে আমার ফেরারি ক্ষতিগ্রস্ত হয়েছিল — এবং আমার কাছে কোনো প্রমাণ ছিল না।\"",
@@ -511,7 +505,7 @@ const LANG_DATA = {
   // ============================================================
   'pt': {
     pageTitle: "CarShake — Nunca mais pague por danos do manobrista. Escaneamento de carro com IA, grátis.",
-    pageDesc: "Escaneamento de carro com IA em 60 segundos antes do manobrista. Comprovante de entrega por QR code entre você e o manobrista. Grátis — sem baixar aplicativo. Mais de 1.822 motoristas economizaram milhares.",
+    pageDesc: "Escaneamento de carro com IA em 60 segundos antes do manobrista. Comprovante de entrega por QR code entre você e o manobrista. Grátis — sem baixar aplicativo.",
     navLogo: "CarShake",
     navHowItWorks: "Como funciona",
     navPricing: "Preços",
@@ -523,7 +517,6 @@ const LANG_DATA = {
     heroBody: "Escaneamento de carro com IA em 60 segundos. Comprovante de entrega por QR code. Assinado por ambas as partes. Quando surgem danos, você tem evidências irrefutáveis de nível judicial. Grátis — sem baixar aplicativo.",
     heroCTAPrimary: "Escaneie seu carro — grátis →",
     heroCTASecondary: "Como funciona",
-    proofScans: "⭐ Mais de 1.822 escaneamentos criados",
     proofCities: "📍 Mais de 40 cidades nos EUA",
     proofVerified: "🔒 Verificado com SHA-256",
     storyQuote: "\"Criei o CarShake porque minha Ferrari foi danificada no manobrista — e eu não tinha nenhuma prova.\"",
@@ -595,7 +588,7 @@ const LANG_DATA = {
   // ============================================================
   'ru': {
     pageTitle: "CarShake — Больше никогда не платите за повреждения на парковке с valet. Сканирование авто с ИИ, бесплатно.",
-    pageDesc: "Сканирование автомобиля с ИИ за 60 секунд перед парковкой с valet. Подтверждение передачи с QR-кодом между вами и парковщиком. Бесплатно — без скачивания приложения. Более 1 822 водителей сэкономили тысячи.",
+    pageDesc: "Сканирование автомобиля с ИИ за 60 секунд перед парковкой с valet. Подтверждение передачи с QR-кодом между вами и парковщиком. Бесплатно — без скачивания приложения.",
     navLogo: "CarShake",
     navHowItWorks: "Как это работает",
     navPricing: "Цены",
@@ -607,7 +600,6 @@ const LANG_DATA = {
     heroBody: "Сканирование автомобиля с ИИ за 60 секунд. Подтверждение передачи с QR-кодом. Подпись обеих сторон. Когда появляются повреждения, у вас есть неопровержимые доказательства уровня суда. Бесплатно — без скачивания приложения.",
     heroCTAPrimary: "Сканируйте свой автомобиль — бесплатно →",
     heroCTASecondary: "Узнать, как это работает",
-    proofScans: "⭐ Создано более 1 822 сканирований",
     proofCities: "📍 Более 40 городов США",
     proofVerified: "🔒 Подтверждено SHA-256",
     storyQuote: "\"Я создал CarShake, потому что мою Ferrari повредили на парковке с valet — и у меня не было никаких доказательств.\"",
@@ -679,7 +671,7 @@ const LANG_DATA = {
   // ============================================================
   'ur': {
     pageTitle: "CarShake — والیٹ پارکنگ کے نقصان کے لیے پھر کبھی ادائیگی نہ کریں۔ AI کار سکین، مفت۔",
-    pageDesc: "والیٹ پارکنگ سے پہلے 60 سیکنڈ کا AI سے چلنے والا کار سکین۔ آپ اور والیٹ کے درمیان QR کوڈ حوالگی کا ثبوت۔ مفت — کوئی ایپ ڈاؤن لوڈ نہیں۔ 1,822+ ڈرائیوروں نے ہزاروں بچائے۔",
+    pageDesc: "والیٹ پارکنگ سے پہلے 60 سیکنڈ کا AI سے چلنے والا کار سکین۔ آپ اور والیٹ کے درمیان QR کوڈ حوالگی کا ثبوت۔ مفت — کوئی ایپ ڈاؤن لوڈ نہیں۔",
     navLogo: "CarShake",
     navHowItWorks: "یہ کیسے کام کرتا ہے",
     navPricing: "قیمتوں کا تعین",
@@ -691,7 +683,6 @@ const LANG_DATA = {
     heroBody: "60 سیکنڈ کا AI کار سکین۔ QR کوڈ حوالگی کا ثبوت۔ دونوں فریقوں کے دستخط شدہ۔ جب نقصان ظاہر ہوتا ہے، آپ کے پاس ناقابل تردید عدالتی سطح کے ثبوت ہوتے ہیں۔ مفت — کوئی ایپ ڈاؤن لوڈ نہیں۔",
     heroCTAPrimary: "اپنی کار سکین کریں — مفت ←",
     heroCTASecondary: "یہ کیسے کام کرتا ہے جانیں",
-    proofScans: "⭐ 1,822+ سکین بنائے گئے",
     proofCities: "📍 40+ امریکی شہر",
     proofVerified: "🔒 SHA-256 تصدیق شدہ",
     storyQuote: "\"میں نے CarShake اس لیے بنایا کیونکہ والیٹ پارکنگ میں میری فیراری کو نقصان پہنچا — اور میرے پاس کوئی ثبوت نہیں تھا۔\"",
@@ -763,7 +754,7 @@ const LANG_DATA = {
   // ============================================================
   'id': {
     pageTitle: "CarShake — Jangan pernah bayar lagi untuk kerusakan valet parkir. Scan mobil dengan AI, gratis.",
-    pageDesc: "Scan mobil bertenaga AI 60 detik sebelum valet parkir. Bukti serah terima QR code antara Anda dan petugas valet. Gratis — tanpa unduh aplikasi. Lebih dari 1.822 pengemudi telah menghemat ribuan.",
+    pageDesc: "Scan mobil bertenaga AI 60 detik sebelum valet parkir. Bukti serah terima QR code antara Anda dan petugas valet. Gratis — tanpa unduh aplikasi.",
     navLogo: "CarShake",
     navHowItWorks: "Cara Kerja",
     navPricing: "Harga",
@@ -775,7 +766,6 @@ const LANG_DATA = {
     heroBody: "Scan mobil AI 60 detik. Bukti serah terima QR code. Ditandatangani kedua belah pihak. Saat kerusakan muncul, Anda punya bukti tak terbantahkan setingkat pengadilan. Gratis — tanpa unduh aplikasi.",
     heroCTAPrimary: "Scan mobil Anda — gratis →",
     heroCTASecondary: "Pelajari cara kerja",
-    proofScans: "⭐ 1.822+ scan telah dibuat",
     proofCities: "📍 40+ kota di AS",
     proofVerified: "🔒 Terverifikasi SHA-256",
     storyQuote: "\"Saya membangun CarShake karena Ferrari saya rusak saat valet parkir — dan saya tidak punya bukti apa pun.\"",

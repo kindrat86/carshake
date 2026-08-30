@@ -5,13 +5,13 @@ const LANG_DATA = {};
 // ── German ──
 LANG_DATA['de'] = {
   pageTitle: "CarShake — Nie wieder für Valet-Schäden zahlen. KI-Auto-Scans, kostenlos.",
-  pageDesc: "60-Sekunden-KI-gestützter Autoscan vor dem Valet. QR-Übergabenachweis zwischen Ihnen und dem Parkservice. Kostenlos — keine App nötig. Von 1.822+ Fahrern genutzt, die Tausende sparen.",
+  pageDesc: "60-Sekunden-KI-gestützter Autoscan vor dem Valet. QR-Übergabenachweis zwischen Ihnen und dem Parkservice. Kostenlos — keine App nötig.",
   navLogo: "CarShake", navHowItWorks: "So funktioniert's", navPricing: "Preise", navCities: "Städte", navTryFree: "Kostenlos testen",
   heroLabel: "Die 4.200-Dollar-Lehre, die CarShake hervorbrachte",
   heroTitle1: "Nie für Valet-Schäden zahlen, ", heroTitleHighlight: "die Sie nicht verursacht haben",
   heroBody: "60-Sekunden-KI-Auto-Scan. QR-Übergabenachweis. Beide Seiten unterschreiben. Bei Schäden haben Sie unwiderlegbare, gerichtsfeste Beweise. Kostenlos — keine App nötig.",
   heroCTAPrimary: "Auto scannen — Kostenlos →", heroCTASecondary: "So funktioniert's",
-  proofScans: "⭐ 1.822+ Scans erstellt", proofCities: "📍 40+ US-Städte", proofVerified: "🔒 SHA-256 geprüft",
+   proofCities: "📍 40+ US-Städte", proofVerified: "🔒 SHA-256 geprüft",
   storyQuote: "\"Ich habe CarShake gebaut, weil mein Ferrari beim Valet beschädigt wurde — und ich hatte keinerlei Beweise.\"",
   storyP1: "Dezember 2023. Ich übergab meine Schlüssel einem Hotel-Valet in Beverly Hills. Als das Auto zurückkam, war der Frontspoiler zerkratzt — 4.200 Dollar Schaden. Der Valet-Manager zuckte mit den Schultern: \"Woher sollen wir wissen, ob das nicht schon vorher so war?\"",
   storyP2: "Er hatte recht. Ich hatte nichts. Keine Fotos. Keine Zeugen. Keine Beweise. Ich zahlte die Reparatur aus eigener Tasche.",
@@ -48,13 +48,13 @@ LANG_DATA['de'] = {
 // ── Japanese ──
 LANG_DATA['ja'] = {
   pageTitle: "CarShake — バレーパーキングの損害でもうお金を払わない。AIカースキャン、無料。",
-  pageDesc: "バレーの前に60秒のAI搭載カースキャン。あなたと係員の間のQRコード引渡し証明。無料 — アプリダウンロード不要。1,822人以上のドライバーが数千ドルを節約。",
+  pageDesc: "バレーの前に60秒のAI搭載カースキャン。あなたと係員の間のQRコード引渡し証明。無料 — アプリダウンロード不要。",
   navLogo: "CarShake", navHowItWorks: "仕組み", navPricing: "料金", navCities: "都市", navTryFree: "無料で試す",
   heroLabel: "CarShakeを生んだ4,200ドルの教訓",
   heroTitle1: "バレーの損害にお金を払わない ", heroTitleHighlight: "あなたが原因ではないものに",
   heroBody: "60秒のAIカースキャン。QRコード引渡し証明。双方が署名。損害が発生した場合、反論不可能な法廷レベルの証拠があります。無料 — アプリダウンロード不要。",
   heroCTAPrimary: "車をスキャン — 無料 →", heroCTASecondary: "仕組みを見る",
-  proofScans: "⭐ 1,822+回のスキャン実績", proofCities: "📍 全米40以上の都市", proofVerified: "🔒 SHA-256認証済",
+   proofCities: "📍 全米40以上の都市", proofVerified: "🔒 SHA-256認証済",
   storyQuote: "\"フェラーリがバレーで傷つけられたからCarShakeを作った — 証拠はゼロだった。\"",
   storyP1: "2023年12月。ビバリーヒルズのホテルのバレーにキーを渡しました。車が戻ってきたとき、フロントスポイラーに傷が — 4,200ドルの損害。バレーマネージャーは肩をすくめて言いました。「預けたときからそうだったって、どうやって証明するんですか？」",
   storyP2: "彼の言う通りでした。私には何もありませんでした。写真も、目撃者も、証拠も。修理費は自腹で払いました。",
@@ -91,13 +91,13 @@ LANG_DATA['ja'] = {
 // ── Italian ──
 LANG_DATA['it'] = {
   pageTitle: "CarShake — Non pagare mai più per danni del valet. Scansioni AI auto, gratuite.",
-  pageDesc: "Scansione AI dell'auto in 60 secondi prima del valet. Prova di consegna QR tra te e il parcheggiatore. Gratuito — nessun download dell'app. Usato da oltre 1.822 conducenti che risparmiano migliaia.",
+  pageDesc: "Scansione AI dell'auto in 60 secondi prima del valet. Prova di consegna QR tra te e il parcheggiatore. Gratuito — nessun download dell'app.",
   navLogo: "CarShake", navHowItWorks: "Come funziona", navPricing: "Prezzi", navCities: "Città", navTryFree: "Prova gratis",
   heroLabel: "La lezione da $4.200 che ha creato CarShake",
   heroTitle1: "Non pagare mai per danni del valet ", heroTitleHighlight: "che non hai causato",
   heroBody: "Scansione AI auto in 60 secondi. Prova di consegna QR. Entrambe le parti firmano. Quando appaiono danni, hai prove inconfutabili pronte per il tribunale. Gratuito — nessun download dell'app.",
   heroCTAPrimary: "Scansiona la tua auto — Gratis →", heroCTASecondary: "Scopri come funziona",
-  proofScans: "⭐ 1.822+ scansioni create", proofCities: "📍 40+ città USA", proofVerified: "🔒 SHA-256 verificato",
+   proofCities: "📍 40+ città USA", proofVerified: "🔒 SHA-256 verificato",
   storyQuote: "\"Ho creato CarShake perché la mia Ferrari è stata danneggiata al valet — e non avevo alcuna prova.\"",
   storyP1: "Dicembre 2023. Ho consegnato le chiavi a un valet d'albergo a Beverly Hills. Quando l'auto è tornata, lo splitter anteriore era graffiato — $4.200 di danni. Il manager del valet ha alzato le spalle: \"Come facciamo a sapere che non era già così quando l'ha lasciata?\"",
   storyP2: "Aveva ragione. Non avevo nulla. Niente foto. Niente testimoni. Niente prove. Ho pagato la riparazione di tasca mia.",
@@ -134,13 +134,13 @@ LANG_DATA['it'] = {
 // ── Korean ──
 LANG_DATA['ko'] = {
   pageTitle: "CarShake — 발레 손해에 다시는 돈을 내지 마세요. AI 자동차 스캔, 무료.",
-  pageDesc: "발레 전 60초 AI 기반 자동차 스캔. 귀하와 주차요원 간 QR 코드 인계 증명. 무료 — 앱 다운로드 불필요. 1,822명 이상의 운전자가 수천 달러를 절약했습니다.",
+  pageDesc: "발레 전 60초 AI 기반 자동차 스캔. 귀하와 주차요원 간 QR 코드 인계 증명. 무료 — 앱 다운로드 불필요.",
   navLogo: "CarShake", navHowItWorks: "작동 방식", navPricing: "요금", navCities: "도시", navTryFree: "무료 체험",
   heroLabel: "CarShake를 만든 $4,200의 교훈",
   heroTitle1: "발레 손해에 돈을 내지 마세요 ", heroTitleHighlight: "당신이 일으키지 않은",
   heroBody: "60초 AI 자동차 스캔. QR 코드 인계 증명. 양측 서명. 손해가 발생했을 때, 반박할 수 없는 법정 제출용 증거가 있습니다. 무료 — 앱 다운로드 불필요.",
   heroCTAPrimary: "자동차 스캔하기 — 무료 →", heroCTASecondary: "작동 방식 보기",
-  proofScans: "⭐ 1,822+회 스캔 생성", proofCities: "📍 미국 40+ 도시", proofVerified: "🔒 SHA-256 인증",
+   proofCities: "📍 미국 40+ 도시", proofVerified: "🔒 SHA-256 인증",
   storyQuote: "\"페라리가 발레에서 손상됐기 때문에 CarShake를 만들었습니다 — 증거가 전혀 없었거든요.\"",
   storyP1: "2023년 12월. 비벌리힐스 호텔 발레에 열쇠를 맡겼습니다. 차가 돌아왔을 때 앞범퍼 하단이 긁혀 있었습니다 — $4,200 상당의 손해. 발레 매니저는 어깨를 으쓱하며 말했습니다: \"맡기실 때도 그랬는지 어떻게 알 수 있겠습니까?\"",
   storyP2: "그 말이 맞았습니다. 아무것도 없었습니다. 사진도, 목격자도, 증거도 없었습니다. 수리비는 제가 부담해야 했습니다.",
