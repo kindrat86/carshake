@@ -328,7 +328,7 @@
       ]
     },
     {
-      "source": "/kit-thanks.html",
+      "source": "/kit-thanks(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",
