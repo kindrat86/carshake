@@ -52,7 +52,7 @@ const COMPARE_CATEGORIES = [
     name: 'Nothing (Hope for the Best)',
     whatTheySay: 'I\'ve been parking with valet for years and never had a problem.',
     whatTheyMiss: 'Valet damage costs American drivers $2 billion annually. The 1-in-20 odds of damage in a given year mean you\'re statistically due within 5 years of regular valet use. The average repair is $850+.',
-    verdict: 'CarShake is free for 3 scans per month. That\'s $0 for the only tool that gives you court-ready evidence. The alternative is paying $850+ out of pocket.'
+    verdict: 'CarShake is free. That\'s $0 for the only tool that gives you court-ready evidence. The alternative is paying $850+ out of pocket.'
   },
 ];
 
@@ -840,7 +840,7 @@ const TOP_PAGES = {
   },
   'pricing': {
     title: 'CarShake Pricing — Free Valet Protection',
-    description: 'Free plan includes 3 scans per month. Shield+ at $2.97/month for unlimited scans, PDF reports, and priority support.',
+    description: 'CarShake is free to use. Shield+ at $2.97/month adds PDF reports and priority support.',
     h1: 'Simple, Transparent Pricing'
   },
   'trust': {

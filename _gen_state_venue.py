@@ -141,7 +141,7 @@ def build_page(state_slug, state_name, venue_slug, venue_label, venue_noun):
         (f"Does {state_name} bailment law help me if a valet damages my car at {article(venue_noun)} {venue_noun}?",
          f"It can. When you hand your keys to a valet in {state_name}, a bailment is created and the {venue_noun} (or its valet contractor) is expected to return the car in the condition it was received. The hard part is proving the before-state — which is exactly what a timestamped CarShake scan provides. For the state-specific liability limits, statutes of limitation, and how {state_name} courts have treated valet disclaimers, see our {state_name} valet liability guide linked below."),
         (f"Is CarShake free in {state_name}?",
-         f"Yes. The free plan includes 3 scans per month — enough to cover a typical {venue_noun} visit. Shield+ at $2.97/month unlocks unlimited scans and PDF evidence reports, which is less than the cost of a single disputed cleaning fee or deductible."),
+         f"Yes. CarShake is free to use. Shield+ at $2.97/month adds PDF evidence reports and priority support."),
     ]
 
     article_json = {
@@ -192,7 +192,7 @@ def build_page(state_slug, state_name, venue_slug, venue_label, venue_noun):
 <p>When you hand your keys to a valet in {state_name}, you've created a <em>bailment</em> — the {venue_noun} (or its valet contractor) takes temporary custody of your vehicle and is expected to return it in the condition it was received. In practice, valet operators often try to disclaim liability for cosmetic damage, and the dispute almost always comes down to one question: <strong>can you prove the car's condition before handover?</strong> CarShake's timestamped, GPS-verified, SHA-256-hashed photos plus the QR handover receipt are exactly that proof. For the specifics that vary by state — liability caps, statutes of limitation, and how {state_name} courts have treated valet-ticket disclaimers — see our <a href="{state_hub}">{state_name} valet liability guide</a>.</p>
 
 <div class="callout">
-<strong>The {state_name} angle:</strong> disputes at {venue_noun}s are most often won or lost on <em>whether the driver can prove the before-state</em>. A CarShake pre-scan is the cheapest insurance you'll ever carry — it's free.
+<strong>The {state_name} angle:</strong> disputes at {venue_noun}s are most often won or lost on <em>whether the driver can prove the before-state</em>. A CarShake pre-scan costs nothing and gives you timestamped proof instead of a dispute.
 </div>
 
 <h2>How {state_name} drivers use CarShake at {article(venue_noun)} {venue_noun}</h2>
@@ -204,7 +204,7 @@ def build_page(state_slug, state_name, venue_slug, venue_label, venue_noun):
 </ol>
 
 <h2>What it costs</h2>
-<p>Free plan: 3 scans per month — enough to cover a typical {venue_noun} visit. Shield+ at <strong>$2.97/month</strong> unlocks unlimited scans and exportable PDF evidence reports. That is less than the cost of a single disputed cleaning fee or insurance deductible. See <a href="{BASE}/pricing">pricing</a>.</p>
+<p>CarShake is free to use. Shield+ at <strong>$2.97/month</strong> adds PDF evidence reports and priority support. See <a href="{BASE}/pricing">pricing</a>.</p>
 
 {city_block}
 <h2>Frequently asked questions</h2>

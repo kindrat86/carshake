@@ -122,7 +122,7 @@ def build_page(city_slug, city_name, venue_slug, venue_label, venue_noun):
         (f"Can I use CarShake evidence in {article(city_name)} {city_name} {venue_noun} damage dispute?",
          f"Yes. CarShake produces timestamped, GPS-verified photo evidence with SHA-256 hashing and a mutually acknowledged QR handover receipt. {city_name} drivers use these PDF evidence reports to resolve disputes with {venue_noun} valet operators, garage management companies, and their own auto insurers. The timestamp ties any new damage to the specific window the {venue_noun} had custody of the vehicle."),
         (f"Is CarShake free for {city_name} drivers?",
-         f"Yes. The free plan includes 3 scans per month — enough to cover a typical {venue_noun} visit. Shield+ at $2.97/month unlocks unlimited scans and PDF evidence reports, which is less than the cost of a single disputed cleaning fee or deductible."),
+         f"Yes. CarShake is free to use. Shield+ at $2.97/month adds PDF evidence reports and priority support."),
     ]
 
     faq_json = {"@context": "https://schema.org", "@type": "FAQPage",
@@ -226,11 +226,11 @@ nav.breadcrumb a{color:#0066cc}
 </ol>
 
 <div class="callout">
-<strong>The {city_name} angle:</strong> local drivers report that disputes at {venue_noun}s are most often won or lost on <em>whether the driver can prove the before-state</em>. A CarShake pre-scan is the cheapest insurance you'll ever carry — it's free.
+<strong>The {city_name} angle:</strong> local drivers report that disputes at {venue_noun}s are most often won or lost on <em>whether the driver can prove the before-state</em>. A CarShake pre-scan costs nothing and gives you timestamped proof instead of a dispute.
 </div>
 
 <h2>What it costs</h2>
-<p>Free plan: 3 scans per month — enough to cover a typical month of {venue_noun} visits in {city_name}. Shield+ at <strong>$2.97/month</strong> unlocks unlimited scans and exportable PDF evidence reports. That is less than the cost of a single disputed cleaning fee or insurance deductible. See <a href="{BASE}/pricing">pricing</a>.</p>
+<p>CarShake is free to use. Shield+ at $2.97/month adds PDF evidence reports and priority support. See <a href="{BASE}/pricing">pricing</a>.</p>
 
 <h2>Frequently asked questions</h2>
 {faq_visible}

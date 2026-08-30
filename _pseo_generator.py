@@ -348,7 +348,7 @@ PAGES = {
         ("how-much-does-it-cost", "How Much Does CarShake Cost? Full Pricing Breakdown", [
             "CarShake is free for basic use. No credit card required to download and start scanning. Here's the full pricing breakdown as of 2026.",
             "Free tier: $0/month. Includes up to 10 scans, timestamped photos, GPS tagging, and basic condition documentation. Enough for most occasional users.",
-            "Premium tier: $2.97/month or $29/year. Includes unlimited scans, cloud backup across devices, automated before/after comparison, PDF report generation, and priority support.",
+            "Premium tier: $2.97/month or $29/year. Includes cloud backup across devices, automated before/after comparison, PDF report generation, and priority support.",
             "Fleet tier: $9.99/month for 3 vehicles, $19.99/month for 10 vehicles, custom pricing for larger fleets. Includes all premium features plus fleet dashboard, QR-code vehicle identification, multi-driver handover records, and API access.",
         ], [("Is there a contract or commitment?", "No. The free tier has no commitment. Premium and Fleet tiers are month-to-month, cancel anytime. Annual payment option saves ~20%."), ("What payment methods are accepted?", "All major credit cards are accepted through secure Stripe processing. Apple Pay and Google Pay are also supported for in-app purchases.")]),
 

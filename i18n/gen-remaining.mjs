@@ -163,7 +163,7 @@ function makeTranslations(t, nav, lead, heroTop, heroBot, ph) {
     faqDesc: t("Everything you need to know about CarShake: pricing, how scans work, QR handover, legal evidence, and more."),
     faqH1: t("Frequently Asked Questions"),
     pricingTitle: t("CarShake Pricing — Free Valet Protection"),
-    pricingDesc: t("Free plan includes 3 scans per month. Shield+ at $2.97/month for unlimited scans, PDF reports, and priority support."),
+    pricingDesc: t("CarShake is free to use. Shield+ at $2.97/month adds PDF reports and priority support."),
     pricingH1: t("Simple, Transparent Pricing"),
     howWorksTitle: t("How CarShake Works — AI-Powered Car Protection"),
     howWorksDesc: t("Scan your car in 60 seconds. QR handover proof. AI compares every angle at pickup. Free, no app download needed."),

@@ -169,7 +169,7 @@ def industries_car_rental():
 <p>Every vehicle that leaves your lot gets a "before" record. Every vehicle that comes back gets an "after" comparison. The math is simple: fewer successful false claims = lower insurance premiums and fewer chargeback losses. Fleet managers report a 60–80% reduction in disputed damage claims within the first quarter of adoption.</p>
 
 <h2>What it costs</h2>
-<p>CarShake's free plan includes 3 scans per month — enough for a small independent to try it. Shield+ is $2.97/month for unlimited scans and PDF evidence reports. Enterprise plans for high-volume fleets include branded receipts, audit-trail exports, and API access. See <a href="/pricing">pricing</a> for details.</p>
+<p>CarShake is free to use. Shield+ is $2.97/month for PDF evidence reports and priority support. Enterprise plans for high-volume fleets include branded receipts, audit-trail exports, and API access. See <a href="/pricing">pricing</a> for details.</p>
 
 <h2>Frequently asked questions</h2>
 <h3>How does CarShake reduce damage disputes for rental companies?</h3>
@@ -223,7 +223,7 @@ def industries_dealerships():
 <p><strong>Service lane:</strong> scan at drop-off, re-scan at delivery — disputes about wash-bay scratches disappear. <strong>Loaners:</strong> both directions of every loan are documented, so "that scratch was already there" ends with evidence. <strong>Test drives:</strong> a quick scan protects you on high-value inventory. <strong>Trade-ins:</strong> the appraisal-day scan fixes the car's condition on the date the number was quoted.</p>
 
 <h2>What it costs</h2>
-<p>CarShake runs in the browser — no app to install. The free plan includes 3 scans per month. Shield+ is $2.97/month for unlimited scans and PDF evidence reports. Enterprise plans for multi-rooftop groups include centralized dashboards and audit-trail exports. See <a href="/pricing">pricing</a> for details.</p>
+<p>CarShake runs in the browser — no app to install. CarShake is free to use. Shield+ is $2.97/month for PDF evidence reports and priority support. Enterprise plans for multi-rooftop groups include centralized dashboards and audit-trail exports. See <a href="/pricing">pricing</a> for details.</p>
 
 <h2>Frequently asked questions</h2>
 <h3>How do dealerships use CarShake in the service lane?</h3>
@@ -257,7 +257,7 @@ def industries_rideshare():
         ("Does CarShake work with Uber and Lyft's damage claim process?",
          "Yes. CarShake's exportable PDF evidence reports include timestamped, geotagged photos that rideshare platforms accept as supporting documentation in damage claims. Drivers who use CarShake report faster resolution times."),
         ("Is CarShake free for rideshare drivers?",
-         "CarShake's free plan includes 3 scans per month. Shield+ at $2.97/month gives unlimited scans — less than the cost of one disputed cleaning fee."),
+         "CarShake is free to use. Shield+ at $2.97/month adds PDF evidence reports and priority support."),
     ])
     content = f"""{_head(title, desc, path, faq)}
 <body>
@@ -279,7 +279,7 @@ def industries_rideshare():
 </ol>
 
 <h2>What it costs</h2>
-<p>Free plan: 3 scans per month. Shield+: $2.97/month for unlimited scans and PDF evidence reports — cheaper than one disputed cleaning fee. See <a href="/pricing">pricing</a> for details.</p>
+<p>CarShake is free to use. Shield+ at $2.97/month adds PDF evidence reports and priority support. See <a href="/pricing">pricing</a> for details.</p>
 
 <h2>Frequently asked questions</h2>
 <h3>How do rideshare drivers use CarShake?</h3>
@@ -287,7 +287,7 @@ def industries_rideshare():
 <h3>Does CarShake work with Uber and Lyft's damage claim process?</h3>
 <p>Yes. CarShake's exportable PDF evidence reports include timestamped, geotagged photos that rideshare platforms accept as supporting documentation in damage claims. Drivers who use CarShake report faster resolution times.</p>
 <h3>Is CarShake free for rideshare drivers?</h3>
-<p>CarShake's free plan includes 3 scans per month. Shield+ at $2.97/month gives unlimited scans — less than the cost of one disputed cleaning fee.</p>
+<p>CarShake is free to use. Shield+ at $2.97/month adds PDF evidence reports and priority support.</p>
 
 <div class="cta"><a href="{BASE_URL}/">Start protecting your rides with CarShake &rarr;</a></div>
 {_related_links([
@@ -646,7 +646,7 @@ def reviews_inspectr():
         ("Is Inspectr a CarShake alternative?",
          "Inspectr is a digital vehicle inspection platform for dealerships and service centers. CarShake is a valet-damage-proof handover app for any vehicle handover scenario. For inspections, Inspectr is strong. For handover proof and damage-dispute prevention, CarShake is purpose-built."),
         ("Which is cheaper: Inspectr or CarShake?",
-         "CarShake is free for individual use and $2.97/month for unlimited scans. Inspectr's pricing is not publicly listed and requires contacting sales. For individual drivers and small operators, CarShake is the more accessible option."),
+         "CarShake is free for individual use; Shield+ at $2.97/month adds PDF reports and priority support. Inspectr's pricing is not publicly listed and requires contacting sales. For individual drivers and small operators, CarShake is the more accessible option."),
         ("Can Inspectr create a QR handover receipt?",
          "Inspectr generates digital inspection reports but does not have CarShake's QR-based mutual-confirmation handshake, which lets both parties acknowledge the vehicle's condition at the moment of handover."),
     ])
@@ -705,7 +705,7 @@ def reviews_inspectr():
 <h3>Is Inspectr a CarShake alternative?</h3>
 <p>Inspectr is a digital vehicle inspection platform for dealerships and service centers. CarShake is a valet-damage-proof handover app for any vehicle handover scenario. For inspections, Inspectr is strong. For handover proof and damage-dispute prevention, CarShake is purpose-built.</p>
 <h3>Which is cheaper: Inspectr or CarShake?</h3>
-<p>CarShake is free for individual use and $2.97/month for unlimited scans. Inspectr's pricing is not publicly listed and requires contacting sales. For individual drivers and small operators, CarShake is the more accessible option.</p>
+<p>CarShake is free for individual use; Shield+ at $2.97/month adds PDF reports and priority support. Inspectr's pricing is not publicly listed and requires contacting sales. For individual drivers and small operators, CarShake is the more accessible option.</p>
 <h3>Can Inspectr create a QR handover receipt?</h3>
 <p>Inspectr generates digital inspection reports but does not have CarShake's QR-based mutual-confirmation handshake, which lets both parties acknowledge the vehicle's condition at the moment of handover.</p>
 

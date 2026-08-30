@@ -40,7 +40,7 @@ LANG_DATA['de'] = {
   footerBrand: "CarShake", footerText: "© 2026 CarShake · carshake.online",
   langLabel: "Sprache", enName: "Deutsch",
   faqTitle: "Häufig gestellte Fragen — CarShake", faqDesc: "Alles, was Sie über CarShake wissen müssen: Preise, Scan-Funktionsweise, QR-Übergabe, rechtliche Beweise und mehr.", faqH1: "Häufig gestellte Fragen",
-  pricingTitle: "CarShake Preise — Kostenloser Valet-Schutz", pricingDesc: "Kostenloser Plan mit 3 Scans pro Monat. Shield+ für 2,97 €/Monat mit unbegrenzten Scans, PDF-Berichten und Prioritäts-Support.", pricingH1: "Einfache, transparente Preise",
+  pricingTitle: "CarShake Preise — Kostenloser Valet-Schutz", pricingDesc: "CarShake ist kostenlos. Shield+ für 2,97 $/Monat ergänzt PDF-Berichte und Prioritäts-Support.", pricingH1: "Einfache, transparente Preise",
   howWorksTitle: "Wie CarShake funktioniert — KI-gestützter Autoschutz", howWorksDesc: "Scannen Sie Ihr Auto in 60 Sekunden. QR-Übergabenachweis. KI vergleicht jeden Winkel bei Abholung. Kostenlos, keine App nötig.", howWorksH1: "Wie CarShake funktioniert",
   trustTitle: "Vertrauen & Sicherheit — CarShake", trustDesc: "SHA-256-Hashing, GPS-Verifizierung, Server-Zeitstempel. Ihre Fahrzeugzustandsdaten sind sicher und als Beweismittel zulässig.", trustH1: "Vertrauen & Sicherheit",
 };
@@ -83,7 +83,7 @@ LANG_DATA['ja'] = {
   footerBrand: "CarShake", footerText: "© 2026 CarShake · carshake.online",
   langLabel: "言語", enName: "日本語",
   faqTitle: "よくある質問 — CarShake", faqDesc: "CarShakeについて知っておくべきすべてのこと：料金、スキャンの仕組み、QR引渡し、法的証拠など。", faqH1: "よくある質問",
-  pricingTitle: "CarShake料金 — 無料バレー保護", pricingDesc: "無料プランには月3回のスキャンが含まれます。Shield+は月$2.97でスキャン無制限、PDFレポート、優先サポート。", pricingH1: "シンプルで透明な料金",
+  pricingTitle: "CarShake料金 — 無料バレー保護", pricingDesc: "CarShakeは無料です。Shield+は月$2.97でPDFレポートと優先サポートを追加します。", pricingH1: "シンプルで透明な料金",
   howWorksTitle: "CarShakeの仕組み — AI搭載カープロテクション", howWorksDesc: "60秒で車をスキャン。QR引渡し証明。AIが引き取り時に全角度を比較。無料、アプリダウンロード不要。", howWorksH1: "CarShakeの仕組み",
   trustTitle: "信頼とセキュリティ — CarShake", trustDesc: "SHA-256ハッシュ、GPS検証、サーバータイムスタンプ。車両状態データは安全で、証拠として採用可能です。", trustH1: "信頼とセキュリティ",
 };
@@ -126,7 +126,7 @@ LANG_DATA['it'] = {
   footerBrand: "CarShake", footerText: "© 2026 CarShake · carshake.online",
   langLabel: "Lingua", enName: "Italiano",
   faqTitle: "Domande Frequenti — CarShake", faqDesc: "Tutto ciò che devi sapere su CarShake: prezzi, come funzionano le scansioni, consegna QR, prove legali e altro.", faqH1: "Domande Frequenti",
-  pricingTitle: "Prezzi CarShake — Protezione Valet Gratuita", pricingDesc: "Il piano gratuito include 3 scansioni al mese. Shield+ a $2.97/mese per scansioni illimitate, report PDF e supporto prioritario.", pricingH1: "Prezzi Semplici e Trasparenti",
+  pricingTitle: "Prezzi CarShake — Protezione Valet Gratuita", pricingDesc: "CarShake è gratuito. Shield+ a $2.97/mese aggiunge report PDF e supporto prioritario.", pricingH1: "Prezzi Semplici e Trasparenti",
   howWorksTitle: "Come Funziona CarShake — Protezione Auto AI", howWorksDesc: "Scannerizza la tua auto in 60 secondi. Prova di consegna QR. L'AI confronta ogni angolazione al ritiro. Gratuito, nessun download dell'app.", howWorksH1: "Come Funziona CarShake",
   trustTitle: "Fiducia e Sicurezza — CarShake", trustDesc: "Hashing SHA-256, verifica GPS, timestamp del server. I dati sulle condizioni della tua auto sono sicuri e ammissibili come prova.", trustH1: "Fiducia e Sicurezza",
 };
@@ -169,7 +169,7 @@ LANG_DATA['ko'] = {
   footerBrand: "CarShake", footerText: "© 2026 CarShake · carshake.online",
   langLabel: "언어", enName: "한국어",
   faqTitle: "자주 묻는 질문 — CarShake", faqDesc: "CarShake에 대해 알아야 할 모든 것: 요금, 스캔 작동 방식, QR 인계, 법적 증거 등.", faqH1: "자주 묻는 질문",
-  pricingTitle: "CarShake 요금 — 무료 발레 보호", pricingDesc: "무료 플랜은 월 3회 스캔을 포함합니다. Shield+는 월 $2.97로 무제한 스캔, PDF 리포트, 우선 지원.", pricingH1: "간단하고 투명한 요금",
+  pricingTitle: "CarShake 요금 — 무료 발레 보호", pricingDesc: "CarShake는 무료입니다. Shield+는 월 $2.97로 PDF 리포트와 우선 지원을 추가합니다.", pricingH1: "간단하고 투명한 요금",
   howWorksTitle: "CarShake 작동 방식 — AI 기반 자동차 보호", howWorksDesc: "60초 안에 자동차를 스캔하세요. QR 인계 증명. AI가 픽업 시 모든 각도를 비교합니다. 무료, 앱 다운로드 불필요.", howWorksH1: "CarShake 작동 방식",
   trustTitle: "신뢰와 보안 — CarShake", trustDesc: "SHA-256 해싱, GPS 인증, 서버 타임스탬프. 차량 상태 데이터는 안전하며 증거로 채택 가능합니다.", trustH1: "신뢰와 보안",
 };

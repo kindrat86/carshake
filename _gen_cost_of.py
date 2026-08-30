@@ -133,7 +133,7 @@ def gen_cost_page(d):
       <div><span style="font-size:1.6rem;font-weight:700;color:#00d4aa">8</span><br><span style="font-size:.82rem;color:#94a3b8">Angles Checked</span></div>
 
     </div>
-    <p style="font-size:1.05rem;margin-bottom:24px;color:#cbd5e1">One dispute costs $500+. One scan prevents it. 3 free scans to prove it.</p>
+    <p style="font-size:1.05rem;margin-bottom:24px;color:#cbd5e1">One dispute costs $500+. One scan prevents it. It is free to prove it.</p>
     <a href="https://carshake.online/#demo" style="display:inline-block;background:linear-gradient(135deg,#00d4aa,#2deec0);color:#04130e;padding:14px 32px;border-radius:12px;font-weight:700;text-decoration:none;font-size:.95rem;box-shadow:0 8px 24px -10px rgba(0,212,170,.5)">Try CarShake Free \u2192</a>
     <p style="margin-top:18px;font-size:.78rem;color:#6b7178">\U0001f6e1\ufe0f Free to try. Scan before and after every handover for peace of mind.</p>
   </div>
@@ -213,7 +213,7 @@ def gen_hub():
       <div><span style="font-size:1.6rem;font-weight:700;color:#00d4aa">60 sec</span><br><span style="font-size:.82rem;color:#94a3b8">Per Scan</span></div>
       <div><span style="font-size:1.6rem;font-weight:700;color:#00d4aa">8</span><br><span style="font-size:.82rem;color:#94a3b8">Angles Checked</span></div>
     </div>
-    <p style="font-size:1.05rem;margin-bottom:24px;color:#cbd5e1">One dispute costs $500+. One scan prevents it. 3 free scans to prove it.</p>
+    <p style="font-size:1.05rem;margin-bottom:24px;color:#cbd5e1">One dispute costs $500+. One scan prevents it. It is free to prove it.</p>
     <a href="https://carshake.online/#demo" style="display:inline-block;background:linear-gradient(135deg,#00d4aa,#2deec0);color:#04130e;padding:14px 32px;border-radius:12px;font-weight:700;text-decoration:none;font-size:.95rem;box-shadow:0 8px 24px -10px rgba(0,212,170,.5)">Try CarShake Free \u2192</a>
     <p style="margin-top:18px;font-size:.78rem;color:#6b7178">\U0001f6e1\ufe0f Free to try. Scan before and after every handover for peace of mind.</p>
   </div>
