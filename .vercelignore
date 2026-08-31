@@ -44,6 +44,11 @@ node_modules
 # served here.
 /calculator.html
 
+# Preserve the legacy Ravin source copies in Git, but never publish them under
+# /public/* beside the canonical, fact-checked comparison pages.
+/public/vs/ravin-ai
+/public/alternatives-to/ravin-ai
+
 # --- editor / conversion leftovers ---
 *.bak-conv
 

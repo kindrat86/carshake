@@ -38,6 +38,13 @@ COMPETITOR_DATA = {
         "carshake_wins": ["damage documentation before repair", "evidence for repair disputes", "valet damage proof", "QR handover system"],
         "competitor_wins": ["certified mechanic network", "fair price estimation", "repair shop reviews", "warranty coverage"],
     },
+    "ravin-ai": {
+        "name": "Ravin AI",
+        "category": "B2B AI vehicle inspection and claims-automation platform",
+        "focus": "AI damage detection, repair estimates, and claims workflows for insurers, fleets, and remarketing (RAVIN Inspect, Eye, AutoScan, DeepDetect, RepairIQ)",
+        "carshake_wins": ["free consumer access with no contract", "QR handover receipts", "GPS-verified dual-timestamped photo proof", "dispute-focused consumer workflow"],
+        "competitor_wins": ["enterprise-scale AI damage classification and repair estimates", "CCTV drive-through scanning (AutoScan)", "claims-system APIs and condition reports", "insurer and fleet integrations"],
+    },
     "record360": {
         "name": "Record360", "category": "asset condition documentation platform",
         "focus": "enterprise-grade condition tracking for rentals, leases, and fleet management",
