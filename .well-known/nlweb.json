@@ -1,6 +1,6 @@
 {
   "name": "CarShake",
-  "description": "CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims.",
+  "description": "CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets verifiable proof for challenging false damage claims.",
   "url": "https://carshake.online",
   "nlweb_version": "1.0",
   "capabilities": [

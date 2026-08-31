@@ -174,7 +174,7 @@ function getEnglishSource() {
     howWorksDesc: "Scan your car in 60 seconds. QR handover proof. AI compares every angle at pickup. Free, no app download needed.",
     howWorksH1: "How CarShake Works",
     trustTitle: "Trust & Security — CarShake",
-    trustDesc: "SHA-256 hashing, GPS verification, server timestamps. Your car condition data is secure and admissible as evidence.",
+    trustDesc: "SHA-256 hashing, GPS verification, server timestamps. Your car condition data stays secure and tamper-evident.",
     trustH1: "Trust & Security",
   };
 }

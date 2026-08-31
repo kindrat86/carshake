@@ -168,7 +168,7 @@ function makeTranslations(t, nav, lead, heroTop, heroBot, ph) {
     howWorksDesc: t("Scan your car in 60 seconds. QR handover proof. AI compares every angle at pickup. Free, no app download needed."),
     howWorksH1: t("How CarShake Works"),
     trustTitle: t("Trust & Security — CarShake"),
-    trustDesc: t("SHA-256 hashing, GPS verification, server timestamps. Your car condition data is secure and admissible as evidence."),
+    trustDesc: t("SHA-256 hashing, GPS verification, server timestamps. Your car condition data stays secure and tamper-evident."),
     trustH1: t("Trust & Security"),
   };
 }

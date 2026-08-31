@@ -36,4 +36,4 @@
 - AI-verified photo comparison
 - GPS and dual-timestamped evidence
 - QR handover with mutual digital signature
-- Admissible in disputes and insurance claims
+- Built for disputes and insurance claims

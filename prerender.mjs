@@ -325,7 +325,7 @@ const VEHICLES = {
   'suv': { display: 'SUV', title: 'Protect Your SUV at Valet Parking — CarShake', metaDesc: 'SUVs are high-value valet targets. AI-verified condition scans before & after. Document your Escalade, Tahoe, or Grand Cherokee in 60 seconds.', paragraphs: ['SUVs are the most common vehicle at valet stands — from high-volume hotel lots to upscale restaurant valet. Their size, weight, and price tag make every parking interaction a risk. A $80,000+ Escalade or Tahoe in a tight parking garage means blind spots, curb contact, and door dings from adjacent vehicles.', 'Taller ride height means parking garage clearance bars, low-hanging pipes, and cement ceiling beams are a constant threat. Roof rails, crossbars, and panoramic sunroofs add vulnerable points that standard inspections miss.', 'CarShake captures all vulnerable angles in 60 seconds. The 8-angle scan includes roof clearance markers, side mirror protrusion, running boards, and rear bumper overhang — the exact spots SUVs get damaged at valet.'] },
   'sedan': { display: 'Sedan', title: 'Protect Your Sedan at Valet Parking — CarShake', metaDesc: 'Compact and mid-size sedans get overlooked. AI-verified documentation catches every valet scratch.', paragraphs: ['Sedans — from compact Civics to full-size S-Class Mercedes — are the most valet-parked vehicles in America. Their lower profile means bumpers, side skirts, and front air dams are closest to curbs and parking stops.', 'A valet handling dozens of cars per shift may not notice a front bumper scrape against a curb or a side mirror contact with a garage pillar. Without documented proof, these minor damages become your repair bill.', 'CarShake\'s 8-angle scan covers every vulnerable point on your sedan: front bumper overhang, side mirror protrusion, door edges, wheel rims, and rear bumper. The AI comparison detects even subtle paint transfer.'] },
   'truck': { display: 'Pickup Truck', title: 'Protect Your Pickup Truck at Valet — CarShake', metaDesc: 'Full-size trucks have unique valet risks: bed rails, tailgates, and step bars. AI-verified documentation.', paragraphs: ['Pickup trucks are increasingly found at hotel and resort valet lots. Their long wheelbase, high bed sides, and heavy-duty construction create unique vulnerability points.', 'Truck beds, tailgates, and bed rail caps are common damage points that standard walk-around inspections miss. A valet backing a long-bed F-150 into a tight spot may scrape the rear bumper.', 'CarShake captures all angles including your truck bed, tailgate, step bars or running boards, and clearance height. The 60-second scan documents your truck\'s condition completely.'] },
-  'luxury': { display: 'Luxury & Exotic', title: 'Protect Your Luxury or Exotic Car at Valet — CarShake', metaDesc: 'Luxury and exotic cars need special protection at valet. AI-verified documentation for Ferraris, Lamborghinis, Bentleys, and more.', paragraphs: ['If you drive a luxury or exotic car, every valet interaction is a $100,000+ risk. A single curb scrape on a Lamborghini front splitter costs $5,000+ to repair. A door ding on a Ferrari door panel can require a full repaint.', 'Most car damage documentation tools aren\'t designed for exotic cars. CarShake\'s 8-angle high-resolution scan captures every inch of your vehicle\'s finish, including low-clearance front splitters, wide side sills, and delicate rear diffusers.', 'When you\'re driving a six-figure vehicle, the standard quick walk-around doesn\'t cut it. CarShake provides the comprehensive, court-admissible documentation that protects your investment at every valet stop.'] },
+  'luxury': { display: 'Luxury & Exotic', title: 'Protect Your Luxury or Exotic Car at Valet — CarShake', metaDesc: 'Luxury and exotic cars need special protection at valet. AI-verified documentation for Ferraris, Lamborghinis, Bentleys, and more.', paragraphs: ['If you drive a luxury or exotic car, every valet interaction is a $100,000+ risk. A single curb scrape on a Lamborghini front splitter costs $5,000+ to repair. A door ding on a Ferrari door panel can require a full repaint.', 'Most car damage documentation tools aren\'t designed for exotic cars. CarShake\'s 8-angle high-resolution scan captures every inch of your vehicle\'s finish, including low-clearance front splitters, wide side sills, and delicate rear diffusers.', 'When you\'re driving a six-figure vehicle, the standard quick walk-around doesn\'t cut it. CarShake provides the comprehensive, verifiable documentation that protects your investment at every valet stop.'] },
   'ev': { display: 'Electric Vehicle', title: 'Protect Your Electric Vehicle at Valet — CarShake', metaDesc: 'EVs have unique valet risks: glass roofs, charging ports, sensors. AI-verified documentation for Teslas, Rivians, Lucids.', paragraphs: ['Electric vehicles present unique valet parking risks. Glass roofs, flush door handles, charging ports, and sensor clusters are expensive to repair and easily damaged. A broken charging door on a Tesla costs $1,500+.', 'Many valets are unfamiliar with EV-specific features: how to open flush door handles without damaging paint, where charging ports are located, and how to avoid pressure on glass roof panels.', 'CarShake\'s EV-specific scan path includes glass roof corners, charging port doors, flush door handle surrounds, sensor positions, and underbody battery pack clearance.'] },
   'minivan': { display: 'Minivan / Family Vehicle', title: 'Protect Your Minivan or Family Vehicle at Valet — CarShake', metaDesc: 'Family vehicles get the most daily use. AI-verified scans protect your family car at valet.', paragraphs: ['Minivans and family vehicles are the workhorses of American roads — and the most likely to accumulate parking damage without anyone noticing. Sliding doors, roof racks, rear liftgates are all vulnerable.', 'Family vehicles often carry roof boxes, bike racks, and other accessories that extend the vehicle\'s dimensions. A valet parking your minivan with a roof box may not account for extra height.', 'CarShake captures your vehicle with all accessories attached. The 8-angle scan ensures every square inch is recorded before anyone else touches your family car.'] },
 };
@@ -354,7 +354,7 @@ const BLOG_POSTS = [
 <h3>Stop 2: The QR Handover</h3>
 <p>When you present your QR code to the valet, they scan it. Both parties now have a digitally signed agreement on your car's condition at the moment of handover. No more "he said, she said."</p>
 <h3>Stop 3: AI Comparison at Pickup</h3>
-<p>When you return, scan again. CarShake's AI compares every angle against the drop-off scan and flags every change. GPS-timestamped. SHA-256 hashed. Court-admissible.</p>
+<p>When you return, scan again. CarShake's AI compares every angle against the drop-off scan and flags every change. GPS-timestamped. SHA-256 hashed. Verifiable.</p>
 <p>The 3-Stop Protocol takes three minutes and costs nothing. The alternative is paying thousands out of pocket.</p>`
   },
   {
@@ -500,7 +500,7 @@ function brunsonStorySection() {
         <span class="cs-step">3</span>
         <div>
           <p class="cs-body" style="font-weight:700;margin-bottom:0.125rem;color:var(--cs-text)">AI Comparison at Pickup</p>
-          <p class="cs-body-sm" style="margin-bottom:0">When you get your car back, scan again. AI compares every angle, flags every new scratch, dent, or scrape. GPS-timestamped. Court-admissible. Done.</p>
+          <p class="cs-body-sm" style="margin-bottom:0">When you get your car back, scan again. AI compares every angle, flags every new scratch, dent, or scrape. GPS-timestamped. Tamper-evident. Done.</p>
         </div>
       </div>
     </div>
@@ -579,7 +579,7 @@ function bodyCity({ displayName, city, slug }) {
     <a href="/">Home</a> / <a href="/city">City Guides</a> / <span>${displayName}</span>
   </nav>
   <h1 class="cs-h1">Protect Your Car at Valet Parking in ${displayName}</h1>
-  <p class="cs-body" style="background:var(--cs-card-bg);border-left:3px solid var(--cs-gold);padding:var(--cs-space-3);margin-bottom:var(--cs-space-4);border-radius:0 var(--cs-radius) var(--cs-radius) 0"><strong>In a nutshell:</strong> CarShake's free 60-second AI scan documents your car's condition before valet parking in ${displayName}. GPS-timestamped photos, QR handover receipt, and AI comparison at pickup create court-admissible proof of new damage. No app download needed.</p>
+  <p class="cs-body" style="background:var(--cs-card-bg);border-left:3px solid var(--cs-gold);padding:var(--cs-space-3);margin-bottom:var(--cs-space-4);border-radius:0 var(--cs-radius) var(--cs-radius) 0"><strong>In a nutshell:</strong> CarShake's free 60-second AI scan documents your car's condition before valet parking in ${displayName}. GPS-timestamped photos, QR handover receipt, and AI comparison at pickup create verifiable documentation of new damage. No app download needed.</p>
   ${brunsonStorySection()}
   <p class="cs-body">${displayName}, ${city.state} is ${city.parkingNotable}. When you hand your keys to a valet, you're trusting someone with a vehicle worth thousands of dollars. Without documented proof of your car's condition before the handover, you have no defense if damage appears at pickup.</p>
   <p class="cs-body">CarShake creates a signed, timestamped, AI-verified record of your car's condition in 60 seconds — right from your phone, no app download needed. The parking attendant scans your QR code and confirms. Both sides sign. Both sides are protected.</p>
@@ -619,9 +619,9 @@ function bodyState({ displayName, data, slug }) {
   </div>
   <div class="cs-card cs-card-gold-border">
     <h3 class="cs-h3">Why evidence matters in ${displayName}</h3>
-    <p class="cs-body-sm">Legal rights don't matter unless you can prove when damage occurred. CarShake creates GPS-verified, timestamped, SHA-256 hashed evidence of your car's condition before and after valet parking — admissible evidence that changes the outcome of disputes.</p>
+    <p class="cs-body-sm">Legal rights don't matter unless you can prove when damage occurred. CarShake creates GPS-verified, timestamped, SHA-256 hashed evidence of your car's condition before and after valet parking — documentation that strengthens your position in disputes.</p>
     ${brunsonLeadSection()}
-    ${brunsonCTA("Get Proof Before You Park — Free", "/#demo", "60 seconds. 8 angles. Court-admissible.")}
+    ${brunsonCTA("Get Proof Before You Park — Free", "/#demo", "60 seconds. 8 angles. Verifiable.")}
   </div>
   <p style="text-align:center;margin-top:var(--cs-space-3)"><a href="/" class="cs-movement-link">&larr; Back to CarShake Home</a></p>
 </main>
@@ -845,12 +845,12 @@ const TOP_PAGES = {
   },
   'trust': {
     title: 'Trust & Security — CarShake',
-    description: 'SHA-256 hashing, GPS verification, server timestamps. Your car condition data is secure and admissible as evidence.',
+    description: 'SHA-256 hashing, GPS verification, server timestamps. Your car condition data stays secure and tamper-evident.',
     h1: 'Trust & Security'
   },
   'compare': {
     title: 'CarShake vs The Alternatives — Why Evidence Matters',
-    description: 'Why CarShake beats camera photos, dash cams, insurance claims, and valet inspections. The only tool with AI-verified, QR-confirmed, court-admissible documentation.',
+    description: 'Why CarShake beats camera photos, dash cams, insurance claims, and valet inspections. The only tool with AI-verified, QR-confirmed, verifiable documentation.',
     h1: 'Why CarShake Beats Every Alternative',
     body: `${headerHtml()}
 <main class="cs-container cs-section">

@@ -1,7 +1,7 @@
 {"question": "What is CarShake?", "answer": "CarShake is a free web app that creates GPS-verified, dual-timestamped, AI-checked photo records of your car before and after valet, rental, or parking."}
 {"question": "How does CarShake work?", "answer": "Snap before-photos (60 seconds), hand over keys, snap after-photos. CarShake AI compares images and flags new damage."}
 {"question": "Is CarShake free?", "answer": "Yes, CarShake is completely free. Unlimited GPS-verified scans with AI comparison, dual timestamps, and SHA-256 hashing."}
-{"question": "Can CarShake evidence be used in court?", "answer": "Yes. GPS coordinates, dual independent timestamps, and SHA-256 hashing create a chain of evidence admissible in small claims court."}
+{"question": "Can CarShake evidence be used in court?", "answer": "Yes. GPS coordinates, dual independent timestamps, and SHA-256 hashing create a chain of evidence built to support small claims filings."}
 {"question": "How do I prove valet damage with CarShake?", "answer": "Complete a before-scan when you hand over keys, an after-scan when you pick up. The AI comparison shows exactly what damage is new."}
 {"question": "Does CarShake work for rental cars?", "answer": "Yes. Document condition at pickup and return. Timestamped photos prove pre-existing damage so rental companies cannot charge you for it."}
 {"question": "What vehicles does CarShake support?", "answer": "All vehicle types: sedans, SUVs, trucks, minivans, luxury cars, and EVs. AI damage detection trained on diverse body styles."}

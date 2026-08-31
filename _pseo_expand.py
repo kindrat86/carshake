@@ -351,7 +351,7 @@ def industries_auto_insurance():
     ("CarShake for insurance claims", "/use-cases/insurance-claims"),
     ("CarShake for fleet managers", "/for/fleet-managers"),
     ("CarShake vs Damage ID", "/vs/damage-id"),
-    ("What is a verifiable timestamp?", "/glossary/court-admissible-timestamp"),
+    ("What is a verifiable timestamp?", "/glossary/verifiable-timestamp"),
     ("CarShake pricing", "/pricing"),
     ("How CarShake works", "/how-it-works"),
 ])}
@@ -516,7 +516,7 @@ def reviews_record360():
 <li>Free for individual drivers — no subscription required for basic use</li>
 <li>QR handover receipt with mutual confirmation — both parties acknowledge the record</li>
 <li>60-second scan protocol — no training or onboarding needed</li>
-<li>Court-admissible evidence chain with SHA-256 hashing and GPS timestamps</li>
+<li>Verifiable evidence chain with SHA-256 hashing and GPS timestamps</li>
 <li>Works in any browser — no app install, no IT approval</li>
 </ul>
 
@@ -597,7 +597,7 @@ def reviews_damageid():
 <h2>Where CarShake wins</h2>
 <ul class="check">
 <li>Purpose-built for the handover moment — scan before, confirm with QR, scan after</li>
-<li>Court-admissible evidence chain: GPS, timestamp, SHA-256 hash</li>
+<li>Verifiable evidence chain: GPS, timestamp, SHA-256 hash</li>
 <li>Mutual confirmation — both parties acknowledge the record, not just one-sided inspection</li>
 <li>Free plan available — no per-inspection fee, no subscription required to start</li>
 <li>Works in any browser, no app install, 60 seconds per scan</li>
@@ -667,7 +667,7 @@ def reviews_inspectr():
 <tr><td>Target users</td><td>Dealerships, body shops, service centers</td><td>Drivers, valets, rental fleets, dealerships</td></tr>
 <tr><td>Pricing</td><td>Contact sales</td><td>Free — $2.97/mo unlimited</td></tr>
 <tr><td>QR handover receipt</td><td>No</td><td>Yes — mutual confirmation</td></tr>
-<tr><td>Court-admissible protocol</td><td>Not specified</td><td>Yes — GPS, timestamp, SHA-256</td></tr>
+<tr><td>Verifiable protocol</td><td>Not specified</td><td>Yes — GPS, timestamp, SHA-256</td></tr>
 </tbody>
 </table>
 
@@ -682,7 +682,7 @@ def reviews_inspectr():
 <h2>Where CarShake wins</h2>
 <ul class="check">
 <li>QR handover receipt with mutual confirmation — both parties see and acknowledge the record</li>
-<li>Court-admissible evidence chain: GPS-stamped, SHA-256 hashed, immutable</li>
+<li>Verifiable evidence chain: GPS-stamped, SHA-256 hashed, immutable</li>
 <li>Free for individuals — no sales call, no contract</li>
 <li>60-second guided scan — works for any handover, not just formal inspections</li>
 <li>Browser-based, no app install — usable instantly on any device</li>
@@ -765,7 +765,7 @@ def reviews_repairpal():
 <li>Scan your vehicle before dropping it at the shop — timestamped proof of pre-repair condition</li>
 <li>Re-scan after repair to verify no new damage occurred in the shop</li>
 <li>QR handover receipt — the shop acknowledges the vehicle's condition at drop-off</li>
-<li>Court-admissible evidence if a dispute arises about shop-caused damage</li>
+<li>Verifiable evidence if a dispute arises about shop-caused damage</li>
 </ul>
 
 <div class="verdict">

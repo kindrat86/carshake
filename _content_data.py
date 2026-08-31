@@ -151,8 +151,8 @@ def gen_city(slug, display_name):
 
 <h2>Frequently asked questions</h2>
 <details>
-<summary>Is CarShake evidence admissible in {display_name} courts?</summary>
-<p>Yes. CarShake photos include cryptographic timestamps, geolocation data, and a tamper-evident audit trail. {display_name} small claims courts and insurance adjusters accept this documentation as proof of vehicle condition at a specific time and place.</p>
+<summary>Can CarShake records support a dispute or insurance claim?</summary>
+<p>CarShake records include cryptographic timestamps, geolocation data, and a tamper-evident audit trail. That gives you a structured factual record to attach to a small claims filing or insurance dispute. Whether evidence is admitted is always decided case by case.</p>
 </details>
 <details>
 <summary>What if the {display_name} valet refuses to scan the QR code?</summary>

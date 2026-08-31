@@ -273,7 +273,7 @@ If you also have Telegram/Hermes-native reporting configured, send a one-line su
 
 These require a human call on positioning, legal exposure, or brand identity. Flag them in your execution log for the owner's attention; do not act on them yourself:
 
-- **Legal/evidentiary language on `faq.html`**: claims like *"CarShake records include cryptographic timestamps, GPS data, and photo evidence that meet evidentiary standards for small claims and insurance disputes"* and *"court-admissible"* framing are specific legal claims this agent cannot verify or soften without a positioning decision from the owner. Do not edit this language.
+- **Legal/evidentiary language on `faq.html`**: claims like *"CarShake records include cryptographic timestamps, GPS data, and photo evidence that meet evidentiary standards for small claims and insurance disputes"* and *"verifiable"* framing are specific legal claims this agent cannot verify or soften without a positioning decision from the owner. Do not edit this language.
 - **"40+ languages" claim** on `faq.html` / `how-it-works` — unverified; flag for owner, do not remove or change without confirmation of actual i18n support.
 - **E-E-A-T / trust signals** (adding a real contact page, physical address, or named founder bio to replace the "Sipi T." pseudonym) — a positioning decision, not a pure technical fix.
 - **NAP (no address/phone anywhere)** — likely deliberate for this business model; do not add fabricated address/phone data under any circumstances.

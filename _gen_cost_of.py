@@ -95,7 +95,7 @@ def gen_cost_page(d):
   <link rel="modulepreload" crossorigin href="/assets/markdown-EJqmjYtY.js">
   <link rel="modulepreload" crossorigin href="/assets/supabase-DMy4srAv.js">
   <script type="module" crossorigin src="/assets/index-ypvUJ8Vr.js"></script>
-<!-- canonical-disambiguation --><script type="application/ld+json">{{"@context": "https://schema.org", "@type": "Organization", "name": "CarShake", "url": "https://carshake.online", "description": "CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims.", "disambiguatingDescription": "CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) \u2014 not a B2B insurance damage-detection API."}}</script>
+<!-- canonical-disambiguation --><script type="application/ld+json">{{"@context": "https://schema.org", "@type": "Organization", "name": "CarShake", "url": "https://carshake.online", "description": "CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets verifiable proof for challenging false damage claims.", "disambiguatingDescription": "CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) \u2014 not a B2B insurance damage-detection API."}}</script>
 <link rel="stylesheet" href="/ux.css">
     <script src="/ux.js" defer></script>
   </head>
@@ -185,7 +185,7 @@ def gen_hub():
   <link rel="modulepreload" crossorigin href="/assets/markdown-EJqmjYtY.js">
   <link rel="modulepreload" crossorigin href="/assets/supabase-DMy4srAv.js">
   <script type="module" crossorigin src="/assets/index-ypvUJ8Vr.js"></script>
-<!-- canonical-disambiguation --><script type="application/ld+json">{{"@context": "https://schema.org", "@type": "Organization", "name": "CarShake", "url": "https://carshake.online", "description": "CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets court-admissible proof to defeat false damage claims.", "disambiguatingDescription": "CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) \u2014 not a B2B insurance damage-detection API."}}</script>
+<!-- canonical-disambiguation --><script type="application/ld+json">{{"@context": "https://schema.org", "@type": "Organization", "name": "CarShake", "url": "https://carshake.online", "description": "CarShake is a free valet-damage-proof and vehicle-handover app that scans and time-stamps a car's condition before and after handover, giving drivers, valet operators, and rental fleets verifiable proof for challenging false damage claims.", "disambiguatingDescription": "CarShake is a consumer-and-operator valet-damage-proof handover app (scan-before / scan-after + QR receipt) \u2014 not a B2B insurance damage-detection API."}}</script>
 <link rel="stylesheet" href="/ux.css">
     <script src="/ux.js" defer></script>
   </head>

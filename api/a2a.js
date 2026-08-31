@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     "q": "Is CarShake evidence legally valid?",
-    "a": "Yes, CarShake reports include cryptographic timestamps, GPS data, and unaltered photos that are admissible as evidence in small claims and insurance disputes."
+    "a": "CarShake reports create a strong factual record: cryptographic timestamps, GPS data, and unaltered photos you can attach to a dispute, insurance claim, or small-claims filing. Whether evidence is admitted is always up to the court."
   },
   {
     "q": "Does CarShake work offline?",

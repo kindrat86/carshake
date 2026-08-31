@@ -18,7 +18,7 @@ He was right. I had nothing. No photos. No witness. No proof. I paid for the rep
 
 That moment bothered me for months. The problem wasn't that valets are dishonest — most aren't. The problem is that **once you hand over the keys, the burden of proof falls on you**, and almost nobody documents the condition of their car before a handover. It's a "he-said-she-said" the valet company will always win.
 
-So I built something. It's called **CarShake** — a free web app (no download) that walks you around your car in 60 seconds, captures 8 timestamped, GPS-verified photos, and generates a QR code the attendant scans to digitally acknowledge the condition. When you get the car back, you scan again and the AI flags any new damage. The result is a court-admissible record that ties damage to a specific time window.
+So I built something. It's called **CarShake** — a free web app (no download) that walks you around your car in 60 seconds, captures 8 timestamped, GPS-verified photos, and generates a QR code the attendant scans to digitally acknowledge the condition. When you get the car back, you scan again and the AI flags any new damage. The result is a tamper-evident record that ties damage to a specific time window.
 
 I call it the **3-Stop Protocol**: scan → QR handover → rescan on return.
 

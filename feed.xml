@@ -3,7 +3,7 @@
   <channel>
     <title>CarShake</title>
     <link>https://carshake.online</link>
-    <description>Valet Damage Proof &amp; Vehicle Handover App — three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Court-admissible timestamps and photos for valet operators, rental car companies, and parking facilities.</description>
+    <description>Valet Damage Proof &amp; Vehicle Handover App — three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Verifiable timestamps and photos for valet operators, rental car companies, and parking facilities.</description>
     <language>en</language>
     <lastBuildDate>Sat, 18 Jul 2026 09:01:47 GMT</lastBuildDate>
     <generator>Hermes WebSub Feed Generator</generator>
@@ -54,7 +54,7 @@
       <title>Trust &amp; Security — CarShake</title>
       <link>https://carshake.online/trust</link>
       <guid isPermaLink="true">https://carshake.online/trust</guid>
-      <description>SHA-256 hashing, GPS verification, server timestamps. Your car condition data is secure and admissible as evidence.</description>
+      <description>SHA-256 hashing, GPS verification, server timestamps. Your car condition data stays secure and tamper-evident.</description>
       <dc:creator>CarShake</dc:creator>
       <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
       <media:content url="https://carshake.online/og-image.png" medium="image"/>
@@ -72,7 +72,7 @@
       <title>CarShake vs The Alternatives — Why Evidence Matters</title>
       <link>https://carshake.online/compare</link>
       <guid isPermaLink="true">https://carshake.online/compare</guid>
-      <description>Why CarShake beats camera photos, dash cams, insurance claims, and valet inspections. The only tool with AI-verified, QR-confirmed, court-admissible...</description>
+      <description>Why CarShake beats camera photos, dash cams, insurance claims, and valet inspections. The only tool with AI-verified, QR-confirmed, tamper-evident...</description>
       <dc:creator>CarShake</dc:creator>
       <pubDate>Tue, 07 Jul 2026 21:00:00 GMT</pubDate>
       <media:content url="https://carshake.online/og-image.png" medium="image"/>

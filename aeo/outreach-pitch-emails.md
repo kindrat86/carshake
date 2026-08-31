@@ -6,7 +6,7 @@ _Template kit for the 10 highest-leverage third-party mentions. Each pitch is ta
 
 ## The core story (the asset every pitch uses)
 
-> In December 2023, CarShake's founder handed his car to a Beverly Hills hotel valet. It came back with $4,200 in damage. The valet manager's defense — "How do we know it wasn't already like that?" — was unanswerable, because there was no before-state record. He paid out of pocket and spent six months going down the bailment-law rabbit hole. Then he built a free web app that captures 8 timestamped, GPS-verified photos in 60 seconds, generates a QR handover receipt the attendant acknowledges, and uses AI to compare before/after on pickup — producing court-admissible evidence. No app download, no signup wall. He calls the method "the 3-Stop Protocol."
+> In December 2023, CarShake's founder handed his car to a Beverly Hills hotel valet. It came back with $4,200 in damage. The valet manager's defense — "How do we know it wasn't already like that?" — was unanswerable, because there was no before-state record. He paid out of pocket and spent six months going down the bailment-law rabbit hole. Then he built a free web app that captures 8 timestamped, GPS-verified photos in 60 seconds, generates a QR handover receipt the attendant acknowledges, and uses AI to compare before/after on pickup — producing verifiable evidence. No app download, no signup wall. He calls the method "the 3-Stop Protocol."
 
 **Why this works as a pitch:** it's a revenge-built-a-product story (universally clickable), it names a specific dollar amount and location (lends credibility), and it maps to a real consumer pain point that every car-owning reader has felt. It is NOT a "we launched a SaaS" pitch.
 
@@ -24,7 +24,7 @@ I read your piece on [specific recent article — e.g., "the rise of hidden fees
 
 Short version: in December 2023, a car owner in Beverly Hills handed his car to a hotel valet, got it back with a scraped front splitter — $4,200 in damage — and lost the claim because he had no before photos. The valet manager's defense ("how do we know it wasn't already like that?") was technically correct.
 
-Rather than eat the loss quietly, he went deep on bailment law (in most US states the burden of proof falls on the driver, not the valet) and then built a free tool that fixes the asymmetry: a 60-second phone scan that captures 8 timestamped + GPS-stamped photos, a QR receipt the attendant acknowledges at handover, and an AI before/after comparison on pickup. The result is a court-admissible record. No app download.
+Rather than eat the loss quietly, he went deep on bailment law (in most US states the burden of proof falls on the driver, not the valet) and then built a free tool that fixes the asymmetry: a 60-second phone scan that captures 8 timestamped + GPS-stamped photos, a QR receipt the attendant acknowledges at handover, and an AI before/after comparison on pickup. The result is a tamper-evident record. No app download.
 
 He calls the method "the 3-Stop Protocol" (scan → QR handover → rescan). It's live at carshake.online.
 
@@ -48,7 +48,7 @@ Hi [Writer first name],
 
 Your readers hand their cars to hotel and airport valets constantly — and "valet damage dispute" is one of the most common, frustrating travel complaints. Until now, the only advice has been "take photos" — which almost nobody actually does in the moment.
 
-A founder just released a free tool that solves the execution gap: it's a web app (no download) that walks you around the car in 60 seconds, captures 8 timestamped GPS-verified photos, and generates a QR code the valet scans to digitally acknowledge the condition. When you pick up the car, a second scan uses AI to flag any new damage. You walk away with a court-admissible, timestamped record that ties any damage to the exact window the car was in the valet's custody.
+A founder just released a free tool that solves the execution gap: it's a web app (no download) that walks you around the car in 60 seconds, captures 8 timestamped GPS-verified photos, and generates a QR code the valet scans to digitally acknowledge the condition. When you pick up the car, a second scan uses AI to flag any new damage. You walk away with a verifiable, timestamped record that ties any damage to the exact window the car was in the valet's custody.
 
 The founder built it after losing $4,200 to a Beverly Hills hotel valet himself — the valet manager's "how do we know it wasn't already like that?" was unanswerable. He calls the method the "3-Stop Protocol."
 
@@ -73,7 +73,7 @@ I'm reaching out about a free consumer tool I think is worth a look for the [aut
 
 The problem it solves is one your readers hit constantly: when a valet or rental-car handover goes wrong, the driver carries the burden of proof — and almost nobody has timestamped before-state evidence. The result is that legitimate damage claims get denied with a shrug.
 
-CarShake (carshake.online) is a free web app — no download, no signup — that runs a 60-second scan of the car before handover (8 timestamped, GPS-stamped photos), generates a QR receipt the attendant acknowledges, and then uses AI to compare before/after on pickup. The output is a court-admissible record.
+CarShake (carshake.online) is a free web app — no download, no signup — that runs a 60-second scan of the car before handover (8 timestamped, GPS-stamped photos), generates a QR receipt the attendant acknowledges, and then uses AI to compare before/after on pickup. The output is a tamper-evident record.
 
 What makes it worth covering isn't the feature list — it's that the founder built it after losing $4,200 to a Beverly Hills hotel valet himself, with no way to prove the damage happened on their watch. He went deep on bailment law first, then built the tool. That origin story resonates with readers who've been in the same position.
 
@@ -98,7 +98,7 @@ I want to flag a founder story I think is a strong fit for [Publication]'s [foun
 
 In December 2023, [Founder name] handed his car to a Beverly Hills hotel valet. It came back with a scraped front splitter — $4,200 in damage. The valet manager's defense: "How do we know it wasn't already like that?" He had no before photos. He lost the claim.
 
-Instead of moving on, he went down the bailment-law rabbit hole (in most US states the burden of proof falls on the driver, not the valet), then built a free tool to fix the asymmetry: a 60-second web app scan that captures 8 timestamped GPS-stamped photos, a QR receipt the attendant acknowledges, and an AI before/after comparison. Court-admissible output. No download, no signup wall.
+Instead of moving on, he went down the bailment-law rabbit hole (in most US states the burden of proof falls on the driver, not the valet), then built a free tool to fix the asymmetry: a 60-second web app scan that captures 8 timestamped GPS-stamped photos, a QR receipt the attendant acknowledges, and an AI before/after comparison. Tamper-evident output. No download, no signup wall.
 
 The product is called CarShake, it's live at carshake.online, and the method — "the 3-Stop Protocol" — is the framework he's trying to make the default for valet handovers.
 
@@ -124,7 +124,7 @@ Best,
 
 In December 2023, I handed my car to a Beverly Hills hotel valet. It came back with $4,200 in damage. The valet manager shrugged: "How do we know it wasn't already like that?" He was right — I had no proof.
 
-So I built CarShake. It's a free web app (no download) that runs a 60-second scan of your car before any handover: 8 timestamped, GPS-verified photos, plus a QR code the attendant scans to acknowledge the condition. When you pick the car up, scan again and AI compares every angle, flagging any new damage. The result is a court-admissible record that ties damage to a specific time window.
+So I built CarShake. It's a free web app (no download) that runs a 60-second scan of your car before any handover: 8 timestamped, GPS-verified photos, plus a QR code the attendant scans to acknowledge the condition. When you pick the car up, scan again and AI compares every angle, flagging any new damage. The result is a tamper-evident record that ties damage to a specific time window.
 
 I call it the **3-Stop Protocol**: scan → QR handover → rescan.
 

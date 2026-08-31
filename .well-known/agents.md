@@ -1,12 +1,12 @@
 # CarShake — Agent Reference
 
-> CarShake is a valet damage proof and vehicle handover app. Three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Built for valet operators, rental fleets, body shops, dealerships, airport parking, hotel parking, concert parking, and street parking. Protects against damage claims using court-admissible timestamps and photos. Available in 40+ languages and major US cities.
+> CarShake is a valet damage proof and vehicle handover app. Three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Built for valet operators, rental fleets, body shops, dealerships, airport parking, hotel parking, concert parking, and street parking. Protects against damage claims using cryptographic timestamps and photos. Available in 40+ languages and major US cities.
 
 This file is the canonical "how to use me" entry point for coding agents (Claude, Cursor, Codex, ChatGPT, etc.) browsing this website. Public-facing copy is mirrored at `/.well-known/agents.md`.
 
 ## What this product does
 
-CarShake is a valet damage proof and vehicle handover app. Three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Built for valet operators, rental fleets, body shops, dealerships, airport parking, hotel parking, concert parking, and street parking. Protects against damage claims using court-admissible timestamps and photos. Available in 40+ languages and major US cities.
+CarShake is a valet damage proof and vehicle handover app. Three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Built for valet operators, rental fleets, body shops, dealerships, airport parking, hotel parking, concert parking, and street parking. Protects against damage claims using cryptographic timestamps and photos. Available in 40+ languages and major US cities.
 
 ## Target Audience
 

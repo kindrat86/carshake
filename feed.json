@@ -1,7 +1,7 @@
 {
   "version": "https://jsonfeed.org/version/1.1",
   "title": "CarShake",
-  "description": "Valet Damage Proof & Vehicle Handover App — three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Court-admissible timestamps and photos for valet operators, rental car companies, and parking facilities.",
+  "description": "Valet Damage Proof & Vehicle Handover App — three-stop protocol: scan the car before valet, QR-coded handover receipt, and post-retrieval scan to prove condition. Verifiable timestamps and photos for valet operators, rental car companies, and parking facilities.",
   "home_page_url": "https://carshake.online/",
   "feed_url": "https://carshake.online/feed.json",
   "language": "en",
@@ -82,7 +82,7 @@
       "id": "https://carshake.online/trust",
       "url": "https://carshake.online/trust",
       "title": "Trust & Security — CarShake",
-      "content_text": "SHA-256 hashing, GPS verification, server timestamps. Your car condition data is secure and admissible as evidence.",
+      "content_text": "SHA-256 hashing, GPS verification, server timestamps. Your car condition data stays secure and tamper-evident.",
       "date_published": "2026-07-08T00:00:00Z",
       "authors": [
         {
@@ -110,7 +110,7 @@
       "id": "https://carshake.online/compare",
       "url": "https://carshake.online/compare",
       "title": "CarShake vs The Alternatives — Why Evidence Matters",
-      "content_text": "Why CarShake beats camera photos, dash cams, insurance claims, and valet inspections. The only tool with AI-verified, QR-confirmed, court-admissible...",
+      "content_text": "Why CarShake beats camera photos, dash cams, insurance claims, and valet inspections. The only tool with AI-verified, QR-confirmed, tamper-evident...",
       "date_published": "2026-07-08T00:00:00Z",
       "authors": [
         {

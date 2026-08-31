@@ -37,7 +37,7 @@ const CHECKLIST_HTML = `<!doctype html>
 <ul style="color:#94a3b8;line-height:1.8;">
 <li><strong style="color:#e2e8f0;">The 8-Angle Scan Protocol</strong> — exactly what to photograph, in what order</li>
 <li><strong style="color:#e2e8f0;">5 Dispute-Winning Scripts</strong> — what to say when the valet manager pushes back</li>
-<li><strong style="color:#e2e8f0;">Time-Stamp Defense Checklist</strong> — how to make your photos court-admissible</li>
+<li><strong style="color:#e2e8f0;">Time-Stamp Defense Checklist</strong> — how to make your photos verifiable</li>
 </ul>
 <h2 style="color:#fff;font-size:1.1rem;">Coming tomorrow</h2>
 <p style="color:#94a3b8;line-height:1.7;">The $4,200 hotel-valet scratch that started CarShake — and the exact moment I realised <em>"it was already like that"</em> is a defence you can't beat without timestamped proof.</p>
