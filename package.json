@@ -5,9 +5,16 @@
   "functions": {
     "api/email-capture.js": {
       "maxDuration": 10
+    },
+    "api/kit-session.js": {
+      "maxDuration": 10
+    },
+    "api/stripe-webhook.js": {
+      "maxDuration": 10
     }
   },
   "scripts": {
+    "test": "node --test tests/*.test.js",
     "prerender": "node prerender.mjs",
     "guard:positioning": "node scripts/guard-positioning.mjs",
     "indexnow": "node scripts/indexnow-ping.mjs",
