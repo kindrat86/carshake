@@ -1,4 +1,4 @@
-<!doctype html>
+const KIT_THANKS_HTML = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -28,6 +28,7 @@
 <script>
 (async function(){
   var session=new URLSearchParams(location.search).get('session_id')||'';
+  history.replaceState(null,'','/kit-thanks');
   var loading=document.getElementById('loading');
   var missing=document.getElementById('missing');
   try{
@@ -41,11 +42,43 @@
       var title=document.createElement('strong');title.textContent=asset.name;link.appendChild(title);list.appendChild(link);
     });
     loading.hidden=true;document.getElementById('downloads').hidden=false;
-    var s=document.createElement('script');s.src='https://eu-assets.i.posthog.com/static/array.js';s.async=true;
-    s.onload=function(){if(!window.posthog)return;posthog.init('phc_lyZCgvTpicjLzAO3rY2GhxuX5WUc5jQjP8ZVwwJqauX',{api_host:'https://eu.i.posthog.com',person_profiles:'identified_only'});posthog.capture('tripwire_purchase_verified',{offer:'emergency_kit',price:7});};
-    document.head.appendChild(s);
   }catch(_){loading.hidden=true;missing.hidden=false;}
 })();
 </script>
 </body>
 </html>
+`;
+
+function defaultReadHtml() {
+  return KIT_THANKS_HTML;
+}
+
+function setPrivateHeaders(res) {
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  res.setHeader('Cache-Control', 'private, no-store, max-age=0');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  res.setHeader('Referrer-Policy', 'no-referrer');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow, noarchive');
+}
+
+function createKitThanksHandler({ readHtml = defaultReadHtml } = {}) {
+  return async function kitThanksHandler(req, res) {
+    setPrivateHeaders(res);
+    if (req.method !== 'GET') return res.status(405).send('Method not allowed');
+    try {
+      return res.status(200).send(readHtml());
+    } catch (error) {
+      console.error('[kit-thanks] private page unavailable:', error.message);
+      return res.status(500).send('Checkout confirmation is temporarily unavailable');
+    }
+  };
+}
+
+const handler = createKitThanksHandler();
+module.exports = handler;
+module.exports.default = handler;
+module.exports.createKitThanksHandler = createKitThanksHandler;
+module.exports.defaultReadHtml = defaultReadHtml;
+module.exports.setPrivateHeaders = setPrivateHeaders;

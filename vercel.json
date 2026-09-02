@@ -3,7 +3,17 @@
   "trailingSlash": false,
   "cleanUrls": true,
   "buildCommand": null,
+  "functions": {
+    "api/kit-session.js": { "maxDuration": 10 },
+    "api/kit-download.js": { "maxDuration": 10 },
+    "api/kit-thanks.js": { "maxDuration": 10 },
+    "api/stripe-webhook.js": { "maxDuration": 10 }
+  },
   "rewrites": [
+    {
+      "source": "/kit-thanks",
+      "destination": "/api/kit-thanks"
+    },
     {
       "source": "/free/instant-proof",
       "destination": "/free/instant-proof.html"
@@ -319,6 +329,27 @@
   ],
   "headers": [
     {
+      "source": "/kit-thanks",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "private, no-store, max-age=0"
+        },
+        {
+          "key": "Pragma",
+          "value": "no-cache"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
       "source": "/kit/(.*)",
       "headers": [
         {
@@ -327,15 +358,7 @@
         }
       ]
     },
-    {
-      "source": "/kit-thanks(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow, noarchive"
-        }
-      ]
-    },
+
     {
       "source": "/(.*)",
       "headers": [
