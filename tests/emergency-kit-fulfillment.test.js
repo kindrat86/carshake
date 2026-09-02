@@ -6,6 +6,10 @@ const path = require('node:path');
 
 const KIT_LINK = 'plink_1UA9cyCwGoUDklRezKVZTA7W';
 const SESSION_ID = 'cs_live_verified_fixture';
+const FOREIGN_GITDEALFLOW_SESSION = 'cs_live_foreign_gitdealflow_fixture';
+const FOREIGN_GITDEALFLOW_LINK = 'plink_foreign_gitdealflow_fixture';
+const FOREIGN_GITDEALFLOW_PRODUCT = 'prod_foreign_gitdealflow_fixture';
+const FOREIGN_GITDEALFLOW_PRICE = 'price_foreign_gitdealflow_fixture';
 const TIMESTAMP = '1788297600';
 const WEBHOOK_SECRET = 'whsec_fixture';
 const LEGACY_ASSET_PATHS = [
@@ -390,6 +394,47 @@ test('webhook verifies signature and fulfills one exact paid live session', asyn
   assert.equal(res.statusCode, 200);
   assert.equal(jsonBody(res).fulfilled, true);
   assert.deepEqual(calls.map((call) => call[0]), ['stripe', 'stripe', 'email', 'stripe']);
+});
+
+test('webhook ignores the foreign paid GitDealFlow session before fulfillment side effects', async () => {
+  const { createStripeWebhookHandler } = require('../api/stripe-webhook');
+  const foreignSession = paidSession({
+    id: FOREIGN_GITDEALFLOW_SESSION,
+    payment_link: FOREIGN_GITDEALFLOW_LINK,
+    amount_total: 700,
+    currency: 'usd',
+    metadata: { source: 'landing-tripwire', tier: 'teardown' },
+    line_items: {
+      data: [{ price: { id: FOREIGN_GITDEALFLOW_PRICE, product: FOREIGN_GITDEALFLOW_PRODUCT } }],
+    },
+  });
+  const event = {
+    id: 'evt_gitdealflow_fixture',
+    livemode: true,
+    type: 'checkout.session.completed',
+    data: { object: foreignSession },
+  };
+  const { req, readRawBody } = signedWebhookRequest(event);
+  const stripeCalls = [];
+  let sends = 0;
+  const handler = createStripeWebhookHandler({
+    webhookSecret: WEBHOOK_SECRET,
+    nowSeconds: () => Number(TIMESTAMP),
+    readRawBody,
+    stripeRequest: async (stripePath, options) => {
+      stripeCalls.push({ stripePath, options });
+      return foreignSession;
+    },
+    sendFulfillmentEmail: async () => { sends++; return { id: 'must_not_send' }; },
+  });
+  const res = responseRecorder();
+  await handler(req, res);
+
+  assert.equal(res.statusCode, 200);
+  assert.deepEqual(jsonBody(res), { received: true, ignored: 'not_paid_kit' });
+  assert.equal(stripeCalls.length, 1, 'only the read-only authoritative session lookup is allowed');
+  assert.equal(stripeCalls[0].options, undefined, 'foreign sessions must never be mutated');
+  assert.equal(sends, 0, 'foreign sessions must never receive CarShake fulfillment');
 });
 
 test('webhook rejects missing, forged, modified, and stale signatures without side effects', async () => {
