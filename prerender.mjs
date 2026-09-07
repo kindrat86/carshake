@@ -12,6 +12,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { resolve } from 'path';
+import { preserveStaticContent } from './scripts/preserve-static-content.mjs';
 
 const DIST = resolve(import.meta.dirname, '.');
 var SITE = 'https://carshake.online';
@@ -162,7 +163,7 @@ function injectMetaBody(baseHtml, { title, description, canonical, ogTitle, ogDe
     }
   }
 
-  return html;
+  return preserveStaticContent(html, new URL(canonical).pathname);
 }
 
 // ── Helpers ──────────────────────────────────────────────────────
