@@ -4,10 +4,18 @@
   "cleanUrls": true,
   "buildCommand": null,
   "functions": {
-    "api/kit-session.js": { "maxDuration": 10 },
-    "api/kit-download.js": { "maxDuration": 10 },
-    "api/kit-thanks.js": { "maxDuration": 10 },
-    "api/stripe-webhook.js": { "maxDuration": 10 }
+    "api/kit-session.js": {
+      "maxDuration": 10
+    },
+    "api/kit-download.js": {
+      "maxDuration": 10
+    },
+    "api/kit-thanks.js": {
+      "maxDuration": 10
+    },
+    "api/stripe-webhook.js": {
+      "maxDuration": 10
+    }
   },
   "rewrites": [
     {
@@ -358,7 +366,6 @@
         }
       ]
     },
-
     {
       "source": "/(.*)",
       "headers": [
@@ -794,6 +801,101 @@
     {
       "source": "/mcp",
       "destination": "/api/mcp",
+      "permanent": true
+    },
+    {
+      "source": "/checklists/car-purchase-handover-checklist",
+      "destination": "/checklists/car-sale-inspection",
+      "permanent": true
+    },
+    {
+      "source": "/checklists/dealer-handover-checklist",
+      "destination": "/checklists/dealership-service-loaner",
+      "permanent": true
+    },
+    {
+      "source": "/checklists/rental-handover-checklist",
+      "destination": "/checklists/rental-car-pickup",
+      "permanent": true
+    },
+    {
+      "source": "/checklists/valet-handover-checklist",
+      "destination": "/checklists/pre-valet-handover",
+      "permanent": true
+    },
+    {
+      "source": "/researchvalet-damage-hotspots-2026",
+      "destination": "/research/valet-damage-hotspots-2026",
+      "permanent": true
+    },
+    {
+      "source": "/valet-damage-hotspots-2026",
+      "destination": "/research/valet-damage-hotspots-2026",
+      "permanent": true
+    },
+    {
+      "source": "/valet-damage-index",
+      "destination": "/research/valet-damage-index",
+      "permanent": true
+    },
+    {
+      "source": "/valet-damage-index/new-york",
+      "destination": "/research/valet-damage-index/new-york",
+      "permanent": true
+    },
+    {
+      "source": "/state/valet-damage-statistics-bailment-law",
+      "destination": "/blog/bailment-law-valet",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/verifiable-timestamp",
+      "destination": "/glossary/court-admissible-evidence",
+      "permanent": true
+    },
+    {
+      "source": "/researchvalet-damage-hotspots-2026/data.csv",
+      "destination": "/research/valet-damage-hotspots-2026/data.csv",
+      "permanent": true
+    },
+    {
+      "source": "/researchvalet-damage-hotspots-2026/data.json",
+      "destination": "/research/valet-damage-hotspots-2026/data.json",
+      "permanent": true
+    },
+    {
+      "source": "/valet-damage-hotspots-2026/data.csv",
+      "destination": "/research/valet-damage-hotspots-2026/data.csv",
+      "permanent": true
+    },
+    {
+      "source": "/valet-damage-hotspots-2026/data.json",
+      "destination": "/research/valet-damage-hotspots-2026/data.json",
+      "permanent": true
+    },
+    {
+      "source": "/research/data.csv",
+      "destination": "/research/valet-damage-hotspots-2026/data.csv",
+      "permanent": true
+    },
+    {
+      "source": "/research/data.json",
+      "destination": "/research/valet-damage-hotspots-2026/data.json",
+      "permanent": true
+    },
+    {
+      "source": "/research/valet-damage-indexaustin",
+      "destination": "/research/valet-damage-index/austin",
+      "permanent": true
+    },
+    {
+      "source": "/research/valet-damage-indexmiami",
+      "destination": "/research/valet-damage-index/miami",
+      "permanent": true
+    },
+    {
+      "source": "/research/valet-damage-indexchicago",
+      "destination": "/research/valet-damage-index/chicago",
       "permanent": true
     }
   ]

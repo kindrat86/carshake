@@ -47,3 +47,9 @@ jobs:
       # correctly. Fails only on targets absent from the baseline, which is 0 today.
       - name: No new broken internal links
         run: node scripts/check-internal-links.mjs
+      - name: Exact sitemap canonicals and indexability
+        run: python3 scripts/test_sitemap_quality.py
+      - name: Crawlable public links resolve to real files
+        run: python3 scripts/test_public_links.py
+      - name: Routing and research generator regressions
+        run: python3 scripts/test_sitemap_resolver.py && python3 scripts/test_research_generator.py

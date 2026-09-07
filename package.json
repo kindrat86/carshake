@@ -7,6 +7,6 @@
     "prerender": "node prerender.mjs",
     "guard:positioning": "node scripts/guard-positioning.mjs",
     "indexnow": "node scripts/indexnow-ping.mjs",
-    "deploy": "npm run prerender && python3 \"$HOME/.growth-engine/inject-disambiguation.py\" carshake && node scripts/guard-positioning.mjs && npx vercel --prod --yes && node scripts/indexnow-ping.mjs"
+    "deploy": "npm run prerender && python3 \"$HOME/.growth-engine/inject-disambiguation.py\" carshake && node scripts/guard-positioning.mjs && python3 scripts/normalize-seo-urls.py && python3 scripts/test_sitemap_quality.py && python3 scripts/test_public_links.py && python3 scripts/test_research_generator.py && npx vercel --prod --yes && node scripts/indexnow-ping.mjs"
   }
 }

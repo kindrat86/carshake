@@ -182,8 +182,8 @@ function indexPage() {
   "spatialCoverage": {"@type": "Place", "name": "United States", "geo": {"@type": "GeoShape", "address": "US"}},
   "variableMeasured": ["incident rate per 1000 valet visits", "damage type", "average claim", "valet density", "enforcement strictness", "seasonal peak"],
   "distribution": [
-    {"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "${RESEARCH_URL}valet-damage-hotspots-2026/data.csv"},
-    {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "${RESEARCH_URL}valet-damage-hotspots-2026/data.json"}
+    {"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "${RESEARCH_URL}/valet-damage-hotspots-2026/data.csv"},
+    {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "${RESEARCH_URL}/valet-damage-hotspots-2026/data.json"}
   ],
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "creator": {"@type": "Organization", "name": "CarShake", "url": "${SITE}"},
@@ -223,7 +223,7 @@ ${orgDisambig}
 <a class="back" href="${RESEARCH_URL}">← Research &amp; Data</a>
 <h1>Valet Damage Index 2026</h1>
 <p class="subtitle">40 US cities ranked by estimated valet-related vehicle damage rate. Interactive, free, and embeddable under CC BY 4.0.</p>
-<p class="meta">Published ${PUBLISHED} · ${rows.length} cities across ${states} states · Data: <a href="${RESEARCH_URL}valet-damage-hotspots-2026/data.csv">CSV</a> · <a href="${RESEARCH_URL}valet-damage-hotspots-2026/data.json">JSON</a> · <a href="${PRESS_URL}">Press kit</a></p>
+<p class="meta">Published ${PUBLISHED} · ${rows.length} cities across ${states} states · Data: <a href="${RESEARCH_URL}/valet-damage-hotspots-2026/data.csv">CSV</a> · <a href="${RESEARCH_URL}/valet-damage-hotspots-2026/data.json">JSON</a> · <a href="${PRESS_URL}">Press kit</a></p>
 
 <div class="key-findings">
   <div class="finding"><span class="num">${maxR.rate}</span><span class="label">Incidents per 1,000 valet visits in ${esc(maxR.city)} — the highest of 40 US cities</span></div>
@@ -261,7 +261,7 @@ ${tableRows}
 <p style="font-size:.85rem;color:#64748b"><em>${rows.length} rows. Click any city for its data card, comparison to the national average, and an embeddable city badge.</em></p>
 
 <h2>Methodology</h2>
-<p>Incident rates are <strong>estimated composite metrics</strong> derived from public sources: city parking-authority valet-permit density, state insurance-department claims filings, NHTSA parking-related incident statistics, valet-service density estimates, and community-sourced driver reports. They are directional rankings, not direct measurements. See the <a href="${RESEARCH_URL}valet-damage-hotspots-2026">full methodology &amp; downloads</a>.</p>
+<p>Incident rates are <strong>estimated composite metrics</strong> derived from public sources: city parking-authority valet-permit density, state insurance-department claims filings, NHTSA parking-related incident statistics, valet-service density estimates, and community-sourced driver reports. They are directional rankings, not direct measurements. See the <a href="${RESEARCH_URL}/valet-damage-hotspots-2026">full methodology &amp; downloads</a>.</p>
 <p class="note"><strong>Data disclaimer:</strong> Incident rates are estimates synthesized from multiple public data sources and should be treated as directional rankings, not precise measurements. Actual rates vary by venue, time of day, vehicle type, and operator. Average claim values are estimated from insurance industry data and may not reflect out-of-pocket repair costs.</p>
 
 <h2>Citation</h2>
@@ -271,7 +271,7 @@ ${tableRows}
 <p>This work is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Share and adapt for any purpose with attribution to CarShake. Ready-to-paste citations (APA, MLA, Chicago) are in the <a href="${PRESS_URL}">press kit</a>.</p>
 
 <a class="cta" href="${PRESS_URL}">Press &amp; Journalist Kit →</a>
-<a class="cta alt" href="${RESEARCH_URL}valet-damage-hotspots-2026/">Original dataset →</a>
+<a class="cta alt" href="${RESEARCH_URL}/valet-damage-hotspots-2026/">Original dataset →</a>
 
 <div class="footer">© ${PUBLISHED.slice(0, 4)} CarShake · <a href="${SITE}">carshake.online</a> · <a href="${SITE}/free/instant-proof">Try the free proof tool</a></div>
 </div>
@@ -511,7 +511,7 @@ ul{list-style:none}
   var s=document.getElementById('single'); s.style.display='block';
   s.className='badge';
   var cmp=r.rate>=mean?(Math.round(r.rate/mean*100-100)+'% above'):(Math.round(100-r.rate/mean*100)+'% below');
-  s.innerHTML='<div class="big">'+r.rate+'</div><div class="lbl">valet incidents / 1,000 visits</div><div style="color:#e2e8f0;font-size:.95rem;font-weight:700">'+r.city+', '+r.state+'</div><div class="meta">Rank #'+r.rank+' of 40 · '+cmp+' US avg · avg claim $'+r.avgClaim+'</div><div style="margin-top:.6rem"><a href="${INDEX_URL}'+r.slug+'?ref=embed" target="_blank" rel="noopener" style="color:#38bdf8;font-size:.72rem;text-decoration:none">Full '+r.city+' data →</a></div><div class="note">Source: CarShake Valet Damage Index · CC BY 4.0</div>';
+  s.innerHTML='<div class="big">'+r.rate+'</div><div class="lbl">valet incidents / 1,000 visits</div><div style="color:#e2e8f0;font-size:.95rem;font-weight:700">'+r.city+', '+r.state+'</div><div class="meta">Rank #'+r.rank+' of 40 · '+cmp+' US avg · avg claim $'+r.avgClaim+'</div><div style="margin-top:.6rem"><a href="${INDEX_URL}/'+r.slug+'?ref=embed" target="_blank" rel="noopener" style="color:#38bdf8;font-size:.72rem;text-decoration:none">Full '+r.city+' data →</a></div><div class="note">Source: CarShake Valet Damage Index · CC BY 4.0</div>';
 })();
 </script>
 </body>
@@ -588,19 +588,19 @@ ${orgDisambig}
 
 <h2>Methodology — In One Paragraph</h2>
 <p>The Valet Damage Index ranks 40 US cities by an <strong>estimated composite</strong> valet-related vehicle-damage incident rate (incidents per 1,000 valet visits). The estimate synthesizes publicly available signals: city parking-authority valet-permit density, state insurance-department claims filings, NHTSA parking-related incident statistics, valet-service density, and community-sourced driver reports. It is a <strong>directional ranking, not a direct measurement</strong> — actual rates vary by venue, time of day, vehicle type, and operator. Average claim values are estimated from insurance-industry data.</p>
-<p class="note"><strong>For fact-checkers:</strong> we describe these numbers as "estimated" and "directional" throughout. We do not claim primary survey data. The full methodology and per-field definitions are on the <a href="${RESEARCH_URL}valet-damage-hotspots-2026">original dataset page</a>.</p>
+<p class="note"><strong>For fact-checkers:</strong> we describe these numbers as "estimated" and "directional" throughout. We do not claim primary survey data. The full methodology and per-field definitions are on the <a href="${RESEARCH_URL}/valet-damage-hotspots-2026">original dataset page</a>.</p>
 
 <h2>Data Downloads</h2>
 <ul>
-  <li><a href="${RESEARCH_URL}valet-damage-hotspots-2026/data.csv">Full dataset — CSV</a> (40 rows, 8 fields)</li>
-  <li><a href="${RESEARCH_URL}valet-damage-hotspots-2026/data.json">Full dataset — JSON</a></li>
+  <li><a href="${RESEARCH_URL}/valet-damage-hotspots-2026/data.csv">Full dataset — CSV</a> (40 rows, 8 fields)</li>
+  <li><a href="${RESEARCH_URL}/valet-damage-hotspots-2026/data.json">Full dataset — JSON</a></li>
   <li><a href="${INDEX_URL}">Interactive index</a> (sortable, searchable, embeddable)</li>
   <li><a href="${SITE}/embed/tools/valet-damage-index.html">Embeddable chart widget</a> (iframe, CC BY 4.0)</li>
 </ul>
 
 <h2>Story Angles</h2>
 <ul>
-  <li><strong>Local angle:</strong> "How does [your city] rank for valet damage?" — every city has its own data card, e.g. <a href="${INDEX_URL}austin/">Austin</a>, <a href="${INDEX_URL}miami/">Miami</a>, <a href="${INDEX_URL}chicago/">Chicago</a>.</li>
+  <li><strong>Local angle:</strong> "How does [your city] rank for valet damage?" — every city has its own data card, e.g. <a href="${INDEX_URL}/austin">Austin</a>, <a href="${INDEX_URL}/miami">Miami</a>, <a href="${INDEX_URL}/chicago">Chicago</a>.</li>
   <li><strong>The documentation gap:</strong> fewer than 15% of valet-damage claimants arrive with timestamped proof — and those who do succeed ~3.4× more often (per the <a href="${SITE}/benchmarks/valet-damage-claim-statistics-2026">claims benchmark</a>).</li>
   <li><strong>Geographic inequality:</strong> the highest-rate city (${esc(maxR.city)}) sees roughly ${(maxR.rate / minR.rate).toFixed(0)}× the valet-damage rate of the lowest (${esc(minR.city)}).</li>
   <li><strong>Enforcement gap:</strong> only 3 of 40 cities have "strict" valet enforcement; 21 are classified "loose."</li>

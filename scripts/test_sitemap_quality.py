@@ -54,7 +54,8 @@ def html_for_path(path: str) -> Path | None:
     candidates = (
         [ROOT / "index.html"]
         if not clean
-        else [ROOT / clean / "index.html", ROOT / f"{clean}.html"]
+        # Vercel cleanUrls serves a flat file before a shadowed directory twin.
+        else [ROOT / f"{clean}.html", ROOT / clean / "index.html"]
     )
     return next((candidate for candidate in candidates if candidate.is_file()), None)
 
@@ -91,7 +92,7 @@ def main() -> int:
         )
         if canonical is None:
             failures.append(f"missing canonical: {url} ({page.relative_to(ROOT)})")
-        elif canonical.group(1).rstrip("/") != url.rstrip("/"):
+        elif canonical.group(1) != url:
             failures.append(
                 f"canonical mismatch: {url} -> {canonical.group(1)} ({page.relative_to(ROOT)})"
             )

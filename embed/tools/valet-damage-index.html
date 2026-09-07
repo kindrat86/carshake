@@ -101,7 +101,7 @@ ul{list-style:none}
   var s=document.getElementById('single'); s.style.display='block';
   s.className='badge';
   var cmp=r.rate>=mean?(Math.round(r.rate/mean*100-100)+'% above'):(Math.round(100-r.rate/mean*100)+'% below');
-  s.innerHTML='<div class="big">'+r.rate+'</div><div class="lbl">valet incidents / 1,000 visits</div><div style="color:#e2e8f0;font-size:.95rem;font-weight:700">'+r.city+', '+r.state+'</div><div class="meta">Rank #'+r.rank+' of 40 · '+cmp+' US avg · avg claim $'+r.avgClaim+'</div><div style="margin-top:.6rem"><a href="https://carshake.online/research/valet-damage-index'+r.slug+'?ref=embed" target="_blank" rel="noopener" style="color:#38bdf8;font-size:.72rem;text-decoration:none">Full '+r.city+' data →</a></div><div class="note">Source: CarShake Valet Damage Index · CC BY 4.0</div>';
+  s.innerHTML='<div class="big">'+r.rate+'</div><div class="lbl">valet incidents / 1,000 visits</div><div style="color:#e2e8f0;font-size:.95rem;font-weight:700">'+r.city+', '+r.state+'</div><div class="meta">Rank #'+r.rank+' of 40 · '+cmp+' US avg · avg claim $'+r.avgClaim+'</div><div style="margin-top:.6rem"><a href="https://carshake.online/research/valet-damage-index/'+r.slug+'?ref=embed" target="_blank" rel="noopener" style="color:#38bdf8;font-size:.72rem;text-decoration:none">Full '+r.city+' data →</a></div><div class="note">Source: CarShake Valet Damage Index · CC BY 4.0</div>';
 })();
 </script>
 </body>
