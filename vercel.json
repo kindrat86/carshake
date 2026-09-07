@@ -337,6 +337,22 @@
   ],
   "headers": [
     {
+      "source": "/google57979683042f3b0e",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    },
+    {
+      "source": "/google57979683042f3b0e.html",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    },
+    {
+      "source": "/googlea30bb998b91eb6ac",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    },
+    {
+      "source": "/googlea30bb998b91eb6ac.html",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    },
+    {
       "source": "/kit-thanks",
       "headers": [
         {
