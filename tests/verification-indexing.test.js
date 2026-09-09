@@ -14,3 +14,28 @@ test('verification-only documents are not offered as search content', () => {
     }
   }
 });
+
+test('retired GEG valet URL consolidates to the live airport-parking guide', () => {
+  const config = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
+  for (const source of ['/airport-valet/geg', '/airport-valet/geg/']) {
+    assert.ok(config.redirects.some(rule => rule.source === source &&
+      rule.destination === '/protect/airport-parking' && rule.permanent === true), source);
+  }
+  for (const sitemap of ['sitemap.xml', 'public/sitemap.xml']) {
+    const xml = fs.readFileSync(path.join(root, sitemap), 'utf8');
+    assert.ok(!xml.includes('https://carshake.online/airport-valet/geg'), sitemap);
+  }
+  const htmlFiles = [];
+  const stack = [root];
+  while (stack.length) {
+    const dir = stack.pop();
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (['.git', 'node_modules', '.vercel'].includes(entry.name)) continue;
+      const target = path.join(dir, entry.name);
+      if (entry.isDirectory()) stack.push(target);
+      else if (entry.name.endsWith('.html')) htmlFiles.push(target);
+    }
+  }
+  const linked = htmlFiles.filter(file => fs.readFileSync(file, 'utf8').includes('/airport-valet/geg'));
+  assert.deepEqual(linked, []);
+});

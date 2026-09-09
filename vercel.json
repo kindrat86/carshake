@@ -489,6 +489,16 @@
   ],
   "redirects": [
     {
+      "source": "/airport-valet/geg",
+      "destination": "/protect/airport-parking",
+      "permanent": true
+    },
+    {
+      "source": "/airport-valet/geg/",
+      "destination": "/protect/airport-parking",
+      "permanent": true
+    },
+    {
       "source": "/valet",
       "destination": "/protect/valet-parking",
       "permanent": true
