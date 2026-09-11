@@ -27,8 +27,12 @@ const KIT_THANKS_HTML = `<!doctype html>
 </main>
 <script>
 (async function(){
-  var session=new URLSearchParams(location.search).get('session_id')||'';
-  history.replaceState(null,'','/kit-thanks');
+  var params=new URLSearchParams(location.search);
+  var session=params.has('session_id')?params.get('session_id'):((history.state||{}).kitSession||'');
+  var validSession=typeof session==='string'&&/^cs_live_[A-Za-z0-9_]+$/.test(session);
+  // Keep refresh/back navigation usable without exposing the reference in the URL.
+  // History state is only a reference: the server still verifies payment on every load.
+  history.replaceState(validSession?{kitSession:session}:null,'','/kit-thanks');
   var loading=document.getElementById('loading');
   var missing=document.getElementById('missing');
   try{

@@ -184,11 +184,11 @@ test('thank-you page fetches verified authenticated URLs and contains no static 
   assert.doesNotMatch(html, /\/kit\/|c68af68983ea215fbce16e3d04b4a914/);
 });
 
-test('thank-you page scrubs its Stripe bearer credential before any request and loads no analytics', () => {
+test('thank-you page scrubs its URL before requests, retains approved history reference, and loads no analytics', () => {
   const { defaultReadHtml } = require('../api/kit-thanks');
   const html = defaultReadHtml();
-  const readSessionAt = html.indexOf("var session=new URLSearchParams(location.search).get('session_id')");
-  const scrubAt = html.indexOf("history.replaceState(null,'','/kit-thanks')");
+  const readSessionAt = html.indexOf("var params=new URLSearchParams(location.search)");
+  const scrubAt = html.indexOf("history.replaceState(validSession?{kitSession:session}:null,'','/kit-thanks')");
   const fetchAt = html.indexOf("fetch('/api/kit-session?session_id='");
   assert.ok(readSessionAt >= 0 && scrubAt > readSessionAt && scrubAt < fetchAt);
   assert.doesNotMatch(html, /posthog|eu-assets\.i\.posthog|tripwire_purchase_verified/i);
