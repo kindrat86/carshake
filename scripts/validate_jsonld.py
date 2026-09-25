@@ -36,6 +36,7 @@ def iter_html_files(root):
 
 def check_file(path):
     errors = []
+    blocks = []
     try:
         html = open(path, encoding="utf-8", errors="strict").read()
     except UnicodeDecodeError as e:
@@ -51,6 +52,7 @@ def check_file(path):
             errors.append(f"{path} [block {i}]: invalid JSON — {e}")
             continue
 
+        blocks.append(parsed)
         nodes = parsed if isinstance(parsed, list) else [parsed]
         for node in nodes:
             if not isinstance(node, dict):
@@ -59,6 +61,40 @@ def check_file(path):
                 errors.append(f"{path} [block {i}]: missing @context")
             if "@type" not in node and "@graph" not in node:
                 errors.append(f"{path} [block {i}]: missing @type (and no @graph)")
+
+    # Dataset nodes must carry a resolvable creator: either a typed
+    # Organization/Person object, or an @id reference to a node defined
+    # anywhere in this document. Google flags missing/unresolvable creator
+    # values as "Invalid object type for field creator" (WNC class,
+    # non-critical Dataset issue).
+    doc_nodes = []
+    for parsed in blocks:
+        doc_nodes.extend(parsed if isinstance(parsed, list) else [parsed])
+    graph_nodes = []
+    for n in doc_nodes:
+        if isinstance(n, dict) and isinstance(n.get("@graph"), list):
+            graph_nodes.extend(n["@graph"])
+    doc_nodes.extend(graph_nodes)
+
+    defined_ids = {
+        n.get("@id") for n in doc_nodes if isinstance(n, dict) and n.get("@id")
+    }
+
+    def _creator_ok(cr):
+        if not isinstance(cr, dict):
+            return False
+        if cr.get("@id"):
+            return cr["@id"] in defined_ids
+        return bool(cr.get("@type")) and bool(cr.get("name"))
+
+    for n in doc_nodes:
+        if isinstance(n, dict) and n.get("@type") == "Dataset":
+            if not _creator_ok(n.get("creator")):
+                errors.append(
+                    f"{path}: Dataset {n.get('@id') or n.get('name', '?')!r} has "
+                    f"missing or unresolvable creator (need @type+name object, or "
+                    f"@id defined in this document)"
+                )
     return errors
 
 
