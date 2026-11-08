@@ -37,3 +37,7 @@
 - GPS and dual-timestamped evidence
 - QR handover with mutual digital signature
 - Built for disputes and insurance claims
+
+
+## Agents: how to buy / integrate
+CarShake is a consumer web app; there is no card-not-present checkout for agents today. Agent builders wanting GPS-verified photo-condition records for mobility flows can contact the builder. Related agent-native tools by the same builder: sipi.bot (x402 per-call spend firewall) and sanctionsai.dev (OFAC screening, x402 per-call).
