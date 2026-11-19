@@ -100,7 +100,7 @@ function buildChecklistHtml(email) {
 </ul>
 
 <hr style="border-color:#334155;margin:1.5rem 0;">
-<p style="color:#64748b;font-size:0.85rem;">I'm the founder — I write these myself. Hit reply any time, I read every one.</p>
+<p style="color:#64748b;font-size:0.85rem;">Questions? Just reply to this email.</p>
 <p style="color:#64748b;font-size:0.8rem;margin-top:1.5rem;">CarShake &middot; <a href="https://carshake.online" style="color:#00d4aa;">carshake.online</a><br>
 <a href="${unsubHref}" style="color:#64748b;text-decoration:underline;">Unsubscribe</a></p>
 </div>
@@ -163,7 +163,7 @@ TIME-STAMP DEFENSE CHECKLIST
 
 ----------------------------------------
 
-I'm the founder — I write these myself. Hit reply any time, I read every one.
+Questions? Just reply to this email.
 
 CarShake · carshake.online https://carshake.online
 Unsubscribe: ${unsub}`;
